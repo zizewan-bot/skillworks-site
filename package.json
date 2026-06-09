@@ -1,0 +1,10 @@
+{
+  "name": "skillworks-site",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Static Skillworks site and Picture Dictionary privacy/support pages.",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "check": "node scripts/check.mjs"
+  }
+}
