@@ -21,7 +21,10 @@ This is a manual deployment checklist. Do not store Cloudflare API tokens or acc
    - `https://picturedictionary.skillworks.dev`
    - `https://picturedictionary.skillworks.dev/privacy`
    - `https://picturedictionary.skillworks.dev/support`
-9. Use the final privacy URL in App Store Connect.
+9. Use the final App Store Connect Privacy Policy URL:
+   - `https://picturedictionary.skillworks.dev/privacy`
+10. Use the final Support URL:
+   - `https://picturedictionary.skillworks.dev/support`
 
 ## Notes
 

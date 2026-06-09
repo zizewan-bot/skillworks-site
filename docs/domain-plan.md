@@ -26,6 +26,21 @@ If the subdomain is not ready, use:
 
 `https://skillworks.dev/picture-dictionary/privacy`
 
+## Recommended Support URL
+
+Use this after the subdomain is live and HTTPS is verified:
+
+`https://picturedictionary.skillworks.dev/support`
+
+If the subdomain is not ready, use:
+
+`https://skillworks.dev/picture-dictionary/support`
+
+## Contact Addresses
+
+- Privacy: `privacy@skillworks.dev`
+- Support: `support@skillworks.dev`
+
 ## DNS / Cloudflare Notes
 
 - Keep Skillworks as the umbrella site.

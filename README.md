@@ -44,9 +44,17 @@ Temporary fallback if the subdomain is not configured yet:
 
 `https://skillworks.dev/picture-dictionary/privacy`
 
-## Placeholders To Replace
+## Public URLs
 
-Before publishing for App Store review, replace:
+Recommended App Store Connect Privacy Policy URL:
 
-- `privacy@yourdomain.com` with the final approved privacy/support contact email
-- any operator/legal identity language after legal review
+`https://picturedictionary.skillworks.dev/privacy`
+
+Recommended Support URL:
+
+`https://picturedictionary.skillworks.dev/support`
+
+## Contact Addresses
+
+- Privacy: `privacy@skillworks.dev`
+- Support: `support@skillworks.dev`
