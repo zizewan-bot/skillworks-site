@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🎬 视频创意分镜分析 | 游戏市场日报</title>
+<style>
+:root{--bg:#0f0f1a;--card-bg:#1a1a2e;--tx:#e0e0e0;--sn:#888;--tb:#4fc3f7;--gn:#66bb6a;--yw:#ffc107;--or:#ff9800;--rd:#f44336;--pr:#9c27b0;--bl:#2196f3}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;background:var(--bg);color:var(--tx);line-height:1.6;padding:20px;max-width:900px;margin:0 auto}
+h1{font-size:1.4rem;margin-bottom:4px}
+.sub{color:var(--sn);font-size:.82rem;margin-bottom:20px}
+.nav{margin-bottom:20px;display:flex;gap:8px;flex-wrap:wrap}
+.nav a{color:var(--tb);text-decoration:none;padding:6px 14px;background:var(--card-bg);border-radius:6px;font-size:.85rem;transition:all .2s}
+.nav a:hover{background:#2a2a4e;color:#fff}
+.card{background:var(--card-bg);border-radius:10px;padding:16px;margin:14px 0}
+.card-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;flex-wrap:wrap;gap:8px}
+.game-name{font-weight:700;font-size:1rem}
+.badge{color:#fff;padding:3px 12px;border-radius:12px;font-size:.72rem;font-weight:600}
+.scene-card{margin:8px 0;padding:10px;background:rgba(0,0,0,.3);border-radius:8px}
+.scene-header{font-size:.78rem;color:var(--sn);font-weight:600;margin-bottom:4px}
+.scene-desc{font-size:.84rem;line-height:1.6;color:#ccc}
+.insight-box{margin-top:10px;padding:10px;background:rgba(0,0,0,.3);border-radius:8px;border-left:3px solid var(--yw)}
+.insight-label{font-size:.78rem;color:var(--yw);font-weight:600;margin-bottom:4px}
+.insight-text{font-size:.8rem;color:#aaa;line-height:1.5}
+.meta-link{font-size:.78rem;color:var(--tb);text-decoration:none}
+.meta-link:hover{text-decoration:underline}
+.screenshots{display:flex;gap:8px;margin:10px 0;overflow-x:auto}
+.screenshots img{max-height:180px;border-radius:6px;border:1px solid #333}
+.no-img{color:var(--sn);font-size:.75rem;font-style:italic}
+footer{text-align:center;color:var(--sn);font-size:.72rem;padding:20px 0;margin-top:30px;border-top:1px solid #222}
+</style>
+</head>
+<body>
+
+<div class="nav">
+  <a href="dashboard.html">← 返回日报</a>
+  <span style="color:var(--sn);padding:6px 0">|</span>
+  <span style="color:var(--tx);padding:6px 0;font-weight:600">🎬 视频创意分镜分析</span>
+</div>
+
+<h1>🎬 视频创意分镜分析</h1>
+<div class="sub" id="subtitle">基于 Gemini 2.5 Flash 自动拆解 — 加载中…</div>
+
+<div id="cards"></div>
+
+<footer>Meta Ad Library 公开数据 | 零成本运营 | AI 自动分镜 · 可能存在偏差</footer>
+
+<script>
+const STRATEGY_COLORS = {
+  "玩法展示":"#4caf50","挑战式":"#ff9800","剧情式":"#9c27b0","对比式":"#2196f3","痛点式":"#f44336","烧脑式":"#ff9800"
+};
+const SCENE_ICONS = {
+  "hook/开场钩子":"🎣","gameplay/玩法展示":"🎮","cta/行动号召":"📲"
+};
+
+// Embedded data
+const DATA = [{"game_name": "Bud Farm: Idle", "ad_title": "Bud Farm: Idle ad", "platform_ad_id": "1469360761651226", "hook_strategy": "玩法展示", "scenes": [{"time": "0-3s", "type": "hook/开场钩子", "description": "画面从空白或一个过渡场景快速切入游戏内场景。游戏的主界面或主要玩法元素（例如种植作物、收集资源）尚未完全展示，但已有游戏的UI和部分背景元素可见，暗示即将进入游戏核心玩法，营造一定的期待感。"}, {"time": "3-7s", "type": "gameplay/玩法展示", "description": "游戏的核心玩法被清晰展示。玩家可以看到作物（大麻植物）的生长过程、收获机制以及相关的经营界面。画面中可能会有虚拟手指点击操作的动画，以直观地演示游戏的互动方式。同时，游戏内货币、任务或升级提示等元素也会出现，突出游戏的“放置”与“经营”结合的特点。"}, {"time": "7-10s", "type": "cta/行动号召", "description": "画面切换到游戏的品牌Logo和名称“Bud Farm: Idle”，下方配有醒目的“PLAY NOW”或“立即下载”等行动号召按钮。背景可能为游戏的艺术图或游戏内截图，整体视觉效果旨在刺激玩家点击下载。应用商店的图标（如Google Play或App Store）也可能出现，引导用户前往正确的下载渠道。"}], "creative_insight": "这条广告通过直观快速的玩法展示，有效吸引了对放置类（Idle Game）和经营模拟类游戏感兴趣的玩家。其核心吸引力在于“轻松放置”与“模拟经营”的结合，以及“Bud Farm”这一独特且可能带来好奇心的主题。广告节奏紧凑，在短时间内展示了游戏的乐趣点（种植、收获、升级），对于追求休闲娱乐和有收集/养成欲的玩家是有效的。不足之处是可能忽略了更深层次的游戏特色或社交元素，但对于快餐式信息获取的移动广告而言，这种直接的玩法展示往往是最高效的。", "screenshots": {}}, {"game_name": "Brain Puzzle: Tricky Game", "ad_title": "Brain Puzzle: Tricky Game ad", "platform_ad_id": "1606102350331498", "hook_strategy": "挑战式", "scenes": [{"time": "0-3s", "type": "hook/开场钩子", "description": "画面显示一个卡通人物被困在笼子里。一个角色站在笼子外，地上有三个物品：一个磁铁、一根香蕉和一把钥匙。配文字『帮他逃脱！』，引导用户思考如何用这些物品打开笼子，营造出挑战和解谜的氛围。"}, {"time": "3-7s", "type": "gameplay/玩法展示", "description": "画面展示了游戏实际的关卡和失败的尝试。玩家先是试图用磁铁打开锁，但磁铁太短，没成功。接着试图用香蕉，直接失败。最后，玩家控制人物拿起香蕉吸附在磁铁上，再用带香蕉的磁铁拉动钥匙，钥匙成功掉落，再用钥匙打开笼子。这个过程展示了游戏的解谜逻辑和互动方式，通过多次错误尝试突出了解谜的“烧脑”特色，并最终展示了成功的解法。"}, {"time": "7-10s", "type": "cta/行动号召", "description": "画面显示广告语『你够聪明吗？』和游戏名称『Brain Puzzle: Tricky Game』。下方有『立即下载』的行动号召按钮，诱导用户点击下载游戏来挑战自己的智力。"}], "creative_insight": "这条广告通过一个经典的“如何逃脱”的脑筋急转弯式开场，迅速激发起用户的好奇心和解决问题的欲望。接着通过展示多次失败的尝试，让用户感受到挑战性，并最终巧妙地展示了游戏的独特解谜逻辑，让玩家觉得“原来如此，这游戏有点意思”。“你够聪明吗？”的文案直接挑衅了用户的智力，能有效吸引喜欢挑战、益智解谜类游戏的玩家。广告的整体节奏把握得当，从问题提出到玩法展示再到最终的成功解密和CTA，一气呵成，转化效率可能较高。适合吸引喜欢休闲益智、脑力挑战的玩家。", "screenshots": {}}, {"game_name": "CrazyLabs", "ad_title": "CrazyLabs ad", "platform_ad_id": "31475370218778122", "hook_strategy": "玩法展示", "scenes": [{"time": "0-2s", "type": "hook/开场钩子", "description": "广告开头展示了游戏的主界面，一个带有进度条的“PLAY”按钮占据了屏幕中央。背景是抽象的彩色图形，营造出一种轻松活泼的氛围。画面快速切换，预示着即将开始的游戏内容。"}, {"time": "2-6s", "type": "gameplay/玩法展示", "description": "进入具体的游戏画面，玩家操控一个或多个角色（方块形状），在屏幕上滑动手指，将方块引导至目标区域。游戏操作简单直观，视觉效果清晰，色彩鲜明。视频中展示了成功的游戏过程，没有失败的元素，强调了游戏的趣味性和易上手性。"}, {"time": "6-8s", "type": "cta/行动号召", "description": "游戏画面逐渐淡出，出现一个白色的文本框，里面显示白色的“CrazyLabs”标识和“PLAY NOW”的动作按钮，按钮下方有App Store和Google Play的下载图标，引导用户点击下载。"}], "creative_insight": "这条广告利用简洁明快的游戏画面直接展示核心玩法，让用户快速理解游戏机制。没有复杂的剧情或过多的文本说明，直接进入主题。对于喜欢休闲益智类游戏、操作简单、即时满足感的玩家会比较有吸引力。广告的短平快节奏也符合移动端用户的观看习惯，能有效抓住用户注意力。广告的有效性在于其直接和易理解的玩法展示，可能会吸引泛用户和休闲游戏爱好者。对于追求复杂剧情或高难度挑战的玩家可能吸引力有限。", "screenshots": {}}, {"game_name": "Ball Sort GP", "ad_title": "Ball Sort GP ad", "platform_ad_id": "1999892987291603", "hook_strategy": "玩法展示", "scenes": [{"time": "0-1s", "type": "hook/开场钩子", "description": "画面展示了分类球游戏的初始界面，几个不同颜色的球混杂在试管中，等待玩家操作。文字“Ball Sort GP”出现在画面中央。"}, {"time": "1-4s", "type": "gameplay/玩法展示", "description": "游戏玩法清晰展示，玩家通过点击将不同颜色的球从一个试管移动到另一个试管，直到每个试管只包含一种颜色的球。操作流畅，色彩鲜明。"}, {"time": "4-7s", "type": "cta/行动号召", "description": "游戏界面上方出现“PLAY NOW”的按钮，底部可能显示应用商店图标或游戏名称，直接引导用户下载或试玩。"}], "creative_insight": "这条广告通过直接展示核心玩法，目标受众清晰，即喜爱益智、分类游戏的玩家。广告的有效性在于其简洁直观，无需过多解释，通过直观的视觉反馈吸引用户。对于喜欢轻松休闲、逻辑推理类游戏的玩家，会觉得它有趣且具有挑战性。无效之处可能在于缺乏独特卖点，同类型游戏较多，难以突出重围。对寻求复杂剧情或高难度操作的玩家吸引力较小。", "screenshots": {}}, {"game_name": "AMAZE GAME", "ad_title": "AMAZE GAME ad", "platform_ad_id": "1260172875500970", "hook_strategy": "玩法展示", "scenes": [{"time": "0-1s", "type": "hook/开场钩子", "description": "画面静止，显示游戏名称'AMAZE GAME'。纯文字展示，没有背景或动态效果。"}, {"time": "1-5s", "type": "gameplay/玩法展示", "description": "展示游戏核心玩法。画面上是一个带有迷宫式路径的关卡，一个彩色小球正沿着路径移动，将路径染上颜色。游戏操作简单直观，玩法一目了然。背景是深蓝色，与小球和路径的亮色形成对比。"}, {"time": "5-7s", "type": "cta/行动号召", "description": "再次显示游戏名称'AMAZE GAME'，下方添加了一个醒目的“PLAY NOW”按钮。按钮下方有一行小字“Download AMAZE GAME”，引导用户下载。整个画面简洁明了，突出行动指令。"}], "creative_insight": "这条广告主要通过直接展示核心玩法来吸引用户。对于喜欢益智、休闲、涂色或解谜类游戏的玩家，会觉得这款游戏简单有趣，能够快速理解游戏规则并产生下载兴趣。广告的优点在于简洁明了，没有多余的干扰信息，直接触达目标玩家。缺点是缺乏情感或奖励刺激，可能难以吸引寻求复杂体验或故事驱动的玩家。", "screenshots": {}}, {"game_name": "Casual Game Hub", "ad_title": "Casual Game Hub ad", "platform_ad_id": "1700504254250812", "hook_strategy": "玩法展示", "scenes": [{"time": "0-3s", "type": "hook/开场钩子", "description": "视频以空白画面开始，随后中央出现一个简单的白色游戏图标，背景为灰色。图标上有一个白色的笑脸符号。文字提示“Casual Game Hub”出现在屏幕下方，强调游戏的休闲性质。这个开场直接展示了游戏名称和Logo，简洁明了。"}, {"time": "3-7s", "type": "gameplay/玩法展示", "description": "画面切换到游戏的实际玩法界面。这是一个类似“三消”或“连连看”的益智游戏，但似乎规则更简单直观。屏幕上显示一堆不同颜色和形状的方块，玩家通过点击或拖动来消除或匹配它们。界面设计简洁清晰，颜色柔和，展现了轻松休闲的玩法。有得分显示，以及一个类似于进度条或关卡数的标识。背景仍然是简约的浅色调。"}, {"time": "7-10s", "type": "cta/行动号召", "description": "画面再次回到游戏Logo“Casual Game Hub”，背景变为更深的蓝色。游戏图标和名称变得更醒目。接着，出现了明确的行动号召按钮，如“Download Now”或“立即下载”等，引导用户点击安装。下方可能还附带“Get it on Google Play”和“Download on the App Store”的图标，表明游戏可在两大应用商店下载。整个CTA画面简洁，突出下载按钮。"}], "creative_insight": "这条广告主要通过直接展示游戏名称和Logo来建立品牌认知，并通过简洁直观的玩法演示吸引目标用户。其有效性在于：\n1.  **明确目标受众：** “Casual Game Hub”和简约轻松的玩法直接吸引喜欢休闲益智类游戏的玩家。\n2.  **降低认知门槛：** 开场直接点明游戏名称， gameplay部分快速展示玩法核心，无需复杂的剧情或操作介绍。\n3.  **视觉体验：** 干净、柔和的视觉风格符合休闲游戏带来的放松感。\n4.  **CTA清晰：** 结尾的下载按钮和应用商店图标，直接引导用户进行转化。\n\n这条广告对追求轻松解压、碎片化娱乐的玩家特别有效。这类玩家通常不会花太多时间研究复杂的游戏规则，更倾向于一眼就能看懂、上手简单的游戏。对高难度、重度策略或剧情游戏爱好者吸引力较低。", "screenshots": {}}, {"game_name": "BallSort iOS", "ad_title": "BallSort iOS ad", "platform_ad_id": "907627972312584", "hook_strategy": "玩法展示", "scenes": [{"time": "0-3s", "type": "hook/开场钩子", "description": "画面展示了一个色彩鲜艳的球类分拣游戏界面，多个试管中装有不同颜色的球。游戏的初始状态展示了需要解决的混合难题。文字提示：“Ball Sort Puzzle”。操作者开始将球从一个试管倒向另一个，展示游戏的核心玩法。"}, {"time": "3-7s", "type": "gameplay/玩法展示", "description": "持续展示游戏的核心玩法。操作者熟练地将不同颜色的球逐步分拣到对应的试管中。整个过程流畅，球体移动有物理反馈，成功分拣的试管颜色一致。画面节奏明快，展示了游戏的策略性和解谜过程。"}, {"time": "7-10s", "type": "cta/行动号召", "description": "游戏界面上方出现胜利提示或关卡完成提示。画面底部或中央出现明确的行动号召，如“立即下载”或“GET IT NOW”，并可能伴随App Store或Google Play的图标，引导用户下载游戏。"}], "creative_insight": "这条广告主要通过直接、清晰的玩法展示来吸引目标用户。广告有效在于：1. 玩法直观，用户能快速理解游戏规则。2. 过程展示了从混乱到整齐的解决过程，能满足玩家的成就感和强迫症需求。3. 色彩鲜明，视觉上具有吸引力。无效点可能在于缺乏额外的剧情或情感连接，纯粹功能性展示。这类广告会吸引喜欢休闲益智、分类整理、逻辑推理类游戏的玩家，特别是有强迫症倾向或寻求放松解压的手机游戏用户。", "screenshots": {}}, {"game_name": "Arknights", "ad_title": "Arknights ad", "platform_ad_id": "1479285836760602", "hook_strategy": "玩法展示", "scenes": [{"time": "0-3s", "type": "hook/开场钩子", "description": "画面开始展示游戏场景，出现一位女性角色，背景类似某种建筑或室内空间，带有科幻与神秘的氛围。画面色彩偏暗，角色立绘精美，字幕显示“Arknights”强调游戏名称。"}, {"time": "3-7s", "type": "gameplay/玩法展示", "description": "画面转变为实际游戏玩法界面，展示了塔防战斗的场景。有多个角色（干员）部署在地图上，敌人从固定路径行进，干员攻击敌人。画面有战斗特效和伤害数字，背景音乐可能激昂，展现紧张的策略战斗过程。虽然画面细节不够清晰，但能识别出是策略塔防类玩法。"}, {"time": "7-8s", "type": "cta/行动号召", "description": "画面回到游戏logo和游戏名称“Arknights”，出现明确的行动号召，例如“下载游戏”或“立即下载”等按钮或图标，引导用户点击继续。背景可能保持游戏主题色或简洁明了。"}], "creative_insight": "这条广告主要通过开场精美的角色立绘吸引二次元玩家的注意力，然后迅速展示游戏的核心塔防玩法，让玩家对游戏类型有直观的认识。它的有效性在于：1. 明确展示了核心美术风格和游戏类型。2. 节奏紧凑，在短时间内传递了主要信息。无效之处可能在于，如果玩家对塔防玩法不感兴趣，广告可能无法进一步吸引。这种广告主要吸引喜欢二次元画风、策略塔防类游戏的玩家，尤其是《明日方舟》已有IP认知度的玩家会更感兴趣。", "screenshots": {}}];
+
+document.getElementById("subtitle").textContent =
+  `基于 Gemini 2.5 Flash 对 Meta 视频广告的自动分镜拆解 · ${DATA.length} 条`;
+
+const container = document.getElementById("cards");
+
+DATA.forEach(a => {
+  const metaLink = `https://www.facebook.com/ads/library/?id=${a.platform_ad_id}`;
+  const strategy = a.hook_strategy || "未知";
+  const badgeColor = STRATEGY_COLORS[strategy] || "#607d8b";
+
+  let html = '<div class="card">';
+  html += '<div class="card-header">';
+  html += `<span class="game-name">${esc(a.game_name)}</span>`;
+  html += `<span class="badge" style="background:${badgeColor}">${esc(strategy)}</span>`;
+  html += '</div>';
+
+  // Screenshots
+  if (a.screenshots && Object.keys(a.screenshots).length > 0) {
+    html += '<div class="screenshots">';
+    for (const [stage, path] of Object.entries(a.screenshots)) {
+      html += `<img src="${esc(path)}" alt="${stage}" title="${stage}">`;
+    }
+    html += '</div>';
+  }
+
+  // Scenes
+  for (const scene of (a.scenes || [])) {
+    const icon = SCENE_ICONS[scene.type] || "▶️";
+    html += '<div class="scene-card">';
+    html += `<div class="scene-header">${icon} ${esc(scene.time)} ${esc(scene.type)}</div>`;
+    html += `<div class="scene-desc">${esc(scene.description)}</div>`;
+    html += '</div>';
+  }
+
+  // Creative insight
+  if (a.creative_insight) {
+    html += '<div class="insight-box">';
+    html += '<div class="insight-label">💡 创意洞察</div>';
+    html += `<div class="insight-text">${esc(a.creative_insight)}</div>`;
+    html += '</div>';
+  }
+
+  html += `<a class="meta-link" href="${metaLink}" target="_blank">📺 在 Meta Ad Library 查看完整素材 →</a>`;
+  html += '</div>';
+  container.innerHTML += html;
+});
+
+function esc(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+</script>
+</body>
+</html>
