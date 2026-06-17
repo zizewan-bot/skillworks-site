@@ -17,9 +17,11 @@ from datetime import datetime
 
 GAME_MONITOR = Path.home() / "projects/game-monitor"
 AD_MONITOR = Path.home() / "projects/ad-monitor"
+GAME_SUCCESS_LAB = Path.home() / "projects/game-success-lab"
 SITEWORKS = Path.home() / "projects/skillworks-site"
 
 PUBLIC_DIR = SITEWORKS / "public" / "game-market-daily"
+SUCCESS_LAB_DIR = SITEWORKS / "public" / "game-success-lab"
 
 
 def run(cmd, cwd=None, check=True):
@@ -87,7 +89,26 @@ def main():
     else:
         print("   storyboard.html not found, skipping")
 
-    # 3. Ensure index.html exists (meta-refresh redirect)
+    # 3. Copy game-success-lab dashboard
+    print("3. Copying game-success-lab...")
+    SUCCESS_LAB_DIR.mkdir(parents=True, exist_ok=True)
+    src_success = GAME_SUCCESS_LAB / "data" / "dashboard.html"
+    if src_success.exists():
+        shutil.copy2(src_success, SUCCESS_LAB_DIR / "dashboard.html")
+        print(f"   {src_success} → {SUCCESS_LAB_DIR / 'dashboard.html'}")
+        # Index redirect
+        idx = SUCCESS_LAB_DIR / "index.html"
+        if not idx.exists():
+            idx.write_text(
+                '<!doctype html><html lang=\"zh\"><head><meta charset=\"utf-8\">'
+                '<meta http-equiv=\"refresh\" content=\"0;url=dashboard.html\">'
+                '<title>Game Success Lab</title></head>'
+                '<body><p><a href=\"dashboard.html\">🎮 Game Success Lab</a></p></body></html>\n'
+            )
+    else:
+        print("   dashboard.html not found, skipping")
+
+    # 4. Ensure index.html exists (meta-refresh redirect)
     index_file = PUBLIC_DIR / "index.html"
     if not index_file.exists():
         index_file.write_text(
@@ -105,12 +126,12 @@ def main():
         print("   DRY RUN — skipping commit+push")
         return
 
-    print("3. Git commit + push...")
+    print("4. Git commit + push...")
     today = datetime.now().strftime("%Y-%m-%d")
-    run(f"git add public/game-market-daily/", cwd=SITEWORKS)
+    run(f"git add public/game-market-daily/ public/game-success-lab/", cwd=SITEWORKS)
 
     # Only commit if there are changes
-    status = run("git status --porcelain -- public/game-market-daily/",
+    status = run("git status --porcelain -- public/game-market-daily/ public/game-success-lab/",
                  cwd=SITEWORKS, check=False)
     if not status.stdout.strip():
         print("   no changes, skipping commit")
