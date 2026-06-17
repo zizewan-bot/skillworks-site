@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Game Success Lab — 2026-06-16</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #0d1117; color: #c9d1d9; }
+.header { padding: 20px 30px; background: #161b22; border-bottom: 1px solid #30363d; }
+.header h1 { font-size: 24px; color: #58a6ff; }
+.header .date { color: #8b949e; font-size: 14px; margin-top: 4px; }
+.nav { display: flex; gap: 2px; padding: 0 30px; background: #161b22; border-bottom: 1px solid #30363d; overflow-x: auto; }
+.nav button { padding: 10px 18px; background: none; border: none; color: #8b949e; cursor: pointer; font-size: 14px; border-bottom: 2px solid transparent; white-space: nowrap; transition: all .2s; }
+.nav button:hover { color: #c9d1d9; }
+.nav button.active { color: #58a6ff; border-bottom-color: #58a6ff; }
+.tab-content { display: none; padding: 25px 30px; }
+.tab-content.active { display: block; }
+.overview-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
+.card { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 16px; }
+.card h3 { color: #58a6ff; font-size: 16px; margin-bottom: 8px; }
+.card .score { font-size: 28px; font-weight: bold; color: #3fb950; }
+.card .score.low { color: #f85149; }
+.card .score.mid { color: #d2991d; }
+.card .metrics { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+.card .metric { background: #21262d; padding: 4px 10px; border-radius: 12px; font-size: 13px; color: #8b949e; }
+.card ul { list-style: none; margin-top: 8px; }
+.card li { padding: 4px 0; font-size: 14px; color: #8b949e; border-bottom: 1px solid #21262d; }
+.card li:last-child { border-bottom: none; }
+.card .error { color: #f85149; }
+.module-summary { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px; margin-bottom: 24px; }
+.summary-card { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 14px; text-align: center; }
+.summary-card .label { font-size: 12px; color: #8b949e; margin-bottom: 4px; }
+.summary-card .value { font-size: 22px; font-weight: bold; color: #58a6ff; }
+.insight-item { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 14px; margin-bottom: 12px; }
+.insight-item .type { font-size: 12px; padding: 2px 8px; border-radius: 10px; display: inline-block; margin-bottom: 6px; }
+.insight-item .type.pattern { background: #1f3a3f; color: #3fb950; }
+.insight-item .type.anomaly { background: #3f1f1f; color: #f85149; }
+.insight-item .type.correlation { background: #2f2a1f; color: #d2991d; }
+.insight-item .title { font-size: 15px; color: #c9d1d9; font-weight: 600; }
+.insight-item .desc { font-size: 13px; color: #8b949e; margin-top: 4px; }
+.empty-state { text-align: center; padding: 60px 20px; color: #484f58; }
+.empty-state .icon { font-size: 48px; margin-bottom: 12px; }
+.footer { text-align: center; padding: 20px; color: #484f58; font-size: 12px; border-top: 1px solid #30363d; }
+</style>
+</head>
+<body>
+<div class="header">
+    <h1>🎮 Game Success Lab — 游戏成功归因分析</h1>
+    <div class="date">📅 2026-06-16 | 分析游戏: 20 款 | 模块: 6 个</div>
+</div>
+<div class="nav">
+    <button onclick="switchTab('overview')" class="active" id="btn-overview">📋 📋 总览</button><button onclick="switchTab('market')" class="" id="btn-market">📊 📊 市场</button><button onclick="switchTab('user')" class="" id="btn-user">👥 👥 用户</button><button onclick="switchTab('design')" class="" id="btn-design">🎮 🎮 设计</button><button onclick="switchTab('operations')" class="" id="btn-operations">🔧 🔧 运营</button><button onclick="switchTab('publishing')" class="" id="btn-publishing">📦 📦 发行</button><button onclick="switchTab('ua')" class="" id="btn-ua">📢 📢 投放</button><button onclick="switchTab('insights')" class="" id="btn-insights">💡 💡 洞察</button>
+</div>
+
+<div id="tab-overview" class="tab-content active">
+    
+    <div class="module-summary">
+        <div class="summary-card">
+            <div class="label">MARKET</div>
+            <div class="value">64</div>
+            <div style="font-size:11px;color:#8b949e">20款游戏 | 0错误</div>
+        </div>
+        <div class="summary-card">
+            <div class="label">USER</div>
+            <div class="value">45</div>
+            <div style="font-size:11px;color:#8b949e">20款游戏 | 0错误</div>
+        </div>
+        <div class="summary-card">
+            <div class="label">DESIGN</div>
+            <div class="value">47</div>
+            <div style="font-size:11px;color:#8b949e">20款游戏 | 0错误</div>
+        </div>
+        <div class="summary-card">
+            <div class="label">OPERATIONS</div>
+            <div class="value">90</div>
+            <div style="font-size:11px;color:#8b949e">20款游戏 | 0错误</div>
+        </div>
+        <div class="summary-card">
+            <div class="label">PUBLISHING</div>
+            <div class="value">86</div>
+            <div style="font-size:11px;color:#8b949e">20款游戏 | 0错误</div>
+        </div>
+        <div class="summary-card">
+            <div class="label">UA</div>
+            <div class="value">54</div>
+            <div style="font-size:11px;color:#8b949e">20款游戏 | 0错误</div>
+        </div></div>
+    <h2 style="margin-bottom:16px;color:#58a6ff">🏆 Top 10 综合评分</h2>
+    <div class="overview-grid">
+        <div class="card">
+            <h3>Counter-Strike: Global Offensive</h3>
+            <div class="score">76</div>
+            <div style="font-size:12px;color:#8b949e">综合评分</div>
+        </div>
+        <div class="card">
+            <h3>Rust</h3>
+            <div class="score">72</div>
+            <div style="font-size:12px;color:#8b949e">综合评分</div>
+        </div>
+        <div class="card">
+            <h3>Apex Legends</h3>
+            <div class="score">71</div>
+            <div style="font-size:12px;color:#8b949e">综合评分</div>
+        </div>
+        <div class="card">
+            <h3>PUBG: BATTLEGROUNDS</h3>
+            <div class="score">70</div>
+            <div style="font-size:12px;color:#8b949e">综合评分</div>
+        </div>
+        <div class="card">
+            <h3>王者荣耀</h3>
+            <div class="score">61</div>
+            <div style="font-size:12px;color:#8b949e">综合评分</div>
+        </div>
+        <div class="card">
+            <h3>无尽冬日</h3>
+            <div class="score">61</div>
+            <div style="font-size:12px;color:#8b949e">综合评分</div>
+        </div>
+        <div class="card">
+            <h3>我的世界：移动版</h3>
+            <div class="score">58</div>
+            <div style="font-size:12px;color:#8b949e">综合评分</div>
+        </div>
+        <div class="card">
+            <h3>地牢猎手6</h3>
+            <div class="score">58</div>
+            <div style="font-size:12px;color:#8b949e">综合评分</div>
+        </div>
+        <div class="card">
+            <h3>Block Out! - Color Sort Puzzle</h3>
+            <div class="score">58</div>
+            <div style="font-size:12px;color:#8b949e">综合评分</div>
+        </div>
+        <div class="card">
+            <h3>三角洲行动</h3>
+            <div class="score">55</div>
+            <div style="font-size:12px;color:#8b949e">综合评分</div>
+        </div></div>
+    
+</div>
+<div id="tab-market" class="tab-content">
+    <div class="overview-grid">
+        <div class="card">
+            <h3>Counter-Strike: Global Offensive</h3>
+            <div class="score ">93</div>
+            <div class="metrics"><span class="metric">market_position: 50.0</span><span class="metric">market_size: 30.0</span><span class="metric">momentum: 10</span><span class="metric">platform_coverage: 3</span><span class="metric">steam_rank: 1</span><span class="metric">steam_ccu: 1013936</span><span class="metric">steam_owners: 100,000,000 .. 200,000,000</span><span class="metric">cross_platform_count: 0</span></div>
+            <ul><li>多平台高排名: 市场定位极强</li><li>CCU 1,013,936 人，超高在线规模</li><li>估算拥有者 150M+，顶级用户基础</li><li>单平台游戏，跨平台扩展是增长机会</li></ul>
+        </div>
+        <div class="card">
+            <h3>Counter-Strike: Global Offensive</h3>
+            <div class="score ">93</div>
+            <div class="metrics"><span class="metric">market_position: 50.0</span><span class="metric">market_size: 30.0</span><span class="metric">momentum: 10</span><span class="metric">platform_coverage: 3</span><span class="metric">steam_rank: 1</span><span class="metric">steam_ccu: 1013936</span><span class="metric">steam_owners: 100,000,000 .. 200,000,000</span><span class="metric">cross_platform_count: 0</span></div>
+            <ul><li>多平台高排名: 市场定位极强</li><li>CCU 1,013,936 人，超高在线规模</li><li>估算拥有者 150M+，顶级用户基础</li><li>单平台游戏，跨平台扩展是增长机会</li></ul>
+        </div>
+        <div class="card">
+            <h3>Counter-Strike: Global Offensive</h3>
+            <div class="score ">93</div>
+            <div class="metrics"><span class="metric">market_position: 50.0</span><span class="metric">market_size: 30.0</span><span class="metric">momentum: 10</span><span class="metric">platform_coverage: 3</span><span class="metric">steam_rank: 1</span><span class="metric">steam_ccu: 1013936</span><span class="metric">steam_owners: 100,000,000 .. 200,000,000</span><span class="metric">cross_platform_count: 0</span></div>
+            <ul><li>多平台高排名: 市场定位极强</li><li>CCU 1,013,936 人，超高在线规模</li><li>估算拥有者 150M+，顶级用户基础</li><li>单平台游戏，跨平台扩展是增长机会</li></ul>
+        </div>
+        <div class="card">
+            <h3>PUBG: BATTLEGROUNDS</h3>
+            <div class="score ">88</div>
+            <div class="metrics"><span class="metric">market_position: 49.0</span><span class="metric">market_size: 26.0</span><span class="metric">momentum: 10</span><span class="metric">platform_coverage: 3</span><span class="metric">steam_rank: 2</span><span class="metric">steam_ccu: 314682</span><span class="metric">steam_owners: 100,000,000 .. 200,000,000</span><span class="metric">cross_platform_count: 0</span></div>
+            <ul><li>多平台高排名: 市场定位极强</li><li>CCU 314,682 人，超高在线规模</li><li>估算拥有者 150M+，顶级用户基础</li><li>单平台游戏，跨平台扩展是增长机会</li></ul>
+        </div>
+        <div class="card">
+            <h3>PUBG: BATTLEGROUNDS</h3>
+            <div class="score ">88</div>
+            <div class="metrics"><span class="metric">market_position: 49.0</span><span class="metric">market_size: 26.0</span><span class="metric">momentum: 10</span><span class="metric">platform_coverage: 3</span><span class="metric">steam_rank: 2</span><span class="metric">steam_ccu: 314682</span><span class="metric">steam_owners: 100,000,000 .. 200,000,000</span><span class="metric">cross_platform_count: 0</span></div>
+            <ul><li>多平台高排名: 市场定位极强</li><li>CCU 314,682 人，超高在线规模</li><li>估算拥有者 150M+，顶级用户基础</li><li>单平台游戏，跨平台扩展是增长机会</li></ul>
+        </div>
+        <div class="card">
+            <h3>PUBG: BATTLEGROUNDS</h3>
+            <div class="score ">88</div>
+            <div class="metrics"><span class="metric">market_position: 49.0</span><span class="metric">market_size: 26.0</span><span class="metric">momentum: 10</span><span class="metric">platform_coverage: 3</span><span class="metric">steam_rank: 2</span><span class="metric">steam_ccu: 314682</span><span class="metric">steam_owners: 100,000,000 .. 200,000,000</span><span class="metric">cross_platform_count: 0</span></div>
+            <ul><li>多平台高排名: 市场定位极强</li><li>CCU 314,682 人，超高在线规模</li><li>估算拥有者 150M+，顶级用户基础</li><li>单平台游戏，跨平台扩展是增长机会</li></ul>
+        </div>
+        <div class="card">
+            <h3>Apex Legends</h3>
+            <div class="score ">82</div>
+            <div class="metrics"><span class="metric">market_position: 47.0</span><span class="metric">market_size: 22.0</span><span class="metric">momentum: 10</span><span class="metric">platform_coverage: 3</span><span class="metric">steam_rank: 4</span><span class="metric">steam_ccu: 124262</span><span class="metric">steam_owners: 100,000,000 .. 200,000,000</span><span class="metric">cross_platform_count: 0</span></div>
+            <ul><li>多平台高排名: 市场定位极强</li><li>CCU 124,262 人，超高在线规模</li><li>估算拥有者 150M+，顶级用户基础</li><li>单平台游戏，跨平台扩展是增长机会</li></ul>
+        </div>
+        <div class="card">
+            <h3>Rust</h3>
+            <div class="score ">79</div>
+            <div class="metrics"><span class="metric">market_position: 48.0</span><span class="metric">market_size: 18.0</span><span class="metric">momentum: 10</span><span class="metric">platform_coverage: 3</span><span class="metric">steam_rank: 3</span><span class="metric">steam_ccu: 143870</span><span class="metric">steam_owners: 20,000,000 .. 50,000,000</span><span class="metric">cross_platform_count: 0</span></div>
+            <ul><li>多平台高排名: 市场定位极强</li><li>CCU 143,870 人，超高在线规模</li><li>单平台游戏，跨平台扩展是增长机会</li></ul>
+        </div>
+        <div class="card">
+            <h3>Rust</h3>
+            <div class="score ">79</div>
+            <div class="metrics"><span class="metric">market_position: 48.0</span><span class="metric">market_size: 18.0</span><span class="metric">momentum: 10</span><span class="metric">platform_coverage: 3</span><span class="metric">steam_rank: 3</span><span class="metric">steam_ccu: 143870</span><span class="metric">steam_owners: 20,000,000 .. 50,000,000</span><span class="metric">cross_platform_count: 0</span></div>
+            <ul><li>多平台高排名: 市场定位极强</li><li>CCU 143,870 人，超高在线规模</li><li>单平台游戏，跨平台扩展是增长机会</li></ul>
+        </div>
+        <div class="card">
+            <h3>Rust</h3>
+            <div class="score ">79</div>
+            <div class="metrics"><span class="metric">market_position: 48.0</span><span class="metric">market_size: 18.0</span><span class="metric">momentum: 10</span><span class="metric">platform_coverage: 3</span><span class="metric">steam_rank: 3</span><span class="metric">steam_ccu: 143870</span><span class="metric">steam_owners: 20,000,000 .. 50,000,000</span><span class="metric">cross_platform_count: 0</span></div>
+            <ul><li>多平台高排名: 市场定位极强</li><li>CCU 143,870 人，超高在线规模</li><li>单平台游戏，跨平台扩展是增长机会</li></ul>
+        </div>
+        <div class="card">
+            <h3>地牢猎手6</h3>
+            <div class="score mid">55</div>
+            <div class="metrics"><span class="metric">market_position: 39.0</span><span class="metric">market_size: 0.0</span><span class="metric">momentum: 10</span><span class="metric">platform_coverage: 6</span><span class="metric">appstore_rank: 3</span><span class="metric">taptap_rank: 1</span><span class="metric">cross_platform_count: 2</span></div>
+            <ul><li>多平台高排名: 市场定位极强</li><li>跨平台覆盖: appstore、taptap</li></ul>
+        </div>
+        <div class="card">
+            <h3>王者荣耀</h3>
+            <div class="score mid">54</div>
+            <div class="metrics"><span class="metric">market_position: 38.2</span><span class="metric">market_size: 0.0</span><span class="metric">momentum: 10</span><span class="metric">platform_coverage: 6</span><span class="metric">appstore_rank: 1</span><span class="metric">taptap_rank: 7</span><span class="metric">cross_platform_count: 2</span></div>
+            <ul><li>多平台高排名: 市场定位极强</li><li>跨平台覆盖: appstore、taptap</li></ul>
+        </div>
+        <div class="card">
+            <h3>我的世界：移动版</h3>
+            <div class="score mid">52</div>
+            <div class="metrics"><span class="metric">market_position: 36.0</span><span class="metric">market_size: 0.0</span><span class="metric">momentum: 10</span><span class="metric">platform_coverage: 6</span><span class="metric">appstore_rank: 9</span><span class="metric">taptap_rank: 1</span><span class="metric">cross_platform_count: 2</span></div>
+            <ul><li>多平台高排名: 市场定位极强</li><li>跨平台覆盖: appstore、taptap</li></ul>
+        </div>
+        <div class="card">
+            <h3>无尽冬日</h3>
+            <div class="score mid">50</div>
+            <div class="metrics"><span class="metric">market_position: 33.9</span><span class="metric">market_size: 0.0</span><span class="metric">momentum: 10</span><span class="metric">platform_coverage: 6</span><span class="metric">appstore_rank: 2</span><span class="metric">minigame_rank: 4</span><span class="metric">cross_platform_count: 2</span></div>
+            <ul><li>多平台高排名: 市场定位极强</li><li>跨平台覆盖: appstore、minigame</li></ul>
+        </div>
+        <div class="card">
+            <h3>Block Out! - Color Sort Puzzle</h3>
+            <div class="score mid">38</div>
+            <div class="metrics"><span class="metric">market_position: 25.0</span><span class="metric">market_size: 0.0</span><span class="metric">momentum: 10</span><span class="metric">platform_coverage: 3</span><span class="metric">appstore_rank: 1</span><span class="metric">cross_platform_count: 1</span></div>
+            <ul><li>市场表现良好，核心平台占据前列</li><li>跨平台覆盖: appstore</li></ul>
+        </div>
+        <div class="card">
+            <h3>MONOPOLY GO!</h3>
+            <div class="score mid">38</div>
+            <div class="metrics"><span class="metric">market_position: 25.0</span><span class="metric">market_size: 0.0</span><span class="metric">momentum: 10</span><span class="metric">platform_coverage: 3</span><span class="metric">appstore_rank: 1</span><span class="metric">cross_platform_count: 1</span></div>
+            <ul><li>市场表现良好，核心平台占据前列</li><li>跨平台覆盖: appstore</li></ul>
+        </div>
+        <div class="card">
+            <h3>三角洲行动</h3>
+            <div class="score mid">38</div>
+            <div class="metrics"><span class="metric">market_position: 24.5</span><span class="metric">market_size: 0.0</span><span class="metric">momentum: 10</span><span class="metric">platform_coverage: 3</span><span class="metric">appstore_rank: 2</span><span class="metric">cross_platform_count: 1</span></div>
+            <ul><li>市场表现良好，核心平台占据前列</li><li>跨平台覆盖: appstore</li></ul>
+        </div>
+        <div class="card">
+            <h3>心动小镇</h3>
+            <div class="score low">28</div>
+            <div class="metrics"><span class="metric">market_position: 15.0</span><span class="metric">market_size: 0.0</span><span class="metric">momentum: 10</span><span class="metric">platform_coverage: 3</span><span class="metric">taptap_rank: 1</span><span class="metric">cross_platform_count: 1</span></div>
+            <ul><li>中等市场表现，有提升空间</li><li>跨平台覆盖: taptap</li></ul>
+        </div>
+        <div class="card">
+            <h3>遗忘之海</h3>
+            <div class="score low">28</div>
+            <div class="metrics"><span class="metric">market_position: 15.0</span><span class="metric">market_size: 0.0</span><span class="metric">momentum: 10</span><span class="metric">platform_coverage: 3</span><span class="metric">taptap_rank: 1</span><span class="metric">cross_platform_count: 1</span></div>
+            <ul><li>中等市场表现，有提升空间</li><li>跨平台覆盖: taptap</li></ul>
+        </div>
+        <div class="card">
+            <h3>旋转音律</h3>
+            <div class="score low">28</div>
+            <div class="metrics"><span class="metric">market_position: 15.0</span><span class="metric">market_size: 0.0</span><span class="metric">momentum: 10</span><span class="metric">platform_coverage: 3</span><span class="metric">taptap_rank: 1</span><span class="metric">cross_platform_count: 1</span></div>
+            <ul><li>中等市场表现，有提升空间</li><li>跨平台覆盖: taptap</li></ul>
+        </div></div>
+</div>
+<div id="tab-user" class="tab-content">
+    <div class="overview-grid">
+        <div class="card">
+            <h3>Rust</h3>
+            <div class="score ">74</div>
+            <div class="metrics"><span class="metric">user_scale: 36</span><span class="metric">community_vitality: 22</span><span class="metric">archetype_fit: 16.0</span><span class="metric">ccu: 143870</span><span class="metric">owners: 20,000,000 .. 50,000,000</span><span class="metric">score: 0</span><span class="metric">primary_archetype: 合作型</span><span class="metric">archetype_detail: {'竞技型': 0.5, '合作型': 0.6666666666666666, '沉浸型': 0.0, '创造型': 0.3333333333333333, '社交休闲型': 0.0}</span><span class="metric">genre_count: 5</span><span class="metric">category_count: 22</span></div>
+            <ul><li>日活 143,870 — 现象级用户规模</li><li>留存良好（0.4%），稳定玩家基础</li><li>玩家画像: 合作型(67%) + 竞技型(50%)</li></ul>
+        </div>
+        <div class="card">
+            <h3>Rust</h3>
+            <div class="score ">74</div>
+            <div class="metrics"><span class="metric">user_scale: 36</span><span class="metric">community_vitality: 22</span><span class="metric">archetype_fit: 16.0</span><span class="metric">ccu: 143870</span><span class="metric">owners: 20,000,000 .. 50,000,000</span><span class="metric">score: 0</span><span class="metric">primary_archetype: 合作型</span><span class="metric">archetype_detail: {'竞技型': 0.5, '合作型': 0.6666666666666666, '沉浸型': 0.0, '创造型': 0.3333333333333333, '社交休闲型': 0.0}</span><span class="metric">genre_count: 5</span><span class="metric">category_count: 22</span></div>
+            <ul><li>日活 143,870 — 现象级用户规模</li><li>留存良好（0.4%），稳定玩家基础</li><li>玩家画像: 合作型(67%) + 竞技型(50%)</li></ul>
+        </div>
+        <div class="card">
+            <h3>Rust</h3>
+            <div class="score ">74</div>
+            <div class="metrics"><span class="metric">user_scale: 36</span><span class="metric">community_vitality: 22</span><span class="metric">archetype_fit: 16.0</span><span class="metric">ccu: 143870</span><span class="metric">owners: 20,000,000 .. 50,000,000</span><span class="metric">score: 0</span><span class="metric">primary_archetype: 合作型</span><span class="metric">archetype_detail: {'竞技型': 0.5, '合作型': 0.6666666666666666, '沉浸型': 0.0, '创造型': 0.3333333333333333, '社交休闲型': 0.0}</span><span class="metric">genre_count: 5</span><span class="metric">category_count: 22</span></div>
+            <ul><li>日活 143,870 — 现象级用户规模</li><li>留存良好（0.4%），稳定玩家基础</li><li>玩家画像: 合作型(67%) + 竞技型(50%)</li></ul>
+        </div>
+        <div class="card">
+            <h3>Apex Legends</h3>
+            <div class="score ">66</div>
+            <div class="metrics"><span class="metric">user_scale: 36</span><span class="metric">community_vitality: 14</span><span class="metric">archetype_fit: 16.0</span><span class="metric">ccu: 124262</span><span class="metric">owners: 100,000,000 .. 200,000,000</span><span class="metric">score: 0</span><span class="metric">primary_archetype: 合作型</span><span class="metric">archetype_detail: {'竞技型': 0.5, '合作型': 0.6666666666666666, '沉浸型': 0.0, '创造型': 0.0, '社交休闲型': 0.0}</span><span class="metric">genre_count: 3</span><span class="metric">category_count: 11</span></div>
+            <ul><li>日活 124,262 — 现象级用户规模</li><li>留存偏低（0.08%），可能存在尝鲜后流失</li><li>玩家画像: 合作型(67%) + 竞技型(50%)</li></ul>
+        </div>
+        <div class="card">
+            <h3>Counter-Strike: Global Offensive</h3>
+            <div class="score ">63</div>
+            <div class="metrics"><span class="metric">user_scale: 40</span><span class="metric">community_vitality: 18</span><span class="metric">archetype_fit: 5.0</span><span class="metric">ccu: 1013936</span><span class="metric">owners: 100,000,000 .. 200,000,000</span><span class="metric">score: 0</span><span class="metric">primary_archetype: 创造型</span><span class="metric">archetype_detail: {'竞技型': 0.0, '合作型': 0.0, '沉浸型': 0.0, '创造型': 0.3333333333333333, '社交休闲型': 0.0}</span><span class="metric">genre_count: 2</span><span class="metric">category_count: 18</span></div>
+            <ul><li>日活 1,013,936 — 现象级用户规模</li><li>留存良好（0.7%），稳定玩家基础</li><li>玩家画像: 创造型(33%)</li></ul>
+        </div>
+        <div class="card">
+            <h3>Counter-Strike: Global Offensive</h3>
+            <div class="score ">63</div>
+            <div class="metrics"><span class="metric">user_scale: 40</span><span class="metric">community_vitality: 18</span><span class="metric">archetype_fit: 5.0</span><span class="metric">ccu: 1013936</span><span class="metric">owners: 100,000,000 .. 200,000,000</span><span class="metric">score: 0</span><span class="metric">primary_archetype: 创造型</span><span class="metric">archetype_detail: {'竞技型': 0.0, '合作型': 0.0, '沉浸型': 0.0, '创造型': 0.3333333333333333, '社交休闲型': 0.0}</span><span class="metric">genre_count: 2</span><span class="metric">category_count: 18</span></div>
+            <ul><li>日活 1,013,936 — 现象级用户规模</li><li>留存良好（0.7%），稳定玩家基础</li><li>玩家画像: 创造型(33%)</li></ul>
+        </div>
+        <div class="card">
+            <h3>Counter-Strike: Global Offensive</h3>
+            <div class="score ">63</div>
+            <div class="metrics"><span class="metric">user_scale: 40</span><span class="metric">community_vitality: 18</span><span class="metric">archetype_fit: 5.0</span><span class="metric">ccu: 1013936</span><span class="metric">owners: 100,000,000 .. 200,000,000</span><span class="metric">score: 0</span><span class="metric">primary_archetype: 创造型</span><span class="metric">archetype_detail: {'竞技型': 0.0, '合作型': 0.0, '沉浸型': 0.0, '创造型': 0.3333333333333333, '社交休闲型': 0.0}</span><span class="metric">genre_count: 2</span><span class="metric">category_count: 18</span></div>
+            <ul><li>日活 1,013,936 — 现象级用户规模</li><li>留存良好（0.7%），稳定玩家基础</li><li>玩家画像: 创造型(33%)</li></ul>
+        </div>
+        <div class="card">
+            <h3>PUBG: BATTLEGROUNDS</h3>
+            <div class="score mid">60</div>
+            <div class="metrics"><span class="metric">user_scale: 36</span><span class="metric">community_vitality: 14</span><span class="metric">archetype_fit: 9.5</span><span class="metric">ccu: 314682</span><span class="metric">owners: 100,000,000 .. 200,000,000</span><span class="metric">score: 0</span><span class="metric">primary_archetype: 竞技型</span><span class="metric">archetype_detail: {'竞技型': 0.5, '合作型': 0.0, '沉浸型': 0.0, '创造型': 0.0, '社交休闲型': 0.0}</span><span class="metric">genre_count: 4</span><span class="metric">category_count: 9</span></div>
+            <ul><li>日活 314,682 — 现象级用户规模</li><li>留存良好（0.2%），稳定玩家基础</li><li>玩家画像: 竞技型(50%)</li></ul>
+        </div>
+        <div class="card">
+            <h3>PUBG: BATTLEGROUNDS</h3>
+            <div class="score mid">60</div>
+            <div class="metrics"><span class="metric">user_scale: 36</span><span class="metric">community_vitality: 14</span><span class="metric">archetype_fit: 9.5</span><span class="metric">ccu: 314682</span><span class="metric">owners: 100,000,000 .. 200,000,000</span><span class="metric">score: 0</span><span class="metric">primary_archetype: 竞技型</span><span class="metric">archetype_detail: {'竞技型': 0.5, '合作型': 0.0, '沉浸型': 0.0, '创造型': 0.0, '社交休闲型': 0.0}</span><span class="metric">genre_count: 4</span><span class="metric">category_count: 9</span></div>
+            <ul><li>日活 314,682 — 现象级用户规模</li><li>留存良好（0.2%），稳定玩家基础</li><li>玩家画像: 竞技型(50%)</li></ul>
+        </div>
+        <div class="card">
+            <h3>PUBG: BATTLEGROUNDS</h3>
+            <div class="score mid">60</div>
+            <div class="metrics"><span class="metric">user_scale: 36</span><span class="metric">community_vitality: 14</span><span class="metric">archetype_fit: 9.5</span><span class="metric">ccu: 314682</span><span class="metric">owners: 100,000,000 .. 200,000,000</span><span class="metric">score: 0</span><span class="metric">primary_archetype: 竞技型</span><span class="metric">archetype_detail: {'竞技型': 0.5, '合作型': 0.0, '沉浸型': 0.0, '创造型': 0.0, '社交休闲型': 0.0}</span><span class="metric">genre_count: 4</span><span class="metric">category_count: 9</span></div>
+            <ul><li>日活 314,682 — 现象级用户规模</li><li>留存良好（0.2%），稳定玩家基础</li><li>玩家画像: 竞技型(50%)</li></ul>
+        </div>
+        <div class="card">
+            <h3>王者荣耀</h3>
+            <div class="score mid">32</div>
+            <div class="metrics"><span class="metric">user_scale: 32</span><span class="metric">community_vitality: 0</span><span class="metric">archetype_fit: 0.0</span><span class="metric">ccu: 0</span><span class="metric">owners: N/A</span><span class="metric">score: 0</span><span class="metric">primary_archetype: 未知</span><span class="metric">archetype_detail: {}</span><span class="metric">genre_count: 0</span><span class="metric">category_count: 0</span></div>
+            <ul></ul>
+        </div>
+        <div class="card">
+            <h3>Block Out! - Color Sort Puzzle</h3>
+            <div class="score mid">32</div>
+            <div class="metrics"><span class="metric">user_scale: 32</span><span class="metric">community_vitality: 0</span><span class="metric">archetype_fit: 0.0</span><span class="metric">ccu: 0</span><span class="metric">owners: N/A</span><span class="metric">score: 0</span><span class="metric">primary_archetype: 未知</span><span class="metric">archetype_detail: {}</span><span class="metric">genre_count: 0</span><span class="metric">category_count: 0</span></div>
+            <ul></ul>
+        </div>
+        <div class="card">
+            <h3>三角洲行动</h3>
+            <div class="score mid">32</div>
+            <div class="metrics"><span class="metric">user_scale: 32</span><span class="metric">community_vitality: 0</span><span class="metric">archetype_fit: 0.0</span><span class="metric">ccu: 0</span><span class="metric">owners: N/A</span><span class="metric">score: 0</span><span class="metric">primary_archetype: 未知</span><span class="metric">archetype_detail: {}</span><span class="metric">genre_count: 0</span><span class="metric">category_count: 0</span></div>
+            <ul></ul>
+        </div>
+        <div class="card">
+            <h3>无尽冬日</h3>
+            <div class="score mid">32</div>
+            <div class="metrics"><span class="metric">user_scale: 32</span><span class="metric">community_vitality: 0</span><span class="metric">archetype_fit: 0.0</span><span class="metric">ccu: 0</span><span class="metric">owners: N/A</span><span class="metric">score: 0</span><span class="metric">primary_archetype: 未知</span><span class="metric">archetype_detail: {}</span><span class="metric">genre_count: 0</span><span class="metric">category_count: 0</span></div>
+            <ul></ul>
+        </div>
+        <div class="card">
+            <h3>MONOPOLY GO!</h3>
+            <div class="score low">24</div>
+            <div class="metrics"><span class="metric">user_scale: 24</span><span class="metric">community_vitality: 0</span><span class="metric">archetype_fit: 0.0</span><span class="metric">ccu: 0</span><span class="metric">owners: N/A</span><span class="metric">score: 0</span><span class="metric">primary_archetype: 未知</span><span class="metric">archetype_detail: {}</span><span class="metric">genre_count: 0</span><span class="metric">category_count: 0</span></div>
+            <ul></ul>
+        </div>
+        <div class="card">
+            <h3>我的世界：移动版</h3>
+            <div class="score low">19</div>
+            <div class="metrics"><span class="metric">user_scale: 4</span><span class="metric">community_vitality: 15</span><span class="metric">archetype_fit: 0.0</span><span class="metric">ccu: 0</span><span class="metric">owners: N/A</span><span class="metric">score: 6.3</span><span class="metric">primary_archetype: 未知</span><span class="metric">archetype_detail: {}</span><span class="metric">genre_count: 0</span><span class="metric">category_count: 0</span></div>
+            <ul><li>TapTap 评分 6.3 — 用户口碑优秀</li></ul>
+        </div>
+        <div class="card">
+            <h3>地牢猎手6</h3>
+            <div class="score low">19</div>
+            <div class="metrics"><span class="metric">user_scale: 4</span><span class="metric">community_vitality: 15</span><span class="metric">archetype_fit: 0.0</span><span class="metric">ccu: 0</span><span class="metric">owners: N/A</span><span class="metric">score: 8.1</span><span class="metric">primary_archetype: 未知</span><span class="metric">archetype_detail: {}</span><span class="metric">genre_count: 0</span><span class="metric">category_count: 0</span></div>
+            <ul><li>TapTap 评分 8.1 — 用户口碑优秀</li></ul>
+        </div>
+        <div class="card">
+            <h3>心动小镇</h3>
+            <div class="score low">19</div>
+            <div class="metrics"><span class="metric">user_scale: 4</span><span class="metric">community_vitality: 15</span><span class="metric">archetype_fit: 0.0</span><span class="metric">ccu: 0</span><span class="metric">owners: N/A</span><span class="metric">score: 8.7</span><span class="metric">primary_archetype: 未知</span><span class="metric">archetype_detail: {}</span><span class="metric">genre_count: 0</span><span class="metric">category_count: 0</span></div>
+            <ul><li>TapTap 评分 8.7 — 用户口碑优秀</li></ul>
+        </div>
+        <div class="card">
+            <h3>遗忘之海</h3>
+            <div class="score low">19</div>
+            <div class="metrics"><span class="metric">user_scale: 4</span><span class="metric">community_vitality: 15</span><span class="metric">archetype_fit: 0.0</span><span class="metric">ccu: 0</span><span class="metric">owners: N/A</span><span class="metric">score: 8.7</span><span class="metric">primary_archetype: 未知</span><span class="metric">archetype_detail: {}</span><span class="metric">genre_count: 0</span><span class="metric">category_count: 0</span></div>
+            <ul><li>TapTap 评分 8.7 — 用户口碑优秀</li></ul>
+        </div>
+        <div class="card">
+            <h3>旋转音律</h3>
+            <div class="score low">19</div>
+            <div class="metrics"><span class="metric">user_scale: 4</span><span class="metric">community_vitality: 15</span><span class="metric">archetype_fit: 0.0</span><span class="metric">ccu: 0</span><span class="metric">owners: N/A</span><span class="metric">score: 9.3</span><span class="metric">primary_archetype: 未知</span><span class="metric">archetype_detail: {}</span><span class="metric">genre_count: 0</span><span class="metric">category_count: 0</span></div>
+            <ul><li>TapTap 评分 9.3 — 用户口碑优秀</li></ul>
+        </div></div>
+</div>
+<div id="tab-design" class="tab-content">
+    <div class="overview-grid">
+        <div class="card">
+            <h3>Counter-Strike: Global Offensive</h3>
+            <div class="score ">81</div>
+            <div class="metrics"><span class="metric">genre_clarity: 26</span><span class="metric">mechanic_richness: 21.0</span><span class="metric">innovation: 34.4</span><span class="metric">genres: ['Action', 'Free To Play']</span><span class="metric">categories: ['Multi-player', 'Cross-Platform Multiplayer', 'Steam Trading Cards', 'Steam Workshop', 'In-App Purchases', 'Adjustable Text Size', 'Camera Comfort', 'Color Alternatives', 'Custom Volume Controls', 'Playable without Timed Input', 'Stereo Sound', 'Surround Sound', 'Valve Anti-Cheat enabled', 'Stats', 'Remote Play on Phone', 'Remote Play on Tablet', 'Remote Play on TV', 'Steam Timeline']</span><span class="metric">category_count: 18</span><span class="metric">genre_count: 2</span><span class="metric">primary_loop: 对战循环</span><span class="metric">loop_scores: {'对战循环': 0.8333333333333333, '合作生存': 0.0, '探索成长': 0.0, '建造创造': 0.0, '运营管理': 0.0, '休闲重复': 0.0, '社交MMO': 0.8333333333333333}</span></div>
+            <ul><li>品类聚焦: Action, Free To Play — 设计定位清晰</li><li>核心循环: 对战循环(83%) + 社交MMO(83%)</li><li>系统复杂度中等（18 种特性）</li><li>高创新度 — 品类组合在市场中罕见</li><li>关键特性: Steam Workshop, In-App Purchases, Cross-Platform Multiplayer, Valve Anti-Cheat enabled</li></ul>
+        </div>
+        <div class="card">
+            <h3>Counter-Strike: Global Offensive</h3>
+            <div class="score ">81</div>
+            <div class="metrics"><span class="metric">genre_clarity: 26</span><span class="metric">mechanic_richness: 21.0</span><span class="metric">innovation: 34.4</span><span class="metric">genres: ['Action', 'Free To Play']</span><span class="metric">categories: ['Multi-player', 'Cross-Platform Multiplayer', 'Steam Trading Cards', 'Steam Workshop', 'In-App Purchases', 'Adjustable Text Size', 'Camera Comfort', 'Color Alternatives', 'Custom Volume Controls', 'Playable without Timed Input', 'Stereo Sound', 'Surround Sound', 'Valve Anti-Cheat enabled', 'Stats', 'Remote Play on Phone', 'Remote Play on Tablet', 'Remote Play on TV', 'Steam Timeline']</span><span class="metric">category_count: 18</span><span class="metric">genre_count: 2</span><span class="metric">primary_loop: 对战循环</span><span class="metric">loop_scores: {'对战循环': 0.8333333333333333, '合作生存': 0.0, '探索成长': 0.0, '建造创造': 0.0, '运营管理': 0.0, '休闲重复': 0.0, '社交MMO': 0.8333333333333333}</span></div>
+            <ul><li>品类聚焦: Action, Free To Play — 设计定位清晰</li><li>核心循环: 对战循环(83%) + 社交MMO(83%)</li><li>系统复杂度中等（18 种特性）</li><li>高创新度 — 品类组合在市场中罕见</li><li>关键特性: Steam Workshop, In-App Purchases, Cross-Platform Multiplayer, Valve Anti-Cheat enabled</li></ul>
+        </div>
+        <div class="card">
+            <h3>Counter-Strike: Global Offensive</h3>
+            <div class="score ">81</div>
+            <div class="metrics"><span class="metric">genre_clarity: 26</span><span class="metric">mechanic_richness: 21.0</span><span class="metric">innovation: 34.4</span><span class="metric">genres: ['Action', 'Free To Play']</span><span class="metric">categories: ['Multi-player', 'Cross-Platform Multiplayer', 'Steam Trading Cards', 'Steam Workshop', 'In-App Purchases', 'Adjustable Text Size', 'Camera Comfort', 'Color Alternatives', 'Custom Volume Controls', 'Playable without Timed Input', 'Stereo Sound', 'Surround Sound', 'Valve Anti-Cheat enabled', 'Stats', 'Remote Play on Phone', 'Remote Play on Tablet', 'Remote Play on TV', 'Steam Timeline']</span><span class="metric">category_count: 18</span><span class="metric">genre_count: 2</span><span class="metric">primary_loop: 对战循环</span><span class="metric">loop_scores: {'对战循环': 0.8333333333333333, '合作生存': 0.0, '探索成长': 0.0, '建造创造': 0.0, '运营管理': 0.0, '休闲重复': 0.0, '社交MMO': 0.8333333333333333}</span></div>
+            <ul><li>品类聚焦: Action, Free To Play — 设计定位清晰</li><li>核心循环: 对战循环(83%) + 社交MMO(83%)</li><li>系统复杂度中等（18 种特性）</li><li>高创新度 — 品类组合在市场中罕见</li><li>关键特性: Steam Workshop, In-App Purchases, Cross-Platform Multiplayer, Valve Anti-Cheat enabled</li></ul>
+        </div>
+        <div class="card">
+            <h3>Apex Legends</h3>
+            <div class="score ">68</div>
+            <div class="metrics"><span class="metric">genre_clarity: 20</span><span class="metric">mechanic_richness: 14.0</span><span class="metric">innovation: 34.4</span><span class="metric">genres: ['Action', 'Adventure', 'Free To Play']</span><span class="metric">categories: ['Multi-player', 'PvP', 'Online PvP', 'Co-op', 'Online Co-op', 'Steam Achievements', 'Full controller support', 'Steam Trading Cards', 'In-App Purchases', 'Chat Speech-to-text', 'Playable without Timed Input']</span><span class="metric">category_count: 11</span><span class="metric">genre_count: 3</span><span class="metric">primary_loop: 对战循环</span><span class="metric">loop_scores: {'对战循环': 1.0, '合作生存': 1.0, '探索成长': 0.41666666666666663, '建造创造': 0.0, '运营管理': 0.0, '休闲重复': 0.0, '社交MMO': 0.0}</span></div>
+            <ul><li>品类覆盖: Action, Adventure, Free To Play — 多品类融合设计</li><li>核心循环: 对战循环(100%) + 合作生存(100%)</li><li>系统精简（11 种特性），轻量设计</li><li>高创新度 — 品类组合在市场中罕见</li><li>关键特性: In-App Purchases, Full controller support</li></ul>
+        </div>
+        <div class="card">
+            <h3>Rust</h3>
+            <div class="score ">67</div>
+            <div class="metrics"><span class="metric">genre_clarity: 8</span><span class="metric">mechanic_richness: 23.5</span><span class="metric">innovation: 35.4</span><span class="metric">genres: ['Action', 'Adventure', 'Indie', 'Massively Multiplayer', 'RPG']</span><span class="metric">categories: ['Multi-player', 'MMO', 'PvP', 'Online PvP', 'Co-op', 'Online Co-op', 'Cross-Platform Multiplayer', 'Steam Achievements', 'Steam Trading Cards', 'Steam Workshop', 'In-App Purchases', 'Adjustable Text Size', 'Camera Comfort', 'Color Alternatives', 'Custom Volume Controls', 'Adjustable Difficulty', 'Stereo Sound', 'Subtitle Options', 'Surround Sound', 'Valve Anti-Cheat enabled', 'Stats', 'Remote Play on Tablet']</span><span class="metric">category_count: 22</span><span class="metric">genre_count: 5</span><span class="metric">primary_loop: 对战循环</span><span class="metric">loop_scores: {'对战循环': 1.0, '合作生存': 1.0, '探索成长': 0.8333333333333333, '建造创造': 0.0, '运营管理': 0.0, '休闲重复': 0.0, '社交MMO': 1.0}</span></div>
+            <ul><li>广谱品类: Action, Adventure, Indie, Massively Multiplayer, RPG — 追求广泛受众</li><li>核心循环: 对战循环(100%) + 合作生存(100%)</li><li>系统深度高（22 种特性），内容丰富</li><li>高创新度 — 品类组合在市场中罕见</li><li>关键特性: Steam Workshop, In-App Purchases, Cross-Platform Multiplayer, Valve Anti-Cheat enabled</li></ul>
+        </div>
+        <div class="card">
+            <h3>Rust</h3>
+            <div class="score ">67</div>
+            <div class="metrics"><span class="metric">genre_clarity: 8</span><span class="metric">mechanic_richness: 23.5</span><span class="metric">innovation: 35.4</span><span class="metric">genres: ['Action', 'Adventure', 'Indie', 'Massively Multiplayer', 'RPG']</span><span class="metric">categories: ['Multi-player', 'MMO', 'PvP', 'Online PvP', 'Co-op', 'Online Co-op', 'Cross-Platform Multiplayer', 'Steam Achievements', 'Steam Trading Cards', 'Steam Workshop', 'In-App Purchases', 'Adjustable Text Size', 'Camera Comfort', 'Color Alternatives', 'Custom Volume Controls', 'Adjustable Difficulty', 'Stereo Sound', 'Subtitle Options', 'Surround Sound', 'Valve Anti-Cheat enabled', 'Stats', 'Remote Play on Tablet']</span><span class="metric">category_count: 22</span><span class="metric">genre_count: 5</span><span class="metric">primary_loop: 对战循环</span><span class="metric">loop_scores: {'对战循环': 1.0, '合作生存': 1.0, '探索成长': 0.8333333333333333, '建造创造': 0.0, '运营管理': 0.0, '休闲重复': 0.0, '社交MMO': 1.0}</span></div>
+            <ul><li>广谱品类: Action, Adventure, Indie, Massively Multiplayer, RPG — 追求广泛受众</li><li>核心循环: 对战循环(100%) + 合作生存(100%)</li><li>系统深度高（22 种特性），内容丰富</li><li>高创新度 — 品类组合在市场中罕见</li><li>关键特性: Steam Workshop, In-App Purchases, Cross-Platform Multiplayer, Valve Anti-Cheat enabled</li></ul>
+        </div>
+        <div class="card">
+            <h3>Rust</h3>
+            <div class="score ">67</div>
+            <div class="metrics"><span class="metric">genre_clarity: 8</span><span class="metric">mechanic_richness: 23.5</span><span class="metric">innovation: 35.4</span><span class="metric">genres: ['Action', 'Adventure', 'Indie', 'Massively Multiplayer', 'RPG']</span><span class="metric">categories: ['Multi-player', 'MMO', 'PvP', 'Online PvP', 'Co-op', 'Online Co-op', 'Cross-Platform Multiplayer', 'Steam Achievements', 'Steam Trading Cards', 'Steam Workshop', 'In-App Purchases', 'Adjustable Text Size', 'Camera Comfort', 'Color Alternatives', 'Custom Volume Controls', 'Adjustable Difficulty', 'Stereo Sound', 'Subtitle Options', 'Surround Sound', 'Valve Anti-Cheat enabled', 'Stats', 'Remote Play on Tablet']</span><span class="metric">category_count: 22</span><span class="metric">genre_count: 5</span><span class="metric">primary_loop: 对战循环</span><span class="metric">loop_scores: {'对战循环': 1.0, '合作生存': 1.0, '探索成长': 0.8333333333333333, '建造创造': 0.0, '运营管理': 0.0, '休闲重复': 0.0, '社交MMO': 1.0}</span></div>
+            <ul><li>广谱品类: Action, Adventure, Indie, Massively Multiplayer, RPG — 追求广泛受众</li><li>核心循环: 对战循环(100%) + 合作生存(100%)</li><li>系统深度高（22 种特性），内容丰富</li><li>高创新度 — 品类组合在市场中罕见</li><li>关键特性: Steam Workshop, In-App Purchases, Cross-Platform Multiplayer, Valve Anti-Cheat enabled</li></ul>
+        </div>
+        <div class="card">
+            <h3>PUBG: BATTLEGROUNDS</h3>
+            <div class="score mid">60</div>
+            <div class="metrics"><span class="metric">genre_clarity: 14</span><span class="metric">mechanic_richness: 10.5</span><span class="metric">innovation: 35.4</span><span class="metric">genres: ['Action', 'Adventure', 'Massively Multiplayer', 'Free To Play']</span><span class="metric">categories: ['Multi-player', 'PvP', 'Online PvP', 'Custom Volume Controls', 'Stereo Sound', 'Surround Sound', 'Stats', 'Remote Play on Phone', 'Remote Play on Tablet']</span><span class="metric">category_count: 9</span><span class="metric">genre_count: 4</span><span class="metric">primary_loop: 对战循环</span><span class="metric">loop_scores: {'对战循环': 1.0, '合作生存': 0.0, '探索成长': 0.41666666666666663, '建造创造': 0.0, '运营管理': 0.0, '休闲重复': 0.0, '社交MMO': 0.8333333333333333}</span></div>
+            <ul><li>品类覆盖: Action, Adventure, Massively Multiplayer, Free To Play — 多品类融合设计</li><li>核心循环: 对战循环(100%) + 社交MMO(83%)</li><li>系统精简（9 种特性），轻量设计</li><li>高创新度 — 品类组合在市场中罕见</li></ul>
+        </div>
+        <div class="card">
+            <h3>PUBG: BATTLEGROUNDS</h3>
+            <div class="score mid">60</div>
+            <div class="metrics"><span class="metric">genre_clarity: 14</span><span class="metric">mechanic_richness: 10.5</span><span class="metric">innovation: 35.4</span><span class="metric">genres: ['Action', 'Adventure', 'Massively Multiplayer', 'Free To Play']</span><span class="metric">categories: ['Multi-player', 'PvP', 'Online PvP', 'Custom Volume Controls', 'Stereo Sound', 'Surround Sound', 'Stats', 'Remote Play on Phone', 'Remote Play on Tablet']</span><span class="metric">category_count: 9</span><span class="metric">genre_count: 4</span><span class="metric">primary_loop: 对战循环</span><span class="metric">loop_scores: {'对战循环': 1.0, '合作生存': 0.0, '探索成长': 0.41666666666666663, '建造创造': 0.0, '运营管理': 0.0, '休闲重复': 0.0, '社交MMO': 0.8333333333333333}</span></div>
+            <ul><li>品类覆盖: Action, Adventure, Massively Multiplayer, Free To Play — 多品类融合设计</li><li>核心循环: 对战循环(100%) + 社交MMO(83%)</li><li>系统精简（9 种特性），轻量设计</li><li>高创新度 — 品类组合在市场中罕见</li></ul>
+        </div>
+        <div class="card">
+            <h3>PUBG: BATTLEGROUNDS</h3>
+            <div class="score mid">60</div>
+            <div class="metrics"><span class="metric">genre_clarity: 14</span><span class="metric">mechanic_richness: 10.5</span><span class="metric">innovation: 35.4</span><span class="metric">genres: ['Action', 'Adventure', 'Massively Multiplayer', 'Free To Play']</span><span class="metric">categories: ['Multi-player', 'PvP', 'Online PvP', 'Custom Volume Controls', 'Stereo Sound', 'Surround Sound', 'Stats', 'Remote Play on Phone', 'Remote Play on Tablet']</span><span class="metric">category_count: 9</span><span class="metric">genre_count: 4</span><span class="metric">primary_loop: 对战循环</span><span class="metric">loop_scores: {'对战循环': 1.0, '合作生存': 0.0, '探索成长': 0.41666666666666663, '建造创造': 0.0, '运营管理': 0.0, '休闲重复': 0.0, '社交MMO': 0.8333333333333333}</span></div>
+            <ul><li>品类覆盖: Action, Adventure, Massively Multiplayer, Free To Play — 多品类融合设计</li><li>核心循环: 对战循环(100%) + 社交MMO(83%)</li><li>系统精简（9 种特性），轻量设计</li><li>高创新度 — 品类组合在市场中罕见</li></ul>
+        </div>
+        <div class="card">
+            <h3>王者荣耀</h3>
+            <div class="score low">25</div>
+            <div class="metrics"><span class="metric">genre_clarity: 10</span><span class="metric">mechanic_richness: 5.0</span><span class="metric">innovation: 10</span><span class="metric">genres: []</span><span class="metric">categories: []</span><span class="metric">category_count: 0</span><span class="metric">genre_count: 0</span><span class="metric">primary_loop: 未知</span><span class="metric">loop_scores: {'对战循环': 0.0, '合作生存': 0.0, '探索成长': 0.0, '建造创造': 0.0, '运营管理': 0.0, '休闲重复': 0.0, '社交MMO': 0.0}</span></div>
+            <ul><li>无 Steam 标签数据（非 Steam 游戏或未收录）</li></ul>
+        </div>
+        <div class="card">
+            <h3>Block Out! - Color Sort Puzzle</h3>
+            <div class="score low">25</div>
+            <div class="metrics"><span class="metric">genre_clarity: 10</span><span class="metric">mechanic_richness: 5.0</span><span class="metric">innovation: 10</span><span class="metric">genres: []</span><span class="metric">categories: []</span><span class="metric">category_count: 0</span><span class="metric">genre_count: 0</span><span class="metric">primary_loop: 未知</span><span class="metric">loop_scores: {'对战循环': 0.0, '合作生存': 0.0, '探索成长': 0.0, '建造创造': 0.0, '运营管理': 0.0, '休闲重复': 0.0, '社交MMO': 0.0}</span></div>
+            <ul><li>无 Steam 标签数据（非 Steam 游戏或未收录）</li></ul>
+        </div>
+        <div class="card">
+            <h3>MONOPOLY GO!</h3>
+            <div class="score low">25</div>
+            <div class="metrics"><span class="metric">genre_clarity: 10</span><span class="metric">mechanic_richness: 5.0</span><span class="metric">innovation: 10</span><span class="metric">genres: []</span><span class="metric">categories: []</span><span class="metric">category_count: 0</span><span class="metric">genre_count: 0</span><span class="metric">primary_loop: 未知</span><span class="metric">loop_scores: {'对战循环': 0.0, '合作生存': 0.0, '探索成长': 0.0, '建造创造': 0.0, '运营管理': 0.0, '休闲重复': 0.0, '社交MMO': 0.0}</span></div>
+            <ul><li>无 Steam 标签数据（非 Steam 游戏或未收录）</li></ul>
+        </div>
+        <div class="card">
+            <h3>三角洲行动</h3>
+            <div class="score low">25</div>
+            <div class="metrics"><span class="metric">genre_clarity: 10</span><span class="metric">mechanic_richness: 5.0</span><span class="metric">innovation: 10</span><span class="metric">genres: []</span><span class="metric">categories: []</span><span class="metric">category_count: 0</span><span class="metric">genre_count: 0</span><span class="metric">primary_loop: 未知</span><span class="metric">loop_scores: {'对战循环': 0.0, '合作生存': 0.0, '探索成长': 0.0, '建造创造': 0.0, '运营管理': 0.0, '休闲重复': 0.0, '社交MMO': 0.0}</span></div>
+            <ul><li>无 Steam 标签数据（非 Steam 游戏或未收录）</li></ul>
+        </div>
+        <div class="card">
+            <h3>无尽冬日</h3>
+            <div class="score low">25</div>
+            <div class="metrics"><span class="metric">genre_clarity: 10</span><span class="metric">mechanic_richness: 5.0</span><span class="metric">innovation: 10</span><span class="metric">genres: []</span><span class="metric">categories: []</span><span class="metric">category_count: 0</span><span class="metric">genre_count: 0</span><span class="metric">primary_loop: 未知</span><span class="metric">loop_scores: {'对战循环': 0.0, '合作生存': 0.0, '探索成长': 0.0, '建造创造': 0.0, '运营管理': 0.0, '休闲重复': 0.0, '社交MMO': 0.0}</span></div>
+            <ul><li>无 Steam 标签数据（非 Steam 游戏或未收录）</li></ul>
+        </div>
+        <div class="card">
+            <h3>我的世界：移动版</h3>
+            <div class="score low">25</div>
+            <div class="metrics"><span class="metric">genre_clarity: 10</span><span class="metric">mechanic_richness: 5.0</span><span class="metric">innovation: 10</span><span class="metric">genres: []</span><span class="metric">categories: []</span><span class="metric">category_count: 0</span><span class="metric">genre_count: 0</span><span class="metric">primary_loop: 未知</span><span class="metric">loop_scores: {'对战循环': 0.0, '合作生存': 0.0, '探索成长': 0.0, '建造创造': 0.0, '运营管理': 0.0, '休闲重复': 0.0, '社交MMO': 0.0}</span></div>
+            <ul><li>无 Steam 标签数据（非 Steam 游戏或未收录）</li></ul>
+        </div>
+        <div class="card">
+            <h3>地牢猎手6</h3>
+            <div class="score low">25</div>
+            <div class="metrics"><span class="metric">genre_clarity: 10</span><span class="metric">mechanic_richness: 5.0</span><span class="metric">innovation: 10</span><span class="metric">genres: []</span><span class="metric">categories: []</span><span class="metric">category_count: 0</span><span class="metric">genre_count: 0</span><span class="metric">primary_loop: 未知</span><span class="metric">loop_scores: {'对战循环': 0.0, '合作生存': 0.0, '探索成长': 0.0, '建造创造': 0.0, '运营管理': 0.0, '休闲重复': 0.0, '社交MMO': 0.0}</span></div>
+            <ul><li>无 Steam 标签数据（非 Steam 游戏或未收录）</li></ul>
+        </div>
+        <div class="card">
+            <h3>心动小镇</h3>
+            <div class="score low">25</div>
+            <div class="metrics"><span class="metric">genre_clarity: 10</span><span class="metric">mechanic_richness: 5.0</span><span class="metric">innovation: 10</span><span class="metric">genres: []</span><span class="metric">categories: []</span><span class="metric">category_count: 0</span><span class="metric">genre_count: 0</span><span class="metric">primary_loop: 未知</span><span class="metric">loop_scores: {'对战循环': 0.0, '合作生存': 0.0, '探索成长': 0.0, '建造创造': 0.0, '运营管理': 0.0, '休闲重复': 0.0, '社交MMO': 0.0}</span></div>
+            <ul><li>无 Steam 标签数据（非 Steam 游戏或未收录）</li></ul>
+        </div>
+        <div class="card">
+            <h3>遗忘之海</h3>
+            <div class="score low">25</div>
+            <div class="metrics"><span class="metric">genre_clarity: 10</span><span class="metric">mechanic_richness: 5.0</span><span class="metric">innovation: 10</span><span class="metric">genres: []</span><span class="metric">categories: []</span><span class="metric">category_count: 0</span><span class="metric">genre_count: 0</span><span class="metric">primary_loop: 未知</span><span class="metric">loop_scores: {'对战循环': 0.0, '合作生存': 0.0, '探索成长': 0.0, '建造创造': 0.0, '运营管理': 0.0, '休闲重复': 0.0, '社交MMO': 0.0}</span></div>
+            <ul><li>无 Steam 标签数据（非 Steam 游戏或未收录）</li></ul>
+        </div>
+        <div class="card">
+            <h3>旋转音律</h3>
+            <div class="score low">25</div>
+            <div class="metrics"><span class="metric">genre_clarity: 10</span><span class="metric">mechanic_richness: 5.0</span><span class="metric">innovation: 10</span><span class="metric">genres: []</span><span class="metric">categories: []</span><span class="metric">category_count: 0</span><span class="metric">genre_count: 0</span><span class="metric">primary_loop: 未知</span><span class="metric">loop_scores: {'对战循环': 0.0, '合作生存': 0.0, '探索成长': 0.0, '建造创造': 0.0, '运营管理': 0.0, '休闲重复': 0.0, '社交MMO': 0.0}</span></div>
+            <ul><li>无 Steam 标签数据（非 Steam 游戏或未收录）</li></ul>
+        </div></div>
+</div>
+<div id="tab-operations" class="tab-content">
+    <div class="overview-grid">
+        <div class="card">
+            <h3>Block Out! - Color Sort Puzzle</h3>
+            <div class="score ">94</div>
+            <div class="metrics"><span class="metric">stability: 40</span><span class="metric">trend: 24</span><span class="metric">level: 30</span><span class="metric">manual_bonus: 0</span><span class="metric">current_rank: 1</span><span class="metric">history_days: 3</span><span class="metric">has_manual_data: False</span></div>
+            <ul><li>当前排名 #1 — 顶级运营团队支撑</li><li>排名极稳定 (σ<3, 3天) — 运营节奏成熟</li><li>排名上升趋势 — 运营活动/更新在拉动增长</li></ul>
+        </div>
+        <div class="card">
+            <h3>遗忘之海</h3>
+            <div class="score ">94</div>
+            <div class="metrics"><span class="metric">stability: 40</span><span class="metric">trend: 24</span><span class="metric">level: 30</span><span class="metric">manual_bonus: 0</span><span class="metric">current_rank: 1</span><span class="metric">history_days: 3</span><span class="metric">has_manual_data: False</span></div>
+            <ul><li>当前排名 #1 — 顶级运营团队支撑</li><li>排名极稳定 (σ<3, 3天) — 运营节奏成熟</li><li>排名上升趋势 — 运营活动/更新在拉动增长</li></ul>
+        </div>
+        <div class="card">
+            <h3>Counter-Strike: Global Offensive</h3>
+            <div class="score ">90</div>
+            <div class="metrics"><span class="metric">stability: 40</span><span class="metric">trend: 20</span><span class="metric">level: 30</span><span class="metric">manual_bonus: 0</span><span class="metric">current_rank: 1</span><span class="metric">history_days: 3</span><span class="metric">has_manual_data: False</span></div>
+            <ul><li>当前排名 #1 — 顶级运营团队支撑</li><li>排名极稳定 (σ<3, 3天) — 运营节奏成熟</li></ul>
+        </div>
+        <div class="card">
+            <h3>Counter-Strike: Global Offensive</h3>
+            <div class="score ">90</div>
+            <div class="metrics"><span class="metric">stability: 40</span><span class="metric">trend: 20</span><span class="metric">level: 30</span><span class="metric">manual_bonus: 0</span><span class="metric">current_rank: 1</span><span class="metric">history_days: 3</span><span class="metric">has_manual_data: False</span></div>
+            <ul><li>当前排名 #1 — 顶级运营团队支撑</li><li>排名极稳定 (σ<3, 3天) — 运营节奏成熟</li></ul>
+        </div>
+        <div class="card">
+            <h3>Counter-Strike: Global Offensive</h3>
+            <div class="score ">90</div>
+            <div class="metrics"><span class="metric">stability: 40</span><span class="metric">trend: 20</span><span class="metric">level: 30</span><span class="metric">manual_bonus: 0</span><span class="metric">current_rank: 1</span><span class="metric">history_days: 3</span><span class="metric">has_manual_data: False</span></div>
+            <ul><li>当前排名 #1 — 顶级运营团队支撑</li><li>排名极稳定 (σ<3, 3天) — 运营节奏成熟</li></ul>
+        </div>
+        <div class="card">
+            <h3>PUBG: BATTLEGROUNDS</h3>
+            <div class="score ">90</div>
+            <div class="metrics"><span class="metric">stability: 40</span><span class="metric">trend: 20</span><span class="metric">level: 30</span><span class="metric">manual_bonus: 0</span><span class="metric">current_rank: 2</span><span class="metric">history_days: 3</span><span class="metric">has_manual_data: False</span></div>
+            <ul><li>当前排名 #2 — 顶级运营团队支撑</li><li>排名极稳定 (σ<3, 3天) — 运营节奏成熟</li></ul>
+        </div>
+        <div class="card">
+            <h3>PUBG: BATTLEGROUNDS</h3>
+            <div class="score ">90</div>
+            <div class="metrics"><span class="metric">stability: 40</span><span class="metric">trend: 20</span><span class="metric">level: 30</span><span class="metric">manual_bonus: 0</span><span class="metric">current_rank: 2</span><span class="metric">history_days: 3</span><span class="metric">has_manual_data: False</span></div>
+            <ul><li>当前排名 #2 — 顶级运营团队支撑</li><li>排名极稳定 (σ<3, 3天) — 运营节奏成熟</li></ul>
+        </div>
+        <div class="card">
+            <h3>PUBG: BATTLEGROUNDS</h3>
+            <div class="score ">90</div>
+            <div class="metrics"><span class="metric">stability: 40</span><span class="metric">trend: 20</span><span class="metric">level: 30</span><span class="metric">manual_bonus: 0</span><span class="metric">current_rank: 2</span><span class="metric">history_days: 3</span><span class="metric">has_manual_data: False</span></div>
+            <ul><li>当前排名 #2 — 顶级运营团队支撑</li><li>排名极稳定 (σ<3, 3天) — 运营节奏成熟</li></ul>
+        </div>
+        <div class="card">
+            <h3>Rust</h3>
+            <div class="score ">90</div>
+            <div class="metrics"><span class="metric">stability: 40</span><span class="metric">trend: 20</span><span class="metric">level: 30</span><span class="metric">manual_bonus: 0</span><span class="metric">current_rank: 3</span><span class="metric">history_days: 3</span><span class="metric">has_manual_data: False</span></div>
+            <ul><li>当前排名 #3 — 顶级运营团队支撑</li><li>排名极稳定 (σ<3, 3天) — 运营节奏成熟</li></ul>
+        </div>
+        <div class="card">
+            <h3>Rust</h3>
+            <div class="score ">90</div>
+            <div class="metrics"><span class="metric">stability: 40</span><span class="metric">trend: 20</span><span class="metric">level: 30</span><span class="metric">manual_bonus: 0</span><span class="metric">current_rank: 3</span><span class="metric">history_days: 3</span><span class="metric">has_manual_data: False</span></div>
+            <ul><li>当前排名 #3 — 顶级运营团队支撑</li><li>排名极稳定 (σ<3, 3天) — 运营节奏成熟</li></ul>
+        </div>
+        <div class="card">
+            <h3>Rust</h3>
+            <div class="score ">90</div>
+            <div class="metrics"><span class="metric">stability: 40</span><span class="metric">trend: 20</span><span class="metric">level: 30</span><span class="metric">manual_bonus: 0</span><span class="metric">current_rank: 3</span><span class="metric">history_days: 3</span><span class="metric">has_manual_data: False</span></div>
+            <ul><li>当前排名 #3 — 顶级运营团队支撑</li><li>排名极稳定 (σ<3, 3天) — 运营节奏成熟</li></ul>
+        </div>
+        <div class="card">
+            <h3>王者荣耀</h3>
+            <div class="score ">90</div>
+            <div class="metrics"><span class="metric">stability: 40</span><span class="metric">trend: 20</span><span class="metric">level: 30</span><span class="metric">manual_bonus: 0</span><span class="metric">current_rank: 1</span><span class="metric">history_days: 3</span><span class="metric">has_manual_data: False</span></div>
+            <ul><li>当前排名 #1 — 顶级运营团队支撑</li><li>排名极稳定 (σ<3, 3天) — 运营节奏成熟</li></ul>
+        </div>
+        <div class="card">
+            <h3>MONOPOLY GO!</h3>
+            <div class="score ">90</div>
+            <div class="metrics"><span class="metric">stability: 40</span><span class="metric">trend: 20</span><span class="metric">level: 30</span><span class="metric">manual_bonus: 0</span><span class="metric">current_rank: 1</span><span class="metric">history_days: 3</span><span class="metric">has_manual_data: False</span></div>
+            <ul><li>当前排名 #1 — 顶级运营团队支撑</li><li>排名极稳定 (σ<3, 3天) — 运营节奏成熟</li></ul>
+        </div>
+        <div class="card">
+            <h3>无尽冬日</h3>
+            <div class="score ">90</div>
+            <div class="metrics"><span class="metric">stability: 36</span><span class="metric">trend: 24</span><span class="metric">level: 30</span><span class="metric">manual_bonus: 0</span><span class="metric">current_rank: 2</span><span class="metric">history_days: 3</span><span class="metric">has_manual_data: False</span></div>
+            <ul><li>当前排名 #2 — 顶级运营团队支撑</li><li>排名极稳定 (σ<3, 3天) — 运营节奏成熟</li><li>排名上升趋势 — 运营活动/更新在拉动增长</li></ul>
+        </div>
+        <div class="card">
+            <h3>我的世界：移动版</h3>
+            <div class="score ">90</div>
+            <div class="metrics"><span class="metric">stability: 40</span><span class="metric">trend: 20</span><span class="metric">level: 30</span><span class="metric">manual_bonus: 0</span><span class="metric">current_rank: 1</span><span class="metric">history_days: 3</span><span class="metric">has_manual_data: False</span></div>
+            <ul><li>当前排名 #1 — 顶级运营团队支撑</li><li>排名极稳定 (σ<3, 3天) — 运营节奏成熟</li></ul>
+        </div>
+        <div class="card">
+            <h3>地牢猎手6</h3>
+            <div class="score ">90</div>
+            <div class="metrics"><span class="metric">stability: 30</span><span class="metric">trend: 30</span><span class="metric">level: 30</span><span class="metric">manual_bonus: 0</span><span class="metric">current_rank: 1</span><span class="metric">history_days: 3</span><span class="metric">has_manual_data: False</span></div>
+            <ul><li>当前排名 #1 — 顶级运营团队支撑</li><li>排名稳定 (σ<10) — 运营保持水准</li><li>排名上升趋势 — 运营活动/更新在拉动增长</li></ul>
+        </div>
+        <div class="card">
+            <h3>心动小镇</h3>
+            <div class="score ">90</div>
+            <div class="metrics"><span class="metric">stability: 40</span><span class="metric">trend: 20</span><span class="metric">level: 30</span><span class="metric">manual_bonus: 0</span><span class="metric">current_rank: 1</span><span class="metric">history_days: 3</span><span class="metric">has_manual_data: False</span></div>
+            <ul><li>当前排名 #1 — 顶级运营团队支撑</li><li>排名极稳定 (σ<3, 3天) — 运营节奏成熟</li></ul>
+        </div>
+        <div class="card">
+            <h3>旋转音律</h3>
+            <div class="score ">90</div>
+            <div class="metrics"><span class="metric">stability: 40</span><span class="metric">trend: 20</span><span class="metric">level: 30</span><span class="metric">manual_bonus: 0</span><span class="metric">current_rank: 1</span><span class="metric">history_days: 3</span><span class="metric">has_manual_data: False</span></div>
+            <ul><li>当前排名 #1 — 顶级运营团队支撑</li><li>排名极稳定 (σ<3, 3天) — 运营节奏成熟</li></ul>
+        </div>
+        <div class="card">
+            <h3>Apex Legends</h3>
+            <div class="score ">85</div>
+            <div class="metrics"><span class="metric">stability: 40</span><span class="metric">trend: 20</span><span class="metric">level: 25</span><span class="metric">manual_bonus: 0</span><span class="metric">current_rank: 4</span><span class="metric">history_days: 3</span><span class="metric">has_manual_data: False</span></div>
+            <ul><li>当前排名 #4 — 顶级运营团队支撑</li><li>排名极稳定 (σ<3, 3天) — 运营节奏成熟</li></ul>
+        </div>
+        <div class="card">
+            <h3>三角洲行动</h3>
+            <div class="score ">82</div>
+            <div class="metrics"><span class="metric">stability: 40</span><span class="metric">trend: 12</span><span class="metric">level: 30</span><span class="metric">manual_bonus: 0</span><span class="metric">current_rank: 1</span><span class="metric">history_days: 3</span><span class="metric">has_manual_data: False</span></div>
+            <ul><li>当前排名 #1 — 顶级运营团队支撑</li><li>排名极稳定 (σ<3, 3天) — 运营节奏成熟</li><li>排名下滑 — 运营可能松懈或竞品挤压</li></ul>
+        </div></div>
+</div>
+<div id="tab-publishing" class="tab-content">
+    <div class="overview-grid">
+        <div class="card">
+            <h3>Counter-Strike: Global Offensive</h3>
+            <div class="score ">100</div>
+            <div class="metrics"><span class="metric">market_alignment: 35</span><span class="metric">publishing_readiness: 35</span><span class="metric">stage_appropriateness: 30</span><span class="metric">stage: 成熟期</span><span class="metric">publishing_profile: 服务型</span><span class="metric">primary_loop: 对战循环</span><span class="metric">ccu: 1013936</span><span class="metric">current_rank: 1</span><span class="metric">checklist: {'stage': '成熟期', 'profile': '服务型', 'stage_actions': ['建立赛季/活动日历并稳定运营', '拓展新市场/新平台', '品牌合作与 IP 联动', 'UGC/社区生态建设'], 'advance_criteria': '持续运营 — 关注衰退信号', 'design_focus': '长线内容规划 + 社交系统深化 + 商业化健康度监控', 'profile_actions': ['建立赛季日历（至少 3 个赛季预排）', '设计 Battle Pass 经济模型', '搭建 LiveOps 工具链（热更新/AB测试/活动配置）', '社区运营团队到位（Discord/社群经理）'], 'launch_criteria': ['赛季内容 pipeline 已跑通至少 1 个完整周期', '付费转化模型已通过小规模测试验证', '服务器可承载目标 CCU × 3 压力测试通过'], 'ua_strategy': '重投放 → 以赛季为单位脉冲式投放，新赛季前 2 周加大预算'}</span><span class="metric">design_feedback: ['🏆 成熟期 — 设计重点转向长线内容+商业化健康度', '竞技类游戏 → 赛季制排位重置 + 新英雄/新地图是核心驱动', '投放强度低 → 可能过于依赖自然量，考虑适量投放维持增长']</span></div>
+            <ul><li>📌 当前阶段：成熟期  |  发行类型：服务型（赛季制/战斗通行证/活动驱动）</li><li>CCU: 1,013,936  |  当前排名: #1</li><li>  → 建立赛季/活动日历并稳定运营</li><li>  → 拓展新市场/新平台</li><li>  → 品牌合作与 IP 联动</li></ul>
+        </div>
+        <div class="card">
+            <h3>Counter-Strike: Global Offensive</h3>
+            <div class="score ">100</div>
+            <div class="metrics"><span class="metric">market_alignment: 35</span><span class="metric">publishing_readiness: 35</span><span class="metric">stage_appropriateness: 30</span><span class="metric">stage: 成熟期</span><span class="metric">publishing_profile: 服务型</span><span class="metric">primary_loop: 对战循环</span><span class="metric">ccu: 1013936</span><span class="metric">current_rank: 1</span><span class="metric">checklist: {'stage': '成熟期', 'profile': '服务型', 'stage_actions': ['建立赛季/活动日历并稳定运营', '拓展新市场/新平台', '品牌合作与 IP 联动', 'UGC/社区生态建设'], 'advance_criteria': '持续运营 — 关注衰退信号', 'design_focus': '长线内容规划 + 社交系统深化 + 商业化健康度监控', 'profile_actions': ['建立赛季日历（至少 3 个赛季预排）', '设计 Battle Pass 经济模型', '搭建 LiveOps 工具链（热更新/AB测试/活动配置）', '社区运营团队到位（Discord/社群经理）'], 'launch_criteria': ['赛季内容 pipeline 已跑通至少 1 个完整周期', '付费转化模型已通过小规模测试验证', '服务器可承载目标 CCU × 3 压力测试通过'], 'ua_strategy': '重投放 → 以赛季为单位脉冲式投放，新赛季前 2 周加大预算'}</span><span class="metric">design_feedback: ['🏆 成熟期 — 设计重点转向长线内容+商业化健康度', '竞技类游戏 → 赛季制排位重置 + 新英雄/新地图是核心驱动', '投放强度低 → 可能过于依赖自然量，考虑适量投放维持增长']</span></div>
+            <ul><li>📌 当前阶段：成熟期  |  发行类型：服务型（赛季制/战斗通行证/活动驱动）</li><li>CCU: 1,013,936  |  当前排名: #1</li><li>  → 建立赛季/活动日历并稳定运营</li><li>  → 拓展新市场/新平台</li><li>  → 品牌合作与 IP 联动</li></ul>
+        </div>
+        <div class="card">
+            <h3>Counter-Strike: Global Offensive</h3>
+            <div class="score ">100</div>
+            <div class="metrics"><span class="metric">market_alignment: 35</span><span class="metric">publishing_readiness: 35</span><span class="metric">stage_appropriateness: 30</span><span class="metric">stage: 成熟期</span><span class="metric">publishing_profile: 服务型</span><span class="metric">primary_loop: 对战循环</span><span class="metric">ccu: 1013936</span><span class="metric">current_rank: 1</span><span class="metric">checklist: {'stage': '成熟期', 'profile': '服务型', 'stage_actions': ['建立赛季/活动日历并稳定运营', '拓展新市场/新平台', '品牌合作与 IP 联动', 'UGC/社区生态建设'], 'advance_criteria': '持续运营 — 关注衰退信号', 'design_focus': '长线内容规划 + 社交系统深化 + 商业化健康度监控', 'profile_actions': ['建立赛季日历（至少 3 个赛季预排）', '设计 Battle Pass 经济模型', '搭建 LiveOps 工具链（热更新/AB测试/活动配置）', '社区运营团队到位（Discord/社群经理）'], 'launch_criteria': ['赛季内容 pipeline 已跑通至少 1 个完整周期', '付费转化模型已通过小规模测试验证', '服务器可承载目标 CCU × 3 压力测试通过'], 'ua_strategy': '重投放 → 以赛季为单位脉冲式投放，新赛季前 2 周加大预算'}</span><span class="metric">design_feedback: ['🏆 成熟期 — 设计重点转向长线内容+商业化健康度', '竞技类游戏 → 赛季制排位重置 + 新英雄/新地图是核心驱动', '投放强度低 → 可能过于依赖自然量，考虑适量投放维持增长']</span></div>
+            <ul><li>📌 当前阶段：成熟期  |  发行类型：服务型（赛季制/战斗通行证/活动驱动）</li><li>CCU: 1,013,936  |  当前排名: #1</li><li>  → 建立赛季/活动日历并稳定运营</li><li>  → 拓展新市场/新平台</li><li>  → 品牌合作与 IP 联动</li></ul>
+        </div>
+        <div class="card">
+            <h3>PUBG: BATTLEGROUNDS</h3>
+            <div class="score ">98</div>
+            <div class="metrics"><span class="metric">market_alignment: 33.4</span><span class="metric">publishing_readiness: 35</span><span class="metric">stage_appropriateness: 30</span><span class="metric">stage: 成熟期</span><span class="metric">publishing_profile: 服务型</span><span class="metric">primary_loop: 对战循环</span><span class="metric">ccu: 314682</span><span class="metric">current_rank: 2</span><span class="metric">checklist: {'stage': '成熟期', 'profile': '服务型', 'stage_actions': ['建立赛季/活动日历并稳定运营', '拓展新市场/新平台', '品牌合作与 IP 联动', 'UGC/社区生态建设'], 'advance_criteria': '持续运营 — 关注衰退信号', 'design_focus': '长线内容规划 + 社交系统深化 + 商业化健康度监控', 'profile_actions': ['建立赛季日历（至少 3 个赛季预排）', '设计 Battle Pass 经济模型', '搭建 LiveOps 工具链（热更新/AB测试/活动配置）', '社区运营团队到位（Discord/社群经理）'], 'launch_criteria': ['赛季内容 pipeline 已跑通至少 1 个完整周期', '付费转化模型已通过小规模测试验证', '服务器可承载目标 CCU × 3 压力测试通过'], 'ua_strategy': '重投放 → 以赛季为单位脉冲式投放，新赛季前 2 周加大预算'}</span><span class="metric">design_feedback: ['🏆 成熟期 — 设计重点转向长线内容+商业化健康度', '竞技类游戏 → 赛季制排位重置 + 新英雄/新地图是核心驱动', '投放强度低 → 可能过于依赖自然量，考虑适量投放维持增长']</span></div>
+            <ul><li>📌 当前阶段：成熟期  |  发行类型：服务型（赛季制/战斗通行证/活动驱动）</li><li>CCU: 314,682  |  当前排名: #2</li><li>  → 建立赛季/活动日历并稳定运营</li><li>  → 拓展新市场/新平台</li><li>  → 品牌合作与 IP 联动</li></ul>
+        </div>
+        <div class="card">
+            <h3>PUBG: BATTLEGROUNDS</h3>
+            <div class="score ">98</div>
+            <div class="metrics"><span class="metric">market_alignment: 33.4</span><span class="metric">publishing_readiness: 35</span><span class="metric">stage_appropriateness: 30</span><span class="metric">stage: 成熟期</span><span class="metric">publishing_profile: 服务型</span><span class="metric">primary_loop: 对战循环</span><span class="metric">ccu: 314682</span><span class="metric">current_rank: 2</span><span class="metric">checklist: {'stage': '成熟期', 'profile': '服务型', 'stage_actions': ['建立赛季/活动日历并稳定运营', '拓展新市场/新平台', '品牌合作与 IP 联动', 'UGC/社区生态建设'], 'advance_criteria': '持续运营 — 关注衰退信号', 'design_focus': '长线内容规划 + 社交系统深化 + 商业化健康度监控', 'profile_actions': ['建立赛季日历（至少 3 个赛季预排）', '设计 Battle Pass 经济模型', '搭建 LiveOps 工具链（热更新/AB测试/活动配置）', '社区运营团队到位（Discord/社群经理）'], 'launch_criteria': ['赛季内容 pipeline 已跑通至少 1 个完整周期', '付费转化模型已通过小规模测试验证', '服务器可承载目标 CCU × 3 压力测试通过'], 'ua_strategy': '重投放 → 以赛季为单位脉冲式投放，新赛季前 2 周加大预算'}</span><span class="metric">design_feedback: ['🏆 成熟期 — 设计重点转向长线内容+商业化健康度', '竞技类游戏 → 赛季制排位重置 + 新英雄/新地图是核心驱动', '投放强度低 → 可能过于依赖自然量，考虑适量投放维持增长']</span></div>
+            <ul><li>📌 当前阶段：成熟期  |  发行类型：服务型（赛季制/战斗通行证/活动驱动）</li><li>CCU: 314,682  |  当前排名: #2</li><li>  → 建立赛季/活动日历并稳定运营</li><li>  → 拓展新市场/新平台</li><li>  → 品牌合作与 IP 联动</li></ul>
+        </div>
+        <div class="card">
+            <h3>PUBG: BATTLEGROUNDS</h3>
+            <div class="score ">98</div>
+            <div class="metrics"><span class="metric">market_alignment: 33.4</span><span class="metric">publishing_readiness: 35</span><span class="metric">stage_appropriateness: 30</span><span class="metric">stage: 成熟期</span><span class="metric">publishing_profile: 服务型</span><span class="metric">primary_loop: 对战循环</span><span class="metric">ccu: 314682</span><span class="metric">current_rank: 2</span><span class="metric">checklist: {'stage': '成熟期', 'profile': '服务型', 'stage_actions': ['建立赛季/活动日历并稳定运营', '拓展新市场/新平台', '品牌合作与 IP 联动', 'UGC/社区生态建设'], 'advance_criteria': '持续运营 — 关注衰退信号', 'design_focus': '长线内容规划 + 社交系统深化 + 商业化健康度监控', 'profile_actions': ['建立赛季日历（至少 3 个赛季预排）', '设计 Battle Pass 经济模型', '搭建 LiveOps 工具链（热更新/AB测试/活动配置）', '社区运营团队到位（Discord/社群经理）'], 'launch_criteria': ['赛季内容 pipeline 已跑通至少 1 个完整周期', '付费转化模型已通过小规模测试验证', '服务器可承载目标 CCU × 3 压力测试通过'], 'ua_strategy': '重投放 → 以赛季为单位脉冲式投放，新赛季前 2 周加大预算'}</span><span class="metric">design_feedback: ['🏆 成熟期 — 设计重点转向长线内容+商业化健康度', '竞技类游戏 → 赛季制排位重置 + 新英雄/新地图是核心驱动', '投放强度低 → 可能过于依赖自然量，考虑适量投放维持增长']</span></div>
+            <ul><li>📌 当前阶段：成熟期  |  发行类型：服务型（赛季制/战斗通行证/活动驱动）</li><li>CCU: 314,682  |  当前排名: #2</li><li>  → 建立赛季/活动日历并稳定运营</li><li>  → 拓展新市场/新平台</li><li>  → 品牌合作与 IP 联动</li></ul>
+        </div>
+        <div class="card">
+            <h3>Apex Legends</h3>
+            <div class="score ">96</div>
+            <div class="metrics"><span class="metric">market_alignment: 31.2</span><span class="metric">publishing_readiness: 35</span><span class="metric">stage_appropriateness: 30</span><span class="metric">stage: 成熟期</span><span class="metric">publishing_profile: 服务型</span><span class="metric">primary_loop: 对战循环</span><span class="metric">ccu: 124262</span><span class="metric">current_rank: 4</span><span class="metric">checklist: {'stage': '成熟期', 'profile': '服务型', 'stage_actions': ['建立赛季/活动日历并稳定运营', '拓展新市场/新平台', '品牌合作与 IP 联动', 'UGC/社区生态建设'], 'advance_criteria': '持续运营 — 关注衰退信号', 'design_focus': '长线内容规划 + 社交系统深化 + 商业化健康度监控', 'profile_actions': ['建立赛季日历（至少 3 个赛季预排）', '设计 Battle Pass 经济模型', '搭建 LiveOps 工具链（热更新/AB测试/活动配置）', '社区运营团队到位（Discord/社群经理）'], 'launch_criteria': ['赛季内容 pipeline 已跑通至少 1 个完整周期', '付费转化模型已通过小规模测试验证', '服务器可承载目标 CCU × 3 压力测试通过'], 'ua_strategy': '重投放 → 以赛季为单位脉冲式投放，新赛季前 2 周加大预算'}</span><span class="metric">design_feedback: ['🏆 成熟期 — 设计重点转向长线内容+商业化健康度', '竞技类游戏 → 赛季制排位重置 + 新英雄/新地图是核心驱动', '投放强度低 → 可能过于依赖自然量，考虑适量投放维持增长']</span></div>
+            <ul><li>📌 当前阶段：成熟期  |  发行类型：服务型（赛季制/战斗通行证/活动驱动）</li><li>CCU: 124,262  |  当前排名: #4</li><li>  → 建立赛季/活动日历并稳定运营</li><li>  → 拓展新市场/新平台</li><li>  → 品牌合作与 IP 联动</li></ul>
+        </div>
+        <div class="card">
+            <h3>Rust</h3>
+            <div class="score ">95</div>
+            <div class="metrics"><span class="metric">market_alignment: 30.0</span><span class="metric">publishing_readiness: 35</span><span class="metric">stage_appropriateness: 30</span><span class="metric">stage: 成熟期</span><span class="metric">publishing_profile: 服务型</span><span class="metric">primary_loop: 对战循环</span><span class="metric">ccu: 143870</span><span class="metric">current_rank: 3</span><span class="metric">checklist: {'stage': '成熟期', 'profile': '服务型', 'stage_actions': ['建立赛季/活动日历并稳定运营', '拓展新市场/新平台', '品牌合作与 IP 联动', 'UGC/社区生态建设'], 'advance_criteria': '持续运营 — 关注衰退信号', 'design_focus': '长线内容规划 + 社交系统深化 + 商业化健康度监控', 'profile_actions': ['建立赛季日历（至少 3 个赛季预排）', '设计 Battle Pass 经济模型', '搭建 LiveOps 工具链（热更新/AB测试/活动配置）', '社区运营团队到位（Discord/社群经理）'], 'launch_criteria': ['赛季内容 pipeline 已跑通至少 1 个完整周期', '付费转化模型已通过小规模测试验证', '服务器可承载目标 CCU × 3 压力测试通过'], 'ua_strategy': '重投放 → 以赛季为单位脉冲式投放，新赛季前 2 周加大预算'}</span><span class="metric">design_feedback: ['🏆 成熟期 — 设计重点转向长线内容+商业化健康度', '竞技类游戏 → 赛季制排位重置 + 新英雄/新地图是核心驱动', '投放强度低 → 可能过于依赖自然量，考虑适量投放维持增长']</span></div>
+            <ul><li>📌 当前阶段：成熟期  |  发行类型：服务型（赛季制/战斗通行证/活动驱动）</li><li>CCU: 143,870  |  当前排名: #3</li><li>  → 建立赛季/活动日历并稳定运营</li><li>  → 拓展新市场/新平台</li><li>  → 品牌合作与 IP 联动</li></ul>
+        </div>
+        <div class="card">
+            <h3>Rust</h3>
+            <div class="score ">95</div>
+            <div class="metrics"><span class="metric">market_alignment: 30.0</span><span class="metric">publishing_readiness: 35</span><span class="metric">stage_appropriateness: 30</span><span class="metric">stage: 成熟期</span><span class="metric">publishing_profile: 服务型</span><span class="metric">primary_loop: 对战循环</span><span class="metric">ccu: 143870</span><span class="metric">current_rank: 3</span><span class="metric">checklist: {'stage': '成熟期', 'profile': '服务型', 'stage_actions': ['建立赛季/活动日历并稳定运营', '拓展新市场/新平台', '品牌合作与 IP 联动', 'UGC/社区生态建设'], 'advance_criteria': '持续运营 — 关注衰退信号', 'design_focus': '长线内容规划 + 社交系统深化 + 商业化健康度监控', 'profile_actions': ['建立赛季日历（至少 3 个赛季预排）', '设计 Battle Pass 经济模型', '搭建 LiveOps 工具链（热更新/AB测试/活动配置）', '社区运营团队到位（Discord/社群经理）'], 'launch_criteria': ['赛季内容 pipeline 已跑通至少 1 个完整周期', '付费转化模型已通过小规模测试验证', '服务器可承载目标 CCU × 3 压力测试通过'], 'ua_strategy': '重投放 → 以赛季为单位脉冲式投放，新赛季前 2 周加大预算'}</span><span class="metric">design_feedback: ['🏆 成熟期 — 设计重点转向长线内容+商业化健康度', '竞技类游戏 → 赛季制排位重置 + 新英雄/新地图是核心驱动', '投放强度低 → 可能过于依赖自然量，考虑适量投放维持增长']</span></div>
+            <ul><li>📌 当前阶段：成熟期  |  发行类型：服务型（赛季制/战斗通行证/活动驱动）</li><li>CCU: 143,870  |  当前排名: #3</li><li>  → 建立赛季/活动日历并稳定运营</li><li>  → 拓展新市场/新平台</li><li>  → 品牌合作与 IP 联动</li></ul>
+        </div>
+        <div class="card">
+            <h3>Rust</h3>
+            <div class="score ">95</div>
+            <div class="metrics"><span class="metric">market_alignment: 30.0</span><span class="metric">publishing_readiness: 35</span><span class="metric">stage_appropriateness: 30</span><span class="metric">stage: 成熟期</span><span class="metric">publishing_profile: 服务型</span><span class="metric">primary_loop: 对战循环</span><span class="metric">ccu: 143870</span><span class="metric">current_rank: 3</span><span class="metric">checklist: {'stage': '成熟期', 'profile': '服务型', 'stage_actions': ['建立赛季/活动日历并稳定运营', '拓展新市场/新平台', '品牌合作与 IP 联动', 'UGC/社区生态建设'], 'advance_criteria': '持续运营 — 关注衰退信号', 'design_focus': '长线内容规划 + 社交系统深化 + 商业化健康度监控', 'profile_actions': ['建立赛季日历（至少 3 个赛季预排）', '设计 Battle Pass 经济模型', '搭建 LiveOps 工具链（热更新/AB测试/活动配置）', '社区运营团队到位（Discord/社群经理）'], 'launch_criteria': ['赛季内容 pipeline 已跑通至少 1 个完整周期', '付费转化模型已通过小规模测试验证', '服务器可承载目标 CCU × 3 压力测试通过'], 'ua_strategy': '重投放 → 以赛季为单位脉冲式投放，新赛季前 2 周加大预算'}</span><span class="metric">design_feedback: ['🏆 成熟期 — 设计重点转向长线内容+商业化健康度', '竞技类游戏 → 赛季制排位重置 + 新英雄/新地图是核心驱动', '投放强度低 → 可能过于依赖自然量，考虑适量投放维持增长']</span></div>
+            <ul><li>📌 当前阶段：成熟期  |  发行类型：服务型（赛季制/战斗通行证/活动驱动）</li><li>CCU: 143,870  |  当前排名: #3</li><li>  → 建立赛季/活动日历并稳定运营</li><li>  → 拓展新市场/新平台</li><li>  → 品牌合作与 IP 联动</li></ul>
+        </div>
+        <div class="card">
+            <h3>王者荣耀</h3>
+            <div class="score ">81</div>
+            <div class="metrics"><span class="metric">market_alignment: 20.6</span><span class="metric">publishing_readiness: 30.5</span><span class="metric">stage_appropriateness: 30</span><span class="metric">stage: 成熟期</span><span class="metric">publishing_profile: 通用型</span><span class="metric">primary_loop: 未知</span><span class="metric">ccu: 0</span><span class="metric">current_rank: 1</span><span class="metric">checklist: {'stage': '成熟期', 'profile': '通用型', 'stage_actions': ['建立赛季/活动日历并稳定运营', '拓展新市场/新平台', '品牌合作与 IP 联动', 'UGC/社区生态建设'], 'advance_criteria': '持续运营 — 关注衰退信号', 'design_focus': '长线内容规划 + 社交系统深化 + 商业化健康度监控', 'profile_actions': ['先做小规模市场测试（单一区域/渠道）', '收集初期数据后再确定发行策略方向'], 'launch_criteria': ['完成市场测试并获得 500+ 有效用户数据'], 'ua_strategy': '测试 → 先小额测试多方向，数据验证后聚焦'}</span><span class="metric">design_feedback: ['🏆 成熟期 — 设计重点转向长线内容+商业化健康度', '投放强度低 → 可能过于依赖自然量，考虑适量投放维持增长']</span></div>
+            <ul><li>📌 当前阶段：成熟期  |  发行类型：通用型（混合策略 — 根据数据反馈调整）</li><li>  → 建立赛季/活动日历并稳定运营</li><li>  → 拓展新市场/新平台</li><li>  → 品牌合作与 IP 联动</li><li>📢 投放策略：测试 → 先小额测试多方向，数据验证后聚焦</li></ul>
+        </div>
+        <div class="card">
+            <h3>无尽冬日</h3>
+            <div class="score ">79</div>
+            <div class="metrics"><span class="metric">market_alignment: 19.0</span><span class="metric">publishing_readiness: 30.5</span><span class="metric">stage_appropriateness: 30</span><span class="metric">stage: 成熟期</span><span class="metric">publishing_profile: 通用型</span><span class="metric">primary_loop: 未知</span><span class="metric">ccu: 0</span><span class="metric">current_rank: 2</span><span class="metric">checklist: {'stage': '成熟期', 'profile': '通用型', 'stage_actions': ['建立赛季/活动日历并稳定运营', '拓展新市场/新平台', '品牌合作与 IP 联动', 'UGC/社区生态建设'], 'advance_criteria': '持续运营 — 关注衰退信号', 'design_focus': '长线内容规划 + 社交系统深化 + 商业化健康度监控', 'profile_actions': ['先做小规模市场测试（单一区域/渠道）', '收集初期数据后再确定发行策略方向'], 'launch_criteria': ['完成市场测试并获得 500+ 有效用户数据'], 'ua_strategy': '测试 → 先小额测试多方向，数据验证后聚焦'}</span><span class="metric">design_feedback: ['🏆 成熟期 — 设计重点转向长线内容+商业化健康度', '投放强度低 → 可能过于依赖自然量，考虑适量投放维持增长']</span></div>
+            <ul><li>📌 当前阶段：成熟期  |  发行类型：通用型（混合策略 — 根据数据反馈调整）</li><li>  → 建立赛季/活动日历并稳定运营</li><li>  → 拓展新市场/新平台</li><li>  → 品牌合作与 IP 联动</li><li>📢 投放策略：测试 → 先小额测试多方向，数据验证后聚焦</li></ul>
+        </div>
+        <div class="card">
+            <h3>地牢猎手6</h3>
+            <div class="score ">78</div>
+            <div class="metrics"><span class="metric">market_alignment: 20.9</span><span class="metric">publishing_readiness: 27.2</span><span class="metric">stage_appropriateness: 30</span><span class="metric">stage: 成熟期</span><span class="metric">publishing_profile: 通用型</span><span class="metric">primary_loop: 未知</span><span class="metric">ccu: 0</span><span class="metric">current_rank: 1</span><span class="metric">checklist: {'stage': '成熟期', 'profile': '通用型', 'stage_actions': ['建立赛季/活动日历并稳定运营', '拓展新市场/新平台', '品牌合作与 IP 联动', 'UGC/社区生态建设'], 'advance_criteria': '持续运营 — 关注衰退信号', 'design_focus': '长线内容规划 + 社交系统深化 + 商业化健康度监控', 'profile_actions': ['先做小规模市场测试（单一区域/渠道）', '收集初期数据后再确定发行策略方向'], 'launch_criteria': ['完成市场测试并获得 500+ 有效用户数据'], 'ua_strategy': '测试 → 先小额测试多方向，数据验证后聚焦'}</span><span class="metric">design_feedback: ['🏆 成熟期 — 设计重点转向长线内容+商业化健康度', '投放强度低 → 可能过于依赖自然量，考虑适量投放维持增长']</span></div>
+            <ul><li>📌 当前阶段：成熟期  |  发行类型：通用型（混合策略 — 根据数据反馈调整）</li><li>  → 建立赛季/活动日历并稳定运营</li><li>  → 拓展新市场/新平台</li><li>  → 品牌合作与 IP 联动</li><li>📢 投放策略：测试 → 先小额测试多方向，数据验证后聚焦</li></ul>
+        </div>
+        <div class="card">
+            <h3>我的世界：移动版</h3>
+            <div class="score ">77</div>
+            <div class="metrics"><span class="metric">market_alignment: 19.8</span><span class="metric">publishing_readiness: 27.2</span><span class="metric">stage_appropriateness: 30</span><span class="metric">stage: 成熟期</span><span class="metric">publishing_profile: 通用型</span><span class="metric">primary_loop: 未知</span><span class="metric">ccu: 0</span><span class="metric">current_rank: 1</span><span class="metric">checklist: {'stage': '成熟期', 'profile': '通用型', 'stage_actions': ['建立赛季/活动日历并稳定运营', '拓展新市场/新平台', '品牌合作与 IP 联动', 'UGC/社区生态建设'], 'advance_criteria': '持续运营 — 关注衰退信号', 'design_focus': '长线内容规划 + 社交系统深化 + 商业化健康度监控', 'profile_actions': ['先做小规模市场测试（单一区域/渠道）', '收集初期数据后再确定发行策略方向'], 'launch_criteria': ['完成市场测试并获得 500+ 有效用户数据'], 'ua_strategy': '测试 → 先小额测试多方向，数据验证后聚焦'}</span><span class="metric">design_feedback: ['🏆 成熟期 — 设计重点转向长线内容+商业化健康度', '投放强度低 → 可能过于依赖自然量，考虑适量投放维持增长']</span></div>
+            <ul><li>📌 当前阶段：成熟期  |  发行类型：通用型（混合策略 — 根据数据反馈调整）</li><li>  → 建立赛季/活动日历并稳定运营</li><li>  → 拓展新市场/新平台</li><li>  → 品牌合作与 IP 联动</li><li>📢 投放策略：测试 → 先小额测试多方向，数据验证后聚焦</li></ul>
+        </div>
+        <div class="card">
+            <h3>Block Out! - Color Sort Puzzle</h3>
+            <div class="score ">76</div>
+            <div class="metrics"><span class="metric">market_alignment: 14.4</span><span class="metric">publishing_readiness: 31.5</span><span class="metric">stage_appropriateness: 30</span><span class="metric">stage: 成熟期</span><span class="metric">publishing_profile: 通用型</span><span class="metric">primary_loop: 未知</span><span class="metric">ccu: 0</span><span class="metric">current_rank: 1</span><span class="metric">checklist: {'stage': '成熟期', 'profile': '通用型', 'stage_actions': ['建立赛季/活动日历并稳定运营', '拓展新市场/新平台', '品牌合作与 IP 联动', 'UGC/社区生态建设'], 'advance_criteria': '持续运营 — 关注衰退信号', 'design_focus': '长线内容规划 + 社交系统深化 + 商业化健康度监控', 'profile_actions': ['先做小规模市场测试（单一区域/渠道）', '收集初期数据后再确定发行策略方向'], 'launch_criteria': ['完成市场测试并获得 500+ 有效用户数据'], 'ua_strategy': '测试 → 先小额测试多方向，数据验证后聚焦'}</span><span class="metric">design_feedback: ['🏆 成熟期 — 设计重点转向长线内容+商业化健康度', '投放强度低 → 可能过于依赖自然量，考虑适量投放维持增长']</span></div>
+            <ul><li>📌 当前阶段：成熟期  |  发行类型：通用型（混合策略 — 根据数据反馈调整）</li><li>  → 建立赛季/活动日历并稳定运营</li><li>  → 拓展新市场/新平台</li><li>  → 品牌合作与 IP 联动</li><li>📢 投放策略：测试 → 先小额测试多方向，数据验证后聚焦</li></ul>
+        </div>
+        <div class="card">
+            <h3>MONOPOLY GO!</h3>
+            <div class="score ">73</div>
+            <div class="metrics"><span class="metric">market_alignment: 14.4</span><span class="metric">publishing_readiness: 28.5</span><span class="metric">stage_appropriateness: 30</span><span class="metric">stage: 成熟期</span><span class="metric">publishing_profile: 通用型</span><span class="metric">primary_loop: 未知</span><span class="metric">ccu: 0</span><span class="metric">current_rank: 1</span><span class="metric">checklist: {'stage': '成熟期', 'profile': '通用型', 'stage_actions': ['建立赛季/活动日历并稳定运营', '拓展新市场/新平台', '品牌合作与 IP 联动', 'UGC/社区生态建设'], 'advance_criteria': '持续运营 — 关注衰退信号', 'design_focus': '长线内容规划 + 社交系统深化 + 商业化健康度监控', 'profile_actions': ['先做小规模市场测试（单一区域/渠道）', '收集初期数据后再确定发行策略方向'], 'launch_criteria': ['完成市场测试并获得 500+ 有效用户数据'], 'ua_strategy': '测试 → 先小额测试多方向，数据验证后聚焦'}</span><span class="metric">design_feedback: ['🏆 成熟期 — 设计重点转向长线内容+商业化健康度', '投放强度低 → 可能过于依赖自然量，考虑适量投放维持增长']</span></div>
+            <ul><li>📌 当前阶段：成熟期  |  发行类型：通用型（混合策略 — 根据数据反馈调整）</li><li>  → 建立赛季/活动日历并稳定运营</li><li>  → 拓展新市场/新平台</li><li>  → 品牌合作与 IP 联动</li><li>📢 投放策略：测试 → 先小额测试多方向，数据验证后聚焦</li></ul>
+        </div>
+        <div class="card">
+            <h3>三角洲行动</h3>
+            <div class="score ">73</div>
+            <div class="metrics"><span class="metric">market_alignment: 14.2</span><span class="metric">publishing_readiness: 28.5</span><span class="metric">stage_appropriateness: 30</span><span class="metric">stage: 成熟期</span><span class="metric">publishing_profile: 通用型</span><span class="metric">primary_loop: 未知</span><span class="metric">ccu: 0</span><span class="metric">current_rank: 1</span><span class="metric">checklist: {'stage': '成熟期', 'profile': '通用型', 'stage_actions': ['建立赛季/活动日历并稳定运营', '拓展新市场/新平台', '品牌合作与 IP 联动', 'UGC/社区生态建设'], 'advance_criteria': '持续运营 — 关注衰退信号', 'design_focus': '长线内容规划 + 社交系统深化 + 商业化健康度监控', 'profile_actions': ['先做小规模市场测试（单一区域/渠道）', '收集初期数据后再确定发行策略方向'], 'launch_criteria': ['完成市场测试并获得 500+ 有效用户数据'], 'ua_strategy': '测试 → 先小额测试多方向，数据验证后聚焦'}</span><span class="metric">design_feedback: ['🏆 成熟期 — 设计重点转向长线内容+商业化健康度', '投放强度低 → 可能过于依赖自然量，考虑适量投放维持增长']</span></div>
+            <ul><li>📌 当前阶段：成熟期  |  发行类型：通用型（混合策略 — 根据数据反馈调整）</li><li>  → 建立赛季/活动日历并稳定运营</li><li>  → 拓展新市场/新平台</li><li>  → 品牌合作与 IP 联动</li><li>📢 投放策略：测试 → 先小额测试多方向，数据验证后聚焦</li></ul>
+        </div>
+        <div class="card">
+            <h3>遗忘之海</h3>
+            <div class="score ">69</div>
+            <div class="metrics"><span class="metric">market_alignment: 10.6</span><span class="metric">publishing_readiness: 28.2</span><span class="metric">stage_appropriateness: 30</span><span class="metric">stage: 成熟期</span><span class="metric">publishing_profile: 通用型</span><span class="metric">primary_loop: 未知</span><span class="metric">ccu: 0</span><span class="metric">current_rank: 1</span><span class="metric">checklist: {'stage': '成熟期', 'profile': '通用型', 'stage_actions': ['建立赛季/活动日历并稳定运营', '拓展新市场/新平台', '品牌合作与 IP 联动', 'UGC/社区生态建设'], 'advance_criteria': '持续运营 — 关注衰退信号', 'design_focus': '长线内容规划 + 社交系统深化 + 商业化健康度监控', 'profile_actions': ['先做小规模市场测试（单一区域/渠道）', '收集初期数据后再确定发行策略方向'], 'launch_criteria': ['完成市场测试并获得 500+ 有效用户数据'], 'ua_strategy': '测试 → 先小额测试多方向，数据验证后聚焦'}</span><span class="metric">design_feedback: ['🏆 成熟期 — 设计重点转向长线内容+商业化健康度', '投放强度低 → 可能过于依赖自然量，考虑适量投放维持增长']</span></div>
+            <ul><li>📌 当前阶段：成熟期  |  发行类型：通用型（混合策略 — 根据数据反馈调整）</li><li>  → 建立赛季/活动日历并稳定运营</li><li>  → 拓展新市场/新平台</li><li>  → 品牌合作与 IP 联动</li><li>📢 投放策略：测试 → 先小额测试多方向，数据验证后聚焦</li></ul>
+        </div>
+        <div class="card">
+            <h3>心动小镇</h3>
+            <div class="score ">68</div>
+            <div class="metrics"><span class="metric">market_alignment: 10.6</span><span class="metric">publishing_readiness: 27.2</span><span class="metric">stage_appropriateness: 30</span><span class="metric">stage: 成熟期</span><span class="metric">publishing_profile: 通用型</span><span class="metric">primary_loop: 未知</span><span class="metric">ccu: 0</span><span class="metric">current_rank: 1</span><span class="metric">checklist: {'stage': '成熟期', 'profile': '通用型', 'stage_actions': ['建立赛季/活动日历并稳定运营', '拓展新市场/新平台', '品牌合作与 IP 联动', 'UGC/社区生态建设'], 'advance_criteria': '持续运营 — 关注衰退信号', 'design_focus': '长线内容规划 + 社交系统深化 + 商业化健康度监控', 'profile_actions': ['先做小规模市场测试（单一区域/渠道）', '收集初期数据后再确定发行策略方向'], 'launch_criteria': ['完成市场测试并获得 500+ 有效用户数据'], 'ua_strategy': '测试 → 先小额测试多方向，数据验证后聚焦'}</span><span class="metric">design_feedback: ['🏆 成熟期 — 设计重点转向长线内容+商业化健康度', '投放强度低 → 可能过于依赖自然量，考虑适量投放维持增长']</span></div>
+            <ul><li>📌 当前阶段：成熟期  |  发行类型：通用型（混合策略 — 根据数据反馈调整）</li><li>  → 建立赛季/活动日历并稳定运营</li><li>  → 拓展新市场/新平台</li><li>  → 品牌合作与 IP 联动</li><li>📢 投放策略：测试 → 先小额测试多方向，数据验证后聚焦</li></ul>
+        </div>
+        <div class="card">
+            <h3>旋转音律</h3>
+            <div class="score ">68</div>
+            <div class="metrics"><span class="metric">market_alignment: 10.6</span><span class="metric">publishing_readiness: 27.2</span><span class="metric">stage_appropriateness: 30</span><span class="metric">stage: 成熟期</span><span class="metric">publishing_profile: 通用型</span><span class="metric">primary_loop: 未知</span><span class="metric">ccu: 0</span><span class="metric">current_rank: 1</span><span class="metric">checklist: {'stage': '成熟期', 'profile': '通用型', 'stage_actions': ['建立赛季/活动日历并稳定运营', '拓展新市场/新平台', '品牌合作与 IP 联动', 'UGC/社区生态建设'], 'advance_criteria': '持续运营 — 关注衰退信号', 'design_focus': '长线内容规划 + 社交系统深化 + 商业化健康度监控', 'profile_actions': ['先做小规模市场测试（单一区域/渠道）', '收集初期数据后再确定发行策略方向'], 'launch_criteria': ['完成市场测试并获得 500+ 有效用户数据'], 'ua_strategy': '测试 → 先小额测试多方向，数据验证后聚焦'}</span><span class="metric">design_feedback: ['🏆 成熟期 — 设计重点转向长线内容+商业化健康度', '投放强度低 → 可能过于依赖自然量，考虑适量投放维持增长']</span></div>
+            <ul><li>📌 当前阶段：成熟期  |  发行类型：通用型（混合策略 — 根据数据反馈调整）</li><li>  → 建立赛季/活动日历并稳定运营</li><li>  → 拓展新市场/新平台</li><li>  → 品牌合作与 IP 联动</li><li>📢 投放策略：测试 → 先小额测试多方向，数据验证后聚焦</li></ul>
+        </div></div>
+</div>
+<div id="tab-ua" class="tab-content">
+    <div class="overview-grid">
+        <div class="card">
+            <h3>无尽冬日</h3>
+            <div class="score ">88</div>
+            <div class="metrics"><span class="metric">rank_position: 2</span><span class="metric">rank_strength: 60</span><span class="metric">organic_reach: 20</span><span class="metric">growth_momentum: 8</span><span class="metric">ccu: 0</span><span class="metric">downloads: N/A</span><span class="metric">data_source: ranking_proxy</span></div>
+            <ul><li>顶级排名 #2，推断投放强度极高</li><li>排名强势，大概率有持续买量支撑</li><li>排名 7 天稳定</li></ul>
+        </div>
+        <div class="card">
+            <h3>王者荣耀</h3>
+            <div class="score ">85</div>
+            <div class="metrics"><span class="metric">rank_position: 1</span><span class="metric">rank_strength: 60</span><span class="metric">organic_reach: 20</span><span class="metric">growth_momentum: 5</span><span class="metric">ccu: 0</span><span class="metric">downloads: N/A</span><span class="metric">data_source: ranking_proxy</span></div>
+            <ul><li>顶级排名 #1，推断投放强度极高</li><li>排名强势，大概率有持续买量支撑</li><li>排名 7 天稳定</li></ul>
+        </div>
+        <div class="card">
+            <h3>我的世界：移动版</h3>
+            <div class="score ">85</div>
+            <div class="metrics"><span class="metric">rank_position: 1</span><span class="metric">rank_strength: 60</span><span class="metric">organic_reach: 20</span><span class="metric">growth_momentum: 5</span><span class="metric">ccu: 0</span><span class="metric">downloads: N/A</span><span class="metric">data_source: ranking_proxy</span></div>
+            <ul><li>顶级排名 #1，推断投放强度极高</li><li>排名强势，大概率有持续买量支撑</li><li>排名 7 天稳定</li></ul>
+        </div>
+        <div class="card">
+            <h3>遗忘之海</h3>
+            <div class="score ">85</div>
+            <div class="metrics"><span class="metric">rank_position: 1</span><span class="metric">rank_strength: 60</span><span class="metric">organic_reach: 20</span><span class="metric">growth_momentum: 5</span><span class="metric">ccu: 0</span><span class="metric">downloads: N/A</span><span class="metric">data_source: ranking_proxy</span></div>
+            <ul><li>顶级排名 #1，推断投放强度极高</li><li>排名强势，大概率有持续买量支撑</li><li>排名 7 天稳定</li></ul>
+        </div>
+        <div class="card">
+            <h3>旋转音律</h3>
+            <div class="score ">85</div>
+            <div class="metrics"><span class="metric">rank_position: 1</span><span class="metric">rank_strength: 60</span><span class="metric">organic_reach: 20</span><span class="metric">growth_momentum: 5</span><span class="metric">ccu: 0</span><span class="metric">downloads: N/A</span><span class="metric">data_source: ranking_proxy</span></div>
+            <ul><li>顶级排名 #1，推断投放强度极高</li><li>排名强势，大概率有持续买量支撑</li><li>排名 7 天稳定</li></ul>
+        </div>
+        <div class="card">
+            <h3>三角洲行动</h3>
+            <div class="score ">83</div>
+            <div class="metrics"><span class="metric">rank_position: 2</span><span class="metric">rank_strength: 60</span><span class="metric">organic_reach: 20</span><span class="metric">growth_momentum: 3</span><span class="metric">ccu: 0</span><span class="metric">downloads: N/A</span><span class="metric">data_source: ranking_proxy</span></div>
+            <ul><li>顶级排名 #2，推断投放强度极高</li><li>排名强势，大概率有持续买量支撑</li><li>排名轻微下滑（-3 位/7d）</li></ul>
+        </div>
+        <div class="card">
+            <h3>Block Out! - Color Sort Puzzle</h3>
+            <div class="score ">80</div>
+            <div class="metrics"><span class="metric">rank_position: 1</span><span class="metric">rank_strength: 60</span><span class="metric">organic_reach: 20</span><span class="metric">growth_momentum: 0</span><span class="metric">ccu: 0</span><span class="metric">downloads: N/A</span><span class="metric">data_source: ranking_proxy</span></div>
+            <ul><li>顶级排名 #1，推断投放强度极高</li><li>排名强势，大概率有持续买量支撑</li><li>排名 18 位下滑 → 衰减信号</li></ul>
+        </div>
+        <div class="card">
+            <h3>地牢猎手6</h3>
+            <div class="score ">79</div>
+            <div class="metrics"><span class="metric">rank_position: 5</span><span class="metric">rank_strength: 55</span><span class="metric">organic_reach: 14</span><span class="metric">growth_momentum: 10</span><span class="metric">ccu: 0</span><span class="metric">downloads: N/A</span><span class="metric">data_source: ranking_proxy</span></div>
+            <ul><li>顶级排名 #5，推断投放强度极高</li><li>排名强势，大概率有持续买量支撑</li><li>排名稳步提升（+8 位/7d）</li></ul>
+        </div>
+        <div class="card">
+            <h3>MONOPOLY GO!</h3>
+            <div class="score ">69</div>
+            <div class="metrics"><span class="metric">rank_position: 10</span><span class="metric">rank_strength: 45</span><span class="metric">organic_reach: 14</span><span class="metric">growth_momentum: 10</span><span class="metric">ccu: 0</span><span class="metric">downloads: N/A</span><span class="metric">data_source: ranking_proxy</span></div>
+            <ul><li>高排名 #10，投放力度较大</li><li>排名强势，大概率有持续买量支撑</li><li>排名稳步提升（+8 位/7d）</li></ul>
+        </div>
+        <div class="card">
+            <h3>心动小镇</h3>
+            <div class="score ">64</div>
+            <div class="metrics"><span class="metric">rank_position: 7</span><span class="metric">rank_strength: 45</span><span class="metric">organic_reach: 14</span><span class="metric">growth_momentum: 5</span><span class="metric">ccu: 0</span><span class="metric">downloads: N/A</span><span class="metric">data_source: ranking_proxy</span></div>
+            <ul><li>高排名 #7，投放力度较大</li><li>排名强势，大概率有持续买量支撑</li><li>排名 7 天稳定</li></ul>
+        </div>
+        <div class="card">
+            <h3>Counter-Strike: Global Offensive</h3>
+            <div class="score mid">30</div>
+            <div class="metrics"><span class="metric">rank_position: 1</span><span class="metric">rank_strength: 0</span><span class="metric">organic_reach: 25</span><span class="metric">growth_momentum: 5</span><span class="metric">ccu: 1013936</span><span class="metric">downloads: N/A</span><span class="metric">data_source: ranking_proxy</span></div>
+            <ul><li>CCU 1,013,936 — 顶级自然量，品牌效应强</li><li>Steam CCU 1,013,936 — 现象级产品</li><li>排名 7 天稳定</li></ul>
+        </div>
+        <div class="card">
+            <h3>Counter-Strike: Global Offensive</h3>
+            <div class="score mid">30</div>
+            <div class="metrics"><span class="metric">rank_position: 1</span><span class="metric">rank_strength: 0</span><span class="metric">organic_reach: 25</span><span class="metric">growth_momentum: 5</span><span class="metric">ccu: 1013936</span><span class="metric">downloads: N/A</span><span class="metric">data_source: ranking_proxy</span></div>
+            <ul><li>CCU 1,013,936 — 顶级自然量，品牌效应强</li><li>Steam CCU 1,013,936 — 现象级产品</li><li>排名 7 天稳定</li></ul>
+        </div>
+        <div class="card">
+            <h3>Counter-Strike: Global Offensive</h3>
+            <div class="score mid">30</div>
+            <div class="metrics"><span class="metric">rank_position: 1</span><span class="metric">rank_strength: 0</span><span class="metric">organic_reach: 25</span><span class="metric">growth_momentum: 5</span><span class="metric">ccu: 1013936</span><span class="metric">downloads: N/A</span><span class="metric">data_source: ranking_proxy</span></div>
+            <ul><li>CCU 1,013,936 — 顶级自然量，品牌效应强</li><li>Steam CCU 1,013,936 — 现象级产品</li><li>排名 7 天稳定</li></ul>
+        </div>
+        <div class="card">
+            <h3>PUBG: BATTLEGROUNDS</h3>
+            <div class="score low">27</div>
+            <div class="metrics"><span class="metric">rank_position: 2</span><span class="metric">rank_strength: 0</span><span class="metric">organic_reach: 22</span><span class="metric">growth_momentum: 5</span><span class="metric">ccu: 314682</span><span class="metric">downloads: N/A</span><span class="metric">data_source: ranking_proxy</span></div>
+            <ul><li>CCU 314,682 — 顶级自然量，品牌效应强</li><li>Steam CCU 314,682 — 头部产品</li><li>排名 7 天稳定</li></ul>
+        </div>
+        <div class="card">
+            <h3>PUBG: BATTLEGROUNDS</h3>
+            <div class="score low">27</div>
+            <div class="metrics"><span class="metric">rank_position: 2</span><span class="metric">rank_strength: 0</span><span class="metric">organic_reach: 22</span><span class="metric">growth_momentum: 5</span><span class="metric">ccu: 314682</span><span class="metric">downloads: N/A</span><span class="metric">data_source: ranking_proxy</span></div>
+            <ul><li>CCU 314,682 — 顶级自然量，品牌效应强</li><li>Steam CCU 314,682 — 头部产品</li><li>排名 7 天稳定</li></ul>
+        </div>
+        <div class="card">
+            <h3>PUBG: BATTLEGROUNDS</h3>
+            <div class="score low">27</div>
+            <div class="metrics"><span class="metric">rank_position: 2</span><span class="metric">rank_strength: 0</span><span class="metric">organic_reach: 22</span><span class="metric">growth_momentum: 5</span><span class="metric">ccu: 314682</span><span class="metric">downloads: N/A</span><span class="metric">data_source: ranking_proxy</span></div>
+            <ul><li>CCU 314,682 — 顶级自然量，品牌效应强</li><li>Steam CCU 314,682 — 头部产品</li><li>排名 7 天稳定</li></ul>
+        </div>
+        <div class="card">
+            <h3>Rust</h3>
+            <div class="score low">27</div>
+            <div class="metrics"><span class="metric">rank_position: 3</span><span class="metric">rank_strength: 0</span><span class="metric">organic_reach: 22</span><span class="metric">growth_momentum: 5</span><span class="metric">ccu: 143870</span><span class="metric">downloads: N/A</span><span class="metric">data_source: ranking_proxy</span></div>
+            <ul><li>CCU 143,870 — 顶级自然量，品牌效应强</li><li>Steam CCU 143,870 — 头部产品</li><li>排名 7 天稳定</li></ul>
+        </div>
+        <div class="card">
+            <h3>Rust</h3>
+            <div class="score low">27</div>
+            <div class="metrics"><span class="metric">rank_position: 3</span><span class="metric">rank_strength: 0</span><span class="metric">organic_reach: 22</span><span class="metric">growth_momentum: 5</span><span class="metric">ccu: 143870</span><span class="metric">downloads: N/A</span><span class="metric">data_source: ranking_proxy</span></div>
+            <ul><li>CCU 143,870 — 顶级自然量，品牌效应强</li><li>Steam CCU 143,870 — 头部产品</li><li>排名 7 天稳定</li></ul>
+        </div>
+        <div class="card">
+            <h3>Rust</h3>
+            <div class="score low">27</div>
+            <div class="metrics"><span class="metric">rank_position: 3</span><span class="metric">rank_strength: 0</span><span class="metric">organic_reach: 22</span><span class="metric">growth_momentum: 5</span><span class="metric">ccu: 143870</span><span class="metric">downloads: N/A</span><span class="metric">data_source: ranking_proxy</span></div>
+            <ul><li>CCU 143,870 — 顶级自然量，品牌效应强</li><li>Steam CCU 143,870 — 头部产品</li><li>排名 7 天稳定</li></ul>
+        </div>
+        <div class="card">
+            <h3>Apex Legends</h3>
+            <div class="score low">27</div>
+            <div class="metrics"><span class="metric">rank_position: 4</span><span class="metric">rank_strength: 0</span><span class="metric">organic_reach: 22</span><span class="metric">growth_momentum: 5</span><span class="metric">ccu: 124262</span><span class="metric">downloads: N/A</span><span class="metric">data_source: ranking_proxy</span></div>
+            <ul><li>CCU 124,262 — 顶级自然量，品牌效应强</li><li>Steam CCU 124,262 — 头部产品</li><li>排名 7 天稳定</li></ul>
+        </div></div>
+</div>
+<div id="tab-insights" class="tab-content">
+    <div class="empty-state"><div class="icon">💡</div><p>暂无跨模块洞察 — 运行更多模块后，系统将自动发现模式关联</p></div>
+</div>
+
+<div class="footer">
+    Game Success Lab v0.1 · 数据来源: SteamSpy / App Store / TapTap / Meta Ad Library / Reddit
+</div>
+
+<script>
+function switchTab(tabId) {
+    document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.nav button').forEach(el => el.classList.remove('active'));
+    document.getElementById('tab-' + tabId).classList.add('active');
+    document.getElementById('btn-' + tabId).classList.add('active');
+}
+document.addEventListener('keydown', function(e) {
+    const tabs = ["overview", "market", "user", "design", "operations", "publishing", "ua", "insights"];
+    const current = tabs.findIndex(t => document.getElementById('tab-' + t).classList.contains('active'));
+    if (e.key === 'ArrowRight' && current < tabs.length - 1) switchTab(tabs[current + 1]);
+    if (e.key === 'ArrowLeft' && current > 0) switchTab(tabs[current - 1]);
+});
+</script>
+</body>
+</html>
