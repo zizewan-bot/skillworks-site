@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-23T09:37:02.774742Z",
+  "updated_at": "2026-11-23T10:22:45.036776Z",
   "status": "in_progress",
   "version": "1.1.0",
   "url": "https://skillworks.dev/picture-dictionary/engineering/manifest.json",
@@ -43,7 +43,7 @@
       "url": "https://skillworks.dev/picture-dictionary/engineering/work-packages.json",
       "path": "work-packages.json",
       "version": "1.0.0",
-      "updated_at": "2026-11-23T09:37:02.738975Z",
+      "updated_at": "2026-11-23T10:22:45.001141Z",
       "status": "in_progress"
     },
     {
@@ -75,15 +75,15 @@
       "url": "https://skillworks.dev/picture-dictionary/engineering/current-state.json",
       "path": "current-state.json",
       "version": "1.0.0",
-      "updated_at": "2026-11-23T09:37:02.738975Z",
-      "status": "single_live_provider_sample_passed"
+      "updated_at": "2026-11-23T10:22:45.001141Z",
+      "status": "staging_wired_provider_disabled"
     },
     {
       "id": "next-actions",
       "url": "https://skillworks.dev/picture-dictionary/engineering/next-actions.json",
       "path": "next-actions.json",
       "version": "1.0.0",
-      "updated_at": "2026-11-23T09:37:02.738975Z",
+      "updated_at": "2026-11-23T10:22:45.001141Z",
       "status": "pending"
     },
     {
@@ -91,7 +91,7 @@
       "url": "https://skillworks.dev/picture-dictionary/engineering/tests.json",
       "path": "tests.json",
       "version": "1.0.0",
-      "updated_at": "2026-11-23T09:37:02.738975Z",
+      "updated_at": "2026-11-23T10:22:45.001141Z",
       "status": "provider_free_staging_verified"
     },
     {
@@ -99,7 +99,7 @@
       "url": "https://skillworks.dev/picture-dictionary/engineering/deployments.json",
       "path": "deployments.json",
       "version": "1.0.0",
-      "updated_at": "2026-11-23T08:55:29.736813Z",
+      "updated_at": "2026-11-23T10:22:45.001141Z",
       "status": "published_docs_provider_free_acceptance_complete"
     },
     {
@@ -107,7 +107,7 @@
       "url": "https://skillworks.dev/picture-dictionary/engineering/timeline.jsonl",
       "path": "timeline.jsonl",
       "version": "1.0.0",
-      "updated_at": "2026-11-23T09:37:02.774742Z",
+      "updated_at": "2026-11-23T10:22:45.036776Z",
       "status": "append_only"
     },
     {
@@ -124,7 +124,7 @@
       "url": "https://skillworks.dev/picture-dictionary/engineering/provider-pilot.json",
       "version": "1.0.0",
       "status": "live_single_sample_passed",
-      "updated_at": "2026-11-23T09:37:02.738975Z"
+      "updated_at": "2026-11-23T10:22:45.001141Z"
     }
   ]
 }

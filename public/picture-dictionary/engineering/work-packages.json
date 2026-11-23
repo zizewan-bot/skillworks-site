@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-23T09:37:02.738975Z",
+  "updated_at": "2026-11-23T10:22:45.001141Z",
   "status": "in_progress",
   "packages": [
     {
@@ -50,6 +50,12 @@
       "id": "WP07",
       "title": "Limited live-provider staging acceptance",
       "status": "live_single_sample_passed",
+      "evidence": "provider-pilot.json"
+    },
+    {
+      "id": "WP08",
+      "title": "Staging supported-model worker integration",
+      "status": "staging_wired_provider_disabled",
       "evidence": "provider-pilot.json"
     }
   ]

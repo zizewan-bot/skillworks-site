@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-23T09:37:02.738975Z",
+  "updated_at": "2026-11-23T10:22:45.001141Z",
   "status": "provider_free_staging_verified",
   "runs": [
     {
@@ -110,6 +110,14 @@
       "result": "passed",
       "details": "provider-pilot.json",
       "scope": "one-shot provider and storage test"
+    },
+    {
+      "id": "wp08-worker",
+      "result": "passed",
+      "regression_tests": 129,
+      "subtests": 36,
+      "skipped": 1,
+      "cloud_synthetic_http": 200
     }
   ]
 }

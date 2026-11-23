@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-23T09:37:02.738975Z",
-  "status": "single_live_provider_sample_passed",
+  "updated_at": "2026-11-23T10:22:45.001141Z",
+  "status": "staging_wired_provider_disabled",
   "agent": "codex/root",
   "read_first": [
     "manifest.json",
@@ -36,7 +36,7 @@
     "Production cutover review"
   ],
   "production_changed": false,
-  "phase": "WP07 one-shot provider, vision and private storage sample passed",
+  "phase": "WP08 supported model configuration deployed to dedicated staging worker; provider-free checks passed",
   "code_commits": {
     "backend": "4b435265714a634883b52fad553349f5e7d6f2f2",
     "ios": "31ca2779c0a7fd54e63f49f3f8315d69709e097e"
@@ -49,5 +49,6 @@
     "site_pr": "https://github.com/zizewan-bot/skillworks-site/pull/2"
   },
   "production_change_scope": "backend_and_mobile_release",
-  "documentation_updated": true
+  "documentation_updated": true,
+  "latest_backend_code_commit": "a503e368fceaf9bf20addebda5d9018083a614bb"
 }

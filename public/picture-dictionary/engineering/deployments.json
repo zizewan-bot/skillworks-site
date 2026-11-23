@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-23T08:55:29.736813Z",
+  "updated_at": "2026-11-23T10:22:45.001141Z",
   "status": "published_docs_provider_free_acceptance_complete",
   "environments": {
     "backend_production": {
@@ -58,6 +58,36 @@
       "test_data": "fresh isolated synthetic schema; original failed fixture evidence retained separately",
       "registry_index_digest": "sha256:5f652cb37faefc99565daca143f589961afae0f126bef6b39810d4f5ebb01c49",
       "cloud_run_resolved_image_digest": "sha256:7c4c0dc06ebd3b86ed92ff7e198fca917dcb403fd6b3c93192dfde87f634be2a"
+    },
+    "supported_model_worker": {
+      "status": "staging_wired_provider_disabled",
+      "work_package": "WP08",
+      "code_commit": "a503e368fceaf9bf20addebda5d9018083a614bb",
+      "worker_revision": "picture-dictionary-image-worker-staging-00004-9mn",
+      "image_model": "gpt-image-2.6-flare",
+      "vision_model": "gpt-6-luna",
+      "real_provider_gate": false,
+      "provider_credentials_attached": false,
+      "additional_real_calls": 0,
+      "staging_queue": "PAUSED",
+      "synthetic_oidc_delivery": {
+        "http": 200,
+        "observed_at": "2026-11-23T10:16:51.610762Z"
+      },
+      "tests": {
+        "passed": 129,
+        "subtests": 36,
+        "skipped": 1,
+        "new_cases": [
+          "positive vision verdict uploads after validation",
+          "unsafe verdict consumes bounded attempts and never uploads"
+        ]
+      },
+      "limits": [
+        "Synthetic cloud request used a nonexistent Job and verified authenticated delivery only",
+        "Real model calls through Cloud Tasks and physical iPhone QA remain pending",
+        "Legacy image routes retain their existing behavior pending migration"
+      ]
     }
   },
   "note": "Only a new staging worker and paused queue were deployed; no real AI call or production API rollout."
