@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.0.0",
+  "project": "picture-dictionary-kids",
+  "status": "in_progress",
+  "work_package": "WP06",
+  "authorization": "User agreed to provider-free staging end-to-end acceptance",
+  "scope": [
+    "Real API lookup and persisted outbox",
+    "Real authenticated dispatcher and Cloud Tasks delivery",
+    "Fixture image worker with no provider credentials",
+    "Restart, duplicate delivery, retry exhaustion and client recovery"
+  ],
+  "guardrails": [
+    "Independent acceptance service, queue and PostgreSQL schema",
+    "Production and existing staging API not switched",
+    "Real AI execution flag remains false",
+    "No OpenAI or Cloudinary credentials supplied",
+    "Test queue and scheduler paused after validation"
+  ],
+  "resource_budget": {
+    "max_service_instances": 1,
+    "service_concurrency": 4,
+    "max_queue_concurrency": 2,
+    "queue_rate_per_second": 2,
+    "fixture_vocabulary_max_words": 8,
+    "read_poll_interval_seconds": 2,
+    "bounded_test_window_minutes": 30
+  },
+  "evidence": [
+    {
+      "id": "E01",
+      "finding": "Real lookup path explicitly flushes GlobalWord before commit; former new/dirty-only listener lost the pending word",
+      "before": "API 201 with pending image and zero persisted jobs in a fresh isolated PostgreSQL schema",
+      "fix": "Remember pending word IDs after each flush; persist outbox before commit; clear tracking only at outer transaction end",
+      "status": "fix_under_regression"
+    }
+  ],
+  "unverified": [
+    "Actual cloud full-chain acceptance",
+    "Client runtime recovery tests"
+  ],
+  "updated_at": "2026-11-23T08:20:18.172025Z"
+}

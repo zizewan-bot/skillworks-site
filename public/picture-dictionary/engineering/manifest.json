@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-23T07:33:44.992195Z",
+  "updated_at": "2026-11-23T08:20:18.205946Z",
   "status": "in_progress",
   "version": "1.0.0",
   "url": "https://skillworks.dev/picture-dictionary/engineering/manifest.json",
@@ -43,7 +43,7 @@
       "url": "https://skillworks.dev/picture-dictionary/engineering/work-packages.json",
       "path": "work-packages.json",
       "version": "1.0.0",
-      "updated_at": "2026-11-23T07:26:41.698486Z",
+      "updated_at": "2026-11-23T08:17:18.108491Z",
       "status": "in_progress"
     },
     {
@@ -75,8 +75,8 @@
       "url": "https://skillworks.dev/picture-dictionary/engineering/current-state.json",
       "path": "current-state.json",
       "version": "1.0.0",
-      "updated_at": "2026-11-23T07:33:44.959642Z",
-      "status": "awaiting_acceptance_and_configuration"
+      "updated_at": "2026-11-23T08:17:18.108491Z",
+      "status": "in_progress"
     },
     {
       "id": "next-actions",
@@ -107,8 +107,16 @@
       "url": "https://skillworks.dev/picture-dictionary/engineering/timeline.jsonl",
       "path": "timeline.jsonl",
       "version": "1.0.0",
-      "updated_at": "2026-11-23T07:33:44.992195Z",
+      "updated_at": "2026-11-23T08:20:18.205946Z",
       "status": "append_only"
+    },
+    {
+      "id": "staging-acceptance",
+      "url": "https://skillworks.dev/picture-dictionary/engineering/staging-acceptance.json",
+      "path": "staging-acceptance.json",
+      "version": "1.0.0",
+      "updated_at": "2026-11-23T08:20:18.172025Z",
+      "status": "in_progress"
     }
   ]
 }

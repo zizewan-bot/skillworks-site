@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-23T07:26:41.698486Z",
+  "updated_at": "2026-11-23T08:17:18.108491Z",
   "status": "in_progress",
   "packages": [
     {
@@ -39,6 +39,11 @@
       "title": "Regression, staging and showcase",
       "status": "partial",
       "remaining": "Showcase published without unmeasured success claims; paid provider acceptance and production rollout pending"
+    },
+    {
+      "id": "WP06",
+      "title": "Provider-free staging end-to-end acceptance",
+      "status": "in_progress"
     }
   ]
 }
