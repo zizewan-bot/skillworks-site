@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-23T09:17:12.806844Z",
+  "updated_at": "2026-11-23T09:37:02.738975Z",
   "status": "in_progress",
   "packages": [
     {
@@ -49,7 +49,7 @@
     {
       "id": "WP07",
       "title": "Limited live-provider staging acceptance",
-      "status": "offline_preflight_passed",
+      "status": "live_single_sample_passed",
       "evidence": "provider-pilot.json"
     }
   ]

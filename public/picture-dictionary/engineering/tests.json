@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-23T08:52:30.280131Z",
+  "updated_at": "2026-11-23T09:37:02.738975Z",
   "status": "provider_free_staging_verified",
   "runs": [
     {
@@ -104,6 +104,12 @@
         "Provider credentials introduced during configuration load rejected before DB access",
         "Private cloud front-door and isolated schema verified"
       ]
+    },
+    {
+      "id": "wp07-live-single-sample",
+      "result": "passed",
+      "details": "provider-pilot.json",
+      "scope": "one-shot provider and storage test"
     }
   ]
 }

@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-23T09:17:12.806844Z",
-  "status": "provider_pilot_preflight_passed",
+  "updated_at": "2026-11-23T09:37:02.738975Z",
+  "status": "single_live_provider_sample_passed",
   "agent": "codex/root",
   "read_first": [
     "manifest.json",
@@ -36,7 +36,7 @@
     "Production cutover review"
   ],
   "production_changed": false,
-  "phase": "WP07 isolated paid pilot preparation",
+  "phase": "WP07 one-shot provider, vision and private storage sample passed",
   "code_commits": {
     "backend": "4b435265714a634883b52fad553349f5e7d6f2f2",
     "ios": "31ca2779c0a7fd54e63f49f3f8315d69709e097e"

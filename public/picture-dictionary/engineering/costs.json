@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-23T07:31:25.815749Z",
+  "updated_at": "2026-11-23T09:37:02.738975Z",
   "status": "partial",
   "actual_billing_usd": null,
   "estimated_cost_usd": null,
@@ -35,5 +35,27 @@
     "first_attempt": "HTTP 429 quota exceeded",
     "target_project_quota_attempt": "Cloud Billing API disabled; no billing data retrieved",
     "bigquery_metadata": "no datasets listed in target project; does not prove no exports elsewhere"
-  }
+  },
+  "wp07": {
+    "status": "live_single_sample_passed",
+    "model_entitlement_verified": true,
+    "image_calls": 1,
+    "vision_calls": 1,
+    "text_calls": 0,
+    "openai_usage_estimate_usd": "0.02743055",
+    "actual_billed_usd": null,
+    "storage_cost_usd": null,
+    "cloud_infrastructure_cost_usd": null,
+    "image_seconds": 5.201,
+    "vision_seconds": 2.846,
+    "vision_accepted": true,
+    "cloudinary_authenticated_download_verified": true,
+    "cloudinary_unsigned_access_denied": true,
+    "cleanup_verified": true,
+    "scope": "One synthetic apple in a one-shot staging credential harness. Real calls did not traverse the Cloud Tasks worker; WP06 separately verified that chain with fixtures."
+  },
+  "wp07_price_sources": [
+    "https://developers.openai.com/api/docs/models/gpt-image-2.6-flare",
+    "https://developers.openai.com/api/docs/models/gpt-6-luna"
+  ]
 }

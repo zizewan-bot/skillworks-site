@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-23T09:17:12.806844Z",
+  "updated_at": "2026-11-23T09:37:02.738975Z",
   "status": "pending",
   "actions": [
     {
@@ -16,8 +16,8 @@
     },
     {
       "id": "N02",
-      "action": "Run one isolated real image and one vision validation after confirming model access and hard one-use call reservations",
-      "requires": "See provider-pilot.json for tested request contract, scope and pending gates"
+      "action": "Prepare supported-model integration through isolated staging worker; review any further paid call scope",
+      "requires": "WP07 single real image and vision call completed; see provider-pilot.json"
     },
     {
       "id": "N03",
