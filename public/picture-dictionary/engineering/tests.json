@@ -1,7 +1,72 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-23T06:56:02.185649Z",
-  "status": "pending",
-  "runs": []
+  "updated_at": "2026-11-23T07:31:25.815749Z",
+  "status": "partially_verified",
+  "runs": [
+    {
+      "id": "backend-regression",
+      "result": "passed",
+      "tests_passed": 123,
+      "subtests_passed": 36,
+      "skipped": 1,
+      "note": "PostgreSQL concurrency test skipped in SQLite run; separately executed below",
+      "real_provider_calls": 0,
+      "evidence": "Full suite rerun after lock-order hardening; PostgreSQL-only test separately passed"
+    },
+    {
+      "id": "postgresql-17",
+      "result": "passed",
+      "tests_passed": 12,
+      "evidence": "16 concurrent claims yielded one winner; expired lease fencing; transaction rollback; duplicate delivery; failure budgets; stale pending read cannot reset a completed job",
+      "real_provider_calls": 0
+    },
+    {
+      "id": "ios-build",
+      "result": "passed",
+      "tool": "Xcode 27.2",
+      "target": "iOS simulator Debug",
+      "limitations": [
+        "signing disabled",
+        "physical device and offline runtime QA pending"
+      ],
+      "evidence": "Full simulator build passed with original AppIcon assets restored from verified source"
+    },
+    {
+      "id": "site-records",
+      "result": "passed",
+      "documents": 12,
+      "evidence": "manifest consistency, required fields, UTC timeline and credential pattern checks; browser verified local engineering page"
+    },
+    {
+      "id": "cloud-tasks-oidc",
+      "result": "passed",
+      "method": "one synthetic nonexistent job UUID through actual Cloud Tasks OIDC delivery",
+      "http_status": 200,
+      "latency_seconds": 4.733358015,
+      "real_provider_calls": 0
+    },
+    {
+      "id": "documentation-auth",
+      "result": "passed",
+      "tests": 4,
+      "coverage": [
+        "public host rejects private paths",
+        "valid signed owner accepted",
+        "forged/expired/wrong audience/other identity denied",
+        "unavailable verifier reports 503"
+      ],
+      "platform_cpu": "not_measured"
+    },
+    {
+      "id": "live-public-records",
+      "result": "passed",
+      "documents_verified": 12,
+      "http_status": 200,
+      "method": "curl and JSON parsing",
+      "limitations": [
+        "Python urllib request received HTTP 403; generic agent transport compatibility still needs investigation"
+      ]
+    }
+  ]
 }

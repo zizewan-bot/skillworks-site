@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-23T07:05:27.957443Z",
+  "updated_at": "2026-11-23T07:31:25.848523Z",
   "status": "in_progress",
   "version": "1.0.0",
   "url": "https://skillworks.dev/picture-dictionary/engineering/manifest.json",
@@ -9,8 +9,9 @@
   "entrypoint": "current-state.json",
   "classification": "public_sanitized",
   "internal": {
-    "status": "site_auth_pending",
-    "storage": "private backend repository; no credentials or raw logs published"
+    "status": "deployed_owner_browser_check_pending",
+    "url": "https://glen.skillworks.dev/picture-dictionary/internal/manifest.json",
+    "authentication": "Existing Google Access boundary plus signed owner JWT; private repository source"
   },
   "documents": [
     {
@@ -18,8 +19,8 @@
       "url": "https://skillworks.dev/picture-dictionary/engineering/architecture.json",
       "path": "architecture.json",
       "version": "1.0.0",
-      "updated_at": "2026-11-23T06:56:02.185649Z",
-      "status": "source_verified"
+      "updated_at": "2026-11-23T07:16:06.542295Z",
+      "status": "source_and_staging_verified"
     },
     {
       "id": "requirements",
@@ -34,7 +35,7 @@
       "url": "https://skillworks.dev/picture-dictionary/engineering/adr.json",
       "path": "adr.json",
       "version": "1.0.0",
-      "updated_at": "2026-11-23T06:56:02.185649Z",
+      "updated_at": "2026-11-23T07:26:41.698486Z",
       "status": "accepted"
     },
     {
@@ -42,7 +43,7 @@
       "url": "https://skillworks.dev/picture-dictionary/engineering/work-packages.json",
       "path": "work-packages.json",
       "version": "1.0.0",
-      "updated_at": "2026-11-23T06:56:02.185649Z",
+      "updated_at": "2026-11-23T07:26:41.698486Z",
       "status": "in_progress"
     },
     {
@@ -50,7 +51,7 @@
       "url": "https://skillworks.dev/picture-dictionary/engineering/monitoring-baseline.json",
       "path": "monitoring-baseline.json",
       "version": "1.0.0",
-      "updated_at": "2026-11-23T07:01:37.616321Z",
+      "updated_at": "2026-11-23T07:31:25.815749Z",
       "status": "partial"
     },
     {
@@ -58,15 +59,15 @@
       "url": "https://skillworks.dev/picture-dictionary/engineering/costs.json",
       "path": "costs.json",
       "version": "1.0.0",
-      "updated_at": "2026-11-23T06:56:02.185649Z",
-      "status": "unmeasured"
+      "updated_at": "2026-11-23T07:31:25.815749Z",
+      "status": "partial"
     },
     {
       "id": "risks-blockers",
       "url": "https://skillworks.dev/picture-dictionary/engineering/risks-blockers.json",
       "path": "risks-blockers.json",
       "version": "1.0.0",
-      "updated_at": "2026-11-23T07:01:37.616321Z",
+      "updated_at": "2026-11-23T07:31:25.815749Z",
       "status": "open"
     },
     {
@@ -74,39 +75,39 @@
       "url": "https://skillworks.dev/picture-dictionary/engineering/current-state.json",
       "path": "current-state.json",
       "version": "1.0.0",
-      "updated_at": "2026-11-23T07:01:37.616321Z",
-      "status": "in_progress"
+      "updated_at": "2026-11-23T07:31:25.815749Z",
+      "status": "awaiting_acceptance_and_configuration"
     },
     {
       "id": "next-actions",
       "url": "https://skillworks.dev/picture-dictionary/engineering/next-actions.json",
       "path": "next-actions.json",
       "version": "1.0.0",
-      "updated_at": "2026-11-23T06:56:02.185649Z",
-      "status": "in_progress"
+      "updated_at": "2026-11-23T07:31:25.815749Z",
+      "status": "pending"
     },
     {
       "id": "tests",
       "url": "https://skillworks.dev/picture-dictionary/engineering/tests.json",
       "path": "tests.json",
       "version": "1.0.0",
-      "updated_at": "2026-11-23T06:56:02.185649Z",
-      "status": "pending"
+      "updated_at": "2026-11-23T07:31:25.815749Z",
+      "status": "partially_verified"
     },
     {
       "id": "deployments",
       "url": "https://skillworks.dev/picture-dictionary/engineering/deployments.json",
       "path": "deployments.json",
       "version": "1.0.0",
-      "updated_at": "2026-11-23T06:56:02.185649Z",
-      "status": "not_deployed"
+      "updated_at": "2026-11-23T07:31:25.815749Z",
+      "status": "published_docs_staging_only"
     },
     {
       "id": "timeline",
       "url": "https://skillworks.dev/picture-dictionary/engineering/timeline.jsonl",
       "path": "timeline.jsonl",
       "version": "1.0.0",
-      "updated_at": "2026-11-23T07:05:27.957443Z",
+      "updated_at": "2026-11-23T07:31:25.848523Z",
       "status": "append_only"
     }
   ]

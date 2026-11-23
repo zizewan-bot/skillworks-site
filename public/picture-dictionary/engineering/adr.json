@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-23T06:56:02.185649Z",
+  "updated_at": "2026-11-23T07:26:41.698486Z",
   "status": "accepted",
   "decisions": [
     {
@@ -18,6 +18,11 @@
       "id": "ADR-003",
       "decision": "Feature-gate durable jobs; preserve existing paths until staging validation",
       "reason": "Production configuration and compatibility must be checked before activation"
+    },
+    {
+      "id": "ADR-004",
+      "decision": "Use a separate narrowly routed Worker for public records and protected records beneath the existing Glen host",
+      "reason": "Glen was verified as a separate Worker system. Reuse the current signed owner login boundary without changing Glen business code or widening reader/service access."
     }
   ]
 }

@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-23T07:01:37.616321Z",
-  "status": "in_progress",
+  "updated_at": "2026-11-23T07:31:25.815749Z",
+  "status": "awaiting_acceptance_and_configuration",
   "agent": "codex/root",
   "read_first": [
     "manifest.json",
@@ -12,16 +12,33 @@
     "timeline.jsonl"
   ],
   "completed": [
-    "Machine-readable skeleton committed on remote branch ed46b49e24cf1177730ba9b4f7aebbb42388338d",
-    "Read production/staging deployment metadata and bounded recent log sample",
-    "Implemented opt-in outbox and shared polling; tests in progress"
+    "Remote backend commit 5b1bd620f6c8b9f48d8f3625fd01a06752e4f02d",
+    "Remote iOS commit de858405a35a84916e189b5d199625a63b02b14d",
+    "123 backend tests, 36 subtests; 12 PostgreSQL tests; simulator build",
+    "Staging queue created paused; independent real-provider execution disabled",
+    "Public engineering records published and 12 document endpoints verified HTTP 200",
+    "Protected route unauthenticated response 302; private path on public domain returns 404",
+    "Dedicated staging OIDC delivery HTTP 200; production and staging API revision names unchanged",
+    "Three log-based metrics and staging Cloud Monitoring dashboard created",
+    "Full simulator build with original icon assets passed"
   ],
   "not_completed": [
-    "production metrics",
-    "staging activation",
-    "production rollout",
-    "Glen integration",
-    "authenticated internal site records"
+    "production image cutover",
+    "progressive text durability",
+    "complete cost attribution and billing reconciliation",
+    "active alerts and hosted usage dashboard",
+    "iOS physical-device offline/recovery QA"
   ],
-  "production_changed": false
+  "production_changed": false,
+  "phase": "Provider-free implementation delivered; production cutover not approved or executed",
+  "code_commits": {
+    "backend": "cc8fdf2ea69ed7c248a024ea0a59cfb51b489812",
+    "ios": "de858405a35a84916e189b5d199625a63b02b14d"
+  },
+  "links": {
+    "backend_pr": "https://github.com/zizewan-bot/project-2-picture-dictionary-api/pull/1",
+    "ios_pr": "https://github.com/zizewan-bot/picture-dictionary-apple/pull/1",
+    "public_records": "https://skillworks.dev/picture-dictionary/engineering/",
+    "restricted_records": "https://glen.skillworks.dev/picture-dictionary/internal/"
+  }
 }

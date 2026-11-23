@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-23T07:01:37.616321Z",
+  "updated_at": "2026-11-23T07:31:25.815749Z",
   "status": "partial",
   "window": {
     "requested_days": 7,
@@ -36,5 +36,14 @@
   "lifecycle_event_counts": {
     "image_job_retry_pending": 33,
     "image_job_failed": 2
+  },
+  "monitoring_configuration": {
+    "status": "created_for_staging",
+    "log_based_metrics": 3,
+    "dashboard": true,
+    "failure_incident_policy": true,
+    "external_notification_channels": 0,
+    "samples_for_new_job_metrics": "none_real_generation_disabled",
+    "note": "No real generation success rate or latency percentile is asserted."
   }
 }

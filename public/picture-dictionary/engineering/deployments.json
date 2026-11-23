@@ -1,12 +1,40 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-23T06:56:02.185649Z",
-  "status": "not_deployed",
+  "updated_at": "2026-11-23T07:31:25.815749Z",
+  "status": "published_docs_staging_only",
   "environments": {
-    "local": "skeleton created",
-    "preview": null,
-    "production": null
+    "backend_production": {
+      "changed": false
+    },
+    "backend_staging_api": {
+      "changed": false
+    },
+    "dedicated_staging_worker": {
+      "deployed": true,
+      "provider_execution": false,
+      "synthetic_delivery": {
+        "status": 200,
+        "latency_seconds": 4.733358015,
+        "observed_at": "2026-11-23T07:12:59.681118Z"
+      },
+      "queue": "paused",
+      "revision": "picture-dictionary-image-worker-staging-00003-tcg",
+      "source_commit": "cc8fdf2ea69ed7c248a024ea0a59cfb51b489812"
+    },
+    "documentation_public": {
+      "status": "published",
+      "manifest_http_status": 200,
+      "verified_documents": 12,
+      "worker_version": "ed3ec5a0-edb3-45f8-8d06-12ae8c7a7e68",
+      "note": "Subsequent records/showcase update is prepared on the source branch"
+    },
+    "documentation_internal": {
+      "status": "published",
+      "unauthenticated_status": 302,
+      "public_host_private_path_status": 404,
+      "live_owner_session_check": "unverified"
+    }
   },
-  "note": "Canonical URLs are intended routes until verified by HTTP."
+  "note": "Only a new staging worker and paused queue were deployed; no real AI call or production API rollout."
 }

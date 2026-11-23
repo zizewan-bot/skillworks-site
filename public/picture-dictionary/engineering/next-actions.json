@@ -1,13 +1,43 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-23T06:56:02.185649Z",
-  "status": "in_progress",
+  "updated_at": "2026-11-23T07:31:25.815749Z",
+  "status": "pending",
   "actions": [
-    "Publish and verify documentation skeleton in preview",
-    "Read Cloud Run configuration and aggregate logs without exposing values",
-    "Implement opt-in durable jobs and shared client polling",
-    "Test without provider calls",
-    "Record exact commits and deployment evidence"
+    {
+      "id": "N01",
+      "action": "Verify owner browser login on the restricted records path",
+      "requires": "Existing owner Google session; no new reader permissions"
+    },
+    {
+      "id": "N02",
+      "action": "Configure staging dispatcher and bounded real-provider acceptance; queue remains paused and provider gate false",
+      "requires": "Review finite generation budget before any real AI calls"
+    },
+    {
+      "id": "N03",
+      "action": "Run iPhone offline/foreground/reopen acceptance and TestFlight review",
+      "requires": "Device validation"
+    },
+    {
+      "id": "N04",
+      "action": "Complete text-call attribution and reconcile actual provider, storage and infrastructure billing",
+      "requires": "Billing source/export access; current reads rate-limited or API disabled"
+    },
+    {
+      "id": "N05",
+      "action": "Choose alert notification destination and validate incidents with isolated data",
+      "requires": "Destination selection; current policy records incidents without external notifications"
+    },
+    {
+      "id": "N06",
+      "action": "Review additive migration, legacy drain, rollback and production cutover",
+      "requires": "Separate production review; current production and staging API revisions unchanged"
+    },
+    {
+      "id": "N07",
+      "action": "Investigate public urllib 403 transport compatibility and orphan-asset reconciliation",
+      "requires": "No security-policy weakening or deletion of existing assets"
+    }
   ]
 }

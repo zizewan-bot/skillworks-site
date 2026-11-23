@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-23T06:56:02.185649Z",
-  "status": "unmeasured",
+  "updated_at": "2026-11-23T07:31:25.815749Z",
+  "status": "partial",
   "actual_billing_usd": null,
   "estimated_cost_usd": null,
   "requirements": [
@@ -11,5 +11,29 @@
     "Do not estimate a dollar value without a versioned price source",
     "Reconcile estimates with billing exports"
   ],
-  "no_real_ai_calls_authorized_by_this_record": true
+  "no_real_ai_calls_authorized_by_this_record": true,
+  "attribution_implemented": [
+    "durable image call reservations and outcomes",
+    "durable vision validation reservations and outcomes",
+    "provider-reported usage when present",
+    "unknown interrupted requests remain explicitly started"
+  ],
+  "not_covered": [
+    "text calls",
+    "Cloud Run and PostgreSQL actual billing",
+    "Cloudinary billing",
+    "price-version reconciliation"
+  ],
+  "staging_guardrails": [
+    "provider execution disabled",
+    "queue paused",
+    "dedicated worker min instances 0, max instances 1",
+    "synthetic nonexistent job only; no real generation"
+  ],
+  "note": "Infrastructure validation may incur standard hosting/storage charges. No real AI provider calls performed; no claim of zero infrastructure cost.",
+  "billing_access": {
+    "first_attempt": "HTTP 429 quota exceeded",
+    "target_project_quota_attempt": "Cloud Billing API disabled; no billing data retrieved",
+    "bigquery_metadata": "no datasets listed in target project; does not prove no exports elsewhere"
+  }
 }

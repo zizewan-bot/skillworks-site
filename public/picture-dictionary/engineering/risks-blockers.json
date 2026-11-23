@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-23T07:01:37.616321Z",
+  "updated_at": "2026-11-23T07:31:25.815749Z",
   "status": "open",
   "items": [
     {
@@ -12,15 +12,15 @@
     },
     {
       "id": "B002",
-      "status": "open",
-      "summary": "Glen structure absent from current site source and homepage",
-      "impact": "Do not invent Glen architecture or claim integration completed"
+      "status": "resolved",
+      "summary": "Glen is a separate authenticated Worker system on glen.skillworks.dev; inspected specification version 153 and existing source boundaries",
+      "impact": "New Picture Dictionary routes can coexist without editing Glen business code"
     },
     {
       "id": "B003",
-      "status": "open",
-      "summary": "Authenticated internal documentation route not configured",
-      "impact": "Restricted evidence remains in private repository"
+      "status": "partially_resolved",
+      "summary": "Protected record route deployed under existing Glen Access boundary with signed owner-only validation",
+      "impact": "Live positive owner browser check remains unverified; private source remains in backend repository"
     },
     {
       "id": "R001",
@@ -30,15 +30,15 @@
     },
     {
       "id": "B004",
-      "status": "open",
-      "summary": "Authenticated Cloudflare account lists no Pages projects",
-      "impact": "Preview/custom-domain publication blocked pending correct account/project"
+      "status": "resolved",
+      "summary": "Dedicated Worker published new documentation paths; actual public manifest HTTP 200",
+      "impact": "No Pages access required"
     },
     {
       "id": "B005",
-      "status": "open",
-      "summary": "Cloud Tasks API disabled in backend project",
-      "impact": "No staging delivery or queue validation yet"
+      "status": "resolved",
+      "summary": "Cloud Tasks API enabled; staging queue created and paused",
+      "impact": "Authenticated staging delivery still under validation"
     },
     {
       "id": "R002",
@@ -51,6 +51,24 @@
       "status": "open",
       "summary": "Provider execution is at least once; a crash after submission can leave billing unknown",
       "impact": "Reserve bounded call budget before API request; do not claim exactly-once AI execution"
+    },
+    {
+      "id": "R004",
+      "status": "open",
+      "summary": "Full cost attribution and external alert notifications remain incomplete",
+      "impact": "Image/vision ledger, three metrics, dashboard and staging failure incident policy exist. Text attribution, billing and notification destination remain pending."
+    },
+    {
+      "id": "B006",
+      "status": "open",
+      "summary": "Billing reads hit shared-client quota; target-project retry reports Cloud Billing API disabled",
+      "impact": "Actual spending remains unknown; no export dataset listed in target project"
+    },
+    {
+      "id": "R005",
+      "status": "open",
+      "summary": "Public document retrieval works via curl but Python urllib received HTTP 403",
+      "impact": "Investigate transport compatibility before claiming access from every Agent client"
     }
   ]
 }

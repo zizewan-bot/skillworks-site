@@ -1,38 +1,44 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-23T06:56:02.185649Z",
+  "updated_at": "2026-11-23T07:26:41.698486Z",
   "status": "in_progress",
   "packages": [
     {
       "id": "WP00",
       "title": "Audit records and publication skeleton",
-      "status": "in_progress"
+      "status": "published",
+      "remaining": "Owner browser-session positive check of internal route remains unverified"
     },
     {
       "id": "WP01",
-      "title": "Production and staging baseline",
-      "status": "in_progress"
+      "title": "Production/staging baseline",
+      "status": "partial",
+      "remaining": "Generation success percentiles and billing unmeasured"
     },
     {
       "id": "WP02",
       "title": "Durable image jobs and worker",
-      "status": "queued"
+      "status": "staging_transport_verified",
+      "remaining": "Provider-disabled worker deployed; main staging/production API not switched; scheduler not activated"
     },
     {
       "id": "WP03",
       "title": "Shared iOS connection recovery",
-      "status": "queued"
+      "status": "implemented_build_verified",
+      "remaining": "Physical-device offline/foreground and TestFlight checks"
     },
     {
       "id": "WP04",
       "title": "Anonymous operations and costs",
-      "status": "queued"
+      "status": "partial",
+      "remaining": "Image/vision ledger and GCP monitoring configured; text/billing attribution and notification destination pending"
     },
     {
       "id": "WP05",
       "title": "Regression, staging and showcase",
-      "status": "queued"
+      "status": "partial",
+      "remaining": "Showcase published without unmeasured success claims; paid provider acceptance and production rollout pending"
     }
   ]
 }
