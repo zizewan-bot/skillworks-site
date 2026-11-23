@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.0.0",
+  "project": "picture-dictionary-kids",
+  "updated_at": "2026-11-23T06:56:02.185649Z",
+  "status": "unmeasured",
+  "actual_billing_usd": null,
+  "estimated_cost_usd": null,
+  "requirements": [
+    "Associate every provider attempt with a job",
+    "Track image generation and validation separately",
+    "Do not estimate a dollar value without a versioned price source",
+    "Reconcile estimates with billing exports"
+  ],
+  "no_real_ai_calls_authorized_by_this_record": true
+}

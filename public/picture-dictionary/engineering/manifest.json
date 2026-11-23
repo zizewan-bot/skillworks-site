@@ -1,0 +1,113 @@
+{
+  "schema_version": "1.0.0",
+  "project": "picture-dictionary-kids",
+  "updated_at": "2026-11-23T06:56:02.185649Z",
+  "status": "in_progress",
+  "version": "1.0.0",
+  "url": "https://skillworks.dev/picture-dictionary/engineering/manifest.json",
+  "schema": "https://skillworks.dev/picture-dictionary/engineering/schema.json",
+  "entrypoint": "current-state.json",
+  "classification": "public_sanitized",
+  "internal": {
+    "status": "site_auth_pending",
+    "storage": "private backend repository; no credentials or raw logs published"
+  },
+  "documents": [
+    {
+      "id": "architecture",
+      "url": "https://skillworks.dev/picture-dictionary/engineering/architecture.json",
+      "path": "architecture.json",
+      "version": "1.0.0",
+      "updated_at": "2026-11-23T06:56:02.185649Z",
+      "status": "source_verified"
+    },
+    {
+      "id": "requirements",
+      "url": "https://skillworks.dev/picture-dictionary/engineering/requirements.json",
+      "path": "requirements.json",
+      "version": "1.0.0",
+      "updated_at": "2026-11-23T06:56:02.185649Z",
+      "status": "approved"
+    },
+    {
+      "id": "adr",
+      "url": "https://skillworks.dev/picture-dictionary/engineering/adr.json",
+      "path": "adr.json",
+      "version": "1.0.0",
+      "updated_at": "2026-11-23T06:56:02.185649Z",
+      "status": "accepted"
+    },
+    {
+      "id": "work-packages",
+      "url": "https://skillworks.dev/picture-dictionary/engineering/work-packages.json",
+      "path": "work-packages.json",
+      "version": "1.0.0",
+      "updated_at": "2026-11-23T06:56:02.185649Z",
+      "status": "in_progress"
+    },
+    {
+      "id": "monitoring-baseline",
+      "url": "https://skillworks.dev/picture-dictionary/engineering/monitoring-baseline.json",
+      "path": "monitoring-baseline.json",
+      "version": "1.0.0",
+      "updated_at": "2026-11-23T06:56:02.185649Z",
+      "status": "unmeasured"
+    },
+    {
+      "id": "costs",
+      "url": "https://skillworks.dev/picture-dictionary/engineering/costs.json",
+      "path": "costs.json",
+      "version": "1.0.0",
+      "updated_at": "2026-11-23T06:56:02.185649Z",
+      "status": "unmeasured"
+    },
+    {
+      "id": "risks-blockers",
+      "url": "https://skillworks.dev/picture-dictionary/engineering/risks-blockers.json",
+      "path": "risks-blockers.json",
+      "version": "1.0.0",
+      "updated_at": "2026-11-23T06:56:02.185649Z",
+      "status": "open"
+    },
+    {
+      "id": "current-state",
+      "url": "https://skillworks.dev/picture-dictionary/engineering/current-state.json",
+      "path": "current-state.json",
+      "version": "1.0.0",
+      "updated_at": "2026-11-23T06:56:02.185649Z",
+      "status": "in_progress"
+    },
+    {
+      "id": "next-actions",
+      "url": "https://skillworks.dev/picture-dictionary/engineering/next-actions.json",
+      "path": "next-actions.json",
+      "version": "1.0.0",
+      "updated_at": "2026-11-23T06:56:02.185649Z",
+      "status": "in_progress"
+    },
+    {
+      "id": "tests",
+      "url": "https://skillworks.dev/picture-dictionary/engineering/tests.json",
+      "path": "tests.json",
+      "version": "1.0.0",
+      "updated_at": "2026-11-23T06:56:02.185649Z",
+      "status": "pending"
+    },
+    {
+      "id": "deployments",
+      "url": "https://skillworks.dev/picture-dictionary/engineering/deployments.json",
+      "path": "deployments.json",
+      "version": "1.0.0",
+      "updated_at": "2026-11-23T06:56:02.185649Z",
+      "status": "not_deployed"
+    },
+    {
+      "id": "timeline",
+      "url": "https://skillworks.dev/picture-dictionary/engineering/timeline.jsonl",
+      "path": "timeline.jsonl",
+      "version": "1.0.0",
+      "updated_at": "2026-11-23T06:56:02.185649Z",
+      "status": "append_only"
+    }
+  ]
+}

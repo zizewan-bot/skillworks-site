@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0.0",
+  "project": "picture-dictionary-kids",
+  "updated_at": "2026-11-23T06:56:02.185649Z",
+  "status": "unmeasured",
+  "window": null,
+  "metrics": {
+    "success_rate": null,
+    "duration_p50_ms": null,
+    "duration_p95_ms": null,
+    "duration_p99_ms": null,
+    "lost_jobs": null,
+    "duplicate_provider_calls": null,
+    "daily_lookups": null,
+    "cache_hit_rate": null
+  },
+  "note": "Null means unmeasured; code audit is not production evidence."
+}

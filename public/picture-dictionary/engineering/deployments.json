@@ -1,0 +1,12 @@
+{
+  "schema_version": "1.0.0",
+  "project": "picture-dictionary-kids",
+  "updated_at": "2026-11-23T06:56:02.185649Z",
+  "status": "not_deployed",
+  "environments": {
+    "local": "skeleton created",
+    "preview": null,
+    "production": null
+  },
+  "note": "Canonical URLs are intended routes until verified by HTTP."
+}

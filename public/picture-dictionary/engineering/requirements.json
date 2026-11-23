@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0.0",
+  "project": "picture-dictionary-kids",
+  "updated_at": "2026-11-23T06:56:02.185649Z",
+  "status": "approved",
+  "preserve": [
+    "existing vocabulary",
+    "OpenAI generation and vision validation",
+    "Cloudinary",
+    "PostgreSQL",
+    "Cloud Run",
+    "single-word lookup and normalization",
+    "5 new free words daily",
+    "subscriptions",
+    "children privacy and local history"
+  ],
+  "acceptance": [
+    "network errors never become terminal image failures",
+    "durable job can recover after worker interruption",
+    "bounded retries and attributable provider calls",
+    "no private data in public documentation"
+  ]
+}

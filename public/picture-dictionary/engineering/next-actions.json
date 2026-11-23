@@ -1,0 +1,13 @@
+{
+  "schema_version": "1.0.0",
+  "project": "picture-dictionary-kids",
+  "updated_at": "2026-11-23T06:56:02.185649Z",
+  "status": "in_progress",
+  "actions": [
+    "Publish and verify documentation skeleton in preview",
+    "Read Cloud Run configuration and aggregate logs without exposing values",
+    "Implement opt-in durable jobs and shared client polling",
+    "Test without provider calls",
+    "Record exact commits and deployment evidence"
+  ]
+}

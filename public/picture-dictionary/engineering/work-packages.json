@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0.0",
+  "project": "picture-dictionary-kids",
+  "updated_at": "2026-11-23T06:56:02.185649Z",
+  "status": "in_progress",
+  "packages": [
+    {
+      "id": "WP00",
+      "title": "Audit records and publication skeleton",
+      "status": "in_progress"
+    },
+    {
+      "id": "WP01",
+      "title": "Production and staging baseline",
+      "status": "in_progress"
+    },
+    {
+      "id": "WP02",
+      "title": "Durable image jobs and worker",
+      "status": "queued"
+    },
+    {
+      "id": "WP03",
+      "title": "Shared iOS connection recovery",
+      "status": "queued"
+    },
+    {
+      "id": "WP04",
+      "title": "Anonymous operations and costs",
+      "status": "queued"
+    },
+    {
+      "id": "WP05",
+      "title": "Regression, staging and showcase",
+      "status": "queued"
+    }
+  ]
+}

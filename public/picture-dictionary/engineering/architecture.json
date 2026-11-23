@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0.0",
+  "project": "picture-dictionary-kids",
+  "updated_at": "2026-11-23T06:56:02.185649Z",
+  "status": "source_verified",
+  "current": [
+    "SwiftUI iOS with local learning history",
+    "FastAPI and PostgreSQL shared dictionary",
+    "OpenAI generation and vision validation",
+    "Cloudinary media",
+    "Cloud Run deployment"
+  ],
+  "target": [
+    "Transactional image job outbox",
+    "Cloud Tasks authenticated HTTP worker",
+    "Database claim and fencing",
+    "Shared client polling recovery"
+  ],
+  "environment_status": "production configuration not yet verified"
+}

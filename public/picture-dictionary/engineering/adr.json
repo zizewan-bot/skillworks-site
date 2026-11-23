@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0.0",
+  "project": "picture-dictionary-kids",
+  "updated_at": "2026-11-23T06:56:02.185649Z",
+  "status": "accepted",
+  "decisions": [
+    {
+      "id": "ADR-001",
+      "decision": "Use versioned JSON and append-only JSONL under the existing Picture Dictionary path",
+      "reason": "Static hosting supports stable unauthenticated machine-readable public evidence"
+    },
+    {
+      "id": "ADR-002",
+      "decision": "Private repository holds restricted operational evidence until authenticated site access is verified",
+      "reason": "No existing Glen or access-control implementation was found in the current repository or live homepage"
+    },
+    {
+      "id": "ADR-003",
+      "decision": "Feature-gate durable jobs; preserve existing paths until staging validation",
+      "reason": "Production configuration and compatibility must be checked before activation"
+    }
+  ]
+}

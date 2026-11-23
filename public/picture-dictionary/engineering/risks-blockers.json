@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0.0",
+  "project": "picture-dictionary-kids",
+  "updated_at": "2026-11-23T06:56:02.185649Z",
+  "status": "open",
+  "items": [
+    {
+      "id": "B001",
+      "status": "open",
+      "summary": "Local Git credentials cannot read private repositories; authenticated connector works",
+      "impact": "Use connector for source and commits"
+    },
+    {
+      "id": "B002",
+      "status": "open",
+      "summary": "Glen structure absent from current site source and homepage",
+      "impact": "Do not invent Glen architecture or claim integration completed"
+    },
+    {
+      "id": "B003",
+      "status": "open",
+      "summary": "Authenticated internal documentation route not configured",
+      "impact": "Restricted evidence remains in private repository"
+    },
+    {
+      "id": "R001",
+      "status": "open",
+      "summary": "Existing background image work can be interrupted and client network errors can mark images unavailable",
+      "evidence": "Source audit; production incidence not measured"
+    }
+  ]
+}
