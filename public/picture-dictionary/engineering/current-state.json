@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-23T07:31:25.815749Z",
+  "updated_at": "2026-11-23T07:33:44.959642Z",
   "status": "awaiting_acceptance_and_configuration",
   "agent": "codex/root",
   "read_first": [
@@ -20,7 +20,8 @@
     "Protected route unauthenticated response 302; private path on public domain returns 404",
     "Dedicated staging OIDC delivery HTTP 200; production and staging API revision names unchanged",
     "Three log-based metrics and staging Cloud Monitoring dashboard created",
-    "Full simulator build with original icon assets passed"
+    "Full simulator build with original icon assets passed",
+    "Live homepage verified with sibling Picture Dictionary and Glen projects; product page links to records"
   ],
   "not_completed": [
     "production image cutover",
@@ -39,6 +40,7 @@
     "backend_pr": "https://github.com/zizewan-bot/project-2-picture-dictionary-api/pull/1",
     "ios_pr": "https://github.com/zizewan-bot/picture-dictionary-apple/pull/1",
     "public_records": "https://skillworks.dev/picture-dictionary/engineering/",
-    "restricted_records": "https://glen.skillworks.dev/picture-dictionary/internal/"
+    "restricted_records": "https://glen.skillworks.dev/picture-dictionary/internal/",
+    "site_pr": "https://github.com/zizewan-bot/skillworks-site/pull/2"
   }
 }

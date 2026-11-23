@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-23T07:31:25.815749Z",
+  "updated_at": "2026-11-23T07:33:44.959642Z",
   "status": "published_docs_staging_only",
   "environments": {
     "backend_production": {
@@ -20,14 +20,24 @@
       },
       "queue": "paused",
       "revision": "picture-dictionary-image-worker-staging-00003-tcg",
-      "source_commit": "cc8fdf2ea69ed7c248a024ea0a59cfb51b489812"
+      "source_commit": "cc8fdf2ea69ed7c248a024ea0a59cfb51b489812",
+      "latest_synthetic_delivery": {
+        "status": 200,
+        "latency_seconds": 1.169067977,
+        "observed_at": "2026-11-23T07:30:20.489230Z",
+        "revision": "picture-dictionary-image-worker-staging-00003-tcg",
+        "real_provider_calls": 0
+      }
     },
     "documentation_public": {
       "status": "published",
       "manifest_http_status": 200,
       "verified_documents": 12,
-      "worker_version": "ed3ec5a0-edb3-45f8-8d06-12ae8c7a7e68",
-      "note": "Subsequent records/showcase update is prepared on the source branch"
+      "worker_version": "696feb9e-3d19-4ff2-9d27-c68da5e8e9f3",
+      "note": "Showcase and records release verified; subsequent receipt-only updates retain the same functional code.",
+      "source_commit": "53fbf433c896dbcb9d18208b19990e252aa4c1b1",
+      "homepage_both_projects": true,
+      "product_page_record_link": true
     },
     "documentation_internal": {
       "status": "published",
