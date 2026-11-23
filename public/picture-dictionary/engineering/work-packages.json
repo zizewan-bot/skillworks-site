@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-23T08:17:18.108491Z",
+  "updated_at": "2026-11-23T08:45:43.936604Z",
   "status": "in_progress",
   "packages": [
     {
@@ -19,14 +19,14 @@
     {
       "id": "WP02",
       "title": "Durable image jobs and worker",
-      "status": "staging_transport_verified",
-      "remaining": "Provider-disabled worker deployed; main staging/production API not switched; scheduler not activated"
+      "status": "cloud_fixture_recovery_verified",
+      "remaining": "Real provider acceptance and production activation remain gated"
     },
     {
       "id": "WP03",
       "title": "Shared iOS connection recovery",
-      "status": "implemented_build_verified",
-      "remaining": "Physical-device offline/foreground and TestFlight checks"
+      "status": "runtime_recovery_verified",
+      "remaining": "Physical-device/TestFlight QA"
     },
     {
       "id": "WP04",
@@ -43,7 +43,8 @@
     {
       "id": "WP06",
       "title": "Provider-free staging end-to-end acceptance",
-      "status": "in_progress"
+      "status": "complete_provider_free",
+      "evidence": "staging-acceptance.json"
     }
   ]
 }

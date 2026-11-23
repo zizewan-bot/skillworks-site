@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-23T07:31:25.815749Z",
+  "updated_at": "2026-11-23T08:45:43.936604Z",
   "status": "open",
   "items": [
     {
@@ -69,6 +69,18 @@
       "status": "open",
       "summary": "Public document retrieval works via curl but Python urllib received HTTP 403",
       "impact": "Investigate transport compatibility before claiming access from every Agent client"
+    },
+    {
+      "id": "R006",
+      "status": "fixed_in_branch_verified_staging",
+      "summary": "Real lookup helpers flushed a pending word before the former before-commit listener could detect it",
+      "impact": "Flush-aware outbox with outer transaction handling tested locally and through actual cloud lookup; production durable path remains disabled until reviewed"
+    },
+    {
+      "id": "R007",
+      "status": "closed_for_fixture_acceptance",
+      "summary": "Timed race fixture and progressive fixture timeout signature were test-adapter defects",
+      "impact": "Replaced race timing with a bounded persistent barrier; aligned text fixture signatures; retained failures in append-only timeline and passed remaining cases"
     }
   ]
 }

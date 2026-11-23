@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-23T08:17:18.108491Z",
-  "status": "in_progress",
+  "updated_at": "2026-11-23T08:52:30.280131Z",
+  "status": "provider_free_staging_acceptance_complete",
   "agent": "codex/root",
   "read_first": [
     "manifest.json",
@@ -14,27 +14,32 @@
   "completed": [
     "Remote backend commit 5b1bd620f6c8b9f48d8f3625fd01a06752e4f02d",
     "Remote iOS commit de858405a35a84916e189b5d199625a63b02b14d",
-    "123 backend tests, 36 subtests; 12 PostgreSQL tests; simulator build",
+    "127 backend tests, 36 subtests; 16 PostgreSQL tests; simulator build",
     "Staging queue created paused; independent real-provider execution disabled",
     "Public engineering records published and 12 document endpoints verified HTTP 200",
     "Protected route unauthenticated response 302; private path on public domain returns 404",
     "Dedicated staging OIDC delivery HTTP 200; production and staging API revision names unchanged",
     "Three log-based metrics and staging Cloud Monitoring dashboard created",
     "Full simulator build with original icon assets passed",
-    "Live homepage verified with sibling Picture Dictionary and Glen projects; product page links to records"
+    "Live homepage verified with sibling Picture Dictionary and Glen projects; product page links to records",
+    "WP06: ten actual cloud end-to-end/recovery cases passed with real Scheduler/Tasks and fixture providers",
+    "WP06: five runtime polling/history recovery cases passed with captured synthetic server DTOs",
+    "WP06: natural automatic scheduler tick verified HTTP 200; test queue/scheduler returned to PAUSED",
+    "Fixed actual lookup explicit-flush outbox gap; rollback and nested transaction coverage passed"
   ],
   "not_completed": [
-    "production image cutover",
-    "progressive text durability",
-    "complete cost attribution and billing reconciliation",
-    "active alerts and hosted usage dashboard",
-    "iOS physical-device offline/recovery QA"
+    "Real OpenAI/Cloudinary acceptance and controlled activation",
+    "Progressive text interruption durability",
+    "Complete text/provider/infrastructure billing attribution",
+    "External alert notification destination and full hosted usage dashboard",
+    "Physical iPhone/TestFlight offline QA",
+    "Production cutover review"
   ],
   "production_changed": false,
-  "phase": "WP06 provider-free staging end-to-end acceptance",
+  "phase": "WP06 complete on frozen source; next real-provider acceptance requires a bounded review",
   "code_commits": {
-    "backend": "cc8fdf2ea69ed7c248a024ea0a59cfb51b489812",
-    "ios": "de858405a35a84916e189b5d199625a63b02b14d"
+    "backend": "4b435265714a634883b52fad553349f5e7d6f2f2",
+    "ios": "31ca2779c0a7fd54e63f49f3f8315d69709e097e"
   },
   "links": {
     "backend_pr": "https://github.com/zizewan-bot/project-2-picture-dictionary-api/pull/1",
@@ -42,5 +47,7 @@
     "public_records": "https://skillworks.dev/picture-dictionary/engineering/",
     "restricted_records": "https://glen.skillworks.dev/picture-dictionary/internal/",
     "site_pr": "https://github.com/zizewan-bot/skillworks-site/pull/2"
-  }
+  },
+  "production_change_scope": "backend_and_mobile_release",
+  "documentation_updated": true
 }

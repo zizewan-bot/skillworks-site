@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-23T07:26:41.698486Z",
+  "updated_at": "2026-11-23T08:45:43.936604Z",
   "status": "accepted",
   "decisions": [
     {
@@ -23,6 +23,11 @@
       "id": "ADR-004",
       "decision": "Use a separate narrowly routed Worker for public records and protected records beneath the existing Glen host",
       "reason": "Glen was verified as a separate Worker system. Reuse the current signed owner login boundary without changing Glen business code or widening reader/service access."
+    },
+    {
+      "id": "ADR-005",
+      "decision": "Run provider-free full-chain/fault acceptance through real private cloud infrastructure with fixture providers and a separate PostgreSQL schema/queue/service",
+      "reason": "Avoid exercising synthetic faults against the real vocabulary or credentials. Keep test-adapter failures distinct from production defects; commit outbox with the outer transaction across explicit flushes and savepoints."
     }
   ]
 }

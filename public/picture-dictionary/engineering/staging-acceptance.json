@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "status": "in_progress",
+  "status": "provider_free_passed",
   "work_package": "WP06",
   "authorization": "User agreed to provider-free staging end-to-end acceptance",
   "scope": [
@@ -22,7 +22,7 @@
     "service_concurrency": 4,
     "max_queue_concurrency": 2,
     "queue_rate_per_second": 2,
-    "fixture_vocabulary_max_words": 8,
+    "fixture_vocabulary_max_words": 9,
     "read_poll_interval_seconds": 2,
     "bounded_test_window_minutes": 30
   },
@@ -32,12 +32,186 @@
       "finding": "Real lookup path explicitly flushes GlobalWord before commit; former new/dirty-only listener lost the pending word",
       "before": "API 201 with pending image and zero persisted jobs in a fresh isolated PostgreSQL schema",
       "fix": "Remember pending word IDs after each flush; persist outbox before commit; clear tracking only at outer transaction end",
-      "status": "fix_under_regression"
+      "status": "fresh_schema_fix_verified"
+    },
+    {
+      "id": "E02",
+      "status": "passed",
+      "case": "real_api_outbox_scheduler_cloud_tasks_fixture_worker_ready",
+      "job_attempts": 1,
+      "fixture_invocations": 1,
+      "real_provider_calls": 0,
+      "observed_at": "2026-11-23T08:28:40.760487Z"
+    },
+    {
+      "id": "E03",
+      "status": "partial_cloud_suite_passed",
+      "passed_cases": 7,
+      "cases": [
+        "full_chain",
+        "duplicate_delivery",
+        "cached_lookup",
+        "transient_failure_recovery",
+        "terminal_rejection",
+        "three_attempt_exhaustion",
+        "actual_process_exit_recovery"
+      ],
+      "client_runtime_cases_passed": 5,
+      "remaining": "Deterministic in-flight stale-worker barrier and progressive text-to-image case"
+    },
+    {
+      "id": "E04",
+      "status": "passed",
+      "case": "actual_cloud_inflight_stale_worker_fenced",
+      "attempts": 2,
+      "fixed_barrier": true,
+      "real_provider_calls": 0
+    },
+    {
+      "id": "E05",
+      "status": "fixture_adapter_fixed_pending_cloud_rerun",
+      "case": "progressive_text_to_image",
+      "finding": "Fixture meaning functions omitted the real timeout_seconds parameter; background text fixture failed with TypeError",
+      "fix": "Match both text fixture signatures; local progressive probe now passes fast text, full text and outbox persistence",
+      "budget_change": "Use one additional fixed fixture word, nine maximum, to retain the prior failed fixture evidence rather than rewriting it"
     }
   ],
   "unverified": [
-    "Actual cloud full-chain acceptance",
-    "Client runtime recovery tests"
+    "Physical iPhone/TestFlight behavior",
+    "Real provider/storage behavior and actual infrastructure cost"
   ],
-  "updated_at": "2026-11-23T08:20:18.172025Z"
+  "updated_at": "2026-11-23T08:52:30.280131Z",
+  "cloud_cases": [
+    {
+      "case": "api_outbox_scheduler_tasks_worker_ready",
+      "passed": true,
+      "attempts": 1,
+      "fixture_invocations": 1
+    },
+    {
+      "case": "duplicate_deliveries_no_second_execution",
+      "passed": true,
+      "fixture_invocations": 1
+    },
+    {
+      "case": "cached_lookup_does_not_reenqueue",
+      "passed": true
+    },
+    {
+      "case": "retryable_failure_pending_then_ready",
+      "passed": true,
+      "attempts": 2,
+      "temporal_advance": true
+    },
+    {
+      "case": "terminal_validation_failure_stops",
+      "passed": true,
+      "attempts": 1
+    },
+    {
+      "case": "three_attempt_limit_terminal",
+      "passed": true,
+      "attempts": 3,
+      "fixture_invocations": 3,
+      "temporal_advance": true
+    },
+    {
+      "case": "process_exit_persisted_job_recovers",
+      "passed": true,
+      "attempts": 2,
+      "temporal_advance": true
+    },
+    {
+      "case": "expired_inflight_worker_cannot_publish",
+      "passed": true,
+      "attempts": 2,
+      "temporal_advance": true
+    },
+    {
+      "case": "progressive_text_completion_enqueues_image",
+      "passed": true,
+      "text_durability": "not_claimed"
+    },
+    {
+      "case": "provider_credentials_absent_and_ledger_empty",
+      "passed": true,
+      "provider_call_rows": 0
+    }
+  ],
+  "cloud_case_count": 10,
+  "client_runtime_cases": [
+    {
+      "case": "four_transport_failures_then_ready",
+      "lookup_count_preserved": true,
+      "passed": true,
+      "requests": 5
+    },
+    {
+      "case": "429_500_503_preserve_pending",
+      "passed": true
+    },
+    {
+      "case": "server_terminal_failure_applied",
+      "passed": true
+    },
+    {
+      "case": "cancel_late_response_then_foreground_resume",
+      "passed": true
+    },
+    {
+      "case": "authorization_failure_stops_without_corrupting_image",
+      "passed": true
+    }
+  ],
+  "client_runtime_case_count": 5,
+  "regression": {
+    "passed": 127,
+    "subtests_passed": 36,
+    "skipped": 1,
+    "skip_reason": "PostgreSQL-only case separately executed"
+  },
+  "postgresql_cases_passed": 16,
+  "ios_simulator_build": "passed_signing_disabled",
+  "automatic_scheduler": {
+    "observed": true,
+    "http_status": 200,
+    "observed_at": "2026-11-23T08:51:00.201908Z",
+    "final_state": "PAUSED"
+  },
+  "end_state": {
+    "acceptance_queue": "PAUSED",
+    "acceptance_scheduler": "PAUSED",
+    "original_staging_queue": "PAUSED",
+    "real_provider_execution": false,
+    "provider_call_rows": 0,
+    "jobs_all_terminal": true,
+    "production_backend_revision_unchanged": true,
+    "existing_staging_api_revision_unchanged": true,
+    "local_test_containers": "stopped"
+  },
+  "code_commits": {
+    "backend": "4b435265714a634883b52fad553349f5e7d6f2f2",
+    "ios": "31ca2779c0a7fd54e63f49f3f8315d69709e097e"
+  },
+  "remaining": [
+    "Real provider quality, latency and billing",
+    "Physical iPhone/TestFlight QA",
+    "Progressive text interruption durability remains outside this image-job acceptance",
+    "Production activation review"
+  ],
+  "limits": [
+    "Fixture timings and clock advances do not measure paid AI performance",
+    "Native image rendering and physical-device/TestFlight QA not exercised",
+    "Progressive text happy path passed; text interruption durability not claimed",
+    "Real provider/storage/billing and production rollout remain pending"
+  ],
+  "final_qualification": {
+    "status": "passed",
+    "source_commit": "4b435265714a634883b52fad553349f5e7d6f2f2",
+    "revision": "picture-dictionary-acceptance-wp06-00008-dr6",
+    "image_digest": "sha256:5f652cb37faefc99565daca143f589961afae0f126bef6b39810d4f5ebb01c49",
+    "fresh_isolated_schema": true,
+    "cloud_matrix_seconds": 78.485,
+    "all_cases_in_one_frozen_source_cohort": true
+  }
 }

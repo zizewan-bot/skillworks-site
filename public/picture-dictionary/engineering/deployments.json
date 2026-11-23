@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-23T07:33:44.959642Z",
-  "status": "published_docs_staging_only",
+  "updated_at": "2026-11-23T08:52:30.280131Z",
+  "status": "published_docs_provider_free_acceptance_complete",
   "environments": {
     "backend_production": {
       "changed": false
@@ -44,6 +44,18 @@
       "unauthenticated_status": 302,
       "public_host_private_path_status": 404,
       "live_owner_session_check": "unverified"
+    },
+    "wp06_acceptance": {
+      "status": "passed_provider_free",
+      "deployed_code_commit_for_full_suite": "4b435265714a634883b52fad553349f5e7d6f2f2",
+      "image_digest_for_full_suite": "sha256:5f652cb37faefc99565daca143f589961afae0f126bef6b39810d4f5ebb01c49",
+      "revision": "picture-dictionary-acceptance-wp06-00008-dr6",
+      "all_ten_cases_same_frozen_source": true,
+      "real_provider_execution": false,
+      "queue": "PAUSED",
+      "scheduler": "PAUSED",
+      "natural_tick_http_status": 200,
+      "test_data": "fresh isolated synthetic schema; original failed fixture evidence retained separately"
     }
   },
   "note": "Only a new staging worker and paused queue were deployed; no real AI call or production API rollout."

@@ -1,13 +1,13 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-23T07:31:25.815749Z",
-  "status": "partially_verified",
+  "updated_at": "2026-11-23T08:52:30.280131Z",
+  "status": "provider_free_staging_verified",
   "runs": [
     {
       "id": "backend-regression",
       "result": "passed",
-      "tests_passed": 123,
+      "tests_passed": 127,
       "subtests_passed": 36,
       "skipped": 1,
       "note": "PostgreSQL concurrency test skipped in SQLite run; separately executed below",
@@ -17,8 +17,8 @@
     {
       "id": "postgresql-17",
       "result": "passed",
-      "tests_passed": 12,
-      "evidence": "16 concurrent claims yielded one winner; expired lease fencing; transaction rollback; duplicate delivery; failure budgets; stale pending read cannot reset a completed job",
+      "tests_passed": 16,
+      "evidence": "Concurrent claims, stale fencing, explicit flush, rollback and nested transaction outbox coverage",
       "real_provider_calls": 0
     },
     {
@@ -66,6 +66,43 @@
       "method": "curl and JSON parsing",
       "limitations": [
         "Python urllib request received HTTP 403; generic agent transport compatibility still needs investigation"
+      ]
+    },
+    {
+      "id": "wp06-real-cloud-fixtures",
+      "result": "passed",
+      "cases_passed": 10,
+      "real_provider_calls": 0,
+      "details": "staging-acceptance.json",
+      "source_commit": "4b435265714a634883b52fad553349f5e7d6f2f2",
+      "revision": "picture-dictionary-acceptance-wp06-00008-dr6",
+      "fresh_frozen_cohort": true
+    },
+    {
+      "id": "wp06-swift-runtime",
+      "result": "passed",
+      "cases_passed": 5,
+      "uses": "Production poller/models/history and synthetic cloud DTOs",
+      "real_network_calls": 0,
+      "physical_device": false,
+      "source_commit": "31ca2779c0a7fd54e63f49f3f8315d69709e097e",
+      "fixtures": "DTOs from the final frozen cloud cohort",
+      "native_image_rendering": "not_exercised"
+    },
+    {
+      "id": "wp06-natural-scheduler-tick",
+      "result": "passed",
+      "observed_at": "2026-11-23T08:51:00.201908Z",
+      "http_status": 200,
+      "final_state": "PAUSED"
+    },
+    {
+      "id": "wp06-fixture-safety-guards",
+      "result": "passed",
+      "coverage": [
+        "Production-like service name rejected before DB access",
+        "Provider credentials introduced during configuration load rejected before DB access",
+        "Private cloud front-door and isolated schema verified"
       ]
     }
   ]
