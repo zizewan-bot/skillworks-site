@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-23T08:45:43.936604Z",
+  "updated_at": "2026-11-23T09:17:12.806844Z",
   "status": "pending",
   "actions": [
     {
@@ -16,8 +16,8 @@
     },
     {
       "id": "N02",
-      "action": "Review a finite real-provider test budget, storage cleanup and actual model configuration before any paid acceptance",
-      "requires": "WP06 used no real providers; never attach provider secrets to the fixture acceptance service"
+      "action": "Run one isolated real image and one vision validation after confirming model access and hard one-use call reservations",
+      "requires": "See provider-pilot.json for tested request contract, scope and pending gates"
     },
     {
       "id": "N03",

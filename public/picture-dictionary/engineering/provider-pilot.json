@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0.0",
+  "project": "picture-dictionary-kids",
+  "status": "offline_preflight_passed_paid_run_pending",
+  "work_package": "WP07",
+  "findings": [
+    "Staging does not explicitly override image, text or vision model configuration",
+    "OpenAI shut down gpt-image-1 on 2026-10-23",
+    "GPT-4o mini retirement is listed for 2027-01-14",
+    "Existing image code uploads to Cloudinary before vision validation"
+  ],
+  "candidate": {
+    "image": "gpt-image-2.6-flare",
+    "vision": "gpt-6-luna",
+    "size": "1024x1024",
+    "quality": "low"
+  },
+  "scope": {
+    "synthetic_words": 1,
+    "image_calls_max": 1,
+    "vision_calls_max": 1,
+    "text_calls_max": 0,
+    "automatic_retries": 0,
+    "alternate_models": 0,
+    "openai_usd_budget_target": 0.25
+  },
+  "prerequisites": [
+    "Verify target project model access",
+    "Implement and verify a one-use persisted reservation with no replay after interruption",
+    "Validate bytes before upload and use a private isolated storage namespace",
+    "Confirm bounded real AI execution"
+  ],
+  "evidence": {
+    "offline_sdk_requests_intercepted": 2,
+    "real_provider_calls": 0,
+    "actual_cost_usd": null,
+    "model_entitlement_verified": false
+  },
+  "sources": [
+    "https://developers.openai.com/api/docs/deprecations",
+    "https://developers.openai.com/api/docs/guides/image-generation",
+    "https://developers.openai.com/api/docs/models/gpt-image-2.6-flare",
+    "https://developers.openai.com/api/docs/models/gpt-6-luna"
+  ],
+  "updated_at": "2026-11-23T09:17:12.806844Z"
+}
