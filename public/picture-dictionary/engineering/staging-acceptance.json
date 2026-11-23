@@ -80,7 +80,7 @@
     "Physical iPhone/TestFlight behavior",
     "Real provider/storage behavior and actual infrastructure cost"
   ],
-  "updated_at": "2026-11-23T08:52:30.280131Z",
+  "updated_at": "2026-11-23T08:55:29.736813Z",
   "cloud_cases": [
     {
       "case": "api_outbox_scheduler_tasks_worker_ready",
@@ -209,9 +209,11 @@
     "status": "passed",
     "source_commit": "4b435265714a634883b52fad553349f5e7d6f2f2",
     "revision": "picture-dictionary-acceptance-wp06-00008-dr6",
-    "image_digest": "sha256:5f652cb37faefc99565daca143f589961afae0f126bef6b39810d4f5ebb01c49",
+    "image_digest": "sha256:7c4c0dc06ebd3b86ed92ff7e198fca917dcb403fd6b3c93192dfde87f634be2a",
     "fresh_isolated_schema": true,
     "cloud_matrix_seconds": 78.485,
-    "all_cases_in_one_frozen_source_cohort": true
+    "all_cases_in_one_frozen_source_cohort": true,
+    "registry_index_digest": "sha256:5f652cb37faefc99565daca143f589961afae0f126bef6b39810d4f5ebb01c49",
+    "cloud_run_resolved_image_digest": "sha256:7c4c0dc06ebd3b86ed92ff7e198fca917dcb403fd6b3c93192dfde87f634be2a"
   }
 }

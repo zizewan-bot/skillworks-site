@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-23T08:52:30.312585Z",
+  "updated_at": "2026-11-23T08:55:29.770668Z",
   "status": "in_progress",
   "version": "1.1.0",
   "url": "https://skillworks.dev/picture-dictionary/engineering/manifest.json",
@@ -99,7 +99,7 @@
       "url": "https://skillworks.dev/picture-dictionary/engineering/deployments.json",
       "path": "deployments.json",
       "version": "1.0.0",
-      "updated_at": "2026-11-23T08:52:30.280131Z",
+      "updated_at": "2026-11-23T08:55:29.736813Z",
       "status": "published_docs_provider_free_acceptance_complete"
     },
     {
@@ -107,7 +107,7 @@
       "url": "https://skillworks.dev/picture-dictionary/engineering/timeline.jsonl",
       "path": "timeline.jsonl",
       "version": "1.0.0",
-      "updated_at": "2026-11-23T08:52:30.312585Z",
+      "updated_at": "2026-11-23T08:55:29.770668Z",
       "status": "append_only"
     },
     {
@@ -115,7 +115,7 @@
       "url": "https://skillworks.dev/picture-dictionary/engineering/staging-acceptance.json",
       "path": "staging-acceptance.json",
       "version": "1.0.0",
-      "updated_at": "2026-11-23T08:52:30.280131Z",
+      "updated_at": "2026-11-23T08:55:29.736813Z",
       "status": "provider_free_passed"
     }
   ]
