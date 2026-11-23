@@ -1,9 +1,19 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-23T06:56:02.185649Z",
-  "status": "unmeasured",
-  "window": null,
+  "updated_at": "2026-11-23T07:01:37.616321Z",
+  "status": "partial",
+  "window": {
+    "requested_days": 7,
+    "sample_start": "2026-11-16T18:45:18.795079Z",
+    "sample_end": "2026-11-23T01:05:59.813419Z",
+    "limit": 2000,
+    "returned_entries": 1777,
+    "services_present": [
+      "production"
+    ],
+    "staging_entries": 0
+  },
   "metrics": {
     "success_rate": null,
     "duration_p50_ms": null,
@@ -14,5 +24,17 @@
     "daily_lookups": null,
     "cache_hit_rate": null
   },
-  "note": "Null means unmeasured; code audit is not production evidence."
+  "note": "These are log event counts, not unique jobs or a measured generation success rate. INFO lifecycle events were absent. Full duration percentiles and billing remain unmeasured.",
+  "http_status_counts": {
+    "200": 672,
+    "201": 70,
+    "400": 5,
+    "499": 3,
+    "500": 1,
+    "503": 1
+  },
+  "lifecycle_event_counts": {
+    "image_job_retry_pending": 33,
+    "image_job_failed": 2
+  }
 }

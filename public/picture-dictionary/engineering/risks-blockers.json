@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-23T06:56:02.185649Z",
+  "updated_at": "2026-11-23T07:01:37.616321Z",
   "status": "open",
   "items": [
     {
@@ -27,6 +27,30 @@
       "status": "open",
       "summary": "Existing background image work can be interrupted and client network errors can mark images unavailable",
       "evidence": "Source audit; production incidence not measured"
+    },
+    {
+      "id": "B004",
+      "status": "open",
+      "summary": "Authenticated Cloudflare account lists no Pages projects",
+      "impact": "Preview/custom-domain publication blocked pending correct account/project"
+    },
+    {
+      "id": "B005",
+      "status": "open",
+      "summary": "Cloud Tasks API disabled in backend project",
+      "impact": "No staging delivery or queue validation yet"
+    },
+    {
+      "id": "R002",
+      "status": "open",
+      "summary": "Progressive text completion still uses existing BackgroundTasks",
+      "impact": "Image queue upgrade does not fix interrupted text completion; measure and migrate separately"
+    },
+    {
+      "id": "R003",
+      "status": "open",
+      "summary": "Provider execution is at least once; a crash after submission can leave billing unknown",
+      "impact": "Reserve bounded call budget before API request; do not claim exactly-once AI execution"
     }
   ]
 }

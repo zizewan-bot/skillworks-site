@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-23T06:56:02.185649Z",
+  "updated_at": "2026-11-23T07:01:37.616321Z",
   "status": "in_progress",
   "agent": "codex/root",
   "read_first": [
@@ -12,8 +12,9 @@
     "timeline.jsonl"
   ],
   "completed": [
-    "Verified installation access and source snapshots",
-    "Inspected existing static site and live homepage"
+    "Machine-readable skeleton committed on remote branch ed46b49e24cf1177730ba9b4f7aebbb42388338d",
+    "Read production/staging deployment metadata and bounded recent log sample",
+    "Implemented opt-in outbox and shared polling; tests in progress"
   ],
   "not_completed": [
     "production metrics",

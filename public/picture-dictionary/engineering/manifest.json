@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-23T06:56:02.185649Z",
+  "updated_at": "2026-11-23T07:05:27.957443Z",
   "status": "in_progress",
   "version": "1.0.0",
   "url": "https://skillworks.dev/picture-dictionary/engineering/manifest.json",
@@ -50,8 +50,8 @@
       "url": "https://skillworks.dev/picture-dictionary/engineering/monitoring-baseline.json",
       "path": "monitoring-baseline.json",
       "version": "1.0.0",
-      "updated_at": "2026-11-23T06:56:02.185649Z",
-      "status": "unmeasured"
+      "updated_at": "2026-11-23T07:01:37.616321Z",
+      "status": "partial"
     },
     {
       "id": "costs",
@@ -66,7 +66,7 @@
       "url": "https://skillworks.dev/picture-dictionary/engineering/risks-blockers.json",
       "path": "risks-blockers.json",
       "version": "1.0.0",
-      "updated_at": "2026-11-23T06:56:02.185649Z",
+      "updated_at": "2026-11-23T07:01:37.616321Z",
       "status": "open"
     },
     {
@@ -74,7 +74,7 @@
       "url": "https://skillworks.dev/picture-dictionary/engineering/current-state.json",
       "path": "current-state.json",
       "version": "1.0.0",
-      "updated_at": "2026-11-23T06:56:02.185649Z",
+      "updated_at": "2026-11-23T07:01:37.616321Z",
       "status": "in_progress"
     },
     {
@@ -106,7 +106,7 @@
       "url": "https://skillworks.dev/picture-dictionary/engineering/timeline.jsonl",
       "path": "timeline.jsonl",
       "version": "1.0.0",
-      "updated_at": "2026-11-23T06:56:02.185649Z",
+      "updated_at": "2026-11-23T07:05:27.957443Z",
       "status": "append_only"
     }
   ]
