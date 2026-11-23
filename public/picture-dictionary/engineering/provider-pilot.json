@@ -49,7 +49,7 @@
     "https://developers.openai.com/api/docs/models/gpt-image-2.6-flare",
     "https://developers.openai.com/api/docs/models/gpt-6-luna"
   ],
-  "updated_at": "2026-11-23T10:22:45.001141Z",
+  "updated_at": "2026-11-23T10:30:17.691859Z",
   "remaining": [
     "Real-provider integration through staging Cloud Tasks",
     "Physical iPhone/TestFlight QA",
@@ -84,6 +84,42 @@
       "Synthetic cloud request used a nonexistent Job and verified authenticated delivery only",
       "Real model calls through Cloud Tasks and physical iPhone QA remain pending",
       "Legacy image routes retain their existing behavior pending migration"
+    ]
+  },
+  "queued_live_acceptance": {
+    "status": "live_queued_single_sample_passed",
+    "work_package": "WP09",
+    "tested_commit": "3c2a7fe11822735df54f1fbccd21b8c46c35d238",
+    "word": "apple",
+    "job_state": "succeeded",
+    "image_state": "ready",
+    "attempts": 1,
+    "persisted_dispatches": 1,
+    "image_calls": 1,
+    "vision_calls": 1,
+    "text_calls": 0,
+    "provider_durations_ms": {
+      "image": 6726,
+      "validation": 3768
+    },
+    "openai_usage_estimate_usd": "0.02743855",
+    "actual_invoiced_usd": null,
+    "cloudinary_cost_usd": null,
+    "cloud_cost_usd": null,
+    "worker_delivery_http": 200,
+    "worker_request_seconds": 12.852549072,
+    "cloudinary_authenticated_png_verified": true,
+    "unsigned_access_denied": true,
+    "cleanup_verified": true,
+    "queue_state": "PAUSED",
+    "model_execution_enabled": false,
+    "provider_secret_references_removed_from_serving_revision": true,
+    "physical_iphone": "not_present_in_xcode_device_list",
+    "limits": [
+      "Seeded synthetic word and persisted Job in a dedicated staging schema",
+      "Private authenticated test asset, not production CDN delivery",
+      "Single sample does not establish SLA or model quality across vocabulary",
+      "Physical iPhone and production activation remain pending"
     ]
   }
 }

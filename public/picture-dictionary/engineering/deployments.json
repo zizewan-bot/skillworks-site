@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-23T10:22:45.001141Z",
+  "updated_at": "2026-11-23T10:30:17.691859Z",
   "status": "published_docs_provider_free_acceptance_complete",
   "environments": {
     "backend_production": {
@@ -88,6 +88,15 @@
         "Real model calls through Cloud Tasks and physical iPhone QA remain pending",
         "Legacy image routes retain their existing behavior pending migration"
       ]
+    },
+    "wp09_live_acceptance": {
+      "status": "live_queued_single_sample_passed",
+      "tested_commit": "3c2a7fe11822735df54f1fbccd21b8c46c35d238",
+      "live_revision": "picture-dictionary-live-acceptance-wp09-00004-9nv",
+      "serving_closed_revision": "picture-dictionary-live-acceptance-wp09-00006-xqq",
+      "queue_state": "PAUSED",
+      "real_provider_execution": false,
+      "provider_secret_references_attached": false
     }
   },
   "note": "Only a new staging worker and paused queue were deployed; no real AI call or production API rollout."

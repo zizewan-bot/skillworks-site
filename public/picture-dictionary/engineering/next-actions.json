@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-23T10:22:45.001141Z",
+  "updated_at": "2026-11-23T10:30:17.691859Z",
   "status": "pending",
   "actions": [
     {
@@ -16,13 +16,14 @@
     },
     {
       "id": "N02",
-      "action": "Exercise one real generated word through an isolated staging queue and worker",
-      "requires": "Dedicated one-use provider reservation and separately approved call scope"
+      "action": "Real staging queue sample completed",
+      "requires": "See WP09 recorded evidence",
+      "status": "complete"
     },
     {
       "id": "N03",
       "action": "Run iPhone offline/foreground/reopen acceptance and TestFlight review",
-      "requires": "Device validation"
+      "requires": "Connect and unlock trusted iPhone; current Xcode device list has simulators only"
     },
     {
       "id": "N04",

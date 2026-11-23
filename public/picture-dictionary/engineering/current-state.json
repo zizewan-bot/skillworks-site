@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-23T10:22:45.001141Z",
-  "status": "staging_wired_provider_disabled",
+  "updated_at": "2026-11-23T10:30:17.691859Z",
+  "status": "live_queued_single_sample_passed",
   "agent": "codex/root",
   "read_first": [
     "manifest.json",
@@ -36,7 +36,7 @@
     "Production cutover review"
   ],
   "production_changed": false,
-  "phase": "WP08 supported model configuration deployed to dedicated staging worker; provider-free checks passed",
+  "phase": "WP09 real image and vision through isolated Cloud Tasks worker passed",
   "code_commits": {
     "backend": "4b435265714a634883b52fad553349f5e7d6f2f2",
     "ios": "31ca2779c0a7fd54e63f49f3f8315d69709e097e"
@@ -50,5 +50,5 @@
   },
   "production_change_scope": "backend_and_mobile_release",
   "documentation_updated": true,
-  "latest_backend_code_commit": "a503e368fceaf9bf20addebda5d9018083a614bb"
+  "latest_backend_code_commit": "3c2a7fe11822735df54f1fbccd21b8c46c35d238"
 }
