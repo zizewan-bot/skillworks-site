@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T02:14:46.582697Z",
+  "updated_at": "2026-11-28T02:17:29.127246Z",
   "status": "staging_sample_and_iphone_offline_recovery_accepted",
   "agent": "codex/root",
   "read_first": [
@@ -86,7 +86,8 @@
       "internal_group_assignment_verified": true
     },
     "device_revalidation": {
-      "status": "installed_and_launched_offline_revalidation_pending",
+      "status": "search_offline_recovery_accepted",
+      "pending_image_poll_recovery": "pending",
       "evidence": "tests.json"
     }
   }

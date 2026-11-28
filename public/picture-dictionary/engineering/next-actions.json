@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T02:14:46.582697Z",
+  "updated_at": "2026-11-28T02:17:29.127246Z",
   "status": "pending",
   "actions": [
     {
@@ -49,14 +49,14 @@
     {
       "id": "N08",
       "status": "internal_testflight_ready",
-      "action": "On installed build 1.0.1 (15), exercise loss and restoration of network connectivity in Search and repeat with a controlled pending image when a no-cost fixture is available",
-      "requires": "Physical network switch on iPhone; a verified staging fixture for the pending-image case",
+      "action": "Verify that an in-progress image remains pending through connectivity loss and resumes polling after reconnection on TestFlight 1.0.1 (15)",
+      "requires": "A controlled provider-free pending-image fixture on staging for the exact TestFlight build",
       "local_preflight": "passed",
       "evidence": "tests.json",
       "apple_verification": "completed",
       "candidate_build": 15,
       "candidate_version": "1.0.1",
-      "device_revalidation": "installed_and_launched_offline_revalidation_pending"
+      "device_revalidation": "search_offline_recovery_accepted"
     }
   ]
 }

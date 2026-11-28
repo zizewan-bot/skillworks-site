@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T02:14:46.582697Z",
+  "updated_at": "2026-11-28T02:17:29.127246Z",
   "status": "provider_free_staging_verified",
   "runs": [
     {
@@ -308,6 +308,20 @@
       "connectivity_interruption_exercised": false,
       "ready_test_word_confirmed": false,
       "paid_model_calls": 0
+    },
+    {
+      "id": "ios-testflight-1.0.1-15-search-offline-recovery",
+      "result": "passed_user_confirmed",
+      "version": "1.0.1",
+      "build": 15,
+      "environment": "staging",
+      "device": "physical iPhone",
+      "source": "user confirmation following connected-device version and launch verification",
+      "offline_notice_shown": true,
+      "interface_remained_responsive": true,
+      "search_available_after_reconnect": true,
+      "post_reconnect_lookup_result": "not exercised",
+      "pending_image_poll_recovery": "not exercised"
     }
   ]
 }
