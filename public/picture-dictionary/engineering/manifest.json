@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T02:17:29.158881Z",
+  "updated_at": "2026-11-28T02:47:43.108279Z",
   "status": "in_progress",
   "version": "1.1.0",
   "url": "https://skillworks.dev/picture-dictionary/engineering/manifest.json",
@@ -75,7 +75,7 @@
       "url": "https://skillworks.dev/picture-dictionary/engineering/current-state.json",
       "path": "current-state.json",
       "version": "1.0.0",
-      "updated_at": "2026-11-28T02:17:29.127246Z",
+      "updated_at": "2026-11-28T02:47:43.074487Z",
       "status": "staging_sample_and_iphone_offline_recovery_accepted"
     },
     {
@@ -83,7 +83,7 @@
       "url": "https://skillworks.dev/picture-dictionary/engineering/next-actions.json",
       "path": "next-actions.json",
       "version": "1.0.0",
-      "updated_at": "2026-11-28T02:17:29.127246Z",
+      "updated_at": "2026-11-28T02:47:43.074487Z",
       "status": "pending"
     },
     {
@@ -91,7 +91,7 @@
       "url": "https://skillworks.dev/picture-dictionary/engineering/tests.json",
       "path": "tests.json",
       "version": "1.0.0",
-      "updated_at": "2026-11-28T02:17:29.127246Z",
+      "updated_at": "2026-11-28T02:47:43.074487Z",
       "status": "provider_free_staging_verified"
     },
     {
@@ -107,7 +107,7 @@
       "url": "https://skillworks.dev/picture-dictionary/engineering/timeline.jsonl",
       "path": "timeline.jsonl",
       "version": "1.0.0",
-      "updated_at": "2026-11-28T02:17:29.158881Z",
+      "updated_at": "2026-11-28T02:47:43.108279Z",
       "status": "append_only"
     },
     {

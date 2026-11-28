@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T02:17:29.127246Z",
+  "updated_at": "2026-11-28T02:47:43.074487Z",
   "status": "provider_free_staging_verified",
   "runs": [
     {
@@ -322,6 +322,20 @@
       "search_available_after_reconnect": true,
       "post_reconnect_lookup_result": "not exercised",
       "pending_image_poll_recovery": "not exercised"
+    },
+    {
+      "id": "ios-testflight-1.0.1-15-pending-fixture-prepared",
+      "result": "staging_fixture_pending_verified",
+      "version": "1.0.1",
+      "build": 15,
+      "environment": "staging",
+      "fixture_scope": "one synthetic word uniquely marked for this test",
+      "exact_staging_image_smoke": "passed isolated authenticated lookup, pending response, controlled terminal result, and fixture cleanup with container network disabled",
+      "staging_probe": "confirmed no pre-existing row for this fixture",
+      "staging_write": "pending verified by one-off admin execution",
+      "provider_guard": "text complete, image applicability deferred, no image generation or paid provider calls from fixture operations",
+      "rollback": "remove only the marked fixture and records referring to it after acceptance",
+      "physical_device_pending_recovery": "not yet run"
     }
   ]
 }
