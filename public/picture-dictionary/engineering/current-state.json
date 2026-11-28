@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T04:53:42.498639Z",
-  "status": "production_delivery_reviewed_cloud_route_proof_in_progress",
+  "updated_at": "2026-11-28T04:56:49.725613Z",
+  "status": "legacy_fence_rehearsed_production_bindings_unprovisioned",
   "agent": "codex/root",
   "read_first": [
     "manifest.json",
@@ -32,7 +32,10 @@
     "Isolated legacy drain and rollback rehearsed; temporary Cloud Run service and synthetic managed database resources cleaned.",
     "Read-only backlog classification and isolation freeze/delivery completed; temporary resources cleaned.",
     "Representative logical-scale managed Cloud SQL restore and candidate startup verified on entirely synthetic data.",
-    "Candidate release-image freeze passed through actual API, worker, confirmed admin and isolated Cloud Scheduler and Cloud Tasks."
+    "Candidate release-image freeze passed through actual API, worker, confirmed admin and isolated Cloud Scheduler and Cloud Tasks.",
+    "Independent legacy-image freeze and pending-work drain plus scoped worker PostgreSQL write path were verified in isolation.",
+    "Progressive text remained inflight after the first admitted image settled, then started and completed its own image follow-up behind the independent legacy freeze.",
+    "The actual legacy and candidate images switched on the same isolated Cloud Run URL. Tag bypass and its removal were observed."
   ],
   "not_completed": [
     "Real OpenAI/Cloudinary acceptance and controlled activation",
@@ -99,7 +102,7 @@
     }
   },
   "production_cutover_review": {
-    "status": "production_delivery_reviewed_cloud_route_proof_in_progress",
+    "status": "legacy_fence_rehearsed_production_bindings_unprovisioned",
     "evidence": "production-cutover-review.json",
     "approval_required": true,
     "isolated_rehearsal": "isolated_checks_passed_production_not_ready",
@@ -110,6 +113,6 @@
     "release_candidate": "3e355ed59d85a3ef7d55eafb632c38e585b33798",
     "release_verified": "release-generation-freeze-candidate",
     "production_delivery_definition": "reviewed_unbound",
-    "latest_legacy_evidence": "production-delivery-review-and-legacy-fence-checkpoint"
+    "latest_legacy_evidence": "production-delivery-review-and-legacy-fence-final"
   }
 }

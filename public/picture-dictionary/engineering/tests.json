@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T04:53:42.498639Z",
+  "updated_at": "2026-11-28T04:56:49.725613Z",
   "status": "provider_free_staging_verified",
   "runs": [
     {
@@ -563,6 +563,77 @@
       },
       "cloud_run_same_service_route": {
         "status": "in_progress"
+      },
+      "production_changed": false,
+      "cutover_window_submitted": false
+    },
+    {
+      "id": "production-delivery-review-and-legacy-fence-final",
+      "status": "legacy_fence_rehearsed_production_bindings_unprovisioned",
+      "candidate_commit": "3e355ed59d85a3ef7d55eafb632c38e585b33798",
+      "legacy_isolated_local": {
+        "status": "passed",
+        "steps": {
+          "live_image_and_normal_entrypoint_verified": true,
+          "legacy_not_reachable_directly_from_front_network": true,
+          "blocked_http_probes": 8,
+          "isolated_admin_launch_gate_blocked": true,
+          "zero_edge_requests_did_not_mark_background_drained": true,
+          "isolated_drain_then_disjoint_historical_marker_preserved": true,
+          "post_freeze_legacy_http_read_and_ready_verified": true
+        },
+        "isolated_resources_verified_absent": true,
+        "paid_provider_calls": 0
+      },
+      "candidate_postgres_worker_role": {
+        "status": "passed",
+        "stages": {
+          "narrow_worker_role_verified_no_user_tables_or_schema_create": true,
+          "confirmed_admin_commands_blocked": {
+            "app.repair_image_jobs": true,
+            "app.seed_starter_words": true,
+            "app.replace_selected_images": true,
+            "app.run_starter_backfill": true
+          },
+          "actual_api_queued_job_transactionally": true,
+          "image_admission_drained_before_reopen": true,
+          "actual_worker_published_and_duplicate_suppressed": true
+        },
+        "mock_provider_calls": {
+          "images": 1,
+          "vision": 1,
+          "uploads": 1
+        },
+        "paid_provider_calls": 0,
+        "api_and_worker_used_unmodified_dockerfile_entrypoints": true,
+        "worker_publisher_invoked_in_worker_image_without_cloud_identity_for_this_local_subtest": true
+      },
+      "cloud_run_same_service_route": {
+        "status": "passed",
+        "steps": {
+          "actual_legacy_image_cached_lookup_through_service_url": true,
+          "same_url_moved_to_actual_frozen_candidate_and_reads_continue": true,
+          "legacy_tag_bypasses_zero_percent_traffic": true,
+          "tag_removal_and_default_url_fence_verified": true
+        },
+        "temporary_service_and_schema_verified_absent": true,
+        "paid_provider_calls": 0
+      },
+      "legacy_progressive_text_drain": {
+        "status": "passed",
+        "steps": {
+          "live_image_and_normal_entrypoint_verified": true,
+          "legacy_not_reachable_directly_from_front_network": true,
+          "blocked_http_probes": 8,
+          "isolated_admin_launch_gate_blocked": true,
+          "zero_edge_requests_did_not_mark_background_drained": true,
+          "preadmitted_text_spawned_image_while_frozen_and_both_drained": true,
+          "progressive_text_remained_active_after_image_drained_then_settled": true,
+          "isolated_drain_then_disjoint_historical_marker_preserved": true,
+          "post_freeze_legacy_http_read_and_ready_verified": true
+        },
+        "isolated_resources_verified_absent": true,
+        "paid_provider_calls": 0
       },
       "production_changed": false,
       "cutover_window_submitted": false

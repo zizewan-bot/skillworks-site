@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T04:53:42.498639Z",
-  "status": "production_delivery_reviewed_cloud_route_proof_in_progress",
+  "updated_at": "2026-11-28T04:56:49.725613Z",
+  "status": "legacy_fence_rehearsed_production_bindings_unprovisioned",
   "owner_approval_required": true,
   "production_switch_performed": false,
   "production_schema_changed": false,
@@ -46,9 +46,9 @@
     {
       "id": "G02",
       "area": "legacy_drain",
-      "status": "local_legacy_drain_verified_cloud_route_in_progress",
+      "status": "isolated_legacy_fence_and_cutover_routes_verified",
       "requires": "Maintain the existing service URL, verify every live route goes to a frozen revision, remove legacy tags, hold manual launches, and reconcile image, progressive text and provider activity against the fence boundary. A bare route rollback to old code reopens generation.",
-      "isolated_rehearsal_status": "partial"
+      "isolated_rehearsal_status": "passed"
     },
     {
       "id": "G03",
@@ -279,6 +279,10 @@
     "read_only_inventory": {
       "production_api_and_existing_admin_db_configuration_matches": true,
       "staging_database_distinct": true,
+      "managed_tasks_and_scheduler_service_agent_roles_present": {
+        "cloudtasks": true,
+        "cloudscheduler": true
+      },
       "production_legacy_serving_percent": 100,
       "production_worker_queue_scheduler_and_effective_runtime_permissions_unverified": true,
       "production_dedicated_identities_exist": {
@@ -293,8 +297,8 @@
     "restricted_definition_in_authenticated_review": true
   },
   "legacy_fence_evidence": {
-    "id": "production-delivery-review-and-legacy-fence-checkpoint",
-    "status": "production_delivery_reviewed_cloud_route_proof_in_progress",
+    "id": "production-delivery-review-and-legacy-fence-final",
+    "status": "legacy_fence_rehearsed_production_bindings_unprovisioned",
     "candidate_commit": "3e355ed59d85a3ef7d55eafb632c38e585b33798",
     "legacy_isolated_local": {
       "status": "passed",
@@ -334,7 +338,31 @@
       "worker_publisher_invoked_in_worker_image_without_cloud_identity_for_this_local_subtest": true
     },
     "cloud_run_same_service_route": {
-      "status": "in_progress"
+      "status": "passed",
+      "steps": {
+        "actual_legacy_image_cached_lookup_through_service_url": true,
+        "same_url_moved_to_actual_frozen_candidate_and_reads_continue": true,
+        "legacy_tag_bypasses_zero_percent_traffic": true,
+        "tag_removal_and_default_url_fence_verified": true
+      },
+      "temporary_service_and_schema_verified_absent": true,
+      "paid_provider_calls": 0
+    },
+    "legacy_progressive_text_drain": {
+      "status": "passed",
+      "steps": {
+        "live_image_and_normal_entrypoint_verified": true,
+        "legacy_not_reachable_directly_from_front_network": true,
+        "blocked_http_probes": 8,
+        "isolated_admin_launch_gate_blocked": true,
+        "zero_edge_requests_did_not_mark_background_drained": true,
+        "preadmitted_text_spawned_image_while_frozen_and_both_drained": true,
+        "progressive_text_remained_active_after_image_drained_then_settled": true,
+        "isolated_drain_then_disjoint_historical_marker_preserved": true,
+        "post_freeze_legacy_http_read_and_ready_verified": true
+      },
+      "isolated_resources_verified_absent": true,
+      "paid_provider_calls": 0
     },
     "production_changed": false,
     "cutover_window_submitted": false
