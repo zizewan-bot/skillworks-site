@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T09:22:35.305169Z",
+  "updated_at": "2026-11-28T09:23:55.538461Z",
   "status": "pending",
   "actions": [
     {
@@ -67,7 +67,7 @@
     "requires_separate_expansion_approval": true
   },
   "production_queue_canary": {
-    "status": "actual_substitute_identity_verified",
-    "action": "Finish the one owner-approved provider-free production queue rerun; Stage 2 remains held."
+    "status": "passed",
+    "action": "Await explicit Stage 2 approval before enabling any account-scoped iPhone production generation. Stage 1 was verified using the unchanged production queue in a paused state."
   }
 }

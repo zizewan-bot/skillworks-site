@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T09:22:35.305169Z",
+  "updated_at": "2026-11-28T09:23:55.538461Z",
   "status": "in_progress",
   "version": "1.1.0",
   "url": "https://skillworks.dev/picture-dictionary/engineering/manifest.json",
@@ -75,7 +75,7 @@
       "url": "https://skillworks.dev/picture-dictionary/engineering/current-state.json",
       "path": "current-state.json",
       "version": "1.0.0",
-      "updated_at": "2026-11-28T09:22:35.305169Z",
+      "updated_at": "2026-11-28T09:23:55.538461Z",
       "status": "frozen_production_cutover_complete_delivery_held"
     },
     {
@@ -83,7 +83,7 @@
       "url": "https://skillworks.dev/picture-dictionary/engineering/next-actions.json",
       "path": "next-actions.json",
       "version": "1.0.0",
-      "updated_at": "2026-11-28T09:22:35.305169Z",
+      "updated_at": "2026-11-28T09:23:55.538461Z",
       "status": "pending"
     },
     {
@@ -91,7 +91,7 @@
       "url": "https://skillworks.dev/picture-dictionary/engineering/tests.json",
       "path": "tests.json",
       "version": "1.0.0",
-      "updated_at": "2026-11-28T09:22:35.305169Z",
+      "updated_at": "2026-11-28T09:23:55.538461Z",
       "status": "provider_free_staging_verified"
     },
     {
@@ -107,7 +107,7 @@
       "url": "https://skillworks.dev/picture-dictionary/engineering/timeline.jsonl",
       "path": "timeline.jsonl",
       "version": "1.0.0",
-      "updated_at": "2026-11-28T09:22:35.305169Z",
+      "updated_at": "2026-11-28T09:23:55.538461Z",
       "status": "append_only"
     },
     {
@@ -131,7 +131,7 @@
       "path": "production-cutover-review.json",
       "url": "https://skillworks.dev/picture-dictionary/engineering/production-cutover-review.json",
       "version": "1.0.0",
-      "updated_at": "2026-11-28T09:22:35.305169Z",
+      "updated_at": "2026-11-28T09:23:55.538461Z",
       "status": "frozen_production_cutover_complete_delivery_held"
     }
   ],
