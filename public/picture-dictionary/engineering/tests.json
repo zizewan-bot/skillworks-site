@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T01:10:15.519727Z",
+  "updated_at": "2026-11-28T01:17:15.914944Z",
   "status": "provider_free_staging_verified",
   "runs": [
     {
@@ -186,6 +186,28 @@
       },
       "physical_device_build_match": "unverified",
       "beta_app_review_for_current_candidate": "unverified"
+    },
+    {
+      "id": "ios-testflight-candidate-15",
+      "result": "signed_archive_and_export_passed",
+      "evidence": {
+        "version": "1.0",
+        "build": 15,
+        "source_commit": "31ca2779c0a7fd54e63f49f3f8315d69709e097e",
+        "ipa_sha256": "697b9a55e46e0d54f98a508843ed0690af0876eb26161fe4f8e5b099664ab560",
+        "signature": "Apple Distribution, strict verification passed",
+        "distribution": "TestFlight Internal Only",
+        "environment": "staging",
+        "runtime_tests_passed": 5,
+        "staging_health": "healthy",
+        "uploaded": false
+      },
+      "local_source_blobs_verified": 41,
+      "limitations": [
+        "Provider-dependent end-to-end QA on the candidate has not been run",
+        "No Apple processing or internal tester availability yet",
+        "Previously accepted real-device build has not been tied to this candidate"
+      ]
     }
   ]
 }

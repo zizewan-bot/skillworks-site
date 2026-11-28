@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T01:10:15.519727Z",
+  "updated_at": "2026-11-28T01:17:15.914944Z",
   "status": "staging_sample_and_iphone_offline_recovery_accepted",
   "agent": "codex/root",
   "read_first": [
@@ -34,7 +34,7 @@
     "Complete text/provider/infrastructure billing attribution",
     "External alert notification destination and full hosted usage dashboard",
     "Production cutover review",
-    "App Store Connect lists all ten visible iOS 1.0 TestFlight builds (5–14) as expired. A current candidate is required for further TestFlight review."
+    "Signed iOS 1.0 (15) exported locally with Apple Distribution signing for internal TestFlight and the staging backend. Upload and Apple processing are pending."
   ],
   "production_changed": false,
   "phase": "Live staging image sample and physical iPhone offline recovery accepted",
@@ -65,10 +65,22 @@
     "testflight_release_review": "not_reported"
   },
   "testflight_release_review": {
-    "status": "blocked_no_active_beta_build",
+    "status": "signed_internal_candidate_exported",
     "local_preflight": "passed",
     "evidence": "tests.json",
     "action": "N08",
-    "apple_verification": "completed"
+    "apple_verification": "completed",
+    "candidate": {
+      "version": "1.0",
+      "build": 15,
+      "source_commit": "31ca2779c0a7fd54e63f49f3f8315d69709e097e",
+      "ipa_sha256": "697b9a55e46e0d54f98a508843ed0690af0876eb26161fe4f8e5b099664ab560",
+      "signature": "Apple Distribution, strict verification passed",
+      "distribution": "TestFlight Internal Only",
+      "environment": "staging",
+      "runtime_tests_passed": 5,
+      "staging_health": "healthy",
+      "uploaded": false
+    }
   }
 }
