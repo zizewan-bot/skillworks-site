@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T05:12:13.810721Z",
+  "updated_at": "2026-11-28T05:18:12.115399Z",
   "status": "provider_free_staging_verified",
   "runs": [
     {
@@ -667,6 +667,53 @@
       "production_generation_enabled_by_this_work": false,
       "production_queue_or_scheduler_resumed": false,
       "cutover_window_submitted": false
+    },
+    {
+      "id": "production-preconfiguration-final",
+      "status": "production_preconfiguration_verified_awaiting_switch_approval",
+      "candidate_commit": "24c119f8cbad0068fb155c2d51015520a0818f16",
+      "scope": "User-authorized production preconfiguration while serving legacy traffic.",
+      "worker": {
+        "ready": true,
+        "generation_disabled": true,
+        "provider_credentials_present": false,
+        "postgres_binding_verified_on_startup": true,
+        "read_only_worker_database_role": true,
+        "application_table_schema_or_rows_changed": false,
+        "control_and_durable_tables_installed": false
+      },
+      "queue_paused_and_empty": true,
+      "scheduler_paused_and_never_attempted": true,
+      "scheduler_target_and_audience_verified": true,
+      "effective_runtime_permissions_verified": true,
+      "dedicated_caller_oidc_verified": true,
+      "notification_channel_provisioned": true,
+      "synthetic_alert_submitted": true,
+      "notification_delivered_inbox_verified": true,
+      "isolated_full_dispatch_batch": {
+        "status": "passed",
+        "distinct_cloud_tasks": 20,
+        "scheduler_request_seconds": 6.479,
+        "scheduler_deadline_seconds": 240,
+        "queue_deliveries": 0,
+        "paid_provider_calls": 0,
+        "isolation": "staging-only disposable schema and queue",
+        "worker_is_same_candidate_digest": true,
+        "cleanup": {
+          "temporary_cloud_resources_verified_absent": true,
+          "temporary_staging_schema_verified_absent": true
+        }
+      },
+      "backend_regression": {
+        "passed": 129,
+        "skipped": 1,
+        "subtests_passed": 36
+      },
+      "operational_alert_policies_bound_held_disabled": 2,
+      "live_legacy_api_traffic_changed": false,
+      "production_generation_enabled_by_this_work": false,
+      "production_queue_or_scheduler_resumed": false,
+      "cutover_window_submitted": true
     }
   ]
 }

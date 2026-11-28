@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T05:12:13.810721Z",
+  "updated_at": "2026-11-28T05:18:12.115399Z",
   "status": "pending",
   "actions": [
     {
@@ -38,9 +38,9 @@
     },
     {
       "id": "N06",
-      "action": "Complete unresolved production preflight verification without resuming delivery or generating images.",
+      "action": "Owner approves or revises the proposed cutover window. Keep delivery and generation held until approval.",
       "requires": "A reviewed production mapping, verified production bindings before dispatch, and explicit owner approval before any production mutation.",
-      "status": "awaiting_remaining_preconfiguration_evidence",
+      "status": "window_proposed_owner_approval_required",
       "evidence": "production-cutover-review.json"
     },
     {

@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T05:12:13.810721Z",
+  "updated_at": "2026-11-28T05:18:12.115399Z",
   "status": "published_docs_provider_free_acceptance_complete",
   "environments": {
     "backend_production": {

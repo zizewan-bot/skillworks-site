@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T05:12:13.810721Z",
-  "status": "production_preconfigured_pending_remaining_checks",
+  "updated_at": "2026-11-28T05:18:12.115399Z",
+  "status": "production_preconfiguration_verified_awaiting_switch_approval",
   "owner_approval_required": true,
   "production_switch_performed": false,
   "production_schema_changed": false,
@@ -53,8 +53,8 @@
     {
       "id": "G03",
       "area": "production_delivery",
-      "status": "paused_production_configured_pending_full_verification",
-      "requires": "Finish effective caller proof, confirmed alert delivery and production-shaped batch timing while production delivery stays paused.",
+      "status": "paused_production_bindings_and_notification_verified",
+      "requires": "Keep the preflight-only worker and read-only role, empty paused queue, paused scheduler and production provider execution disabled until approved activation.",
       "isolated_rehearsal_status": "passed"
     },
     {
@@ -67,7 +67,7 @@
     {
       "id": "G05",
       "area": "approval",
-      "status": "awaiting_remaining_preconfiguration_evidence",
+      "status": "window_proposed_owner_approval_required",
       "requires": "Present a production window, stop conditions, and exact steps for owner approval only after the remaining release checks are documented as satisfied.",
       "isolated_rehearsal_status": "approval_pending"
     }
@@ -272,7 +272,7 @@
     "production_changed": false,
     "cutover_window_submitted": false
   },
-  "cutover_window_submitted": false,
+  "cutover_window_submitted": true,
   "production_delivery_definition_review": {
     "status": "reviewed_unbound",
     "initial_safeguards": "Provider disabled, queue and scheduler paused, scoped caller/runtime identities, dedicated worker database credential, matching schema with the API, and isolated provider-free preflight before generation opens.",
@@ -368,8 +368,8 @@
     "cutover_window_submitted": false
   },
   "production_preconfiguration": {
-    "id": "production-preconfiguration-checkpoint",
-    "status": "production_preconfigured_pending_remaining_checks",
+    "id": "production-preconfiguration-final",
+    "status": "production_preconfiguration_verified_awaiting_switch_approval",
     "candidate_commit": "24c119f8cbad0068fb155c2d51015520a0818f16",
     "scope": "User-authorized production preconfiguration while serving legacy traffic.",
     "worker": {
@@ -388,14 +388,31 @@
     "dedicated_caller_oidc_verified": true,
     "notification_channel_provisioned": true,
     "synthetic_alert_submitted": true,
-    "notification_delivered_inbox_verified": false,
+    "notification_delivered_inbox_verified": true,
     "isolated_full_dispatch_batch": {
-      "status": "pending"
+      "status": "passed",
+      "distinct_cloud_tasks": 20,
+      "scheduler_request_seconds": 6.479,
+      "scheduler_deadline_seconds": 240,
+      "queue_deliveries": 0,
+      "paid_provider_calls": 0,
+      "isolation": "staging-only disposable schema and queue",
+      "worker_is_same_candidate_digest": true,
+      "cleanup": {
+        "temporary_cloud_resources_verified_absent": true,
+        "temporary_staging_schema_verified_absent": true
+      }
     },
+    "backend_regression": {
+      "passed": 129,
+      "skipped": 1,
+      "subtests_passed": 36
+    },
+    "operational_alert_policies_bound_held_disabled": 2,
     "live_legacy_api_traffic_changed": false,
     "production_generation_enabled_by_this_work": false,
     "production_queue_or_scheduler_resumed": false,
-    "cutover_window_submitted": false
+    "cutover_window_submitted": true
   },
   "production_preconfiguration_applied": true
 }

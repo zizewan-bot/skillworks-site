@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T05:12:13.810721Z",
-  "status": "production_preconfigured_pending_remaining_checks",
+  "updated_at": "2026-11-28T05:18:12.115399Z",
+  "status": "production_preconfiguration_verified_awaiting_switch_approval",
   "agent": "codex/root",
   "read_first": [
     "manifest.json",
@@ -35,20 +35,20 @@
     "Candidate release-image freeze passed through actual API, worker, confirmed admin and isolated Cloud Scheduler and Cloud Tasks.",
     "Independent legacy-image freeze and pending-work drain plus scoped worker PostgreSQL write path were verified in isolation.",
     "Progressive text remained inflight after the first admitted image settled, then started and completed its own image follow-up behind the independent legacy freeze.",
-    "The actual legacy and candidate images switched on the same isolated Cloud Run URL. Tag bypass and its removal were observed."
+    "The actual legacy and candidate images switched on the same isolated Cloud Run URL. Tag bypass and its removal were observed.",
+    "Production-specific private worker, IAM, read-only matching PostgreSQL role, empty paused queue and paused Scheduler are provisioned and verified. The specified inbox received the synthetic test alert."
   ],
   "not_completed": [
     "Real OpenAI/Cloudinary acceptance and controlled activation",
     "Progressive text interruption durability",
     "Complete text/provider/infrastructure billing attribution",
     "External alert notification destination and full hosted usage dashboard",
-    "Production cutover prerequisites and explicit owner approval remain pending.",
-    "Production durable worker, queue, scheduler, IAM and worker database bindings are absent or unverified. Live legacy revision retirement and drain remain pending."
+    "Production cutover prerequisites and explicit owner approval remain pending."
   ],
   "production_changed": true,
   "phase": "Live staging image sample and physical iPhone offline recovery accepted",
   "code_commits": {
-    "backend": "3e355ed59d85a3ef7d55eafb632c38e585b33798",
+    "backend": "24c119f8cbad0068fb155c2d51015520a0818f16",
     "ios": "31ca2779c0a7fd54e63f49f3f8315d69709e097e"
   },
   "links": {
@@ -60,7 +60,7 @@
   },
   "production_change_scope": "New production worker, queue, scheduler, identities, read-only worker database binding, and notification preconfiguration. Legacy traffic and application rows unchanged.",
   "documentation_updated": true,
-  "latest_backend_code_commit": "3e355ed59d85a3ef7d55eafb632c38e585b33798",
+  "latest_backend_code_commit": "24c119f8cbad0068fb155c2d51015520a0818f16",
   "iphone_offline_recovery": {
     "id": "iphone-offline-recovery-owner-confirmed",
     "scope": "Physical iPhone offline recovery",
@@ -102,11 +102,11 @@
     }
   },
   "production_cutover_review": {
-    "status": "production_preconfigured_pending_remaining_checks",
+    "status": "production_preconfiguration_verified_awaiting_switch_approval",
     "evidence": "production-cutover-review.json",
     "approval_required": true,
     "isolated_rehearsal": "isolated_checks_passed_production_not_ready",
-    "cutover_window_submitted": false,
+    "cutover_window_submitted": true,
     "production_mutated": true,
     "prerequisites_checkpoint": "equivalent_delivery_and_scale_recovery_verified_release_integration_pending",
     "release_freeze_checkpoint": "historical_checkpoint_superseded_by_final_release_proof",
@@ -114,6 +114,6 @@
     "release_verified": "release-generation-freeze-candidate",
     "production_delivery_definition": "reviewed_unbound",
     "latest_legacy_evidence": "production-delivery-review-and-legacy-fence-final",
-    "production_preconfiguration": "production-preconfiguration-checkpoint"
+    "production_preconfiguration": "production-preconfiguration-final"
   }
 }
