@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T02:00:01.997575Z",
+  "updated_at": "2026-11-28T02:11:14.908730Z",
   "status": "provider_free_staging_verified",
   "runs": [
     {
@@ -285,6 +285,14 @@
       "device_connection_verified": true,
       "testflight_candidate_seen_in_installed_app_inventory": false,
       "mirror_status": "iPhone in Use; lock iPhone to connect",
+      "exact_build_runtime_verified": false
+    },
+    {
+      "id": "ios-testflight-1.0.1-15-install-check",
+      "result": "blocked_on_testflight_install_on_iphone",
+      "build": "1.0.1 (15)",
+      "mirror_connected_after_lock": true,
+      "testflight_candidate_seen_in_installed_app_inventory": false,
       "exact_build_runtime_verified": false
     }
   ]
