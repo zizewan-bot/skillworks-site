@@ -49,7 +49,7 @@
     "https://developers.openai.com/api/docs/models/gpt-image-2.6-flare",
     "https://developers.openai.com/api/docs/models/gpt-6-luna"
   ],
-  "updated_at": "2026-11-28T07:45:00.623170Z",
+  "updated_at": "2026-11-28T07:47:12.792362Z",
   "remaining": [
     "Real-provider integration through staging Cloud Tasks",
     "Physical iPhone/TestFlight QA",
@@ -287,9 +287,9 @@
     "expansion_requires_new_approval": true
   },
   "production_ten_sample_validation": {
-    "id": "production-ten-paid-samples-approved",
-    "status": "production_ten_paid_samples_approved",
-    "observed_at": "2026-11-28T07:45:00.623170Z",
+    "id": "production-ten-paid-samples-running",
+    "status": "production_ten_paid_samples_in_progress",
+    "observed_at": "2026-11-28T07:47:12.792362Z",
     "candidate_commit": "24c119f8cbad0068fb155c2d51015520a0818f16",
     "data_scope": "Ten synthetic fixture descriptions processed through the one-shot provider flow with production credentials. No production dictionary rows created and no user data provided to models.",
     "delivery_scope": "No production worker run, queue enqueue, scheduler dispatch, ordinary user opening, or historical replay.",
@@ -322,91 +322,127 @@
     "samples": [
       {
         "fixture_word": "bicycle",
-        "status": "not_run",
+        "status": "passed",
         "paid_calls_started": {
-          "image": 0,
-          "vision": 0
+          "image": 1,
+          "vision": 1
         },
-        "response_cost_estimate_usd": null,
-        "response_cost_estimate_breakdown_usd": {},
-        "timings_seconds": {},
-        "sample_pipeline_seconds": null,
-        "safety_and_subject_approved": false,
-        "authenticated_storage_roundtrip": false,
-        "temporary_asset_absent_verified": false
+        "response_cost_estimate_usd": "0.02745905",
+        "response_cost_estimate_breakdown_usd": {
+          "image": "0.02724",
+          "vision": "0.00021905"
+        },
+        "timings_seconds": {
+          "image": 6.244,
+          "vision": 2.527
+        },
+        "sample_pipeline_seconds": 13.732,
+        "safety_and_subject_approved": true,
+        "authenticated_storage_roundtrip": true,
+        "temporary_asset_absent_verified": true
       },
       {
         "fixture_word": "sailboat",
-        "status": "not_run",
+        "status": "passed",
         "paid_calls_started": {
-          "image": 0,
-          "vision": 0
+          "image": 1,
+          "vision": 1
         },
-        "response_cost_estimate_usd": null,
-        "response_cost_estimate_breakdown_usd": {},
-        "timings_seconds": {},
-        "sample_pipeline_seconds": null,
-        "safety_and_subject_approved": false,
-        "authenticated_storage_roundtrip": false,
-        "temporary_asset_absent_verified": false
+        "response_cost_estimate_usd": "0.027455425",
+        "response_cost_estimate_breakdown_usd": {
+          "image": "0.02723",
+          "vision": "0.000225425"
+        },
+        "timings_seconds": {
+          "image": 4.931,
+          "vision": 1.809
+        },
+        "sample_pipeline_seconds": 13.285,
+        "safety_and_subject_approved": true,
+        "authenticated_storage_roundtrip": true,
+        "temporary_asset_absent_verified": true
       },
       {
         "fixture_word": "dolphin",
-        "status": "not_run",
+        "status": "passed",
         "paid_calls_started": {
-          "image": 0,
-          "vision": 0
+          "image": 1,
+          "vision": 1
         },
-        "response_cost_estimate_usd": null,
-        "response_cost_estimate_breakdown_usd": {},
-        "timings_seconds": {},
-        "sample_pipeline_seconds": null,
-        "safety_and_subject_approved": false,
-        "authenticated_storage_roundtrip": false,
-        "temporary_asset_absent_verified": false
+        "response_cost_estimate_usd": "0.027512925",
+        "response_cost_estimate_breakdown_usd": {
+          "image": "0.02726",
+          "vision": "0.000252925"
+        },
+        "timings_seconds": {
+          "image": 4.606,
+          "vision": 2.835
+        },
+        "sample_pipeline_seconds": 15.787,
+        "safety_and_subject_approved": true,
+        "authenticated_storage_roundtrip": true,
+        "temporary_asset_absent_verified": true
       },
       {
         "fixture_word": "butterfly",
-        "status": "not_run",
+        "status": "passed",
         "paid_calls_started": {
-          "image": 0,
-          "vision": 0
+          "image": 1,
+          "vision": 1
         },
-        "response_cost_estimate_usd": null,
-        "response_cost_estimate_breakdown_usd": {},
-        "timings_seconds": {},
-        "sample_pipeline_seconds": null,
-        "safety_and_subject_approved": false,
-        "authenticated_storage_roundtrip": false,
-        "temporary_asset_absent_verified": false
+        "response_cost_estimate_usd": "0.02748455",
+        "response_cost_estimate_breakdown_usd": {
+          "image": "0.027245",
+          "vision": "0.00023955"
+        },
+        "timings_seconds": {
+          "image": 5.55,
+          "vision": 2.135
+        },
+        "sample_pipeline_seconds": 11.921,
+        "safety_and_subject_approved": true,
+        "authenticated_storage_roundtrip": true,
+        "temporary_asset_absent_verified": true
       },
       {
         "fixture_word": "sunflower",
-        "status": "not_run",
+        "status": "passed",
         "paid_calls_started": {
-          "image": 0,
-          "vision": 0
+          "image": 1,
+          "vision": 1
         },
-        "response_cost_estimate_usd": null,
-        "response_cost_estimate_breakdown_usd": {},
-        "timings_seconds": {},
-        "sample_pipeline_seconds": null,
-        "safety_and_subject_approved": false,
-        "authenticated_storage_roundtrip": false,
-        "temporary_asset_absent_verified": false
+        "response_cost_estimate_usd": "0.0274833",
+        "response_cost_estimate_breakdown_usd": {
+          "image": "0.027245",
+          "vision": "0.0002383"
+        },
+        "timings_seconds": {
+          "image": 4.721,
+          "vision": 2.359
+        },
+        "sample_pipeline_seconds": 12.202,
+        "safety_and_subject_approved": true,
+        "authenticated_storage_roundtrip": true,
+        "temporary_asset_absent_verified": true
       },
       {
         "fixture_word": "teapot",
-        "status": "not_run",
+        "status": "in_progress",
         "paid_calls_started": {
-          "image": 0,
-          "vision": 0
+          "image": 1,
+          "vision": 1
         },
-        "response_cost_estimate_usd": null,
-        "response_cost_estimate_breakdown_usd": {},
-        "timings_seconds": {},
+        "response_cost_estimate_usd": "0.027468675",
+        "response_cost_estimate_breakdown_usd": {
+          "image": "0.027245",
+          "vision": "0.000223675"
+        },
+        "timings_seconds": {
+          "image": 4.924,
+          "vision": 1.758
+        },
         "sample_pipeline_seconds": null,
-        "safety_and_subject_approved": false,
+        "safety_and_subject_approved": true,
         "authenticated_storage_roundtrip": false,
         "temporary_asset_absent_verified": false
       },
@@ -472,13 +508,13 @@
       }
     ],
     "total_calls_started": {
-      "image": 0,
-      "vision": 0,
+      "image": 6,
+      "vision": 6,
       "standalone_text": 0
     },
     "cost": {
-      "openai_estimated_usd_for_metered_responses": null,
-      "paid_responses_with_token_cost": 0,
+      "openai_estimated_usd_for_metered_responses": "0.164863925",
+      "paid_responses_with_token_cost": 12,
       "all_started_paid_calls_had_priced_usage": true,
       "basis": "Actual response token counters and published OpenAI Standard rates. Invoice, contract adjustments, and Cloudinary charges not reconciled.",
       "approved_budget_estimate_usd": "0.35",
