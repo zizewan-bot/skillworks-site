@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T00:11:40.572656Z",
+  "updated_at": "2026-11-28T01:10:15.519727Z",
   "status": "open",
   "items": [
     {
@@ -84,9 +84,16 @@
     },
     {
       "id": "B007",
-      "status": "open",
+      "status": "resolved",
       "summary": "App Store Connect redirected to sign-in during TestFlight verification",
-      "impact": "Uploaded build identity, Apple processing, export compliance and beta review status remain unverified",
+      "impact": "Authenticated read confirmed with user session",
+      "next_action": "N08"
+    },
+    {
+      "id": "B008",
+      "status": "open",
+      "summary": "No active iOS 1.0 TestFlight build was visible in App Store Connect",
+      "impact": "Expired builds cannot be used to verify a new rollout candidate. The exact physical acceptance build is still unverified.",
       "next_action": "N08"
     }
   ]

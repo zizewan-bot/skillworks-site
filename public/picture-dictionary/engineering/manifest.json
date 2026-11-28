@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T00:11:40.606050Z",
+  "updated_at": "2026-11-28T01:10:15.555283Z",
   "status": "in_progress",
   "version": "1.1.0",
   "url": "https://skillworks.dev/picture-dictionary/engineering/manifest.json",
@@ -43,7 +43,7 @@
       "url": "https://skillworks.dev/picture-dictionary/engineering/work-packages.json",
       "path": "work-packages.json",
       "version": "1.0.0",
-      "updated_at": "2026-11-28T00:11:40.572656Z",
+      "updated_at": "2026-11-28T01:10:15.519727Z",
       "status": "in_progress"
     },
     {
@@ -67,7 +67,7 @@
       "url": "https://skillworks.dev/picture-dictionary/engineering/risks-blockers.json",
       "path": "risks-blockers.json",
       "version": "1.0.0",
-      "updated_at": "2026-11-28T00:11:40.572656Z",
+      "updated_at": "2026-11-28T01:10:15.519727Z",
       "status": "open"
     },
     {
@@ -75,7 +75,7 @@
       "url": "https://skillworks.dev/picture-dictionary/engineering/current-state.json",
       "path": "current-state.json",
       "version": "1.0.0",
-      "updated_at": "2026-11-28T00:11:40.572656Z",
+      "updated_at": "2026-11-28T01:10:15.519727Z",
       "status": "staging_sample_and_iphone_offline_recovery_accepted"
     },
     {
@@ -83,7 +83,7 @@
       "url": "https://skillworks.dev/picture-dictionary/engineering/next-actions.json",
       "path": "next-actions.json",
       "version": "1.0.0",
-      "updated_at": "2026-11-28T00:11:40.572656Z",
+      "updated_at": "2026-11-28T01:10:15.519727Z",
       "status": "pending"
     },
     {
@@ -91,7 +91,7 @@
       "url": "https://skillworks.dev/picture-dictionary/engineering/tests.json",
       "path": "tests.json",
       "version": "1.0.0",
-      "updated_at": "2026-11-28T00:11:40.572656Z",
+      "updated_at": "2026-11-28T01:10:15.519727Z",
       "status": "provider_free_staging_verified"
     },
     {
@@ -107,7 +107,7 @@
       "url": "https://skillworks.dev/picture-dictionary/engineering/timeline.jsonl",
       "path": "timeline.jsonl",
       "version": "1.0.0",
-      "updated_at": "2026-11-28T00:11:40.606050Z",
+      "updated_at": "2026-11-28T01:10:15.555283Z",
       "status": "append_only"
     },
     {

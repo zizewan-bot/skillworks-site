@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T00:11:40.572656Z",
+  "updated_at": "2026-11-28T01:10:15.519727Z",
   "status": "provider_free_staging_verified",
   "runs": [
     {
@@ -155,6 +155,37 @@
         "Workspace source snapshot",
         "Distribution signing, exact uploaded build and Apple review status remain unverified"
       ]
+    },
+    {
+      "id": "ios-testflight-n08-apple-verification",
+      "result": "blocked_no_active_beta_build",
+      "source": "authenticated App Store Connect TestFlight and Build Metadata",
+      "version": "1.0",
+      "visible_expired_build_numbers": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "latest_visible_build": {
+        "number": 14,
+        "upload_processing": "Complete",
+        "testflight_status": "Expired"
+      },
+      "historical_build_with_local_number": {
+        "number": 8,
+        "apple_upload_date": "2026-06-13",
+        "testflight_status": "Expired",
+        "uses_non_exempt_encryption": false
+      },
+      "physical_device_build_match": "unverified",
+      "beta_app_review_for_current_candidate": "unverified"
     }
   ]
 }
