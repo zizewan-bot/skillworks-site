@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T02:11:14.908730Z",
+  "updated_at": "2026-11-28T02:14:46.582697Z",
   "status": "provider_free_staging_verified",
   "runs": [
     {
@@ -294,6 +294,20 @@
       "mirror_connected_after_lock": true,
       "testflight_candidate_seen_in_installed_app_inventory": false,
       "exact_build_runtime_verified": false
+    },
+    {
+      "id": "ios-testflight-1.0.1-15-physical-install-and-launch",
+      "result": "installed_and_launched_offline_revalidation_pending",
+      "version": "1.0.1",
+      "build": 15,
+      "environment": "staging",
+      "device": "physical iPhone",
+      "installation_source": "TestFlight per owner confirmation",
+      "version_evidence": "Connected device app inventory matched app version 1.0.1 and build 15",
+      "launch_evidence": "CoreDevice reported successful launch of the installed app",
+      "connectivity_interruption_exercised": false,
+      "ready_test_word_confirmed": false,
+      "paid_model_calls": 0
     }
   ]
 }

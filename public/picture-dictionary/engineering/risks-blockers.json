@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T02:11:14.908730Z",
+  "updated_at": "2026-11-28T02:14:46.582697Z",
   "status": "open",
   "items": [
     {
@@ -98,9 +98,9 @@
     },
     {
       "id": "B009",
-      "status": "partially_resolved",
-      "summary": "iPhone mirroring connected after locking; TestFlight build 1.0.1 (15) is still absent from the installed app inventory",
-      "impact": "TestFlight installation and exact-build offline recovery remain pending",
+      "status": "resolved",
+      "summary": "TestFlight 1.0.1 (15) installed on connected iPhone and app launch confirmed",
+      "impact": "Exact-build connectivity interruption remains a separate device test",
       "next_action": "N08"
     }
   ]

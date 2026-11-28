@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T02:11:14.908730Z",
+  "updated_at": "2026-11-28T02:14:46.582697Z",
   "status": "pending",
   "actions": [
     {
@@ -49,14 +49,14 @@
     {
       "id": "N08",
       "status": "internal_testflight_ready",
-      "action": "Install 1.0.1 (15) through the assigned internal TestFlight group and repeat physical iPhone offline recovery against staging.",
-      "requires": "Install Picture Dictionary Kids 1.0.1 (15) from TestFlight on the iPhone using an assigned internal QA account",
+      "action": "On installed build 1.0.1 (15), exercise loss and restoration of network connectivity in Search and repeat with a controlled pending image when a no-cost fixture is available",
+      "requires": "Physical network switch on iPhone; a verified staging fixture for the pending-image case",
       "local_preflight": "passed",
       "evidence": "tests.json",
       "apple_verification": "completed",
       "candidate_build": 15,
       "candidate_version": "1.0.1",
-      "device_revalidation": "blocked_on_testflight_install_on_iphone"
+      "device_revalidation": "installed_and_launched_offline_revalidation_pending"
     }
   ]
 }
