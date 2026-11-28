@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T09:06:10.433067Z",
+  "updated_at": "2026-11-28T09:12:19.148688Z",
   "status": "provider_free_staging_verified",
   "runs": [
     {
@@ -2454,6 +2454,42 @@
         "No production task was created or delivered. The duplicate and terminal state checks are not verified in the production queue.",
         "Before requesting another production trigger, instrument a provider-free isolated dispatch verification path to separately record authenticated-identity success and whether the expected Scheduler request metadata matches. Record outcomes without recording tokens, user data or raw headers. Keep the real queue and production Scheduler untouched for that diagnosis."
       ]
+    },
+    {
+      "id": "isolated-scheduler-dispatch-diagnosis",
+      "status": "isolated_diagnosis_in_progress",
+      "updated_at": "2026-11-28T09:12:19.148688Z",
+      "diagnostic": {
+        "legacy_scheduler_http_status": null,
+        "token_signature_and_audience_verified": null,
+        "expected_service_account_email_and_subject": null,
+        "email_verified_representation": null,
+        "legacy_identity_check_passed": null,
+        "configured_scheduler_job_header_matched": null,
+        "documented_header_shape": null,
+        "isolated_root_cause": null
+      },
+      "fix": null,
+      "evidence": {
+        "fixed_scheduler_http_status": null,
+        "same_isolated_named_task_deliveries": null,
+        "fixture_execution_count": null,
+        "duplicate_suppressions": null,
+        "terminal_state": null,
+        "model_calls": null,
+        "ai_fee_usd": null,
+        "isolated_queue_paused_empty": null,
+        "temporary_isolated_resources_removed": null,
+        "production_scheduler_and_queue_paused": null,
+        "production_dispatch_or_delivery_attempted": false,
+        "historical_backlog_replayed": false,
+        "production_admission_frozen": null
+      },
+      "failures": [],
+      "unverified": [
+        "Isolated proof is pending."
+      ],
+      "next_action": "Complete the isolated diagnosis and same-task duplicate-delivery proof. Stage 2 remains held."
     }
   ]
 }
