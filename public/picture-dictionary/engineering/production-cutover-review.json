@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0.0",
+  "project": "picture-dictionary-kids",
+  "updated_at": "2026-11-28T03:07:57.386894Z",
+  "status": "reviewed_no_go_pending_prerequisites_and_owner_approval",
+  "owner_approval_required": true,
+  "production_switch_performed": false,
+  "production_schema_changed": false,
+  "scope": [
+    "additive migration",
+    "legacy drain and backlog classification",
+    "rollback and recovery"
+  ],
+  "candidate_commit": "9990d5c6a0aa1e131acaf689b842518c79405a24",
+  "findings": {
+    "read_only_database_catalog_and_aggregates": "Production lacks the two durable tables. Staging has both tables in the default schema and no active durable leases at the time of review. The production pending inventory includes historical start markers and no immediately eligible zero-attempt rows under the conservative review predicate.",
+    "local_postgresql_16_rehearsal": "Initialized a synthetic database with the exact production image. Candidate startup added only the two durable tables, preserved a synthetic legacy row, and was rerunnable. The old image started with the tables retained. A synthetic pre-change dump restored to a separate database with the same row digest. Provider execution remained disabled and the durable tables stayed empty.",
+    "candidate_regression": {
+      "tests_passed": 17,
+      "tests_skipped": 1,
+      "backend": "SQLite",
+      "provider_calls": 0
+    },
+    "backup_metadata": "Automated backups and point-in-time recovery are configured and recent backup runs succeeded. Managed restore duration and the recovery point for the actual change window remain unverified.",
+    "read_only_runtime_inventory": "Production traffic is on the current legacy API. The staged worker has provider execution disabled and its queue is paused. No production-bound durable delivery path was verified."
+  },
+  "gates": [
+    {
+      "id": "G01",
+      "area": "database_migration",
+      "status": "blocked",
+      "requires": "Rehearse the gated candidate against an authorized isolated Cloud SQL restore, measure lock duration and recovery time, designate a single operator for additive DDL, confirm a fresh recoverable backup and verify old API compatibility before switching traffic."
+    },
+    {
+      "id": "G02",
+      "area": "legacy_drain",
+      "status": "blocked",
+      "requires": "Prove a freeze on new generation and retry admissions across lookup, progressive text completion, retry endpoints and admin execution; observe old API activity and provider attempts quiesce; classify existing pending rows without silently resetting their attempt histories."
+    },
+    {
+      "id": "G03",
+      "area": "production_delivery",
+      "status": "blocked",
+      "requires": "Pin a production release candidate and separately rehearse production-bound private worker, queue, scheduler, identities, alarms and cost limits with provider execution disabled. Confirm API and worker target the same intended database and that staging cannot reach it."
+    },
+    {
+      "id": "G04",
+      "area": "rollback",
+      "status": "blocked",
+      "requires": "Rehearse an in-place traffic rollback while intake is frozen, confirm queue pause does not substitute for draining in-flight workers, and reconcile leases and provider reservations before permitting any legacy claim against the same vocabulary."
+    },
+    {
+      "id": "G05",
+      "area": "approval",
+      "status": "required",
+      "requires": "Obtain explicit owner approval for the execution window, first production mutation, budget and stop criteria, after all other gates have evidence."
+    }
+  ],
+  "rollback_summary": [
+    "Freeze new provider work. Pause dispatch and delivery. Observe in-flight execution, leases and unresolved provider reservations.",
+    "Return traffic to the captured rollback revision only after fencing old and new generation paths. Keep additive tables and the provider ledger.",
+    "Keep generation paused during reconciliation. If schema or data recovery is required, verify a separate restore before any recovery traffic decision."
+  ],
+  "restricted_review": "https://glen.skillworks.dev/picture-dictionary/internal/production-cutover-review.json",
+  "references": [
+    {
+      "title": "Cloud SQL point-in-time recovery",
+      "url": "https://cloud.google.com/sql/docs/postgres/backup-recovery/pitr"
+    },
+    {
+      "title": "Cloud Run traffic rollbacks",
+      "url": "https://cloud.google.com/run/docs/rollouts-rollbacks-traffic-migration"
+    },
+    {
+      "title": "Cloud Tasks queue management",
+      "url": "https://cloud.google.com/tasks/docs/manage-queues"
+    }
+  ]
+}

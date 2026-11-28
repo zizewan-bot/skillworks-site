@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T02:14:46.582697Z",
+  "updated_at": "2026-11-28T03:07:57.386894Z",
   "status": "open",
   "items": [
     {
@@ -102,6 +102,13 @@
       "summary": "TestFlight 1.0.1 (15) installed on connected iPhone and app launch confirmed",
       "impact": "Exact-build connectivity interruption remains a separate device test",
       "next_action": "N08"
+    },
+    {
+      "id": "B010",
+      "status": "open",
+      "summary": "Production legacy generation is not proven drained and the production durable delivery and rollback controls are not rehearsed.",
+      "impact": "Database snapshots and paused staging infrastructure are insufficient to authorize production cutover.",
+      "evidence": "production-cutover-review.json"
     }
   ]
 }

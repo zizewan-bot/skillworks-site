@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T02:59:52.801257Z",
+  "updated_at": "2026-11-28T03:07:57.386894Z",
   "status": "staging_sample_and_iphone_offline_recovery_accepted",
   "agent": "codex/root",
   "read_first": [
@@ -27,14 +27,15 @@
     "WP06: natural automatic scheduler tick verified HTTP 200; test queue/scheduler returned to PAUSED",
     "Fixed actual lookup explicit-flush outbox gap; rollback and nested transaction coverage passed",
     "Physical iPhone offline recovery accepted by user on 2026-11-27 (America/Los_Angeles)",
-    "Internal TestFlight 1.0.1 (15) passed physical iPhone Search recovery and pending-image polling recovery against staging"
+    "Internal TestFlight 1.0.1 (15) passed physical iPhone Search recovery and pending-image polling recovery against staging",
+    "Production cutover review completed; PostgreSQL 16 synthetic migration, old-revision startup and separate restore rehearsed."
   ],
   "not_completed": [
     "Real OpenAI/Cloudinary acceptance and controlled activation",
     "Progressive text interruption durability",
     "Complete text/provider/infrastructure billing attribution",
     "External alert notification destination and full hosted usage dashboard",
-    "Production cutover review"
+    "Production cutover prerequisites and explicit owner approval remain pending."
   ],
   "production_changed": false,
   "phase": "Live staging image sample and physical iPhone offline recovery accepted",
@@ -91,5 +92,10 @@
       "fixture_cleanup": "verified_removed",
       "evidence": "tests.json"
     }
+  },
+  "production_cutover_review": {
+    "status": "reviewed_no_go_pending_prerequisites_and_owner_approval",
+    "evidence": "production-cutover-review.json",
+    "approval_required": true
   }
 }

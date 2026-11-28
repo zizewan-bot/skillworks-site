@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T02:59:52.834275Z",
+  "updated_at": "2026-11-28T03:08:09.045664Z",
   "status": "in_progress",
   "version": "1.1.0",
   "url": "https://skillworks.dev/picture-dictionary/engineering/manifest.json",
@@ -67,7 +67,7 @@
       "url": "https://skillworks.dev/picture-dictionary/engineering/risks-blockers.json",
       "path": "risks-blockers.json",
       "version": "1.0.0",
-      "updated_at": "2026-11-28T02:14:46.582697Z",
+      "updated_at": "2026-11-28T03:07:57.386894Z",
       "status": "open"
     },
     {
@@ -75,7 +75,7 @@
       "url": "https://skillworks.dev/picture-dictionary/engineering/current-state.json",
       "path": "current-state.json",
       "version": "1.0.0",
-      "updated_at": "2026-11-28T02:59:52.801257Z",
+      "updated_at": "2026-11-28T03:07:57.386894Z",
       "status": "staging_sample_and_iphone_offline_recovery_accepted"
     },
     {
@@ -83,7 +83,7 @@
       "url": "https://skillworks.dev/picture-dictionary/engineering/next-actions.json",
       "path": "next-actions.json",
       "version": "1.0.0",
-      "updated_at": "2026-11-28T02:59:52.801257Z",
+      "updated_at": "2026-11-28T03:07:57.386894Z",
       "status": "pending"
     },
     {
@@ -91,7 +91,7 @@
       "url": "https://skillworks.dev/picture-dictionary/engineering/tests.json",
       "path": "tests.json",
       "version": "1.0.0",
-      "updated_at": "2026-11-28T02:59:52.801257Z",
+      "updated_at": "2026-11-28T03:07:57.386894Z",
       "status": "provider_free_staging_verified"
     },
     {
@@ -107,7 +107,7 @@
       "url": "https://skillworks.dev/picture-dictionary/engineering/timeline.jsonl",
       "path": "timeline.jsonl",
       "version": "1.0.0",
-      "updated_at": "2026-11-28T02:59:52.834275Z",
+      "updated_at": "2026-11-28T03:08:09.045664Z",
       "status": "append_only"
     },
     {
@@ -125,6 +125,14 @@
       "version": "1.0.0",
       "status": "live_single_sample_passed",
       "updated_at": "2026-11-28T00:09:13.173063Z"
+    },
+    {
+      "id": "production-cutover-review",
+      "path": "production-cutover-review.json",
+      "url": "https://skillworks.dev/picture-dictionary/engineering/production-cutover-review.json",
+      "version": "1.0.0",
+      "updated_at": "2026-11-28T03:07:57.386894Z",
+      "status": "reviewed_no_go_pending_prerequisites_and_owner_approval"
     }
   ]
 }

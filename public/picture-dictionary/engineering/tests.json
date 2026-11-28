@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T02:59:52.801257Z",
+  "updated_at": "2026-11-28T03:07:57.386894Z",
   "status": "provider_free_staging_verified",
   "runs": [
     {
@@ -367,6 +367,18 @@
         "Controlled terminal-result fixture, separate from real image generation",
         "TestFlight internal testing only"
       ]
+    },
+    {
+      "id": "production-cutover-review-postgresql16",
+      "result": "synthetic_rehearsal_passed_production_not_ready",
+      "runtime": "PostgreSQL 16, exact production image for legacy startup, verified candidate cutover files mounted",
+      "evidence": "production-cutover-review.json",
+      "durable_job_regression": {
+        "tests_passed": 17,
+        "tests_skipped": 1,
+        "backend": "SQLite",
+        "provider_calls": 0
+      }
     }
   ]
 }

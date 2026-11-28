@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T02:59:52.801257Z",
+  "updated_at": "2026-11-28T03:07:57.386894Z",
   "status": "pending",
   "actions": [
     {
@@ -38,8 +38,10 @@
     },
     {
       "id": "N06",
-      "action": "Review additive migration, legacy drain, rollback and production cutover",
-      "requires": "Separate production review; current production and staging API revisions unchanged"
+      "action": "Close the migration rehearsal, generation freeze, backlog classification, production delivery and rollback gaps before proposing a production switch",
+      "requires": "Verified gates G01–G04 and explicit owner approval under G05",
+      "status": "reviewed_no_go_pending_prerequisites_and_owner_approval",
+      "evidence": "production-cutover-review.json"
     },
     {
       "id": "N07",
