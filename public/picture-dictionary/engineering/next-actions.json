@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T00:09:13.173063Z",
+  "updated_at": "2026-11-28T00:11:40.572656Z",
   "status": "pending",
   "actions": [
     {
@@ -48,8 +48,11 @@
     },
     {
       "id": "N08",
-      "status": "unreported",
-      "action": "Verify TestFlight release review when preparing rollout"
+      "status": "blocked_on_app_store_connect_sign_in",
+      "action": "Match the installed beta build to App Store Connect, then verify processing, export compliance and any required Beta App Review",
+      "requires": "An authenticated App Store Connect session with access to Picture Dictionary Kids",
+      "local_preflight": "passed",
+      "evidence": "tests.json"
     }
   ]
 }

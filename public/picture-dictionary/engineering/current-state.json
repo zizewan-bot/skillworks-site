@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T00:09:13.173063Z",
+  "updated_at": "2026-11-28T00:11:40.572656Z",
   "status": "staging_sample_and_iphone_offline_recovery_accepted",
   "agent": "codex/root",
   "read_first": [
@@ -34,7 +34,7 @@
     "Complete text/provider/infrastructure billing attribution",
     "External alert notification destination and full hosted usage dashboard",
     "Production cutover review",
-    "TestFlight release review (not reported)"
+    "Local unsigned iOS Release archive passed. App Store Connect requires authenticated access to verify the uploaded build and beta review status."
   ],
   "production_changed": false,
   "phase": "Live staging image sample and physical iPhone offline recovery accepted",
@@ -63,5 +63,11 @@
     "device_model": null,
     "individual_scenario_results": null,
     "testflight_release_review": "not_reported"
+  },
+  "testflight_release_review": {
+    "status": "blocked_on_app_store_connect_sign_in",
+    "local_preflight": "passed",
+    "evidence": "tests.json",
+    "action": "N08"
   }
 }

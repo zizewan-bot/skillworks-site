@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T00:09:13.173063Z",
+  "updated_at": "2026-11-28T00:11:40.572656Z",
   "status": "provider_free_staging_verified",
   "runs": [
     {
@@ -140,6 +140,21 @@
         "individual_scenario_results": null,
         "testflight_release_review": "not_reported"
       }
+    },
+    {
+      "id": "ios-release-archive-n08",
+      "result": "passed",
+      "tool": "Xcode 27.2",
+      "target": "iOS device Release archive",
+      "version": "1.0",
+      "local_build_number": "8",
+      "signing": "disabled",
+      "api_configuration": "non-production placeholder override verified in compiled bundle",
+      "evidence": "xcodebuild archive exited 0; compiled Info.plist version, build number and API override verified",
+      "limitations": [
+        "Workspace source snapshot",
+        "Distribution signing, exact uploaded build and Apple review status remain unverified"
+      ]
     }
   ]
 }
