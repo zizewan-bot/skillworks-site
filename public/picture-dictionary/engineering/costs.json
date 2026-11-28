@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T07:08:51.740316Z",
+  "updated_at": "2026-11-28T07:10:04.504465Z",
   "status": "partial",
   "actual_billing_usd": null,
   "estimated_cost_usd": null,
@@ -95,7 +95,12 @@
     ]
   },
   "production_one_sample_latest": {
-    "usage_derived_openai": null,
+    "usage_derived_openai": {
+      "image_usd": "0.02721",
+      "vision_usd": "0.00022005",
+      "total_usd": "0.02743005",
+      "basis": "Provider response token counters and published Standard rates, before taxes or contract adjustments."
+    },
     "actual_invoice_usd": null,
     "cloudinary_invoice_usd": null
   }

@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T07:08:51.740316Z",
+  "updated_at": "2026-11-28T07:10:04.504465Z",
   "status": "pending",
   "actions": [
     {
@@ -63,7 +63,7 @@
     }
   ],
   "production_paid_validation": {
-    "status": "production_paid_single_sample_authorized",
+    "status": "production_paid_single_sample_passed_frozen",
     "requires_separate_expansion_approval": true
   }
 }

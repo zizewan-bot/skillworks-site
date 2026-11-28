@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T07:08:51.740316Z",
+  "updated_at": "2026-11-28T07:10:04.504465Z",
   "status": "provider_free_staging_verified",
   "runs": [
     {
@@ -963,6 +963,50 @@
       "model_access_verified": true,
       "cost": {
         "usage_derived_openai": null,
+        "actual_invoice_usd": null,
+        "cloudinary_invoice_usd": null
+      },
+      "expansion_authorized": false
+    },
+    {
+      "id": "production-single-paid-validation-final",
+      "status": "production_paid_single_sample_passed_frozen",
+      "observed_at": "2026-11-28T07:10:04.504465Z",
+      "candidate_commit": "24c119f8cbad0068fb155c2d51015520a0818f16",
+      "sample_count": 1,
+      "data_scope": "One synthetic fixture description. No user data or production dictionary rows were read for generation.",
+      "path": "Operator one-shot with the production provider references and existing image prompt and vision helper. Production API, worker and delivery were held.",
+      "calls_started": {
+        "image": 1,
+        "vision": 1,
+        "standalone_text": 0
+      },
+      "provider_responses_received": {
+        "image": 1,
+        "vision": 1
+      },
+      "provider_durations_seconds": {
+        "image": 4.735,
+        "vision": 2.594
+      },
+      "validation_total_seconds": 17.144,
+      "authenticated_storage_roundtrip": true,
+      "safety_and_subject_checks_passed": true,
+      "test_asset_cleanup_verified": true,
+      "production_database_test_rows_created": false,
+      "ordinary_generation_opened": false,
+      "queue_and_scheduler_remain_paused": true,
+      "production_backlog_replayed": false,
+      "production_shared_admission_remains_frozen": true,
+      "before_after_hold_verification": true,
+      "model_access_verified": true,
+      "cost": {
+        "usage_derived_openai": {
+          "image_usd": "0.02721",
+          "vision_usd": "0.00022005",
+          "total_usd": "0.02743005",
+          "basis": "Provider response token counters and published Standard rates, before taxes or contract adjustments."
+        },
         "actual_invoice_usd": null,
         "cloudinary_invoice_usd": null
       },
