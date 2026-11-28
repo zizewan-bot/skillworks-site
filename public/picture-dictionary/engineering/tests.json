@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T09:23:55.538461Z",
+  "updated_at": "2026-11-28T09:24:40.675278Z",
   "status": "provider_free_staging_verified",
   "runs": [
     {
@@ -2652,7 +2652,7 @@
     {
       "id": "production-scheduler-fixed-provider-free-rerun",
       "status": "passed",
-      "updated_at": "2026-11-28T09:23:55.538461Z",
+      "updated_at": "2026-11-28T09:24:40.675278Z",
       "limits": {
         "fixed_synthetic_task_max": 1,
         "production_scheduler_manual_triggers_max": 1,
@@ -2667,8 +2667,8 @@
         "named_task_created": true,
         "manual_named_delivery_requests": 2,
         "worker_http_deliveries_observed": 2,
-        "scheduler_dispatch_response_status": null,
-        "dispatch_http_rejection_recorded_by_substitute_application": null,
+        "scheduler_dispatch_response_status": 200,
+        "dispatch_http_rejection_recorded_by_substitute_application": false,
         "fixture_execution_count": 1,
         "duplicate_suppression_count": 1,
         "terminal_state": "succeeded",
@@ -2681,7 +2681,11 @@
         "production_model_calls": 0,
         "fixture_provider_ledger_rows": 0,
         "ai_fee_usd": 0,
-        "temporary_samples_and_permissions_cleaned": true
+        "temporary_samples_and_permissions_cleaned": true,
+        "task_delivery_http_statuses": [
+          200,
+          503
+        ]
       },
       "next_gate": "Await explicit Stage 2 approval before enabling any account-scoped iPhone production generation. Stage 1 was verified using the unchanged production queue in a paused state.",
       "failures": [
