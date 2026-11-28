@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T07:55:01.746195Z",
+  "updated_at": "2026-11-28T07:58:26.214930Z",
   "status": "frozen_production_cutover_complete_delivery_held",
   "owner_approval_required": false,
   "production_switch_performed": true,
@@ -502,9 +502,9 @@
     "new_provider_execution_enabled": false
   },
   "latest_production_paid_validation": {
-    "id": "production-25-paid-samples-approved",
-    "status": "production_25_paid_samples_approved",
-    "observed_at": "2026-11-28T07:55:01.746195Z",
+    "id": "production-25-paid-samples-running",
+    "status": "production_25_paid_samples_in_progress",
+    "observed_at": "2026-11-28T07:58:26.214930Z",
     "candidate_commit": "24c119f8cbad0068fb155c2d51015520a0818f16",
     "data_scope": "Twenty-five synthetic fixture descriptions processed through the one-shot provider flow with production credentials. No production dictionary rows created and no user data provided to models.",
     "delivery_scope": "No production worker run, queue enqueue, scheduler dispatch, ordinary user opening, or historical replay.",
@@ -550,13 +550,13 @@
       "expansion_requires_further_approval": true
     },
     "total_calls_started": {
-      "image": 0,
-      "vision": 0,
+      "image": 14,
+      "vision": 14,
       "standalone_text": 0
     },
     "cost": {
-      "openai_estimated_usd_for_metered_responses": null,
-      "paid_responses_with_token_cost": 0,
+      "openai_estimated_usd_for_metered_responses": "0.384632825",
+      "paid_responses_with_token_cost": 28,
       "all_started_paid_calls_had_priced_usage": true,
       "basis": "Actual response token counters and published OpenAI Standard rates. Invoice, contract adjustments, and Cloudinary charges not reconciled.",
       "approved_budget_estimate_usd": "0.85",
@@ -564,13 +564,27 @@
       "cloudinary_invoice_usd": null
     },
     "total_elapsed_seconds": null,
+    "provider_latency_summary_seconds": {
+      "image": {
+        "responses": 14,
+        "min": 3.947,
+        "median": 4.983,
+        "max": 6.018
+      },
+      "vision": {
+        "responses": 14,
+        "min": 1.662,
+        "median": 2.1195,
+        "max": 3.556
+      }
+    },
     "production_frozen_before_and_after_verified": false,
     "all_25_temporary_assets_absent_verified": false,
     "expansion_requires_new_approval": true,
     "sample_totals": {
       "planned": 25,
-      "passed": 0,
-      "processed": 0
+      "passed": 13,
+      "processed": 13
     },
     "per_word_results": "https://skillworks.dev/picture-dictionary/engineering/provider-pilot.json"
   }

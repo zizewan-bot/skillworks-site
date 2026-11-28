@@ -49,7 +49,7 @@
     "https://developers.openai.com/api/docs/models/gpt-image-2.6-flare",
     "https://developers.openai.com/api/docs/models/gpt-6-luna"
   ],
-  "updated_at": "2026-11-28T07:55:01.746195Z",
+  "updated_at": "2026-11-28T07:58:26.214930Z",
   "remaining": [
     "Real-provider integration through staging Cloud Tasks",
     "Physical iPhone/TestFlight QA",
@@ -551,9 +551,9 @@
     "expansion_requires_new_approval": true
   },
   "production_25_sample_validation": {
-    "id": "production-25-paid-samples-approved",
-    "status": "production_25_paid_samples_approved",
-    "observed_at": "2026-11-28T07:55:01.746195Z",
+    "id": "production-25-paid-samples-running",
+    "status": "production_25_paid_samples_in_progress",
+    "observed_at": "2026-11-28T07:58:26.214930Z",
     "candidate_commit": "24c119f8cbad0068fb155c2d51015520a0818f16",
     "data_scope": "Twenty-five synthetic fixture descriptions processed through the one-shot provider flow with production credentials. No production dictionary rows created and no user data provided to models.",
     "delivery_scope": "No production worker run, queue enqueue, scheduler dispatch, ordinary user opening, or historical replay.",
@@ -601,211 +601,295 @@
     "samples": [
       {
         "fixture_word": "acorn",
-        "status": "not_run",
+        "status": "passed",
         "paid_calls_started": {
-          "image": 0,
-          "vision": 0
+          "image": 1,
+          "vision": 1
         },
-        "response_cost_estimate_usd": null,
-        "response_cost_estimate_breakdown_usd": {},
-        "timings_seconds": {},
-        "sample_pipeline_seconds": null,
-        "safety_and_subject_approved": false,
-        "authenticated_storage_roundtrip": false,
-        "temporary_asset_absent_verified": false
+        "response_cost_estimate_usd": "0.0274853",
+        "response_cost_estimate_breakdown_usd": {
+          "image": "0.02724",
+          "vision": "0.0002453"
+        },
+        "timings_seconds": {
+          "image": 4.71,
+          "vision": 2.857
+        },
+        "sample_pipeline_seconds": 12.298,
+        "safety_and_subject_approved": true,
+        "authenticated_storage_roundtrip": true,
+        "temporary_asset_absent_verified": true
       },
       {
         "fixture_word": "anchor",
-        "status": "not_run",
+        "status": "passed",
         "paid_calls_started": {
-          "image": 0,
-          "vision": 0
+          "image": 1,
+          "vision": 1
         },
-        "response_cost_estimate_usd": null,
-        "response_cost_estimate_breakdown_usd": {},
-        "timings_seconds": {},
-        "sample_pipeline_seconds": null,
-        "safety_and_subject_approved": false,
-        "authenticated_storage_roundtrip": false,
-        "temporary_asset_absent_verified": false
+        "response_cost_estimate_usd": "0.02748355",
+        "response_cost_estimate_breakdown_usd": {
+          "image": "0.027245",
+          "vision": "0.00023855"
+        },
+        "timings_seconds": {
+          "image": 5.646,
+          "vision": 1.974
+        },
+        "sample_pipeline_seconds": 11.694,
+        "safety_and_subject_approved": true,
+        "authenticated_storage_roundtrip": true,
+        "temporary_asset_absent_verified": true
       },
       {
         "fixture_word": "backpack",
-        "status": "not_run",
+        "status": "passed",
         "paid_calls_started": {
-          "image": 0,
-          "vision": 0
+          "image": 1,
+          "vision": 1
         },
-        "response_cost_estimate_usd": null,
-        "response_cost_estimate_breakdown_usd": {},
-        "timings_seconds": {},
-        "sample_pipeline_seconds": null,
-        "safety_and_subject_approved": false,
-        "authenticated_storage_roundtrip": false,
-        "temporary_asset_absent_verified": false
+        "response_cost_estimate_usd": "0.0274623",
+        "response_cost_estimate_breakdown_usd": {
+          "image": "0.02723",
+          "vision": "0.0002323"
+        },
+        "timings_seconds": {
+          "image": 5.777,
+          "vision": 2.519
+        },
+        "sample_pipeline_seconds": 12.443,
+        "safety_and_subject_approved": true,
+        "authenticated_storage_roundtrip": true,
+        "temporary_asset_absent_verified": true
       },
       {
         "fixture_word": "banana",
-        "status": "not_run",
+        "status": "passed",
         "paid_calls_started": {
-          "image": 0,
-          "vision": 0
+          "image": 1,
+          "vision": 1
         },
-        "response_cost_estimate_usd": null,
-        "response_cost_estimate_breakdown_usd": {},
-        "timings_seconds": {},
-        "sample_pipeline_seconds": null,
-        "safety_and_subject_approved": false,
-        "authenticated_storage_roundtrip": false,
-        "temporary_asset_absent_verified": false
+        "response_cost_estimate_usd": "0.02746805",
+        "response_cost_estimate_breakdown_usd": {
+          "image": "0.027235",
+          "vision": "0.00023305"
+        },
+        "timings_seconds": {
+          "image": 6.018,
+          "vision": 2.112
+        },
+        "sample_pipeline_seconds": 11.891,
+        "safety_and_subject_approved": true,
+        "authenticated_storage_roundtrip": true,
+        "temporary_asset_absent_verified": true
       },
       {
         "fixture_word": "basket",
-        "status": "not_run",
+        "status": "passed",
         "paid_calls_started": {
-          "image": 0,
-          "vision": 0
+          "image": 1,
+          "vision": 1
         },
-        "response_cost_estimate_usd": null,
-        "response_cost_estimate_breakdown_usd": {},
-        "timings_seconds": {},
-        "sample_pipeline_seconds": null,
-        "safety_and_subject_approved": false,
-        "authenticated_storage_roundtrip": false,
-        "temporary_asset_absent_verified": false
+        "response_cost_estimate_usd": "0.027474425",
+        "response_cost_estimate_breakdown_usd": {
+          "image": "0.02724",
+          "vision": "0.000234425"
+        },
+        "timings_seconds": {
+          "image": 4.941,
+          "vision": 2.127
+        },
+        "sample_pipeline_seconds": 11.317,
+        "safety_and_subject_approved": true,
+        "authenticated_storage_roundtrip": true,
+        "temporary_asset_absent_verified": true
       },
       {
         "fixture_word": "bell",
-        "status": "not_run",
+        "status": "passed",
         "paid_calls_started": {
-          "image": 0,
-          "vision": 0
+          "image": 1,
+          "vision": 1
         },
-        "response_cost_estimate_usd": null,
-        "response_cost_estimate_breakdown_usd": {},
-        "timings_seconds": {},
-        "sample_pipeline_seconds": null,
-        "safety_and_subject_approved": false,
-        "authenticated_storage_roundtrip": false,
-        "temporary_asset_absent_verified": false
+        "response_cost_estimate_usd": "0.02747655",
+        "response_cost_estimate_breakdown_usd": {
+          "image": "0.02724",
+          "vision": "0.00023655"
+        },
+        "timings_seconds": {
+          "image": 5.612,
+          "vision": 2.296
+        },
+        "sample_pipeline_seconds": 12.774,
+        "safety_and_subject_approved": true,
+        "authenticated_storage_roundtrip": true,
+        "temporary_asset_absent_verified": true
       },
       {
         "fixture_word": "binoculars",
-        "status": "not_run",
+        "status": "passed",
         "paid_calls_started": {
-          "image": 0,
-          "vision": 0
+          "image": 1,
+          "vision": 1
         },
-        "response_cost_estimate_usd": null,
-        "response_cost_estimate_breakdown_usd": {},
-        "timings_seconds": {},
-        "sample_pipeline_seconds": null,
-        "safety_and_subject_approved": false,
-        "authenticated_storage_roundtrip": false,
-        "temporary_asset_absent_verified": false
+        "response_cost_estimate_usd": "0.0274713",
+        "response_cost_estimate_breakdown_usd": {
+          "image": "0.02724",
+          "vision": "0.0002313"
+        },
+        "timings_seconds": {
+          "image": 4.796,
+          "vision": 2.033
+        },
+        "sample_pipeline_seconds": 10.87,
+        "safety_and_subject_approved": true,
+        "authenticated_storage_roundtrip": true,
+        "temporary_asset_absent_verified": true
       },
       {
         "fixture_word": "broom",
-        "status": "not_run",
+        "status": "passed",
         "paid_calls_started": {
-          "image": 0,
-          "vision": 0
+          "image": 1,
+          "vision": 1
         },
-        "response_cost_estimate_usd": null,
-        "response_cost_estimate_breakdown_usd": {},
-        "timings_seconds": {},
-        "sample_pipeline_seconds": null,
-        "safety_and_subject_approved": false,
-        "authenticated_storage_roundtrip": false,
-        "temporary_asset_absent_verified": false
+        "response_cost_estimate_usd": "0.0274498",
+        "response_cost_estimate_breakdown_usd": {
+          "image": "0.02723",
+          "vision": "0.0002198"
+        },
+        "timings_seconds": {
+          "image": 5.025,
+          "vision": 3.556
+        },
+        "sample_pipeline_seconds": 12.923,
+        "safety_and_subject_approved": true,
+        "authenticated_storage_roundtrip": true,
+        "temporary_asset_absent_verified": true
       },
       {
         "fixture_word": "cactus",
-        "status": "not_run",
+        "status": "passed",
         "paid_calls_started": {
-          "image": 0,
-          "vision": 0
+          "image": 1,
+          "vision": 1
         },
-        "response_cost_estimate_usd": null,
-        "response_cost_estimate_breakdown_usd": {},
-        "timings_seconds": {},
-        "sample_pipeline_seconds": null,
-        "safety_and_subject_approved": false,
-        "authenticated_storage_roundtrip": false,
-        "temporary_asset_absent_verified": false
+        "response_cost_estimate_usd": "0.027468425",
+        "response_cost_estimate_breakdown_usd": {
+          "image": "0.02724",
+          "vision": "0.000228425"
+        },
+        "timings_seconds": {
+          "image": 5.54,
+          "vision": 1.714
+        },
+        "sample_pipeline_seconds": 11.506,
+        "safety_and_subject_approved": true,
+        "authenticated_storage_roundtrip": true,
+        "temporary_asset_absent_verified": true
       },
       {
         "fixture_word": "candle",
-        "status": "not_run",
+        "status": "passed",
         "paid_calls_started": {
-          "image": 0,
-          "vision": 0
+          "image": 1,
+          "vision": 1
         },
-        "response_cost_estimate_usd": null,
-        "response_cost_estimate_breakdown_usd": {},
-        "timings_seconds": {},
-        "sample_pipeline_seconds": null,
-        "safety_and_subject_approved": false,
-        "authenticated_storage_roundtrip": false,
-        "temporary_asset_absent_verified": false
+        "response_cost_estimate_usd": "0.0274668",
+        "response_cost_estimate_breakdown_usd": {
+          "image": "0.027235",
+          "vision": "0.0002318"
+        },
+        "timings_seconds": {
+          "image": 4.026,
+          "vision": 1.694
+        },
+        "sample_pipeline_seconds": 9.798,
+        "safety_and_subject_approved": true,
+        "authenticated_storage_roundtrip": true,
+        "temporary_asset_absent_verified": true
       },
       {
         "fixture_word": "carrot",
-        "status": "not_run",
+        "status": "passed",
         "paid_calls_started": {
-          "image": 0,
-          "vision": 0
+          "image": 1,
+          "vision": 1
         },
-        "response_cost_estimate_usd": null,
-        "response_cost_estimate_breakdown_usd": {},
-        "timings_seconds": {},
-        "sample_pipeline_seconds": null,
-        "safety_and_subject_approved": false,
-        "authenticated_storage_roundtrip": false,
-        "temporary_asset_absent_verified": false
+        "response_cost_estimate_usd": "0.0274478",
+        "response_cost_estimate_breakdown_usd": {
+          "image": "0.027225",
+          "vision": "0.0002228"
+        },
+        "timings_seconds": {
+          "image": 4.84,
+          "vision": 1.662
+        },
+        "sample_pipeline_seconds": 10.623,
+        "safety_and_subject_approved": true,
+        "authenticated_storage_roundtrip": true,
+        "temporary_asset_absent_verified": true
       },
       {
         "fixture_word": "chessboard",
-        "status": "not_run",
+        "status": "passed",
         "paid_calls_started": {
-          "image": 0,
-          "vision": 0
+          "image": 1,
+          "vision": 1
         },
-        "response_cost_estimate_usd": null,
-        "response_cost_estimate_breakdown_usd": {},
-        "timings_seconds": {},
-        "sample_pipeline_seconds": null,
-        "safety_and_subject_approved": false,
-        "authenticated_storage_roundtrip": false,
-        "temporary_asset_absent_verified": false
+        "response_cost_estimate_usd": "0.027511175",
+        "response_cost_estimate_breakdown_usd": {
+          "image": "0.02727",
+          "vision": "0.000241175"
+        },
+        "timings_seconds": {
+          "image": 3.947,
+          "vision": 2.168
+        },
+        "sample_pipeline_seconds": 11.195,
+        "safety_and_subject_approved": true,
+        "authenticated_storage_roundtrip": true,
+        "temporary_asset_absent_verified": true
       },
       {
         "fixture_word": "compass",
-        "status": "not_run",
+        "status": "passed",
         "paid_calls_started": {
-          "image": 0,
-          "vision": 0
+          "image": 1,
+          "vision": 1
         },
-        "response_cost_estimate_usd": null,
-        "response_cost_estimate_breakdown_usd": {},
-        "timings_seconds": {},
-        "sample_pipeline_seconds": null,
-        "safety_and_subject_approved": false,
-        "authenticated_storage_roundtrip": false,
-        "temporary_asset_absent_verified": false
+        "response_cost_estimate_usd": "0.027485925",
+        "response_cost_estimate_breakdown_usd": {
+          "image": "0.02725",
+          "vision": "0.000235925"
+        },
+        "timings_seconds": {
+          "image": 4.284,
+          "vision": 3.175
+        },
+        "sample_pipeline_seconds": 12.171,
+        "safety_and_subject_approved": true,
+        "authenticated_storage_roundtrip": true,
+        "temporary_asset_absent_verified": true
       },
       {
         "fixture_word": "dragonfly",
-        "status": "not_run",
+        "status": "in_progress",
         "paid_calls_started": {
-          "image": 0,
-          "vision": 0
+          "image": 1,
+          "vision": 1
         },
-        "response_cost_estimate_usd": null,
-        "response_cost_estimate_breakdown_usd": {},
-        "timings_seconds": {},
+        "response_cost_estimate_usd": "0.027481425",
+        "response_cost_estimate_breakdown_usd": {
+          "image": "0.027245",
+          "vision": "0.000236425"
+        },
+        "timings_seconds": {
+          "image": 5.515,
+          "vision": 1.936
+        },
         "sample_pipeline_seconds": null,
-        "safety_and_subject_approved": false,
+        "safety_and_subject_approved": true,
         "authenticated_storage_roundtrip": false,
         "temporary_asset_absent_verified": false
       },
@@ -976,13 +1060,13 @@
       }
     ],
     "total_calls_started": {
-      "image": 0,
-      "vision": 0,
+      "image": 14,
+      "vision": 14,
       "standalone_text": 0
     },
     "cost": {
-      "openai_estimated_usd_for_metered_responses": null,
-      "paid_responses_with_token_cost": 0,
+      "openai_estimated_usd_for_metered_responses": "0.384632825",
+      "paid_responses_with_token_cost": 28,
       "all_started_paid_calls_had_priced_usage": true,
       "basis": "Actual response token counters and published OpenAI Standard rates. Invoice, contract adjustments, and Cloudinary charges not reconciled.",
       "approved_budget_estimate_usd": "0.85",
@@ -990,6 +1074,20 @@
       "cloudinary_invoice_usd": null
     },
     "total_elapsed_seconds": null,
+    "provider_latency_summary_seconds": {
+      "image": {
+        "responses": 14,
+        "min": 3.947,
+        "median": 4.983,
+        "max": 6.018
+      },
+      "vision": {
+        "responses": 14,
+        "min": 1.662,
+        "median": 2.1195,
+        "max": 3.556
+      }
+    },
     "production_frozen_before_and_after_verified": false,
     "all_25_temporary_assets_absent_verified": false,
     "expansion_requires_new_approval": true

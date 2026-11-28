@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T07:55:01.746195Z",
+  "updated_at": "2026-11-28T07:58:26.214930Z",
   "status": "frozen_production_cutover_complete_delivery_held",
   "agent": "codex/root",
   "read_first": [
@@ -169,6 +169,6 @@
       "production_mutated_by_status_audit": false
     },
     "current_cutover_stage": "replacement-window-final",
-    "latest_production_paid_validation": "production-25-paid-samples-approved"
+    "latest_production_paid_validation": "production-25-paid-samples-running"
   }
 }
