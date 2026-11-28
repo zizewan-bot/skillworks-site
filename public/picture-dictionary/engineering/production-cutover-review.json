@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T03:07:57.386894Z",
+  "updated_at": "2026-11-28T03:20:22.894849Z",
   "status": "reviewed_no_go_pending_prerequisites_and_owner_approval",
   "owner_approval_required": true,
   "production_switch_performed": false,
@@ -75,5 +75,15 @@
       "title": "Cloud Tasks queue management",
       "url": "https://cloud.google.com/tasks/docs/manage-queues"
     }
-  ]
+  ],
+  "isolated_rehearsal_checkpoint": {
+    "id": "production-cutover-isolated-checkpoint",
+    "result": "drain_and_traffic_rollback_rehearsed_managed_backup_pending",
+    "legacy_drain": "Exact live legacy image and candidate exercised on disposable PostgreSQL with provider calls mocked; harness freeze blocked old routes while admitted work drained",
+    "rollback": "Real isolated IAM-protected Cloud Run revision switch and rollback under the synthetic freeze, and separate PostgreSQL rollback compatibility verified",
+    "traffic_rollback_seconds": 9.8,
+    "temporary_cloud_run_removed": true,
+    "managed_backup_status": "disposable synthetic instances provisioning",
+    "production_mutated": false
+  }
 }
