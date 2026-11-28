@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T05:53:51.530678Z",
+  "updated_at": "2026-11-28T06:13:53.326970Z",
   "status": "provider_free_staging_verified",
   "runs": [
     {
@@ -752,6 +752,53 @@
       "new_worker": {
         "preflight_only": true,
         "provider_execution_disabled": true
+      },
+      "production_mutated_by_status_audit": false
+    },
+    {
+      "id": "pre-window-live-status-audit-20261128T061353Z",
+      "observed_at": "2026-11-28T06:13:53.326970Z",
+      "status": "scheduled_cutover_not_started",
+      "before_approved_window": true,
+      "traffic": {
+        "old_revision_percent": 100,
+        "cutover_performed": false
+      },
+      "database": {
+        "read_only_catalog_verified": true,
+        "migration_applied": false,
+        "expected_tables_present": {
+          "generation_admission_state": false,
+          "image_jobs": false,
+          "image_provider_calls": false
+        }
+      },
+      "legacy_drain": {
+        "status": "not_performed_or_attested",
+        "old_revision_still_receives_traffic": true,
+        "recent_pending_image_or_text_marker_observed": false,
+        "legacy_admin_active_observed_in_recent_inventory": false,
+        "historical_pending_markers_present": true,
+        "scope": "A read-only snapshot before the approved window. It cannot prove that legacy admission was fenced or that its background work has drained."
+      },
+      "cloud_tasks": {
+        "state": "PAUSED",
+        "task_count": 0
+      },
+      "cloud_scheduler": {
+        "state": "PAUSED",
+        "attempt_observed": false
+      },
+      "new_worker": {
+        "preflight_only": true,
+        "provider_execution_disabled": true
+      },
+      "execution": {
+        "cutover_started": false,
+        "cutover_failure_observed": false,
+        "rollback_observed": false,
+        "cloud_run_production_api_admin_events_since_approval": 0,
+        "scope": "Scoped Cloud Run Admin Activity and deployed state checked before the approved window."
       },
       "production_mutated_by_status_audit": false
     }

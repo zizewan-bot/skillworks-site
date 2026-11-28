@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T05:53:51.530678Z",
+  "updated_at": "2026-11-28T06:13:53.326970Z",
   "status": "owner_approved_frozen_cutover_scheduled",
   "owner_approval_required": false,
   "production_switch_performed": false,
@@ -425,8 +425,8 @@
     "paid_generation_requires_separate_approval": true
   },
   "latest_read_only_status_audit": {
-    "id": "pre_window_live_status_audit",
-    "observed_at": "2026-11-28T05:53:51.530678Z",
+    "id": "pre-window-live-status-audit-20261128T061353Z",
+    "observed_at": "2026-11-28T06:13:53.326970Z",
     "status": "scheduled_cutover_not_started",
     "before_approved_window": true,
     "traffic": {
@@ -461,6 +461,13 @@
     "new_worker": {
       "preflight_only": true,
       "provider_execution_disabled": true
+    },
+    "execution": {
+      "cutover_started": false,
+      "cutover_failure_observed": false,
+      "rollback_observed": false,
+      "cloud_run_production_api_admin_events_since_approval": 0,
+      "scope": "Scoped Cloud Run Admin Activity and deployed state checked before the approved window."
     },
     "production_mutated_by_status_audit": false
   }
