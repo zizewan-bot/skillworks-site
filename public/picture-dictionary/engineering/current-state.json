@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T08:01:02.510985Z",
+  "updated_at": "2026-11-28T08:21:04.906821Z",
   "status": "frozen_production_cutover_complete_delivery_held",
   "agent": "codex/root",
   "read_first": [
@@ -170,6 +170,7 @@
       "production_mutated_by_status_audit": false
     },
     "current_cutover_stage": "replacement-window-final",
-    "latest_production_paid_validation": "production-25-paid-samples-final"
+    "latest_production_paid_validation": "production-25-paid-samples-final",
+    "production_queue_canary_review": "production-scheduler-canary-review"
   }
 }

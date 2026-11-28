@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T08:01:02.510985Z",
+  "updated_at": "2026-11-28T08:21:04.906821Z",
   "status": "frozen_production_cutover_complete_delivery_held",
   "owner_approval_required": false,
   "production_switch_performed": true,
@@ -587,5 +587,34 @@
       "processed": 25
     },
     "per_word_results": "https://skillworks.dev/picture-dictionary/engineering/provider-pilot.json"
+  },
+  "production_queue_canary_review": {
+    "id": "production-scheduler-canary-review",
+    "status": "awaiting_separate_production_execution_approval",
+    "observed_at": "2026-11-28T08:21:04.906821Z",
+    "production_snapshot": {
+      "frozen_api_traffic_percent": 100,
+      "durable_queue_paused_and_empty": true,
+      "scheduler_paused_no_attempt": true,
+      "worker_provider_execution_disabled": true,
+      "shared_admission_frozen": true,
+      "active_paid_job_leases_or_reservations_observed": false
+    },
+    "isolated_evidence": {
+      "local_provider_free_regression_passed": 17,
+      "local_skipped": 1,
+      "prior_private_cloud_fixture_duplicate_invocations": 1,
+      "previous_fixture_provider_rows": 0,
+      "actual_production_scheduler_canary_executed": false
+    },
+    "limits": {
+      "logical_test_job_count": 1,
+      "ordinary_generation_allowed": false,
+      "historical_replay_allowed": false,
+      "paid_ai_calls_allowed": 0,
+      "manual_cloud_task_deliveries_maximum": 2
+    },
+    "stage_2_pending": "A separate account-scoped gate is required before a controlled iPhone account can run new-word search. The current shared freeze also blocks the normal lookup route before cache resolution.",
+    "stage_3_pending": "Consider gradual opening only after both preceding checks pass and the operator approves the next scope."
   }
 }

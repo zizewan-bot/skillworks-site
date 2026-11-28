@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T08:01:02.510985Z",
+  "updated_at": "2026-11-28T08:21:04.906821Z",
   "status": "pending",
   "actions": [
     {
@@ -65,5 +65,9 @@
   "production_paid_validation": {
     "status": "production_25_paid_samples_passed_frozen",
     "requires_separate_expansion_approval": true
+  },
+  "production_queue_canary": {
+    "status": "awaiting_separate_production_execution_approval",
+    "action": "Approve the single provider-free production Scheduler and queue exercise only. The iPhone and activation remain held."
   }
 }
