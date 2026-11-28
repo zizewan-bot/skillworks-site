@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T02:47:43.074487Z",
+  "updated_at": "2026-11-28T02:57:45.377872Z",
   "status": "pending",
   "actions": [
     {
@@ -49,15 +49,15 @@
     {
       "id": "N08",
       "status": "internal_testflight_ready",
-      "action": "Open the staged fixture on build 1.0.1 (15), disconnect the iPhone, verify the pending state remains visible, publish the fixture terminal state while the iPhone is offline, then reconnect and verify that polling applies it",
-      "requires": "Physical iPhone confirmation at the offline checkpoint, then fixture transition, reconnection and cleanup",
+      "action": "Reconnect the iPhone on the same result screen and verify automatic refresh to the controlled image-unavailable result. Remove the marked test fixture after the observation.",
+      "requires": "Owner observation after restoring connectivity on TestFlight 1.0.1 (15)",
       "local_preflight": "passed",
       "evidence": "tests.json",
       "apple_verification": "completed",
       "candidate_build": 15,
       "candidate_version": "1.0.1",
       "device_revalidation": "search_offline_recovery_accepted",
-      "pending_fixture": "staging_fixture_pending_verified"
+      "pending_fixture": "controlled_terminal_state_verified"
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T02:47:43.074487Z",
+  "updated_at": "2026-11-28T02:57:45.377872Z",
   "status": "provider_free_staging_verified",
   "runs": [
     {
@@ -336,6 +336,18 @@
       "provider_guard": "text complete, image applicability deferred, no image generation or paid provider calls from fixture operations",
       "rollback": "remove only the marked fixture and records referring to it after acceptance",
       "physical_device_pending_recovery": "not yet run"
+    },
+    {
+      "id": "ios-testflight-1.0.1-15-pending-offline-checkpoint",
+      "result": "offline_pending_preserved_terminal_fixture_verified",
+      "version": "1.0.1",
+      "build": 15,
+      "environment": "staging",
+      "offline_seconds_approximate": 35,
+      "physical_device_observation": "Owner confirmed image still displayed as generating before reconnecting",
+      "controlled_server_transition": "pending to failed; verified by staging admin execution",
+      "fixture_image_attempt_count": 0,
+      "post_reconnection_refresh": "awaiting owner observation"
     }
   ]
 }
