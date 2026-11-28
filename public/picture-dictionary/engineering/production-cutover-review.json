@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T04:42:38.335954Z",
-  "status": "release_freeze_verified_production_delivery_bindings_missing",
+  "updated_at": "2026-11-28T04:53:42.498639Z",
+  "status": "production_delivery_reviewed_cloud_route_proof_in_progress",
   "owner_approval_required": true,
   "production_switch_performed": false,
   "production_schema_changed": false,
@@ -46,22 +46,22 @@
     {
       "id": "G02",
       "area": "legacy_drain",
-      "status": "release_freeze_verified_legacy_retirement_pending",
-      "requires": "Review a production configuration that independently fences and drains the live unguarded legacy revision and any scheduled or manual legacy tasks. Hold classified backlog for separate authorization.",
-      "isolated_rehearsal_status": "passed"
+      "status": "local_legacy_drain_verified_cloud_route_in_progress",
+      "requires": "Maintain the existing service URL, verify every live route goes to a frozen revision, remove legacy tags, hold manual launches, and reconcile image, progressive text and provider activity against the fence boundary. A bare route rollback to old code reopens generation.",
+      "isolated_rehearsal_status": "partial"
     },
     {
       "id": "G03",
       "area": "production_delivery",
-      "status": "blocked_missing_production_delivery_bindings",
-      "requires": "Review a production-only deployment definition for the candidate worker, queue and scheduler with their OIDC audiences, least-privilege identities, database binding, provider budget, and alerts. Verify actual bindings before enabling dispatch.",
+      "status": "reviewed_definition_blocked_actual_iam_and_database_binding",
+      "requires": "Actual production resources and effective IAM/database binding, full batch dispatcher timing, and alert delivery must be verified before scheduling activation.",
       "isolated_rehearsal_status": "passed"
     },
     {
       "id": "G04",
       "area": "rollback",
-      "status": "isolated_rollback_and_release_freeze_verified",
-      "requires": "Preserve additive tables and the provider ledger. Name the operator who reconciles unresolved leases, provider calls and storage outputs before generation can reopen during any approved rollback.",
+      "status": "rollback_conditions_reviewed_cutover_window_held",
+      "requires": "Keep candidate frozen and delivery paused if legacy remains reachable, in-flight outcomes are unknown, or any identity, database or delivery check fails. Restore old traffic only with verified independent fencing or a separately approved decision. Preserve tables, markers and provider evidence.",
       "isolated_rehearsal_status": "passed"
     },
     {
@@ -272,5 +272,71 @@
     "production_changed": false,
     "cutover_window_submitted": false
   },
-  "cutover_window_submitted": false
+  "cutover_window_submitted": false,
+  "production_delivery_definition_review": {
+    "status": "reviewed_unbound",
+    "initial_safeguards": "Provider disabled, queue and scheduler paused, scoped caller/runtime identities, dedicated worker database credential, matching schema with the API, and isolated provider-free preflight before generation opens.",
+    "read_only_inventory": {
+      "production_api_and_existing_admin_db_configuration_matches": true,
+      "staging_database_distinct": true,
+      "production_legacy_serving_percent": 100,
+      "production_worker_queue_scheduler_and_effective_runtime_permissions_unverified": true,
+      "production_dedicated_identities_exist": {
+        "worker": false,
+        "oidc": false
+      },
+      "recent_legacy_admin_active_detected": false,
+      "dedicated_production_worker_db_binding_present": false,
+      "alert_notification_ready": false
+    },
+    "scheduler_load_review": "Thirty-second low-load isolation evidence does not establish full-batch timing. The reviewed profile allows a longer bounded deadline and requires a full-batch check.",
+    "restricted_definition_in_authenticated_review": true
+  },
+  "legacy_fence_evidence": {
+    "id": "production-delivery-review-and-legacy-fence-checkpoint",
+    "status": "production_delivery_reviewed_cloud_route_proof_in_progress",
+    "candidate_commit": "3e355ed59d85a3ef7d55eafb632c38e585b33798",
+    "legacy_isolated_local": {
+      "status": "passed",
+      "steps": {
+        "live_image_and_normal_entrypoint_verified": true,
+        "legacy_not_reachable_directly_from_front_network": true,
+        "blocked_http_probes": 8,
+        "isolated_admin_launch_gate_blocked": true,
+        "zero_edge_requests_did_not_mark_background_drained": true,
+        "isolated_drain_then_disjoint_historical_marker_preserved": true,
+        "post_freeze_legacy_http_read_and_ready_verified": true
+      },
+      "isolated_resources_verified_absent": true,
+      "paid_provider_calls": 0
+    },
+    "candidate_postgres_worker_role": {
+      "status": "passed",
+      "stages": {
+        "narrow_worker_role_verified_no_user_tables_or_schema_create": true,
+        "confirmed_admin_commands_blocked": {
+          "app.repair_image_jobs": true,
+          "app.seed_starter_words": true,
+          "app.replace_selected_images": true,
+          "app.run_starter_backfill": true
+        },
+        "actual_api_queued_job_transactionally": true,
+        "image_admission_drained_before_reopen": true,
+        "actual_worker_published_and_duplicate_suppressed": true
+      },
+      "mock_provider_calls": {
+        "images": 1,
+        "vision": 1,
+        "uploads": 1
+      },
+      "paid_provider_calls": 0,
+      "api_and_worker_used_unmodified_dockerfile_entrypoints": true,
+      "worker_publisher_invoked_in_worker_image_without_cloud_identity_for_this_local_subtest": true
+    },
+    "cloud_run_same_service_route": {
+      "status": "in_progress"
+    },
+    "production_changed": false,
+    "cutover_window_submitted": false
+  }
 }

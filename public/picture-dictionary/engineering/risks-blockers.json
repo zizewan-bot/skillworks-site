@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T04:42:38.335954Z",
+  "updated_at": "2026-11-28T04:53:42.498639Z",
   "status": "open",
   "items": [
     {
@@ -106,8 +106,8 @@
     {
       "id": "B010",
       "status": "open",
-      "summary": "The current production legacy revision cannot observe the candidate freeze, and production durable worker, queue and scheduler bindings are missing.",
-      "impact": "The candidate passed isolated testing. Production IAM and worker database configuration cannot be attested until a production mapping exists. No cutover window has been submitted.",
+      "summary": "A reviewed delivery definition exists. The production worker, dedicated queue, scheduler, identities and worker database credential are not provisioned or effectively bound. The legacy production API still serves all traffic. No notification destination was observed for an enabled policy.",
+      "impact": "The current client uses the API service URL. A remaining legacy revision tag or live old generation path can bypass the frozen candidate. No cutover window submitted.",
       "evidence": "production-cutover-review.json"
     }
   ]
