@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T04:17:15.476464Z",
+  "updated_at": "2026-11-28T04:42:38.335954Z",
   "status": "pending",
   "actions": [
     {
@@ -38,9 +38,9 @@
     },
     {
       "id": "N06",
-      "action": "Integrate the isolated freeze into the release artifact and verify production configuration mapping before submitting the owner approval request.",
-      "requires": "Release integration and production-bound configuration evidence; explicit approval prior to any production mutation",
-      "status": "equivalent_delivery_and_scale_recovery_verified_release_integration_pending",
+      "action": "Review production-only delivery configuration and a mechanism for independently fencing and draining the current legacy revision.",
+      "requires": "A reviewed production mapping, verified production bindings before dispatch, and explicit owner approval before any production mutation.",
+      "status": "blocked_missing_production_delivery_bindings",
       "evidence": "production-cutover-review.json"
     },
     {

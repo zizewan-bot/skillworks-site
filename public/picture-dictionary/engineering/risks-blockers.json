@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T04:17:15.476464Z",
+  "updated_at": "2026-11-28T04:42:38.335954Z",
   "status": "open",
   "items": [
     {
@@ -106,8 +106,8 @@
     {
       "id": "B010",
       "status": "open",
-      "summary": "Production legacy generation is not proven drained and the production durable delivery and rollback controls are not rehearsed.",
-      "impact": "Isolation proof and read-only classification exist. The production release gate and identity/configuration mapping are still unresolved.",
+      "summary": "The current production legacy revision cannot observe the candidate freeze, and production durable worker, queue and scheduler bindings are missing.",
+      "impact": "The candidate passed isolated testing. Production IAM and worker database configuration cannot be attested until a production mapping exists. No cutover window has been submitted.",
       "evidence": "production-cutover-review.json"
     }
   ]

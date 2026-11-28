@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T04:36:30.151185Z",
-  "status": "staging_sample_and_iphone_offline_recovery_accepted",
+  "updated_at": "2026-11-28T04:42:38.335954Z",
+  "status": "release_freeze_verified_production_delivery_bindings_missing",
   "agent": "codex/root",
   "read_first": [
     "manifest.json",
@@ -31,19 +31,21 @@
     "Production cutover review completed; PostgreSQL 16 synthetic migration, old-revision startup and separate restore rehearsed.",
     "Isolated legacy drain and rollback rehearsed; temporary Cloud Run service and synthetic managed database resources cleaned.",
     "Read-only backlog classification and isolation freeze/delivery completed; temporary resources cleaned.",
-    "Representative logical-scale managed Cloud SQL restore and candidate startup verified on entirely synthetic data."
+    "Representative logical-scale managed Cloud SQL restore and candidate startup verified on entirely synthetic data.",
+    "Candidate release-image freeze passed through actual API, worker, confirmed admin and isolated Cloud Scheduler and Cloud Tasks."
   ],
   "not_completed": [
     "Real OpenAI/Cloudinary acceptance and controlled activation",
     "Progressive text interruption durability",
     "Complete text/provider/infrastructure billing attribution",
     "External alert notification destination and full hosted usage dashboard",
-    "Production cutover prerequisites and explicit owner approval remain pending."
+    "Production cutover prerequisites and explicit owner approval remain pending.",
+    "Production durable worker, queue, scheduler, IAM and worker database bindings are absent or unverified. Live legacy revision retirement and drain remain pending."
   ],
   "production_changed": false,
   "phase": "Live staging image sample and physical iPhone offline recovery accepted",
   "code_commits": {
-    "backend": "4b435265714a634883b52fad553349f5e7d6f2f2",
+    "backend": "3e355ed59d85a3ef7d55eafb632c38e585b33798",
     "ios": "31ca2779c0a7fd54e63f49f3f8315d69709e097e"
   },
   "links": {
@@ -55,7 +57,7 @@
   },
   "production_change_scope": "backend_and_mobile_release",
   "documentation_updated": true,
-  "latest_backend_code_commit": "3c2a7fe11822735df54f1fbccd21b8c46c35d238",
+  "latest_backend_code_commit": "3e355ed59d85a3ef7d55eafb632c38e585b33798",
   "iphone_offline_recovery": {
     "id": "iphone-offline-recovery-owner-confirmed",
     "scope": "Physical iPhone offline recovery",
@@ -97,14 +99,15 @@
     }
   },
   "production_cutover_review": {
-    "status": "equivalent_delivery_and_scale_recovery_verified_release_integration_pending",
+    "status": "release_freeze_verified_production_delivery_bindings_missing",
     "evidence": "production-cutover-review.json",
     "approval_required": true,
     "isolated_rehearsal": "isolated_checks_passed_production_not_ready",
     "cutover_window_submitted": false,
     "production_mutated": false,
     "prerequisites_checkpoint": "equivalent_delivery_and_scale_recovery_verified_release_integration_pending",
-    "release_freeze_checkpoint": "release_images_local_freeze_passed_cloud_delivery_in_progress",
-    "release_candidate": "3e355ed59d85a3ef7d55eafb632c38e585b33798"
+    "release_freeze_checkpoint": "historical_checkpoint_superseded_by_final_release_proof",
+    "release_candidate": "3e355ed59d85a3ef7d55eafb632c38e585b33798",
+    "release_verified": "release-generation-freeze-candidate"
   }
 }

@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T04:17:15.476464Z",
+  "updated_at": "2026-11-28T04:42:38.335954Z",
   "status": "provider_free_staging_verified",
   "runs": [
     {
@@ -458,6 +458,66 @@
         "synthetic_managed_instances_and_backup_verified_absent": true
       },
       "production_mutated": false,
+      "cutover_window_submitted": false
+    },
+    {
+      "id": "release-generation-freeze-candidate",
+      "status": "passed_isolated",
+      "candidate_commit": "3e355ed59d85a3ef7d55eafb632c38e585b33798",
+      "local_release_images": {
+        "status": "passed",
+        "stages": {
+          "missing_gate_fails_closed": true,
+          "confirmed_admin_commands_blocked": {
+            "app.repair_image_jobs": true,
+            "app.seed_starter_words": true,
+            "app.replace_selected_images": true,
+            "app.run_starter_backfill": true
+          },
+          "actual_api_queued_job_transactionally": true,
+          "image_admission_drained_before_reopen": true,
+          "actual_worker_published_and_duplicate_suppressed": true
+        },
+        "mock_provider_calls": {
+          "images": 1,
+          "vision": 1,
+          "uploads": 1
+        },
+        "paid_provider_calls": 0,
+        "api_and_worker_used_unmodified_dockerfile_entrypoints": true,
+        "worker_publisher_invoked_in_worker_image_without_cloud_identity_for_this_local_subtest": true
+      },
+      "cloud_release_images": {
+        "status": "passed",
+        "steps": {
+          "actual_frozen_admin_command_denied": true,
+          "scheduler_real_task_enqueued": true,
+          "existing_task_reached_candidate_worker_and_was_frozen": true,
+          "readonly_lookup_available_in_freeze": true,
+          "scheduler_owned_task_removed_before_provider_disabled_reopen": true,
+          "same_oidc_payload_frozen_503": true,
+          "candidate_acknowledged_safe_oidc_task_after_open": true,
+          "pending_outbox_preserved_and_attempt_unspent": true,
+          "queue_and_scheduler_paused": true,
+          "worker_http_attestation": {
+            "run_http200": 1,
+            "run_http503": 3,
+            "dispatch_http200": 1
+          }
+        },
+        "provider_execution_enabled": false,
+        "paid_provider_calls": 0
+      },
+      "regression": {
+        "passed": 129,
+        "skipped": 1,
+        "subtests_passed": 36
+      },
+      "cleanup": {
+        "temporary_cloud_resources_verified_absent": true,
+        "temporary_staging_schema_verified_absent": true
+      },
+      "production_changed": false,
       "cutover_window_submitted": false
     }
   ]
