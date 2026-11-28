@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T06:36:36.983965Z",
-  "status": "live_preflight_managed_restore_in_progress",
+  "updated_at": "2026-11-28T06:51:36.180419Z",
+  "status": "live_preflight_verified_authorized_migration_next",
   "owner_approval_required": false,
   "production_switch_performed": false,
   "production_schema_changed": false,
@@ -39,7 +39,7 @@
     {
       "id": "G01",
       "area": "database_migration",
-      "status": "representative_restore_verified",
+      "status": "fresh_exact_source_backup_restore_verified",
       "requires": "Record a fresh recovery point, verified migration lock bounds and a single migration executor at the eventual approved change window. The synthetic timing is planning evidence; no production restore was run.",
       "isolated_rehearsal_status": "passed"
     },
@@ -417,7 +417,7 @@
   "production_preconfiguration_applied": true,
   "cutover_execution_started": true,
   "cutover_approval": {
-    "status": "replacement_window_restore_started",
+    "status": "replacement_window_preconditions_verified",
     "window_confirmed": true,
     "scheduled_execution": false,
     "scope": "frozen_api_cutover_and_legacy_drain",
@@ -472,14 +472,14 @@
     "production_mutated_by_status_audit": false
   },
   "current_cutover_stage": {
-    "id": "replacement-window-restore_started",
-    "at": "2026-11-28T06:36:36.983965Z",
-    "status": "live_preflight_managed_restore_in_progress",
-    "recovered_production_backup_in_isolation": false,
+    "id": "replacement-window-preconditions_verified",
+    "at": "2026-11-28T06:51:36.180419Z",
+    "status": "live_preflight_verified_authorized_migration_next",
+    "recovered_production_backup_in_isolation": true,
     "backup_completed_before_production_migration": true,
-    "restore_target_connector_enforced_and_read_only_validation": false,
+    "restore_target_connector_enforced_and_read_only_validation": true,
     "temporary_restore_target_cleaned": false,
-    "preconditions_verified": false,
+    "preconditions_verified": true,
     "bounded_additive_migration_applied": false,
     "legacy_schema_preserved": false,
     "shared_admission_frozen": false,
