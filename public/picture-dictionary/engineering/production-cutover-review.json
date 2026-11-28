@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T07:58:26.214930Z",
+  "updated_at": "2026-11-28T08:01:02.510985Z",
   "status": "frozen_production_cutover_complete_delivery_held",
   "owner_approval_required": false,
   "production_switch_performed": true,
@@ -502,9 +502,9 @@
     "new_provider_execution_enabled": false
   },
   "latest_production_paid_validation": {
-    "id": "production-25-paid-samples-running",
-    "status": "production_25_paid_samples_in_progress",
-    "observed_at": "2026-11-28T07:58:26.214930Z",
+    "id": "production-25-paid-samples-final",
+    "status": "production_25_paid_samples_passed_frozen",
+    "observed_at": "2026-11-28T08:01:02.510985Z",
     "candidate_commit": "24c119f8cbad0068fb155c2d51015520a0818f16",
     "data_scope": "Twenty-five synthetic fixture descriptions processed through the one-shot provider flow with production credentials. No production dictionary rows created and no user data provided to models.",
     "delivery_scope": "No production worker run, queue enqueue, scheduler dispatch, ordinary user opening, or historical replay.",
@@ -550,41 +550,41 @@
       "expansion_requires_further_approval": true
     },
     "total_calls_started": {
-      "image": 14,
-      "vision": 14,
+      "image": 25,
+      "vision": 25,
       "standalone_text": 0
     },
     "cost": {
-      "openai_estimated_usd_for_metered_responses": "0.384632825",
-      "paid_responses_with_token_cost": 28,
+      "openai_estimated_usd_for_metered_responses": "0.687098625",
+      "paid_responses_with_token_cost": 50,
       "all_started_paid_calls_had_priced_usage": true,
       "basis": "Actual response token counters and published OpenAI Standard rates. Invoice, contract adjustments, and Cloudinary charges not reconciled.",
       "approved_budget_estimate_usd": "0.85",
       "actual_invoice_usd": null,
       "cloudinary_invoice_usd": null
     },
-    "total_elapsed_seconds": null,
+    "total_elapsed_seconds": 311.657,
     "provider_latency_summary_seconds": {
       "image": {
-        "responses": 14,
+        "responses": 25,
         "min": 3.947,
-        "median": 4.983,
-        "max": 6.018
+        "median": 4.941,
+        "max": 6.955
       },
       "vision": {
-        "responses": 14,
+        "responses": 25,
         "min": 1.662,
-        "median": 2.1195,
+        "median": 2.112,
         "max": 3.556
       }
     },
-    "production_frozen_before_and_after_verified": false,
-    "all_25_temporary_assets_absent_verified": false,
+    "production_frozen_before_and_after_verified": true,
+    "all_25_temporary_assets_absent_verified": true,
     "expansion_requires_new_approval": true,
     "sample_totals": {
       "planned": 25,
-      "passed": 13,
-      "processed": 13
+      "passed": 25,
+      "processed": 25
     },
     "per_word_results": "https://skillworks.dev/picture-dictionary/engineering/provider-pilot.json"
   }

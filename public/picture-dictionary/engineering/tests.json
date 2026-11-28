@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T07:58:26.214930Z",
+  "updated_at": "2026-11-28T08:01:02.510985Z",
   "status": "provider_free_staging_verified",
   "runs": [
     {
@@ -2075,6 +2075,93 @@
         "planned": 25,
         "passed": 13,
         "processed": 13
+      },
+      "per_word_results": "https://skillworks.dev/picture-dictionary/engineering/provider-pilot.json"
+    },
+    {
+      "id": "production-25-paid-samples-final",
+      "status": "production_25_paid_samples_passed_frozen",
+      "observed_at": "2026-11-28T08:01:02.510985Z",
+      "candidate_commit": "24c119f8cbad0068fb155c2d51015520a0818f16",
+      "data_scope": "Twenty-five synthetic fixture descriptions processed through the one-shot provider flow with production credentials. No production dictionary rows created and no user data provided to models.",
+      "delivery_scope": "No production worker run, queue enqueue, scheduler dispatch, ordinary user opening, or historical replay.",
+      "scope_expansion_approved_for_this_run_only": {
+        "scope": "Owner approved twenty-five production synthetic words and up to fifty paid requests with one image and one vision maximum per fixture.",
+        "synthetic_fixtures": [
+          "acorn",
+          "anchor",
+          "backpack",
+          "banana",
+          "basket",
+          "bell",
+          "binoculars",
+          "broom",
+          "cactus",
+          "candle",
+          "carrot",
+          "chessboard",
+          "compass",
+          "dragonfly",
+          "drum",
+          "flashlight",
+          "flamingo",
+          "guitar",
+          "hourglass",
+          "jellyfish",
+          "mushroom",
+          "octopus",
+          "penguin",
+          "scissors",
+          "telescope"
+        ],
+        "maximum_paid_calls": 50,
+        "maximum_per_fixture": {
+          "image": 1,
+          "vision": 1
+        },
+        "openai_budget_estimate_usd": "0.85",
+        "automatic_retry_allowed": false,
+        "ordinary_user_generation_frozen": true,
+        "queue_and_scheduler_remain_paused": true,
+        "historical_jobs_replayed": false,
+        "expansion_requires_further_approval": true
+      },
+      "total_calls_started": {
+        "image": 25,
+        "vision": 25,
+        "standalone_text": 0
+      },
+      "cost": {
+        "openai_estimated_usd_for_metered_responses": "0.687098625",
+        "paid_responses_with_token_cost": 50,
+        "all_started_paid_calls_had_priced_usage": true,
+        "basis": "Actual response token counters and published OpenAI Standard rates. Invoice, contract adjustments, and Cloudinary charges not reconciled.",
+        "approved_budget_estimate_usd": "0.85",
+        "actual_invoice_usd": null,
+        "cloudinary_invoice_usd": null
+      },
+      "total_elapsed_seconds": 311.657,
+      "provider_latency_summary_seconds": {
+        "image": {
+          "responses": 25,
+          "min": 3.947,
+          "median": 4.941,
+          "max": 6.955
+        },
+        "vision": {
+          "responses": 25,
+          "min": 1.662,
+          "median": 2.112,
+          "max": 3.556
+        }
+      },
+      "production_frozen_before_and_after_verified": true,
+      "all_25_temporary_assets_absent_verified": true,
+      "expansion_requires_new_approval": true,
+      "sample_totals": {
+        "planned": 25,
+        "passed": 25,
+        "processed": 25
       },
       "per_word_results": "https://skillworks.dev/picture-dictionary/engineering/provider-pilot.json"
     }

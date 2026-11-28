@@ -49,7 +49,7 @@
     "https://developers.openai.com/api/docs/models/gpt-image-2.6-flare",
     "https://developers.openai.com/api/docs/models/gpt-6-luna"
   ],
-  "updated_at": "2026-11-28T07:58:26.214930Z",
+  "updated_at": "2026-11-28T08:01:02.510985Z",
   "remaining": [
     "Real-provider integration through staging Cloud Tasks",
     "Physical iPhone/TestFlight QA",
@@ -551,9 +551,9 @@
     "expansion_requires_new_approval": true
   },
   "production_25_sample_validation": {
-    "id": "production-25-paid-samples-running",
-    "status": "production_25_paid_samples_in_progress",
-    "observed_at": "2026-11-28T07:58:26.214930Z",
+    "id": "production-25-paid-samples-final",
+    "status": "production_25_paid_samples_passed_frozen",
+    "observed_at": "2026-11-28T08:01:02.510985Z",
     "candidate_commit": "24c119f8cbad0068fb155c2d51015520a0818f16",
     "data_scope": "Twenty-five synthetic fixture descriptions processed through the one-shot provider flow with production credentials. No production dictionary rows created and no user data provided to models.",
     "delivery_scope": "No production worker run, queue enqueue, scheduler dispatch, ordinary user opening, or historical replay.",
@@ -874,7 +874,7 @@
       },
       {
         "fixture_word": "dragonfly",
-        "status": "in_progress",
+        "status": "passed",
         "paid_calls_started": {
           "image": 1,
           "vision": 1
@@ -888,208 +888,274 @@
           "image": 5.515,
           "vision": 1.936
         },
-        "sample_pipeline_seconds": null,
+        "sample_pipeline_seconds": 12.465,
         "safety_and_subject_approved": true,
-        "authenticated_storage_roundtrip": false,
-        "temporary_asset_absent_verified": false
+        "authenticated_storage_roundtrip": true,
+        "temporary_asset_absent_verified": true
       },
       {
         "fixture_word": "drum",
-        "status": "not_run",
+        "status": "passed",
         "paid_calls_started": {
-          "image": 0,
-          "vision": 0
+          "image": 1,
+          "vision": 1
         },
-        "response_cost_estimate_usd": null,
-        "response_cost_estimate_breakdown_usd": {},
-        "timings_seconds": {},
-        "sample_pipeline_seconds": null,
-        "safety_and_subject_approved": false,
-        "authenticated_storage_roundtrip": false,
-        "temporary_asset_absent_verified": false
+        "response_cost_estimate_usd": "0.027489175",
+        "response_cost_estimate_breakdown_usd": {
+          "image": "0.027255",
+          "vision": "0.000234175"
+        },
+        "timings_seconds": {
+          "image": 4.504,
+          "vision": 2.302
+        },
+        "sample_pipeline_seconds": 12.456,
+        "safety_and_subject_approved": true,
+        "authenticated_storage_roundtrip": true,
+        "temporary_asset_absent_verified": true
       },
       {
         "fixture_word": "flashlight",
-        "status": "not_run",
+        "status": "passed",
         "paid_calls_started": {
-          "image": 0,
-          "vision": 0
+          "image": 1,
+          "vision": 1
         },
-        "response_cost_estimate_usd": null,
-        "response_cost_estimate_breakdown_usd": {},
-        "timings_seconds": {},
-        "sample_pipeline_seconds": null,
-        "safety_and_subject_approved": false,
-        "authenticated_storage_roundtrip": false,
-        "temporary_asset_absent_verified": false
+        "response_cost_estimate_usd": "0.027512925",
+        "response_cost_estimate_breakdown_usd": {
+          "image": "0.027285",
+          "vision": "0.000227925"
+        },
+        "timings_seconds": {
+          "image": 5.048,
+          "vision": 1.949
+        },
+        "sample_pipeline_seconds": 11.241,
+        "safety_and_subject_approved": true,
+        "authenticated_storage_roundtrip": true,
+        "temporary_asset_absent_verified": true
       },
       {
         "fixture_word": "flamingo",
-        "status": "not_run",
+        "status": "passed",
         "paid_calls_started": {
-          "image": 0,
-          "vision": 0
+          "image": 1,
+          "vision": 1
         },
-        "response_cost_estimate_usd": null,
-        "response_cost_estimate_breakdown_usd": {},
-        "timings_seconds": {},
-        "sample_pipeline_seconds": null,
-        "safety_and_subject_approved": false,
-        "authenticated_storage_roundtrip": false,
-        "temporary_asset_absent_verified": false
+        "response_cost_estimate_usd": "0.027540425",
+        "response_cost_estimate_breakdown_usd": {
+          "image": "0.027295",
+          "vision": "0.000245425"
+        },
+        "timings_seconds": {
+          "image": 6.955,
+          "vision": 2.383
+        },
+        "sample_pipeline_seconds": 13.943,
+        "safety_and_subject_approved": true,
+        "authenticated_storage_roundtrip": true,
+        "temporary_asset_absent_verified": true
       },
       {
         "fixture_word": "guitar",
-        "status": "not_run",
+        "status": "passed",
         "paid_calls_started": {
-          "image": 0,
-          "vision": 0
+          "image": 1,
+          "vision": 1
         },
-        "response_cost_estimate_usd": null,
-        "response_cost_estimate_breakdown_usd": {},
-        "timings_seconds": {},
-        "sample_pipeline_seconds": null,
-        "safety_and_subject_approved": false,
-        "authenticated_storage_roundtrip": false,
-        "temporary_asset_absent_verified": false
+        "response_cost_estimate_usd": "0.027479675",
+        "response_cost_estimate_breakdown_usd": {
+          "image": "0.027245",
+          "vision": "0.000234675"
+        },
+        "timings_seconds": {
+          "image": 4.199,
+          "vision": 2.814
+        },
+        "sample_pipeline_seconds": 12.564,
+        "safety_and_subject_approved": true,
+        "authenticated_storage_roundtrip": true,
+        "temporary_asset_absent_verified": true
       },
       {
         "fixture_word": "hourglass",
-        "status": "not_run",
+        "status": "passed",
         "paid_calls_started": {
-          "image": 0,
-          "vision": 0
+          "image": 1,
+          "vision": 1
         },
-        "response_cost_estimate_usd": null,
-        "response_cost_estimate_breakdown_usd": {},
-        "timings_seconds": {},
-        "sample_pipeline_seconds": null,
-        "safety_and_subject_approved": false,
-        "authenticated_storage_roundtrip": false,
-        "temporary_asset_absent_verified": false
+        "response_cost_estimate_usd": "0.02747105",
+        "response_cost_estimate_breakdown_usd": {
+          "image": "0.02724",
+          "vision": "0.00023105"
+        },
+        "timings_seconds": {
+          "image": 4.459,
+          "vision": 1.969
+        },
+        "sample_pipeline_seconds": 11.744,
+        "safety_and_subject_approved": true,
+        "authenticated_storage_roundtrip": true,
+        "temporary_asset_absent_verified": true
       },
       {
         "fixture_word": "jellyfish",
-        "status": "not_run",
+        "status": "passed",
         "paid_calls_started": {
-          "image": 0,
-          "vision": 0
+          "image": 1,
+          "vision": 1
         },
-        "response_cost_estimate_usd": null,
-        "response_cost_estimate_breakdown_usd": {},
-        "timings_seconds": {},
-        "sample_pipeline_seconds": null,
-        "safety_and_subject_approved": false,
-        "authenticated_storage_roundtrip": false,
-        "temporary_asset_absent_verified": false
+        "response_cost_estimate_usd": "0.0274713",
+        "response_cost_estimate_breakdown_usd": {
+          "image": "0.02725",
+          "vision": "0.0002213"
+        },
+        "timings_seconds": {
+          "image": 4.483,
+          "vision": 1.898
+        },
+        "sample_pipeline_seconds": 10.917,
+        "safety_and_subject_approved": true,
+        "authenticated_storage_roundtrip": true,
+        "temporary_asset_absent_verified": true
       },
       {
         "fixture_word": "mushroom",
-        "status": "not_run",
+        "status": "passed",
         "paid_calls_started": {
-          "image": 0,
-          "vision": 0
+          "image": 1,
+          "vision": 1
         },
-        "response_cost_estimate_usd": null,
-        "response_cost_estimate_breakdown_usd": {},
-        "timings_seconds": {},
-        "sample_pipeline_seconds": null,
-        "safety_and_subject_approved": false,
-        "authenticated_storage_roundtrip": false,
-        "temporary_asset_absent_verified": false
+        "response_cost_estimate_usd": "0.027489925",
+        "response_cost_estimate_breakdown_usd": {
+          "image": "0.027255",
+          "vision": "0.000234925"
+        },
+        "timings_seconds": {
+          "image": 4.337,
+          "vision": 1.67
+        },
+        "sample_pipeline_seconds": 9.96,
+        "safety_and_subject_approved": true,
+        "authenticated_storage_roundtrip": true,
+        "temporary_asset_absent_verified": true
       },
       {
         "fixture_word": "octopus",
-        "status": "not_run",
+        "status": "passed",
         "paid_calls_started": {
-          "image": 0,
-          "vision": 0
+          "image": 1,
+          "vision": 1
         },
-        "response_cost_estimate_usd": null,
-        "response_cost_estimate_breakdown_usd": {},
-        "timings_seconds": {},
-        "sample_pipeline_seconds": null,
-        "safety_and_subject_approved": false,
-        "authenticated_storage_roundtrip": false,
-        "temporary_asset_absent_verified": false
+        "response_cost_estimate_usd": "0.027530425",
+        "response_cost_estimate_breakdown_usd": {
+          "image": "0.027265",
+          "vision": "0.000265425"
+        },
+        "timings_seconds": {
+          "image": 4.331,
+          "vision": 2.361
+        },
+        "sample_pipeline_seconds": 12.199,
+        "safety_and_subject_approved": true,
+        "authenticated_storage_roundtrip": true,
+        "temporary_asset_absent_verified": true
       },
       {
         "fixture_word": "penguin",
-        "status": "not_run",
+        "status": "passed",
         "paid_calls_started": {
-          "image": 0,
-          "vision": 0
+          "image": 1,
+          "vision": 1
         },
-        "response_cost_estimate_usd": null,
-        "response_cost_estimate_breakdown_usd": {},
-        "timings_seconds": {},
-        "sample_pipeline_seconds": null,
-        "safety_and_subject_approved": false,
-        "authenticated_storage_roundtrip": false,
-        "temporary_asset_absent_verified": false
+        "response_cost_estimate_usd": "0.0274908",
+        "response_cost_estimate_breakdown_usd": {
+          "image": "0.027255",
+          "vision": "0.0002358"
+        },
+        "timings_seconds": {
+          "image": 5.193,
+          "vision": 2.606
+        },
+        "sample_pipeline_seconds": 12.625,
+        "safety_and_subject_approved": true,
+        "authenticated_storage_roundtrip": true,
+        "temporary_asset_absent_verified": true
       },
       {
         "fixture_word": "scissors",
-        "status": "not_run",
+        "status": "passed",
         "paid_calls_started": {
-          "image": 0,
-          "vision": 0
+          "image": 1,
+          "vision": 1
         },
-        "response_cost_estimate_usd": null,
-        "response_cost_estimate_breakdown_usd": {},
-        "timings_seconds": {},
-        "sample_pipeline_seconds": null,
-        "safety_and_subject_approved": false,
-        "authenticated_storage_roundtrip": false,
-        "temporary_asset_absent_verified": false
+        "response_cost_estimate_usd": "0.02748805",
+        "response_cost_estimate_breakdown_usd": {
+          "image": "0.02726",
+          "vision": "0.00022805"
+        },
+        "timings_seconds": {
+          "image": 4.97,
+          "vision": 2.112
+        },
+        "sample_pipeline_seconds": 12.03,
+        "safety_and_subject_approved": true,
+        "authenticated_storage_roundtrip": true,
+        "temporary_asset_absent_verified": true
       },
       {
         "fixture_word": "telescope",
-        "status": "not_run",
+        "status": "passed",
         "paid_calls_started": {
-          "image": 0,
-          "vision": 0
+          "image": 1,
+          "vision": 1
         },
-        "response_cost_estimate_usd": null,
-        "response_cost_estimate_breakdown_usd": {},
-        "timings_seconds": {},
-        "sample_pipeline_seconds": null,
-        "safety_and_subject_approved": false,
-        "authenticated_storage_roundtrip": false,
-        "temporary_asset_absent_verified": false
+        "response_cost_estimate_usd": "0.02750205",
+        "response_cost_estimate_breakdown_usd": {
+          "image": "0.027265",
+          "vision": "0.00023705"
+        },
+        "timings_seconds": {
+          "image": 5.827,
+          "vision": 2.009
+        },
+        "sample_pipeline_seconds": 11.906,
+        "safety_and_subject_approved": true,
+        "authenticated_storage_roundtrip": true,
+        "temporary_asset_absent_verified": true
       }
     ],
     "total_calls_started": {
-      "image": 14,
-      "vision": 14,
+      "image": 25,
+      "vision": 25,
       "standalone_text": 0
     },
     "cost": {
-      "openai_estimated_usd_for_metered_responses": "0.384632825",
-      "paid_responses_with_token_cost": 28,
+      "openai_estimated_usd_for_metered_responses": "0.687098625",
+      "paid_responses_with_token_cost": 50,
       "all_started_paid_calls_had_priced_usage": true,
       "basis": "Actual response token counters and published OpenAI Standard rates. Invoice, contract adjustments, and Cloudinary charges not reconciled.",
       "approved_budget_estimate_usd": "0.85",
       "actual_invoice_usd": null,
       "cloudinary_invoice_usd": null
     },
-    "total_elapsed_seconds": null,
+    "total_elapsed_seconds": 311.657,
     "provider_latency_summary_seconds": {
       "image": {
-        "responses": 14,
+        "responses": 25,
         "min": 3.947,
-        "median": 4.983,
-        "max": 6.018
+        "median": 4.941,
+        "max": 6.955
       },
       "vision": {
-        "responses": 14,
+        "responses": 25,
         "min": 1.662,
-        "median": 2.1195,
+        "median": 2.112,
         "max": 3.556
       }
     },
-    "production_frozen_before_and_after_verified": false,
-    "all_25_temporary_assets_absent_verified": false,
+    "production_frozen_before_and_after_verified": true,
+    "all_25_temporary_assets_absent_verified": true,
     "expansion_requires_new_approval": true
   }
 }
