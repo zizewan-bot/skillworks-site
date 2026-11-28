@@ -49,7 +49,7 @@
     "https://developers.openai.com/api/docs/models/gpt-image-2.6-flare",
     "https://developers.openai.com/api/docs/models/gpt-6-luna"
   ],
-  "updated_at": "2026-11-28T07:35:38.033612Z",
+  "updated_at": "2026-11-28T07:37:33.836682Z",
   "remaining": [
     "Real-provider integration through staging Cloud Tasks",
     "Physical iPhone/TestFlight QA",
@@ -179,9 +179,9 @@
     "expansion_authorized": false
   },
   "production_three_sample_validation": {
-    "id": "production-three-paid-samples-approved",
-    "status": "production_three_paid_samples_approved",
-    "observed_at": "2026-11-28T07:35:38.033612Z",
+    "id": "production-three-paid-samples-final",
+    "status": "production_three_paid_samples_passed_frozen",
+    "observed_at": "2026-11-28T07:37:33.836682Z",
     "candidate_commit": "24c119f8cbad0068fb155c2d51015520a0818f16",
     "data_scope": "Three synthetic fixture descriptions processed through the one-shot provider flow with production credentials. No production dictionary rows created and no user data provided to models.",
     "delivery_scope": "No production worker run, queue enqueue, scheduler dispatch, ordinary user opening, or historical replay.",
@@ -206,66 +206,84 @@
     "samples": [
       {
         "fixture_word": "pear",
-        "status": "not_run",
+        "status": "passed",
         "paid_calls_started": {
-          "image": 0,
-          "vision": 0
+          "image": 1,
+          "vision": 1
         },
-        "response_cost_estimate_usd": null,
-        "response_cost_estimate_breakdown_usd": {},
-        "timings_seconds": {},
-        "sample_pipeline_seconds": null,
-        "safety_and_subject_approved": false,
-        "authenticated_storage_roundtrip": false,
-        "temporary_asset_absent_verified": false
+        "response_cost_estimate_usd": "0.02748805",
+        "response_cost_estimate_breakdown_usd": {
+          "image": "0.027265",
+          "vision": "0.00022305"
+        },
+        "timings_seconds": {
+          "image": 5.158,
+          "vision": 2.99
+        },
+        "sample_pipeline_seconds": 13.011,
+        "safety_and_subject_approved": true,
+        "authenticated_storage_roundtrip": true,
+        "temporary_asset_absent_verified": true
       },
       {
         "fixture_word": "umbrella",
-        "status": "not_run",
+        "status": "passed",
         "paid_calls_started": {
-          "image": 0,
-          "vision": 0
+          "image": 1,
+          "vision": 1
         },
-        "response_cost_estimate_usd": null,
-        "response_cost_estimate_breakdown_usd": {},
-        "timings_seconds": {},
-        "sample_pipeline_seconds": null,
-        "safety_and_subject_approved": false,
-        "authenticated_storage_roundtrip": false,
-        "temporary_asset_absent_verified": false
+        "response_cost_estimate_usd": "0.0274698",
+        "response_cost_estimate_breakdown_usd": {
+          "image": "0.027235",
+          "vision": "0.0002348"
+        },
+        "timings_seconds": {
+          "image": 6.97,
+          "vision": 2.482
+        },
+        "sample_pipeline_seconds": 13.902,
+        "safety_and_subject_approved": true,
+        "authenticated_storage_roundtrip": true,
+        "temporary_asset_absent_verified": true
       },
       {
         "fixture_word": "kite",
-        "status": "not_run",
+        "status": "passed",
         "paid_calls_started": {
-          "image": 0,
-          "vision": 0
+          "image": 1,
+          "vision": 1
         },
-        "response_cost_estimate_usd": null,
-        "response_cost_estimate_breakdown_usd": {},
-        "timings_seconds": {},
-        "sample_pipeline_seconds": null,
-        "safety_and_subject_approved": false,
-        "authenticated_storage_roundtrip": false,
-        "temporary_asset_absent_verified": false
+        "response_cost_estimate_usd": "0.0275103",
+        "response_cost_estimate_breakdown_usd": {
+          "image": "0.02727",
+          "vision": "0.0002403"
+        },
+        "timings_seconds": {
+          "image": 5.964,
+          "vision": 2.158
+        },
+        "sample_pipeline_seconds": 13.541,
+        "safety_and_subject_approved": true,
+        "authenticated_storage_roundtrip": true,
+        "temporary_asset_absent_verified": true
       }
     ],
     "total_calls_started": {
-      "image": 0,
-      "vision": 0,
+      "image": 3,
+      "vision": 3,
       "standalone_text": 0
     },
     "cost": {
-      "openai_estimated_usd_for_metered_responses": null,
-      "paid_responses_with_token_cost": 0,
+      "openai_estimated_usd_for_metered_responses": "0.08246815",
+      "paid_responses_with_token_cost": 6,
       "all_started_paid_calls_had_priced_usage": true,
       "basis": "Actual response token counters and published OpenAI Standard rates. Invoice, contract adjustments, and Cloudinary charges not reconciled.",
       "actual_invoice_usd": null,
       "cloudinary_invoice_usd": null
     },
-    "total_elapsed_seconds": null,
-    "production_frozen_before_and_after_verified": false,
-    "all_three_temporary_assets_absent_verified": false,
+    "total_elapsed_seconds": 52.382,
+    "production_frozen_before_and_after_verified": true,
+    "all_three_temporary_assets_absent_verified": true,
     "expansion_requires_new_approval": true
   }
 }

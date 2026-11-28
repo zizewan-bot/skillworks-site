@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T07:35:38.033612Z",
+  "updated_at": "2026-11-28T07:37:33.836682Z",
   "status": "frozen_production_cutover_complete_delivery_held",
   "agent": "codex/root",
   "read_first": [
@@ -37,7 +37,8 @@
     "Progressive text remained inflight after the first admitted image settled, then started and completed its own image follow-up behind the independent legacy freeze.",
     "The actual legacy and candidate images switched on the same isolated Cloud Run URL. Tag bypass and its removal were observed.",
     "Production-specific private worker, IAM, read-only matching PostgreSQL role, empty paused queue and paused Scheduler are provisioned and verified. The specified inbox received the synthetic test alert.",
-    "One production-credential canary passed image, vision and authenticated storage with production execution frozen. Exact temporary asset removed."
+    "One production-credential canary passed image, vision and authenticated storage with production execution frozen. Exact temporary asset removed.",
+    "Three synthetic samples passed with production provider credentials, assets cleaned, and production admission and delivery held."
   ],
   "not_completed": [
     "Real OpenAI/Cloudinary acceptance and controlled activation",
@@ -167,6 +168,6 @@
       "production_mutated_by_status_audit": false
     },
     "current_cutover_stage": "replacement-window-final",
-    "latest_production_paid_validation": "production-three-paid-samples-approved"
+    "latest_production_paid_validation": "production-three-paid-samples-final"
   }
 }
