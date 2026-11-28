@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T01:17:15.914944Z",
+  "updated_at": "2026-11-28T01:25:12.903502Z",
   "status": "pending",
   "actions": [
     {
@@ -48,13 +48,14 @@
     },
     {
       "id": "N08",
-      "status": "signed_internal_candidate_exported",
-      "action": "Upload the verified internal-only build 1.0 (15) to App Store Connect, verify processing and compliance, then run staged device QA from TestFlight",
-      "requires": "Explicit approval to upload this internal-only build and an authenticated App Store Connect upload path",
+      "status": "uploaded_processing",
+      "action": "Check Apple processing and export compliance, then verify the exact build on iPhone through internal TestFlight.",
+      "requires": "Internal TestFlight access for staged device QA",
       "local_preflight": "passed",
       "evidence": "tests.json",
       "apple_verification": "completed",
-      "candidate_build": 15
+      "candidate_build": 15,
+      "candidate_version": "1.0.1"
     }
   ]
 }

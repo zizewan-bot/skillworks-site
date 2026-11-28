@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T01:17:15.914944Z",
+  "updated_at": "2026-11-28T01:25:12.903502Z",
   "status": "published_docs_provider_free_acceptance_complete",
   "environments": {
     "backend_production": {
@@ -99,10 +99,10 @@
       "provider_secret_references_attached": false
     },
     "ios_internal_testflight_candidate": {
-      "version": "1.0",
+      "version": "1.0.1",
       "build": 15,
       "deployed": false,
-      "state": "signed_export_verified",
+      "state": "uploaded_processing",
       "evidence": "tests.json"
     }
   },

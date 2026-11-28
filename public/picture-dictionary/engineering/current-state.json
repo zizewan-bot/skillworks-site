@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T01:17:15.914944Z",
+  "updated_at": "2026-11-28T01:25:12.903502Z",
   "status": "staging_sample_and_iphone_offline_recovery_accepted",
   "agent": "codex/root",
   "read_first": [
@@ -34,7 +34,7 @@
     "Complete text/provider/infrastructure billing attribution",
     "External alert notification destination and full hosted usage dashboard",
     "Production cutover review",
-    "Signed iOS 1.0 (15) exported locally with Apple Distribution signing for internal TestFlight and the staging backend. Upload and Apple processing are pending."
+    "Internal-only iOS 1.0.1 (15), staging backend. Apple upload: Processing. TestFlight: Processing. Export compliance: pending."
   ],
   "production_changed": false,
   "phase": "Live staging image sample and physical iPhone offline recovery accepted",
@@ -65,22 +65,24 @@
     "testflight_release_review": "not_reported"
   },
   "testflight_release_review": {
-    "status": "signed_internal_candidate_exported",
+    "status": "uploaded_processing",
     "local_preflight": "passed",
     "evidence": "tests.json",
     "action": "N08",
     "apple_verification": "completed",
     "candidate": {
-      "version": "1.0",
+      "version": "1.0.1",
       "build": 15,
-      "source_commit": "31ca2779c0a7fd54e63f49f3f8315d69709e097e",
-      "ipa_sha256": "697b9a55e46e0d54f98a508843ed0690af0876eb26161fe4f8e5b099664ab560",
-      "signature": "Apple Distribution, strict verification passed",
+      "source_commit": "361b245df1053477cc79685c137c991ba11526a4",
+      "local_export_ipa_sha256": "8ea1360342c69a4d9a484dad27d77cf5661cae1aaaaa4d249521fb7a8a0b6dd0",
       "distribution": "TestFlight Internal Only",
       "environment": "staging",
-      "runtime_tests_passed": 5,
-      "staging_health": "healthy",
-      "uploaded": false
+      "exported_signature_verified": true,
+      "local_non_exempt_encryption_declaration": null,
+      "uploaded": true,
+      "upload_status": "Processing",
+      "testflight_status": "Processing",
+      "export_compliance": "pending"
     }
   }
 }

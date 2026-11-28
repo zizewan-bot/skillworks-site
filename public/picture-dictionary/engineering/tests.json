@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T01:17:15.914944Z",
+  "updated_at": "2026-11-28T01:25:12.903502Z",
   "status": "provider_free_staging_verified",
   "runs": [
     {
@@ -207,6 +207,28 @@
         "Provider-dependent end-to-end QA on the candidate has not been run",
         "No Apple processing or internal tester availability yet",
         "Previously accepted real-device build has not been tied to this candidate"
+      ]
+    },
+    {
+      "id": "ios-testflight-1.0.1-15-delivery",
+      "result": "uploaded_processing",
+      "evidence": {
+        "version": "1.0.1",
+        "build": 15,
+        "source_commit": "361b245df1053477cc79685c137c991ba11526a4",
+        "local_export_ipa_sha256": "8ea1360342c69a4d9a484dad27d77cf5661cae1aaaaa4d249521fb7a8a0b6dd0",
+        "distribution": "TestFlight Internal Only",
+        "environment": "staging",
+        "exported_signature_verified": true,
+        "local_non_exempt_encryption_declaration": null,
+        "uploaded": true,
+        "upload_status": "Processing",
+        "testflight_status": "Processing",
+        "export_compliance": "pending"
+      },
+      "limitations": [
+        "Real device acceptance of this exact build has not been recorded",
+        "Prior local export checksum describes the locally verified export from the same archive"
       ]
     }
   ]
