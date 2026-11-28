@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T04:17:15.476464Z",
+  "updated_at": "2026-11-28T04:36:30.151185Z",
   "status": "equivalent_delivery_and_scale_recovery_verified_release_integration_pending",
   "owner_approval_required": true,
   "production_switch_performed": false,
@@ -191,5 +191,14 @@
     },
     "production_mutated": false,
     "cutover_window_submitted": false
+  },
+  "release_freeze_checkpoint": {
+    "id": "release-generation-freeze-checkpoint",
+    "status": "release_images_local_freeze_passed_cloud_delivery_in_progress",
+    "candidate_commit": "3e355ed59d85a3ef7d55eafb632c38e585b33798",
+    "local_release_images": "Actual API and worker entrypoints with PostgreSQL and local HTTP mock providers. Missing state denied generation, confirmed admin blocked, admitted work drained before reopen, pending advanced to ready, duplicate did not call providers again.",
+    "read_only_production": "Production API and existing admin database bindings matched and were distinct from staging. Production durable worker/queue/scheduler bindings were not present in the deployment region.",
+    "provider_calls_paid": 0,
+    "production_mutated": false
   }
 }
