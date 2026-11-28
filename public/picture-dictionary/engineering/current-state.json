@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T01:25:59.516106Z",
+  "updated_at": "2026-11-28T01:47:50.637082Z",
   "status": "staging_sample_and_iphone_offline_recovery_accepted",
   "agent": "codex/root",
   "read_first": [
@@ -34,7 +34,7 @@
     "Complete text/provider/infrastructure billing attribution",
     "External alert notification destination and full hosted usage dashboard",
     "Production cutover review",
-    "Internal-only iOS 1.0.1 (15), staging backend. Apple upload: received and visible in builds. TestFlight: Missing Compliance. Export compliance: Apple encryption declaration pending account-holder confirmation."
+    "Internal-only iOS 1.0.1 (15), staging backend. Apple upload: received and verified in App Store Connect. TestFlight: Ready to Test. Export compliance: Saved owner-confirmed declaration: none of the listed algorithms; Missing Compliance cleared."
   ],
   "production_changed": false,
   "phase": "Live staging image sample and physical iPhone offline recovery accepted",
@@ -65,7 +65,7 @@
     "testflight_release_review": "not_reported"
   },
   "testflight_release_review": {
-    "status": "uploaded_missing_compliance",
+    "status": "internal_testflight_ready",
     "local_preflight": "passed",
     "evidence": "tests.json",
     "action": "N08",
@@ -80,9 +80,10 @@
       "exported_signature_verified": true,
       "local_non_exempt_encryption_declaration": null,
       "uploaded": true,
-      "upload_status": "received and visible in builds",
-      "testflight_status": "Missing Compliance",
-      "export_compliance": "Apple encryption declaration pending account-holder confirmation"
+      "upload_status": "received and verified in App Store Connect",
+      "testflight_status": "Ready to Test",
+      "export_compliance": "Saved owner-confirmed declaration: none of the listed algorithms; Missing Compliance cleared",
+      "internal_group_assignment_verified": true
     }
   }
 }

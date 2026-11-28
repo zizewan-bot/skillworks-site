@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T01:25:59.516106Z",
+  "updated_at": "2026-11-28T01:47:50.637082Z",
   "status": "pending",
   "actions": [
     {
@@ -48,9 +48,9 @@
     },
     {
       "id": "N08",
-      "status": "uploaded_missing_compliance",
-      "action": "Complete the build export compliance declaration, verify internal testing availability, then test the exact TestFlight build on iPhone.",
-      "requires": "App Store Connect account holder, administrator or App Manager to confirm and save the encryption declaration",
+      "status": "internal_testflight_ready",
+      "action": "Install 1.0.1 (15) through the assigned internal TestFlight group and repeat physical iPhone offline recovery against staging.",
+      "requires": "Install the exact TestFlight build on an internal QA iPhone and repeat the offline recovery scenarios against staging",
       "local_preflight": "passed",
       "evidence": "tests.json",
       "apple_verification": "completed",
