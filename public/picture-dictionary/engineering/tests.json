@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T09:24:40.675278Z",
+  "updated_at": "2026-11-28T18:50:46.375378Z",
   "status": "provider_free_staging_verified",
   "runs": [
     {
@@ -2692,6 +2692,31 @@
         "The same production identity initially received a permission rejection on the real substitute. The read-only probe continued without a permission change and recorded the final result. No production trigger was consumed during the probe."
       ],
       "unverified": []
+    },
+    {
+      "id": "production-stage2-controlled-iphone",
+      "status": "approved_preflight_in_progress",
+      "updated_at": "2026-11-28T18:50:46.375378Z",
+      "limits": {
+        "approved_iphone_devices_max": 1,
+        "new_uncached_word_count": 1,
+        "paid_image_calls_max": 1,
+        "paid_vision_calls_max": 1,
+        "paid_text_calls_max": 0,
+        "automatic_retries_allowed": false
+      },
+      "verified": {
+        "production_frozen_on_read_only_preflight": true,
+        "approved_uncached_candidate_absent_in_live_cache": true,
+        "approved_live_cache_entry_available": true,
+        "isolated_mock_rehearsal": null,
+        "rehearsal_paid_calls": null
+      },
+      "next_action": "Verify exact-device admission, one quota debit and one durable job without provider calls before arming the physical iPhone check.",
+      "failures": [],
+      "unverified": [
+        "The physical-device production image, real provider usage and cleanup await verification."
+      ]
     }
   ]
 }

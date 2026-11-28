@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T09:24:40.675278Z",
+  "updated_at": "2026-11-28T18:50:46.375378Z",
   "status": "pending",
   "actions": [
     {
@@ -69,5 +69,9 @@
   "production_queue_canary": {
     "status": "passed",
     "action": "Await explicit Stage 2 approval before enabling any account-scoped iPhone production generation. Stage 1 was verified using the unchanged production queue in a paused state."
+  },
+  "controlled_iphone_stage2": {
+    "status": "approved_preflight_in_progress",
+    "action": "Verify exact-device admission, one quota debit and one durable job without provider calls before arming the physical iPhone check."
   }
 }
