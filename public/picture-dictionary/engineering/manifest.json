@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T01:25:12.937098Z",
+  "updated_at": "2026-11-28T01:25:59.545453Z",
   "status": "in_progress",
   "version": "1.1.0",
   "url": "https://skillworks.dev/picture-dictionary/engineering/manifest.json",
@@ -43,7 +43,7 @@
       "url": "https://skillworks.dev/picture-dictionary/engineering/work-packages.json",
       "path": "work-packages.json",
       "version": "1.0.0",
-      "updated_at": "2026-11-28T01:25:12.903502Z",
+      "updated_at": "2026-11-28T01:25:59.516106Z",
       "status": "in_progress"
     },
     {
@@ -67,7 +67,7 @@
       "url": "https://skillworks.dev/picture-dictionary/engineering/risks-blockers.json",
       "path": "risks-blockers.json",
       "version": "1.0.0",
-      "updated_at": "2026-11-28T01:25:12.903502Z",
+      "updated_at": "2026-11-28T01:25:59.516106Z",
       "status": "open"
     },
     {
@@ -75,7 +75,7 @@
       "url": "https://skillworks.dev/picture-dictionary/engineering/current-state.json",
       "path": "current-state.json",
       "version": "1.0.0",
-      "updated_at": "2026-11-28T01:25:12.903502Z",
+      "updated_at": "2026-11-28T01:25:59.516106Z",
       "status": "staging_sample_and_iphone_offline_recovery_accepted"
     },
     {
@@ -83,7 +83,7 @@
       "url": "https://skillworks.dev/picture-dictionary/engineering/next-actions.json",
       "path": "next-actions.json",
       "version": "1.0.0",
-      "updated_at": "2026-11-28T01:25:12.903502Z",
+      "updated_at": "2026-11-28T01:25:59.516106Z",
       "status": "pending"
     },
     {
@@ -91,7 +91,7 @@
       "url": "https://skillworks.dev/picture-dictionary/engineering/tests.json",
       "path": "tests.json",
       "version": "1.0.0",
-      "updated_at": "2026-11-28T01:25:12.903502Z",
+      "updated_at": "2026-11-28T01:25:59.516106Z",
       "status": "provider_free_staging_verified"
     },
     {
@@ -99,7 +99,7 @@
       "url": "https://skillworks.dev/picture-dictionary/engineering/deployments.json",
       "path": "deployments.json",
       "version": "1.0.0",
-      "updated_at": "2026-11-28T01:25:12.903502Z",
+      "updated_at": "2026-11-28T01:25:59.516106Z",
       "status": "published_docs_provider_free_acceptance_complete"
     },
     {
@@ -107,7 +107,7 @@
       "url": "https://skillworks.dev/picture-dictionary/engineering/timeline.jsonl",
       "path": "timeline.jsonl",
       "version": "1.0.0",
-      "updated_at": "2026-11-28T01:25:12.937098Z",
+      "updated_at": "2026-11-28T01:25:59.545453Z",
       "status": "append_only"
     },
     {

@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T01:25:12.903502Z",
+  "updated_at": "2026-11-28T01:25:59.516106Z",
   "status": "provider_free_staging_verified",
   "runs": [
     {
@@ -225,6 +225,28 @@
         "upload_status": "Processing",
         "testflight_status": "Processing",
         "export_compliance": "pending"
+      },
+      "limitations": [
+        "Real device acceptance of this exact build has not been recorded",
+        "Prior local export checksum describes the locally verified export from the same archive"
+      ]
+    },
+    {
+      "id": "ios-testflight-1.0.1-15-compliance-check",
+      "result": "uploaded_missing_compliance",
+      "evidence": {
+        "version": "1.0.1",
+        "build": 15,
+        "source_commit": "361b245df1053477cc79685c137c991ba11526a4",
+        "local_export_ipa_sha256": "8ea1360342c69a4d9a484dad27d77cf5661cae1aaaaa4d249521fb7a8a0b6dd0",
+        "distribution": "TestFlight Internal Only",
+        "environment": "staging",
+        "exported_signature_verified": true,
+        "local_non_exempt_encryption_declaration": null,
+        "uploaded": true,
+        "upload_status": "received and visible in builds",
+        "testflight_status": "Missing Compliance",
+        "export_compliance": "Apple encryption declaration pending account-holder confirmation"
       },
       "limitations": [
         "Real device acceptance of this exact build has not been recorded",
