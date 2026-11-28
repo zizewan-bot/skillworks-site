@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T03:07:57.386894Z",
+  "updated_at": "2026-11-28T03:45:59.613987Z",
   "status": "provider_free_staging_verified",
   "runs": [
     {
@@ -379,6 +379,49 @@
         "backend": "SQLite",
         "provider_calls": 0
       }
+    },
+    {
+      "id": "production-cutover-isolated-rehearsal-final",
+      "result": "isolated_checks_passed_production_not_ready",
+      "environment": "disposable test resources using synthetic data only",
+      "backup_restore": {
+        "isolated_postgresql16_logical_restore": "passed",
+        "ddl_lock_timeout_and_no_partial_schema": "passed",
+        "managed_cloud_sql_backup_restore": "passed",
+        "database_content": "synthetic legacy schema and fixture rows only",
+        "production_backup_restored": false,
+        "managed_backup_seconds": 55.5,
+        "managed_restore_to_verified_query_seconds": 986.7,
+        "candidate_additive_startup_and_verification_seconds": 4.0,
+        "point_in_time_contents_verified": "pre-change backup fingerprint restored after changing the source; this was an on-demand backup, not a production PITR exercise"
+      },
+      "legacy_drain": {
+        "result": "passed_in_isolation",
+        "simulation_boundary": "test harness freeze around exact production image and candidate application; no deployed production control",
+        "tested": [
+          "generation entrances blocked while cached reads remained available",
+          "previously admitted callback completed before drain",
+          "historical attempt count and ambiguous start marker retained",
+          "no-provider candidate declined normal delivery",
+          "valid lease and started reservation blocked rollback",
+          "expired lease did not resolve open provider call and its stale result was fenced"
+        ]
+      },
+      "rollback": {
+        "result": "passed_in_isolation",
+        "synthetic_cloud_run_cutover_verified_seconds": 9.3,
+        "synthetic_cloud_run_rollback_verified_seconds": 9.8,
+        "condition": "synthetic generation endpoints remained frozen on both revisions",
+        "database_compatibility": "old API read retained candidate data and settled provider ledger on the same disposable database",
+        "full_production_rollback_rehearsed": false
+      },
+      "resource_cleanup": {
+        "cloud_run_verified_absent": true,
+        "managed_cloud_sql_synthetic_resources_verified_absent": true
+      },
+      "paid_ai_calls": 0,
+      "production_mutated": false,
+      "cutover_window_submitted": false
     }
   ]
 }

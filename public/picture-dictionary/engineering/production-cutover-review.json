@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T03:37:56.755572Z",
-  "status": "reviewed_no_go_pending_prerequisites_and_owner_approval",
+  "updated_at": "2026-11-28T03:45:59.613987Z",
+  "status": "isolated_rehearsal_reviewed_production_prerequisites_remain",
   "owner_approval_required": true,
   "production_switch_performed": false,
   "production_schema_changed": false,
@@ -29,31 +29,36 @@
       "id": "G01",
       "area": "database_migration",
       "status": "blocked",
-      "requires": "Rehearse the gated candidate against an authorized isolated Cloud SQL restore, measure lock duration and recovery time, designate a single operator for additive DDL, confirm a fresh recoverable backup and verify old API compatibility before switching traffic."
+      "requires": "Complete an authorized representative Cloud SQL restore using production-sized data or a documented equivalent. Confirm production backup recovery point, lock/runtime budgets and a single additive migration executor before any write.",
+      "isolated_rehearsal_status": "passed"
     },
     {
       "id": "G02",
       "area": "legacy_drain",
       "status": "blocked",
-      "requires": "Prove a freeze on new generation and retry admissions across lookup, progressive text completion, retry endpoints and admin execution; observe old API activity and provider attempts quiesce; classify existing pending rows without silently resetting their attempt histories."
+      "requires": "Make the production-facing generation/retry freeze enforceable, including legacy text callbacks and admin paths. Verify evidence of drain and reconcile the historical pending pool without granting new attempt budgets.",
+      "isolated_rehearsal_status": "passed"
     },
     {
       "id": "G03",
       "area": "production_delivery",
       "status": "blocked",
-      "requires": "Pin a production release candidate and separately rehearse production-bound private worker, queue, scheduler, identities, alarms and cost limits with provider execution disabled. Confirm API and worker target the same intended database and that staging cannot reach it."
+      "requires": "Pin the complete production release artifact and verify production-bound queue, scheduler, private worker, identities and alarms in a provider-disabled rehearsal before connecting them to the live database.",
+      "isolated_rehearsal_status": "partial"
     },
     {
       "id": "G04",
       "area": "rollback",
       "status": "blocked",
-      "requires": "Rehearse an in-place traffic rollback while intake is frozen, confirm queue pause does not substitute for draining in-flight workers, and reconcile leases and provider reservations before permitting any legacy claim against the same vocabulary."
+      "requires": "Prove the coordinated freeze and rollback against the production-shaped candidate topology and define who reconciles aged jobs, active leases, unresolved calls and storage artifacts before generation can resume.",
+      "isolated_rehearsal_status": "passed"
     },
     {
       "id": "G05",
       "area": "approval",
       "status": "required",
-      "requires": "Obtain explicit owner approval for the execution window, first production mutation, budget and stop criteria, after all other gates have evidence."
+      "requires": "Wait until G01–G04 have accepted evidence. Submit the execution window, steps, stop criteria and owner approval request before any production mutation.",
+      "isolated_rehearsal_status": "approval_pending"
     }
   ],
   "rollback_summary": [
@@ -85,6 +90,50 @@
     "temporary_cloud_run_removed": true,
     "managed_backup_status": "synthetic_managed_backup_verified_restore_in_progress",
     "production_mutated": false,
-    "lock_timeout": "DDL contention caused the bounded migration to abort without partial tables; succeeded after release"
+    "lock_timeout": "DDL contention caused the bounded migration to abort without partial tables; succeeded after release",
+    "status": "historical_checkpoint_superseded_by_final_rehearsal"
+  },
+  "isolated_rehearsal": {
+    "id": "production-cutover-isolated-rehearsal-final",
+    "result": "isolated_checks_passed_production_not_ready",
+    "environment": "disposable test resources using synthetic data only",
+    "backup_restore": {
+      "isolated_postgresql16_logical_restore": "passed",
+      "ddl_lock_timeout_and_no_partial_schema": "passed",
+      "managed_cloud_sql_backup_restore": "passed",
+      "database_content": "synthetic legacy schema and fixture rows only",
+      "production_backup_restored": false,
+      "managed_backup_seconds": 55.5,
+      "managed_restore_to_verified_query_seconds": 986.7,
+      "candidate_additive_startup_and_verification_seconds": 4.0,
+      "point_in_time_contents_verified": "pre-change backup fingerprint restored after changing the source; this was an on-demand backup, not a production PITR exercise"
+    },
+    "legacy_drain": {
+      "result": "passed_in_isolation",
+      "simulation_boundary": "test harness freeze around exact production image and candidate application; no deployed production control",
+      "tested": [
+        "generation entrances blocked while cached reads remained available",
+        "previously admitted callback completed before drain",
+        "historical attempt count and ambiguous start marker retained",
+        "no-provider candidate declined normal delivery",
+        "valid lease and started reservation blocked rollback",
+        "expired lease did not resolve open provider call and its stale result was fenced"
+      ]
+    },
+    "rollback": {
+      "result": "passed_in_isolation",
+      "synthetic_cloud_run_cutover_verified_seconds": 9.3,
+      "synthetic_cloud_run_rollback_verified_seconds": 9.8,
+      "condition": "synthetic generation endpoints remained frozen on both revisions",
+      "database_compatibility": "old API read retained candidate data and settled provider ledger on the same disposable database",
+      "full_production_rollback_rehearsed": false
+    },
+    "resource_cleanup": {
+      "cloud_run_verified_absent": true,
+      "managed_cloud_sql_synthetic_resources_verified_absent": true
+    },
+    "paid_ai_calls": 0,
+    "production_mutated": false,
+    "cutover_window_submitted": false
   }
 }

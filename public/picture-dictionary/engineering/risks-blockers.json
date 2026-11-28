@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T03:07:57.386894Z",
+  "updated_at": "2026-11-28T03:45:59.613987Z",
   "status": "open",
   "items": [
     {
@@ -107,7 +107,7 @@
       "id": "B010",
       "status": "open",
       "summary": "Production legacy generation is not proven drained and the production durable delivery and rollback controls are not rehearsed.",
-      "impact": "Database snapshots and paused staging infrastructure are insufficient to authorize production cutover.",
+      "impact": "Isolated drain and rollback evidence exists; coordinated freeze and production-bound worker delivery are still missing",
       "evidence": "production-cutover-review.json"
     }
   ]

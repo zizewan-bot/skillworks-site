@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T03:07:57.386894Z",
+  "updated_at": "2026-11-28T03:45:59.613987Z",
   "status": "pending",
   "actions": [
     {
@@ -38,9 +38,9 @@
     },
     {
       "id": "N06",
-      "action": "Close the migration rehearsal, generation freeze, backlog classification, production delivery and rollback gaps before proposing a production switch",
-      "requires": "Verified gates G01–G04 and explicit owner approval under G05",
-      "status": "reviewed_no_go_pending_prerequisites_and_owner_approval",
+      "action": "Resolve the remaining production-shaped prerequisites before submitting a switch window and the owner approval request",
+      "requires": "G01 through G04 acceptance; no production mutation before owner approval",
+      "status": "isolated_rehearsal_reviewed_production_prerequisites_remain",
       "evidence": "production-cutover-review.json"
     },
     {

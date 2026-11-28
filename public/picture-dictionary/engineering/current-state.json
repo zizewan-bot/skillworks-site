@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T03:37:56.755572Z",
+  "updated_at": "2026-11-28T03:45:59.613987Z",
   "status": "staging_sample_and_iphone_offline_recovery_accepted",
   "agent": "codex/root",
   "read_first": [
@@ -28,7 +28,8 @@
     "Fixed actual lookup explicit-flush outbox gap; rollback and nested transaction coverage passed",
     "Physical iPhone offline recovery accepted by user on 2026-11-27 (America/Los_Angeles)",
     "Internal TestFlight 1.0.1 (15) passed physical iPhone Search recovery and pending-image polling recovery against staging",
-    "Production cutover review completed; PostgreSQL 16 synthetic migration, old-revision startup and separate restore rehearsed."
+    "Production cutover review completed; PostgreSQL 16 synthetic migration, old-revision startup and separate restore rehearsed.",
+    "Isolated legacy drain and rollback rehearsed; temporary Cloud Run service and synthetic managed database resources cleaned."
   ],
   "not_completed": [
     "Real OpenAI/Cloudinary acceptance and controlled activation",
@@ -94,9 +95,11 @@
     }
   },
   "production_cutover_review": {
-    "status": "reviewed_no_go_pending_prerequisites_and_owner_approval",
+    "status": "isolated_rehearsal_reviewed_production_prerequisites_remain",
     "evidence": "production-cutover-review.json",
     "approval_required": true,
-    "isolated_rehearsal": "synthetic_managed_backup_verified_restore_in_progress"
+    "isolated_rehearsal": "isolated_checks_passed_production_not_ready",
+    "cutover_window_submitted": false,
+    "production_mutated": false
   }
 }
