@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T08:21:04.906821Z",
+  "updated_at": "2026-11-28T08:36:20.993794Z",
   "status": "frozen_production_cutover_complete_delivery_held",
   "agent": "codex/root",
   "read_first": [
@@ -171,6 +171,45 @@
     },
     "current_cutover_stage": "replacement-window-final",
     "latest_production_paid_validation": "production-25-paid-samples-final",
-    "production_queue_canary_review": "production-scheduler-canary-review"
+    "production_queue_canary_review": "production-scheduler-canary-review",
+    "production_queue_canary_execution": {
+      "id": "production-scheduler-queue-provider-free-canary",
+      "status": "approved_fixture_preparation_in_progress",
+      "stage": "approved",
+      "observed_at": "2026-11-28T08:36:20.993794Z",
+      "approval_scope": {
+        "scheduler_manual_triggers_max": 1,
+        "logical_test_tasks_max": 1,
+        "named_deliveries_max": 2,
+        "paid_model_calls_max": 0
+      },
+      "evidence": {
+        "manual_scheduler_trigger_requests": 0,
+        "named_task_delivery_requests": 0,
+        "named_task_created": false,
+        "fixture_executions": null,
+        "duplicate_suppressions": null,
+        "terminal_task_status": null,
+        "fixture_provider_ledger_rows": null,
+        "actual_ai_cost_usd": 0,
+        "original_scheduler_target_restored": null,
+        "scheduler_paused": null,
+        "queue_paused_empty": null,
+        "shared_admission_frozen_verified": null,
+        "historical_replay_performed": false,
+        "monitoring_verified": null,
+        "temporary_resources_cleaned": null,
+        "isolated_database_role_verified": true,
+        "production_scheduler_mutated": false
+      },
+      "cost_scope": "The AI cost counts model calls for this exercise. Cloud infrastructure charges were not attributed.",
+      "failures": [
+        "First fixture setup stopped before mutation when the staging database URL used a different driver syntax from the URL parser. Setup resumed after using the application database URL parser."
+      ],
+      "unverified": [
+        "The real scheduler trigger, named deliveries, monitoring, and restoration evidence are pending."
+      ],
+      "next_gate": "Await explicit Stage 2 approval before any account-scoped normal iPhone search that can generate an image."
+    }
   }
 }

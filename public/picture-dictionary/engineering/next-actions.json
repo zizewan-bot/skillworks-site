@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T08:21:04.906821Z",
+  "updated_at": "2026-11-28T08:36:20.993794Z",
   "status": "pending",
   "actions": [
     {
@@ -67,7 +67,7 @@
     "requires_separate_expansion_approval": true
   },
   "production_queue_canary": {
-    "status": "awaiting_separate_production_execution_approval",
-    "action": "Approve the single provider-free production Scheduler and queue exercise only. The iPhone and activation remain held."
+    "status": "approved_fixture_preparation_in_progress",
+    "action": "Complete approved isolated fixture and capture evidence."
   }
 }
