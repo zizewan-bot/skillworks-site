@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T01:47:50.637082Z",
+  "updated_at": "2026-11-28T02:00:01.997575Z",
   "status": "provider_free_staging_verified",
   "runs": [
     {
@@ -275,6 +275,17 @@
         "Real device acceptance of this exact build has not been recorded",
         "Prior local export checksum describes the locally verified export from the same archive"
       ]
+    },
+    {
+      "id": "ios-testflight-1.0.1-15-device-preflight",
+      "result": "blocked_waiting_for_physical_device_interaction",
+      "build": "1.0.1 (15)",
+      "environment": "staging",
+      "device_family": "iPhone 16 Pro Max",
+      "device_connection_verified": true,
+      "testflight_candidate_seen_in_installed_app_inventory": false,
+      "mirror_status": "iPhone in Use; lock iPhone to connect",
+      "exact_build_runtime_verified": false
     }
   ]
 }

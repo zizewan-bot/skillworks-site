@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T01:47:50.637082Z",
+  "updated_at": "2026-11-28T02:00:01.997575Z",
   "status": "staging_sample_and_iphone_offline_recovery_accepted",
   "agent": "codex/root",
   "read_first": [
@@ -84,6 +84,10 @@
       "testflight_status": "Ready to Test",
       "export_compliance": "Saved owner-confirmed declaration: none of the listed algorithms; Missing Compliance cleared",
       "internal_group_assignment_verified": true
+    },
+    "device_revalidation": {
+      "status": "blocked_waiting_for_physical_device_interaction",
+      "evidence": "tests.json"
     }
   }
 }

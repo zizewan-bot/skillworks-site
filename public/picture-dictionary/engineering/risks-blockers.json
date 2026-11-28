@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T01:47:50.637082Z",
+  "updated_at": "2026-11-28T02:00:01.997575Z",
   "status": "open",
   "items": [
     {
@@ -94,6 +94,13 @@
       "status": "resolved",
       "summary": "No active iOS 1.0 TestFlight build was visible in App Store Connect",
       "impact": "Internal-only iOS 1.0.1 (15), staging backend. Apple upload: received and verified in App Store Connect. TestFlight: Ready to Test. Export compliance: Saved owner-confirmed declaration: none of the listed algorithms; Missing Compliance cleared.",
+      "next_action": "N08"
+    },
+    {
+      "id": "B009",
+      "status": "open",
+      "summary": "iPhone mirroring waits for the test device to be locked and TestFlight build 1.0.1 (15) is not visible in installed app inventory",
+      "impact": "Exact TestFlight build device revalidation remains pending",
       "next_action": "N08"
     }
   ]

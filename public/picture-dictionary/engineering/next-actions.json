@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T01:47:50.637082Z",
+  "updated_at": "2026-11-28T02:00:01.997575Z",
   "status": "pending",
   "actions": [
     {
@@ -50,12 +50,13 @@
       "id": "N08",
       "status": "internal_testflight_ready",
       "action": "Install 1.0.1 (15) through the assigned internal TestFlight group and repeat physical iPhone offline recovery against staging.",
-      "requires": "Install the exact TestFlight build on an internal QA iPhone and repeat the offline recovery scenarios against staging",
+      "requires": "Lock the connected iPhone to permit mirroring, or install the candidate from TestFlight on the device",
       "local_preflight": "passed",
       "evidence": "tests.json",
       "apple_verification": "completed",
       "candidate_build": 15,
-      "candidate_version": "1.0.1"
+      "candidate_version": "1.0.1",
+      "device_revalidation": "blocked_waiting_for_physical_device_interaction"
     }
   ]
 }
