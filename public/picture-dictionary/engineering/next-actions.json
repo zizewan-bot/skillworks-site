@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-23T10:30:17.691859Z",
+  "updated_at": "2026-11-28T00:09:13.173063Z",
   "status": "pending",
   "actions": [
     {
@@ -22,8 +22,9 @@
     },
     {
       "id": "N03",
-      "action": "Run iPhone offline/foreground/reopen acceptance and TestFlight review",
-      "requires": "Connect and unlock trusted iPhone; current Xcode device list has simulators only"
+      "action": "Physical iPhone offline recovery acceptance",
+      "status": "complete_user_confirmed",
+      "evidence": "tests.json"
     },
     {
       "id": "N04",
@@ -44,6 +45,11 @@
       "id": "N07",
       "action": "Investigate public urllib 403 transport compatibility and orphan-asset reconciliation",
       "requires": "No security-policy weakening or deletion of existing assets"
+    },
+    {
+      "id": "N08",
+      "status": "unreported",
+      "action": "Verify TestFlight release review when preparing rollout"
     }
   ]
 }

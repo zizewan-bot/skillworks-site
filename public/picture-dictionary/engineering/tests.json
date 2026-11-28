@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-23T10:30:17.691859Z",
+  "updated_at": "2026-11-28T00:09:13.173063Z",
   "status": "provider_free_staging_verified",
   "runs": [
     {
@@ -123,6 +123,23 @@
       "id": "wp09-queued-live-single-sample",
       "result": "passed",
       "evidence": "provider-pilot.json"
+    },
+    {
+      "id": "iphone-offline-recovery-owner-confirmed",
+      "result": "passed_user_confirmed",
+      "physical_device": true,
+      "evidence": {
+        "id": "iphone-offline-recovery-owner-confirmed",
+        "scope": "Physical iPhone offline recovery",
+        "status": "accepted",
+        "source": "user_confirmation",
+        "confirmed_on_local_date": "2026-11-27",
+        "timezone": "America/Los_Angeles",
+        "build": null,
+        "device_model": null,
+        "individual_scenario_results": null,
+        "testflight_release_review": "not_reported"
+      }
     }
   ]
 }

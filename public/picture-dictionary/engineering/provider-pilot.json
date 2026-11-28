@@ -49,7 +49,7 @@
     "https://developers.openai.com/api/docs/models/gpt-image-2.6-flare",
     "https://developers.openai.com/api/docs/models/gpt-6-luna"
   ],
-  "updated_at": "2026-11-23T10:30:17.691859Z",
+  "updated_at": "2026-11-28T00:09:13.173063Z",
   "remaining": [
     "Real-provider integration through staging Cloud Tasks",
     "Physical iPhone/TestFlight QA",
@@ -121,5 +121,17 @@
       "Single sample does not establish SLA or model quality across vocabulary",
       "Physical iPhone and production activation remain pending"
     ]
+  },
+  "follow_up_device_acceptance": {
+    "id": "iphone-offline-recovery-owner-confirmed",
+    "scope": "Physical iPhone offline recovery",
+    "status": "accepted",
+    "source": "user_confirmation",
+    "confirmed_on_local_date": "2026-11-27",
+    "timezone": "America/Los_Angeles",
+    "build": null,
+    "device_model": null,
+    "individual_scenario_results": null,
+    "testflight_release_review": "not_reported"
   }
 }

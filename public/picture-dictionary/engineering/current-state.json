@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-23T10:30:17.691859Z",
-  "status": "live_queued_single_sample_passed",
+  "updated_at": "2026-11-28T00:09:13.173063Z",
+  "status": "staging_sample_and_iphone_offline_recovery_accepted",
   "agent": "codex/root",
   "read_first": [
     "manifest.json",
@@ -25,18 +25,19 @@
     "WP06: ten actual cloud end-to-end/recovery cases passed with real Scheduler/Tasks and fixture providers",
     "WP06: five runtime polling/history recovery cases passed with captured synthetic server DTOs",
     "WP06: natural automatic scheduler tick verified HTTP 200; test queue/scheduler returned to PAUSED",
-    "Fixed actual lookup explicit-flush outbox gap; rollback and nested transaction coverage passed"
+    "Fixed actual lookup explicit-flush outbox gap; rollback and nested transaction coverage passed",
+    "Physical iPhone offline recovery accepted by user on 2026-11-27 (America/Los_Angeles)"
   ],
   "not_completed": [
     "Real OpenAI/Cloudinary acceptance and controlled activation",
     "Progressive text interruption durability",
     "Complete text/provider/infrastructure billing attribution",
     "External alert notification destination and full hosted usage dashboard",
-    "Physical iPhone/TestFlight offline QA",
-    "Production cutover review"
+    "Production cutover review",
+    "TestFlight release review (not reported)"
   ],
   "production_changed": false,
-  "phase": "WP09 real image and vision through isolated Cloud Tasks worker passed",
+  "phase": "Live staging image sample and physical iPhone offline recovery accepted",
   "code_commits": {
     "backend": "4b435265714a634883b52fad553349f5e7d6f2f2",
     "ios": "31ca2779c0a7fd54e63f49f3f8315d69709e097e"
@@ -50,5 +51,17 @@
   },
   "production_change_scope": "backend_and_mobile_release",
   "documentation_updated": true,
-  "latest_backend_code_commit": "3c2a7fe11822735df54f1fbccd21b8c46c35d238"
+  "latest_backend_code_commit": "3c2a7fe11822735df54f1fbccd21b8c46c35d238",
+  "iphone_offline_recovery": {
+    "id": "iphone-offline-recovery-owner-confirmed",
+    "scope": "Physical iPhone offline recovery",
+    "status": "accepted",
+    "source": "user_confirmation",
+    "confirmed_on_local_date": "2026-11-27",
+    "timezone": "America/Los_Angeles",
+    "build": null,
+    "device_model": null,
+    "individual_scenario_results": null,
+    "testflight_release_review": "not_reported"
+  }
 }

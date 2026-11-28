@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-23T10:30:17.691859Z",
+  "updated_at": "2026-11-28T00:09:13.173063Z",
   "status": "in_progress",
   "packages": [
     {
@@ -25,8 +25,9 @@
     {
       "id": "WP03",
       "title": "Shared iOS connection recovery",
-      "status": "runtime_recovery_verified",
-      "remaining": "Physical-device/TestFlight QA"
+      "status": "physical_iphone_offline_recovery_accepted_by_user",
+      "remaining": "TestFlight release review not reported",
+      "evidence": "tests.json"
     },
     {
       "id": "WP04",
