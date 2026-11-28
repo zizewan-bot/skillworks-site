@@ -49,7 +49,7 @@
     "https://developers.openai.com/api/docs/models/gpt-image-2.6-flare",
     "https://developers.openai.com/api/docs/models/gpt-6-luna"
   ],
-  "updated_at": "2026-11-28T07:10:04.504465Z",
+  "updated_at": "2026-11-28T07:35:38.033612Z",
   "remaining": [
     "Real-provider integration through staging Cloud Tasks",
     "Physical iPhone/TestFlight QA",
@@ -177,5 +177,95 @@
       "cloudinary_invoice_usd": null
     },
     "expansion_authorized": false
+  },
+  "production_three_sample_validation": {
+    "id": "production-three-paid-samples-approved",
+    "status": "production_three_paid_samples_approved",
+    "observed_at": "2026-11-28T07:35:38.033612Z",
+    "candidate_commit": "24c119f8cbad0068fb155c2d51015520a0818f16",
+    "data_scope": "Three synthetic fixture descriptions processed through the one-shot provider flow with production credentials. No production dictionary rows created and no user data provided to models.",
+    "delivery_scope": "No production worker run, queue enqueue, scheduler dispatch, ordinary user opening, or historical replay.",
+    "scope_expansion_approved_for_this_run_only": {
+      "scope": "Owner approved three production synthetic fixtures, each at most one generated image and one safety and subject vision check.",
+      "synthetic_fixtures": [
+        "pear",
+        "umbrella",
+        "kite"
+      ],
+      "maximum_paid_calls": 6,
+      "maximum_per_fixture": {
+        "image": 1,
+        "vision": 1
+      },
+      "automatic_retry_allowed": false,
+      "ordinary_user_generation_frozen": true,
+      "queue_and_scheduler_remain_paused": true,
+      "historical_jobs_replayed": false,
+      "expansion_requires_further_approval": true
+    },
+    "samples": [
+      {
+        "fixture_word": "pear",
+        "status": "not_run",
+        "paid_calls_started": {
+          "image": 0,
+          "vision": 0
+        },
+        "response_cost_estimate_usd": null,
+        "response_cost_estimate_breakdown_usd": {},
+        "timings_seconds": {},
+        "sample_pipeline_seconds": null,
+        "safety_and_subject_approved": false,
+        "authenticated_storage_roundtrip": false,
+        "temporary_asset_absent_verified": false
+      },
+      {
+        "fixture_word": "umbrella",
+        "status": "not_run",
+        "paid_calls_started": {
+          "image": 0,
+          "vision": 0
+        },
+        "response_cost_estimate_usd": null,
+        "response_cost_estimate_breakdown_usd": {},
+        "timings_seconds": {},
+        "sample_pipeline_seconds": null,
+        "safety_and_subject_approved": false,
+        "authenticated_storage_roundtrip": false,
+        "temporary_asset_absent_verified": false
+      },
+      {
+        "fixture_word": "kite",
+        "status": "not_run",
+        "paid_calls_started": {
+          "image": 0,
+          "vision": 0
+        },
+        "response_cost_estimate_usd": null,
+        "response_cost_estimate_breakdown_usd": {},
+        "timings_seconds": {},
+        "sample_pipeline_seconds": null,
+        "safety_and_subject_approved": false,
+        "authenticated_storage_roundtrip": false,
+        "temporary_asset_absent_verified": false
+      }
+    ],
+    "total_calls_started": {
+      "image": 0,
+      "vision": 0,
+      "standalone_text": 0
+    },
+    "cost": {
+      "openai_estimated_usd_for_metered_responses": null,
+      "paid_responses_with_token_cost": 0,
+      "all_started_paid_calls_had_priced_usage": true,
+      "basis": "Actual response token counters and published OpenAI Standard rates. Invoice, contract adjustments, and Cloudinary charges not reconciled.",
+      "actual_invoice_usd": null,
+      "cloudinary_invoice_usd": null
+    },
+    "total_elapsed_seconds": null,
+    "production_frozen_before_and_after_verified": false,
+    "all_three_temporary_assets_absent_verified": false,
+    "expansion_requires_new_approval": true
   }
 }

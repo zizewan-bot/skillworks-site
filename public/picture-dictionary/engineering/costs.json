@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T07:10:04.504465Z",
+  "updated_at": "2026-11-28T07:35:38.033612Z",
   "status": "partial",
   "actual_billing_usd": null,
   "estimated_cost_usd": null,
@@ -101,6 +101,14 @@
       "total_usd": "0.02743005",
       "basis": "Provider response token counters and published Standard rates, before taxes or contract adjustments."
     },
+    "actual_invoice_usd": null,
+    "cloudinary_invoice_usd": null
+  },
+  "production_three_sample_latest": {
+    "openai_estimated_usd_for_metered_responses": null,
+    "paid_responses_with_token_cost": 0,
+    "all_started_paid_calls_had_priced_usage": true,
+    "basis": "Actual response token counters and published OpenAI Standard rates. Invoice, contract adjustments, and Cloudinary charges not reconciled.",
     "actual_invoice_usd": null,
     "cloudinary_invoice_usd": null
   }
