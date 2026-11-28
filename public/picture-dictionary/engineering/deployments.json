@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T01:47:50.637082Z",
+  "updated_at": "2026-11-28T05:12:13.810721Z",
   "status": "published_docs_provider_free_acceptance_complete",
   "environments": {
     "backend_production": {
@@ -104,6 +104,13 @@
       "deployed": true,
       "state": "internal_testflight_ready",
       "evidence": "tests.json"
+    },
+    "production_worker_preflight": {
+      "status": "deployed_read_only_generation_disabled",
+      "commit": "24c119f8cbad0068fb155c2d51015520a0818f16",
+      "queue": "paused and empty",
+      "scheduler": "paused",
+      "serving_api_traffic_changed": false
     }
   },
   "note": "Only a new staging worker and paused queue were deployed; no real AI call or production API rollout."

@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T04:56:49.725613Z",
+  "updated_at": "2026-11-28T05:12:13.810721Z",
   "status": "pending",
   "actions": [
     {
@@ -38,9 +38,9 @@
     },
     {
       "id": "N06",
-      "action": "Obtain a separately approved production preflight for the reviewed configuration, with dispatch, provider execution and generation kept frozen. Verify actual IAM and worker database binding, notification delivery and live-route fencing before proposing a switch.",
+      "action": "Complete unresolved production preflight verification without resuming delivery or generating images.",
       "requires": "A reviewed production mapping, verified production bindings before dispatch, and explicit owner approval before any production mutation.",
-      "status": "blocked_actual_production_binding",
+      "status": "awaiting_remaining_preconfiguration_evidence",
       "evidence": "production-cutover-review.json"
     },
     {

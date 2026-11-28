@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T04:56:49.725613Z",
-  "status": "legacy_fence_rehearsed_production_bindings_unprovisioned",
+  "updated_at": "2026-11-28T05:12:13.810721Z",
+  "status": "production_preconfigured_pending_remaining_checks",
   "agent": "codex/root",
   "read_first": [
     "manifest.json",
@@ -45,7 +45,7 @@
     "Production cutover prerequisites and explicit owner approval remain pending.",
     "Production durable worker, queue, scheduler, IAM and worker database bindings are absent or unverified. Live legacy revision retirement and drain remain pending."
   ],
-  "production_changed": false,
+  "production_changed": true,
   "phase": "Live staging image sample and physical iPhone offline recovery accepted",
   "code_commits": {
     "backend": "3e355ed59d85a3ef7d55eafb632c38e585b33798",
@@ -58,7 +58,7 @@
     "restricted_records": "https://glen.skillworks.dev/picture-dictionary/internal/",
     "site_pr": "https://github.com/zizewan-bot/skillworks-site/pull/2"
   },
-  "production_change_scope": "backend_and_mobile_release",
+  "production_change_scope": "New production worker, queue, scheduler, identities, read-only worker database binding, and notification preconfiguration. Legacy traffic and application rows unchanged.",
   "documentation_updated": true,
   "latest_backend_code_commit": "3e355ed59d85a3ef7d55eafb632c38e585b33798",
   "iphone_offline_recovery": {
@@ -102,17 +102,18 @@
     }
   },
   "production_cutover_review": {
-    "status": "legacy_fence_rehearsed_production_bindings_unprovisioned",
+    "status": "production_preconfigured_pending_remaining_checks",
     "evidence": "production-cutover-review.json",
     "approval_required": true,
     "isolated_rehearsal": "isolated_checks_passed_production_not_ready",
     "cutover_window_submitted": false,
-    "production_mutated": false,
+    "production_mutated": true,
     "prerequisites_checkpoint": "equivalent_delivery_and_scale_recovery_verified_release_integration_pending",
     "release_freeze_checkpoint": "historical_checkpoint_superseded_by_final_release_proof",
     "release_candidate": "3e355ed59d85a3ef7d55eafb632c38e585b33798",
     "release_verified": "release-generation-freeze-candidate",
     "production_delivery_definition": "reviewed_unbound",
-    "latest_legacy_evidence": "production-delivery-review-and-legacy-fence-final"
+    "latest_legacy_evidence": "production-delivery-review-and-legacy-fence-final",
+    "production_preconfiguration": "production-preconfiguration-checkpoint"
   }
 }

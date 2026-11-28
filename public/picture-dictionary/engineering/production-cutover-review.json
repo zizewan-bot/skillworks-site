@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T04:56:49.725613Z",
-  "status": "legacy_fence_rehearsed_production_bindings_unprovisioned",
+  "updated_at": "2026-11-28T05:12:13.810721Z",
+  "status": "production_preconfigured_pending_remaining_checks",
   "owner_approval_required": true,
   "production_switch_performed": false,
   "production_schema_changed": false,
@@ -53,8 +53,8 @@
     {
       "id": "G03",
       "area": "production_delivery",
-      "status": "reviewed_definition_blocked_actual_iam_and_database_binding",
-      "requires": "Actual production resources and effective IAM/database binding, full batch dispatcher timing, and alert delivery must be verified before scheduling activation.",
+      "status": "paused_production_configured_pending_full_verification",
+      "requires": "Finish effective caller proof, confirmed alert delivery and production-shaped batch timing while production delivery stays paused.",
       "isolated_rehearsal_status": "passed"
     },
     {
@@ -67,7 +67,7 @@
     {
       "id": "G05",
       "area": "approval",
-      "status": "approval_required",
+      "status": "awaiting_remaining_preconfiguration_evidence",
       "requires": "Present a production window, stop conditions, and exact steps for owner approval only after the remaining release checks are documented as satisfied.",
       "isolated_rehearsal_status": "approval_pending"
     }
@@ -366,5 +366,36 @@
     },
     "production_changed": false,
     "cutover_window_submitted": false
-  }
+  },
+  "production_preconfiguration": {
+    "id": "production-preconfiguration-checkpoint",
+    "status": "production_preconfigured_pending_remaining_checks",
+    "candidate_commit": "24c119f8cbad0068fb155c2d51015520a0818f16",
+    "scope": "User-authorized production preconfiguration while serving legacy traffic.",
+    "worker": {
+      "ready": true,
+      "generation_disabled": true,
+      "provider_credentials_present": false,
+      "postgres_binding_verified_on_startup": true,
+      "read_only_worker_database_role": true,
+      "application_table_schema_or_rows_changed": false,
+      "control_and_durable_tables_installed": false
+    },
+    "queue_paused_and_empty": true,
+    "scheduler_paused_and_never_attempted": true,
+    "scheduler_target_and_audience_verified": true,
+    "effective_runtime_permissions_verified": true,
+    "dedicated_caller_oidc_verified": true,
+    "notification_channel_provisioned": true,
+    "synthetic_alert_submitted": true,
+    "notification_delivered_inbox_verified": false,
+    "isolated_full_dispatch_batch": {
+      "status": "pending"
+    },
+    "live_legacy_api_traffic_changed": false,
+    "production_generation_enabled_by_this_work": false,
+    "production_queue_or_scheduler_resumed": false,
+    "cutover_window_submitted": false
+  },
+  "production_preconfiguration_applied": true
 }
