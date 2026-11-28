@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T06:53:53.831111Z",
-  "status": "production_additive_migration_verified_routing_validation",
+  "updated_at": "2026-11-28T06:56:13.202043Z",
+  "status": "frozen_candidate_live_legacy_drain_observing",
   "agent": "codex/root",
   "read_first": [
     "manifest.json",
@@ -102,7 +102,7 @@
     }
   },
   "production_cutover_review": {
-    "status": "production_additive_migration_verified_routing_validation",
+    "status": "frozen_candidate_live_legacy_drain_observing",
     "evidence": "production-cutover-review.json",
     "approval_required": false,
     "isolated_rehearsal": "isolated_checks_passed_production_not_ready",
@@ -165,6 +165,6 @@
       },
       "production_mutated_by_status_audit": false
     },
-    "current_cutover_stage": "replacement-window-migration_complete"
+    "current_cutover_stage": "replacement-window-frozen_traffic_live"
   }
 }
