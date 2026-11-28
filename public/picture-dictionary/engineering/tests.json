@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T08:53:54.130210Z",
+  "updated_at": "2026-11-28T08:55:37.642006Z",
   "status": "provider_free_staging_verified",
   "runs": [
     {
@@ -2304,6 +2304,34 @@
         "The original Scheduler job-to-worker dispatch and delivery still require a separately approved rerun."
       ],
       "next_gate": "Complete the exact-principal read-only verification before asking for a production rerun. Keep Stage 2 on hold."
+    },
+    {
+      "id": "production-scheduler-identity-read-only-access",
+      "status": "passed",
+      "updated_at": "2026-11-28T08:55:37.642006Z",
+      "verification": {
+        "same_production_scheduler_service_account": true,
+        "subject_and_audience_verified_by_read_only_endpoint": true,
+        "authenticated_http_status": 200,
+        "anonymous_http_status": 403,
+        "incorrect_audience_http_status": 401,
+        "valid_identity_initial_iam_rejections": 2,
+        "production_scheduler_triggered": false,
+        "production_scheduler_paused_and_queue_paused_empty": true,
+        "ordinary_generation_frozen": true,
+        "historical_backlog_replayed": false,
+        "new_production_provider_calls": 0,
+        "temporary_probe_resources_removed": true
+      },
+      "scope": "A private, GET-only authorization fixture with no database, task or model routes was accessed using the production scheduler service account. The actual production Scheduler job was kept paused.",
+      "failures": [
+        "The isolated endpoint initially rejected the correctly scoped identity token, then accepted the same token without an IAM configuration change. This is consistent with IAM propagation delay."
+      ],
+      "unknowns": [
+        "The exact cause of the original 403 was not established.",
+        "The original Scheduler job-to-worker dispatch and delivery still require a separately approved rerun."
+      ],
+      "next_gate": "Request separate approval for one production Stage 1 rerun. Repeat authenticated readiness checks on the actual substitute before trigger. Keep Stage 2 on hold."
     }
   ]
 }
