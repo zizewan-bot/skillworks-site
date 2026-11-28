@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T05:18:12.115399Z",
+  "updated_at": "2026-11-28T05:36:57.449035Z",
   "status": "pending",
   "actions": [
     {
@@ -38,9 +38,9 @@
     },
     {
       "id": "N06",
-      "action": "Owner approves or revises the proposed cutover window. Keep delivery and generation held until approval.",
-      "requires": "A reviewed production mapping, verified production bindings before dispatch, and explicit owner approval before any production mutation.",
-      "status": "window_proposed_owner_approval_required",
+      "action": "At the owner-approved window, verify recovery and frozen preconditions, carry out the additive migration and frozen API cutover, then verify legacy drain.",
+      "requires": "Production queue and Scheduler stay paused. Keep shared admission frozen and paid provider execution disabled. Record all stop or rollback decisions.",
+      "status": "scheduled_approved_window",
       "evidence": "production-cutover-review.json"
     },
     {

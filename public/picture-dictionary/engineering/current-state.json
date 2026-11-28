@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T05:18:12.115399Z",
-  "status": "production_preconfiguration_verified_awaiting_switch_approval",
+  "updated_at": "2026-11-28T05:36:57.449035Z",
+  "status": "owner_approved_frozen_cutover_scheduled",
   "agent": "codex/root",
   "read_first": [
     "manifest.json",
@@ -102,9 +102,9 @@
     }
   },
   "production_cutover_review": {
-    "status": "production_preconfiguration_verified_awaiting_switch_approval",
+    "status": "owner_approved_frozen_cutover_scheduled",
     "evidence": "production-cutover-review.json",
-    "approval_required": true,
+    "approval_required": false,
     "isolated_rehearsal": "isolated_checks_passed_production_not_ready",
     "cutover_window_submitted": true,
     "production_mutated": true,
@@ -114,6 +114,9 @@
     "release_verified": "release-generation-freeze-candidate",
     "production_delivery_definition": "reviewed_unbound",
     "latest_legacy_evidence": "production-delivery-review-and-legacy-fence-final",
-    "production_preconfiguration": "production-preconfiguration-final"
+    "production_preconfiguration": "production-preconfiguration-final",
+    "owner_approval": "confirmed_for_frozen_cutover",
+    "schedule": "scheduled_in_existing_project_thread",
+    "paid_generation_separate_approval_required": true
   }
 }

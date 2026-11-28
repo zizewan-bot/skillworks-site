@@ -1,9 +1,9 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T05:18:12.115399Z",
-  "status": "production_preconfiguration_verified_awaiting_switch_approval",
-  "owner_approval_required": true,
+  "updated_at": "2026-11-28T05:36:57.449035Z",
+  "status": "owner_approved_frozen_cutover_scheduled",
+  "owner_approval_required": false,
   "production_switch_performed": false,
   "production_schema_changed": false,
   "scope": [
@@ -67,8 +67,8 @@
     {
       "id": "G05",
       "area": "approval",
-      "status": "window_proposed_owner_approval_required",
-      "requires": "Present a production window, stop conditions, and exact steps for owner approval only after the remaining release checks are documented as satisfied.",
+      "status": "owner_approved_window_scheduled",
+      "requires": "Execute only the approved frozen cutover in its confirmed window. Keep production dispatch paused and paid image and text generation held.",
       "isolated_rehearsal_status": "approval_pending"
     }
   ],
@@ -414,5 +414,14 @@
     "production_queue_or_scheduler_resumed": false,
     "cutover_window_submitted": true
   },
-  "production_preconfiguration_applied": true
+  "production_preconfiguration_applied": true,
+  "cutover_execution_started": false,
+  "cutover_approval": {
+    "status": "approved_and_scheduled",
+    "window_confirmed": true,
+    "scheduled_execution": true,
+    "scope": "frozen_api_cutover_and_legacy_drain",
+    "production_queue_and_scheduler_remain_paused": true,
+    "paid_generation_requires_separate_approval": true
+  }
 }
