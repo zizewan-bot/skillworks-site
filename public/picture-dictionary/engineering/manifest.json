@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T06:51:36.180419Z",
+  "updated_at": "2026-11-28T06:53:53.831111Z",
   "status": "in_progress",
   "version": "1.1.0",
   "url": "https://skillworks.dev/picture-dictionary/engineering/manifest.json",
@@ -75,15 +75,15 @@
       "url": "https://skillworks.dev/picture-dictionary/engineering/current-state.json",
       "path": "current-state.json",
       "version": "1.0.0",
-      "updated_at": "2026-11-28T06:51:36.180419Z",
-      "status": "live_preflight_verified_authorized_migration_next"
+      "updated_at": "2026-11-28T06:53:53.831111Z",
+      "status": "production_additive_migration_verified_routing_validation"
     },
     {
       "id": "next-actions",
       "url": "https://skillworks.dev/picture-dictionary/engineering/next-actions.json",
       "path": "next-actions.json",
       "version": "1.0.0",
-      "updated_at": "2026-11-28T06:51:36.180419Z",
+      "updated_at": "2026-11-28T06:53:53.831111Z",
       "status": "pending"
     },
     {
@@ -91,7 +91,7 @@
       "url": "https://skillworks.dev/picture-dictionary/engineering/tests.json",
       "path": "tests.json",
       "version": "1.0.0",
-      "updated_at": "2026-11-28T06:51:36.180419Z",
+      "updated_at": "2026-11-28T06:53:53.831111Z",
       "status": "provider_free_staging_verified"
     },
     {
@@ -107,7 +107,7 @@
       "url": "https://skillworks.dev/picture-dictionary/engineering/timeline.jsonl",
       "path": "timeline.jsonl",
       "version": "1.0.0",
-      "updated_at": "2026-11-28T06:51:36.180419Z",
+      "updated_at": "2026-11-28T06:53:53.831111Z",
       "status": "append_only"
     },
     {
@@ -131,8 +131,8 @@
       "path": "production-cutover-review.json",
       "url": "https://skillworks.dev/picture-dictionary/engineering/production-cutover-review.json",
       "version": "1.0.0",
-      "updated_at": "2026-11-28T06:51:36.180419Z",
-      "status": "live_preflight_verified_authorized_migration_next"
+      "updated_at": "2026-11-28T06:53:53.831111Z",
+      "status": "production_additive_migration_verified_routing_validation"
     }
   ],
   "retrieval": {

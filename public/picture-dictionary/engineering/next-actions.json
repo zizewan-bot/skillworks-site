@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T06:51:36.180419Z",
+  "updated_at": "2026-11-28T06:53:53.831111Z",
   "status": "pending",
   "actions": [
     {
@@ -40,7 +40,7 @@
       "id": "N06",
       "action": "Continue approved preconditions and verify immutable frozen routing and legacy drain.",
       "requires": "Production queue and Scheduler stay paused. Keep shared admission frozen and paid provider execution disabled. Record all stop or rollback decisions.",
-      "status": "live_preflight_verified_authorized_migration_next",
+      "status": "production_additive_migration_verified_routing_validation",
       "evidence": "production-cutover-review.json"
     },
     {
