@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-23T10:30:17.691859Z",
+  "updated_at": "2026-11-28T07:08:51.740316Z",
   "status": "partial",
   "actual_billing_usd": null,
   "estimated_cost_usd": null,
@@ -93,5 +93,10 @@
       "Single sample does not establish SLA or model quality across vocabulary",
       "Physical iPhone and production activation remain pending"
     ]
+  },
+  "production_one_sample_latest": {
+    "usage_derived_openai": null,
+    "actual_invoice_usd": null,
+    "cloudinary_invoice_usd": null
   }
 }

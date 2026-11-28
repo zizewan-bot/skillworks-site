@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T07:04:47.804385Z",
+  "updated_at": "2026-11-28T07:08:51.740316Z",
   "status": "pending",
   "actions": [
     {
@@ -61,5 +61,9 @@
       "device_revalidation": "search_and_pending_image_offline_recovery_accepted",
       "pending_fixture": "cleanup_verified"
     }
-  ]
+  ],
+  "production_paid_validation": {
+    "status": "production_paid_single_sample_authorized",
+    "requires_separate_expansion_approval": true
+  }
 }

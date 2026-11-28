@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T07:04:47.804385Z",
+  "updated_at": "2026-11-28T07:08:51.740316Z",
   "status": "frozen_production_cutover_complete_delivery_held",
   "owner_approval_required": false,
   "production_switch_performed": true,
@@ -500,5 +500,41 @@
     "production_scheduler_paused": true,
     "paid_calls_initiated_by_this_execution": 0,
     "new_provider_execution_enabled": false
+  },
+  "latest_production_paid_validation": {
+    "id": "production-single-paid-validation-authorized",
+    "status": "production_paid_single_sample_authorized",
+    "observed_at": "2026-11-28T07:08:51.740316Z",
+    "candidate_commit": "24c119f8cbad0068fb155c2d51015520a0818f16",
+    "sample_count": 0,
+    "data_scope": "One synthetic fixture description. No user data or production dictionary rows were read for generation.",
+    "path": "Operator one-shot with the production provider references and existing image prompt and vision helper. Production API, worker and delivery were held.",
+    "calls_started": {
+      "image": 0,
+      "vision": 0,
+      "standalone_text": 0
+    },
+    "provider_responses_received": {
+      "image": 0,
+      "vision": 0
+    },
+    "provider_durations_seconds": {},
+    "validation_total_seconds": null,
+    "authenticated_storage_roundtrip": false,
+    "safety_and_subject_checks_passed": false,
+    "test_asset_cleanup_verified": false,
+    "production_database_test_rows_created": false,
+    "ordinary_generation_opened": false,
+    "queue_and_scheduler_remain_paused": true,
+    "production_backlog_replayed": false,
+    "production_shared_admission_remains_frozen": true,
+    "before_after_hold_verification": false,
+    "model_access_verified": true,
+    "cost": {
+      "usage_derived_openai": null,
+      "actual_invoice_usd": null,
+      "cloudinary_invoice_usd": null
+    },
+    "expansion_authorized": false
   }
 }
