@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T02:57:45.377872Z",
+  "updated_at": "2026-11-28T02:59:52.801257Z",
   "status": "pending",
   "actions": [
     {
@@ -48,16 +48,16 @@
     },
     {
       "id": "N08",
-      "status": "internal_testflight_ready",
-      "action": "Reconnect the iPhone on the same result screen and verify automatic refresh to the controlled image-unavailable result. Remove the marked test fixture after the observation.",
-      "requires": "Owner observation after restoring connectivity on TestFlight 1.0.1 (15)",
+      "status": "complete_user_confirmed",
+      "action": "Internal TestFlight 1.0.1 (15) Search and pending-image offline recovery accepted on physical iPhone; staging fixture removed and absence verified",
+      "requires": "None for this internal TestFlight work item",
       "local_preflight": "passed",
       "evidence": "tests.json",
       "apple_verification": "completed",
       "candidate_build": 15,
       "candidate_version": "1.0.1",
-      "device_revalidation": "search_offline_recovery_accepted",
-      "pending_fixture": "controlled_terminal_state_verified"
+      "device_revalidation": "search_and_pending_image_offline_recovery_accepted",
+      "pending_fixture": "cleanup_verified"
     }
   ]
 }

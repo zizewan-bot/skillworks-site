@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T02:57:45.377872Z",
+  "updated_at": "2026-11-28T02:59:52.801257Z",
   "status": "provider_free_staging_verified",
   "runs": [
     {
@@ -348,6 +348,25 @@
       "controlled_server_transition": "pending to failed; verified by staging admin execution",
       "fixture_image_attempt_count": 0,
       "post_reconnection_refresh": "awaiting owner observation"
+    },
+    {
+      "id": "ios-testflight-1.0.1-15-physical-pending-image-recovery",
+      "result": "passed_user_confirmed",
+      "version": "1.0.1",
+      "build": 15,
+      "environment": "staging",
+      "offline_seconds_approximate": 35,
+      "offline_pending_preserved": true,
+      "manual_search_or_reload_after_reconnection": false,
+      "same_result_screen_applied_server_state_automatically": true,
+      "server_transition": "pending to controlled image unavailable",
+      "source": "owner device observation and staging fixture execution records",
+      "fixture_cleanup": "marked staging sample and only its fixture references removed; subsequent independent read verified absence",
+      "paid_ai_calls_for_fixture": 0,
+      "limitations": [
+        "Controlled terminal-result fixture, separate from real image generation",
+        "TestFlight internal testing only"
+      ]
     }
   ]
 }

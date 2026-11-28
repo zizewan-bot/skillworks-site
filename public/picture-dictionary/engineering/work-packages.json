@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T01:47:50.637082Z",
+  "updated_at": "2026-11-28T02:59:52.801257Z",
   "status": "in_progress",
   "packages": [
     {
@@ -25,8 +25,8 @@
     {
       "id": "WP03",
       "title": "Shared iOS connection recovery",
-      "status": "physical_iphone_offline_recovery_accepted_by_user",
-      "remaining": "Internal-only iOS 1.0.1 (15), staging backend. Apple upload: received and verified in App Store Connect. TestFlight: Ready to Test. Export compliance: Saved owner-confirmed declaration: none of the listed algorithms; Missing Compliance cleared.",
+      "status": "internal_testflight_device_acceptance_complete",
+      "remaining": "Production mobile rollout is tracked separately",
       "evidence": "tests.json"
     },
     {
