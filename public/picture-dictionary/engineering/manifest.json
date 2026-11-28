@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T03:45:59.650803Z",
+  "updated_at": "2026-11-28T03:55:25.680143Z",
   "status": "in_progress",
   "version": "1.1.0",
   "url": "https://skillworks.dev/picture-dictionary/engineering/manifest.json",
@@ -75,7 +75,7 @@
       "url": "https://skillworks.dev/picture-dictionary/engineering/current-state.json",
       "path": "current-state.json",
       "version": "1.0.0",
-      "updated_at": "2026-11-28T03:45:59.613987Z",
+      "updated_at": "2026-11-28T03:55:25.642951Z",
       "status": "staging_sample_and_iphone_offline_recovery_accepted"
     },
     {
@@ -107,7 +107,7 @@
       "url": "https://skillworks.dev/picture-dictionary/engineering/timeline.jsonl",
       "path": "timeline.jsonl",
       "version": "1.0.0",
-      "updated_at": "2026-11-28T03:45:59.650803Z",
+      "updated_at": "2026-11-28T03:55:25.680143Z",
       "status": "append_only"
     },
     {
@@ -131,7 +131,7 @@
       "path": "production-cutover-review.json",
       "url": "https://skillworks.dev/picture-dictionary/engineering/production-cutover-review.json",
       "version": "1.0.0",
-      "updated_at": "2026-11-28T03:45:59.613987Z",
+      "updated_at": "2026-11-28T03:55:25.642951Z",
       "status": "isolated_rehearsal_reviewed_production_prerequisites_remain"
     }
   ]

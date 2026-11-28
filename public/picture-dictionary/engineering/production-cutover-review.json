@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T03:45:59.613987Z",
+  "updated_at": "2026-11-28T03:55:25.642951Z",
   "status": "isolated_rehearsal_reviewed_production_prerequisites_remain",
   "owner_approval_required": true,
   "production_switch_performed": false,
@@ -135,5 +135,14 @@
     "paid_ai_calls": 0,
     "production_mutated": false,
     "cutover_window_submitted": false
+  },
+  "prerequisites_rehearsal_checkpoint": {
+    "id": "production-equivalent-prerequisites-checkpoint",
+    "status": "read_only_classification_and_local_gate_verified_cloud_exercises_in_progress",
+    "backlog": "All pending generatable entries classified without writes; no untouched candidate for automatic replay. Exact aggregates restricted.",
+    "scale": "Synthetic legacy row counts matched selected production table counts. Local preflight logical database size ratio 1.066. No customer records copied.",
+    "freeze": "Shared PostgreSQL gate blocked relevant API and guarded callback admissions; active lock prevented reopening. Production integration not asserted.",
+    "managed_restore": "Temporary synthetic instances provisioning",
+    "delivery": "Separate private staging API, worker, queue and scheduler being provisioned"
   }
 }
