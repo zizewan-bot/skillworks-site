@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T09:12:19.148688Z",
+  "updated_at": "2026-11-28T09:14:52.169642Z",
   "status": "frozen_production_cutover_complete_delivery_held",
   "owner_approval_required": false,
   "production_switch_performed": true,
@@ -737,19 +737,19 @@
     },
     "isolated_dispatch_diagnosis": {
       "id": "isolated-scheduler-dispatch-diagnosis",
-      "status": "isolated_diagnosis_in_progress",
-      "updated_at": "2026-11-28T09:12:19.148688Z",
+      "status": "isolated_rejection_classified",
+      "updated_at": "2026-11-28T09:14:52.169642Z",
       "diagnostic": {
-        "legacy_scheduler_http_status": null,
-        "token_signature_and_audience_verified": null,
-        "expected_service_account_email_and_subject": null,
-        "email_verified_representation": null,
-        "legacy_identity_check_passed": null,
-        "configured_scheduler_job_header_matched": null,
-        "documented_header_shape": null,
-        "isolated_root_cause": null
+        "legacy_scheduler_http_status": 403,
+        "token_signature_and_audience_verified": true,
+        "expected_service_account_email_and_subject": true,
+        "email_verified_representation": "boolean_true",
+        "legacy_identity_check_passed": true,
+        "configured_scheduler_job_header_matched": false,
+        "documented_header_shape": "expected_short",
+        "isolated_root_cause": "The isolated Scheduler used the exact short job name in its request header. The original substitute accepted only the project-ID and project-number full resource forms. Signed token, audience, expected email and subject, and the legacy boolean email verification check all passed."
       },
-      "fix": null,
+      "fix": "The substitute now recognizes the exact configured short job name as well as both configured full resource names. OIDC verification still runs before any dispatch, and all other job names are rejected.",
       "evidence": {
         "fixed_scheduler_http_status": null,
         "same_isolated_named_task_deliveries": null,
@@ -765,9 +765,11 @@
         "historical_backlog_replayed": false,
         "production_admission_frozen": null
       },
-      "failures": [],
+      "failures": [
+        "The original fixture reproduced an application HTTP 403 after correctly authenticating the isolated Scheduler. The job-name check alone failed."
+      ],
       "unverified": [
-        "Isolated proof is pending."
+        "The production rerun is held. Historical production logs did not capture the header shape; the isolated test reproduces the failure with the same original matcher and a real Cloud Scheduler. No production action is implied."
       ],
       "next_action": "Complete the isolated diagnosis and same-task duplicate-delivery proof. Stage 2 remains held."
     }
