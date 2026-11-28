@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T03:55:25.642951Z",
+  "updated_at": "2026-11-28T04:01:57.517567Z",
   "status": "isolated_rehearsal_reviewed_production_prerequisites_remain",
   "owner_approval_required": true,
   "production_switch_performed": false,
@@ -144,5 +144,15 @@
     "freeze": "Shared PostgreSQL gate blocked relevant API and guarded callback admissions; active lock prevented reopening. Production integration not asserted.",
     "managed_restore": "Temporary synthetic instances provisioning",
     "delivery": "Separate private staging API, worker, queue and scheduler being provisioned"
+  },
+  "production_equivalent_delivery_checkpoint": {
+    "id": "production-equivalent-delivery-and-freeze",
+    "status": "isolated_production_equivalent_delivery_passed_representative_restore_running",
+    "delivery": "Actual natural OIDC Scheduler tick, transactional outbox, owned Cloud Tasks queue and separate IAM-private worker. Two synthetic jobs executed exactly once each.",
+    "freeze": "Shared PostgreSQL gate denied live delivery without claiming the second job and blocked API, callback and isolated admin paths. The active first job drained before reopening. Retry succeeded after reopening and duplicate delivery did not run the fixture again.",
+    "managed_restore": "Representative synthetic managed backup verified and restore in progress. No production backup copied.",
+    "runtime_cleanup": "Temporary scheduler, queue, private services, admin job, and staging schema verified absent.",
+    "provider_calls": 0,
+    "production_mutated": false
   }
 }
