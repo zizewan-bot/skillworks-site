@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T09:17:22.332787Z",
+  "updated_at": "2026-11-28T09:19:32.075998Z",
   "status": "pending",
   "actions": [
     {
@@ -67,7 +67,7 @@
     "requires_separate_expansion_approval": true
   },
   "production_queue_canary": {
-    "status": "passed",
-    "action": "Await separate owner approval for one provider-free production rerun using the verified dispatch fixture. Stage 2 remains held."
+    "status": "approved_preparation_in_progress",
+    "action": "Finish the one owner-approved provider-free production queue rerun; Stage 2 remains held."
   }
 }

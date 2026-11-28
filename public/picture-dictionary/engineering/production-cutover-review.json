@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T09:17:22.332787Z",
+  "updated_at": "2026-11-28T09:19:32.075998Z",
   "status": "frozen_production_cutover_complete_delivery_held",
   "owner_approval_required": false,
   "production_switch_performed": true,
@@ -772,6 +772,46 @@
         "The production rerun is held. Historical production logs did not capture the header shape; the isolated test reproduces the failure with the same original matcher and a real Cloud Scheduler. No production action is implied."
       ],
       "next_action": "Await separate owner approval for one provider-free production rerun using the verified dispatch fixture. Stage 2 remains held."
+    },
+    "production_fixed_rerun": {
+      "id": "production-scheduler-fixed-provider-free-rerun",
+      "status": "approved_preparation_in_progress",
+      "updated_at": "2026-11-28T09:19:32.075998Z",
+      "limits": {
+        "fixed_synthetic_task_max": 1,
+        "production_scheduler_manual_triggers_max": 1,
+        "same_named_task_deliveries_max": 2,
+        "paid_ai_calls_max": 0
+      },
+      "evidence": {
+        "authenticated_scheduler_job_name_form": null,
+        "authenticated_read_only_status": null,
+        "original_scheduler_principal_and_actual_worker_revision_verified": null,
+        "production_scheduler_trigger_requests": 0,
+        "named_task_created": false,
+        "manual_named_delivery_requests": 0,
+        "worker_http_deliveries_observed": null,
+        "scheduler_dispatch_response_status": null,
+        "dispatch_http_rejection_recorded_by_substitute_application": null,
+        "fixture_execution_count": null,
+        "duplicate_suppression_count": null,
+        "terminal_state": null,
+        "production_delivery_monitoring_verified": null,
+        "original_scheduler_target_restored": null,
+        "scheduler_paused": null,
+        "queue_paused_empty": null,
+        "ordinary_generation_frozen": null,
+        "historical_backlog_replayed": false,
+        "production_model_calls": null,
+        "fixture_provider_ledger_rows": null,
+        "ai_fee_usd": null,
+        "temporary_samples_and_permissions_cleaned": null
+      },
+      "next_gate": "Finish the one owner-approved provider-free production queue rerun; Stage 2 remains held.",
+      "failures": [],
+      "unverified": [
+        "Pending production delivery and restoration results."
+      ]
     }
   }
 }
