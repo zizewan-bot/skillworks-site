@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T03:20:22.894849Z",
+  "updated_at": "2026-11-28T03:37:56.755572Z",
   "status": "staging_sample_and_iphone_offline_recovery_accepted",
   "agent": "codex/root",
   "read_first": [
@@ -97,6 +97,6 @@
     "status": "reviewed_no_go_pending_prerequisites_and_owner_approval",
     "evidence": "production-cutover-review.json",
     "approval_required": true,
-    "isolated_rehearsal": "drain_and_traffic_rollback_rehearsed_managed_backup_pending"
+    "isolated_rehearsal": "synthetic_managed_backup_verified_restore_in_progress"
   }
 }

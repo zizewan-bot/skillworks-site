@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T03:20:22.894849Z",
+  "updated_at": "2026-11-28T03:37:56.755572Z",
   "status": "reviewed_no_go_pending_prerequisites_and_owner_approval",
   "owner_approval_required": true,
   "production_switch_performed": false,
@@ -83,7 +83,8 @@
     "rollback": "Real isolated IAM-protected Cloud Run revision switch and rollback under the synthetic freeze, and separate PostgreSQL rollback compatibility verified",
     "traffic_rollback_seconds": 9.8,
     "temporary_cloud_run_removed": true,
-    "managed_backup_status": "disposable synthetic instances provisioning",
-    "production_mutated": false
+    "managed_backup_status": "synthetic_managed_backup_verified_restore_in_progress",
+    "production_mutated": false,
+    "lock_timeout": "DDL contention caused the bounded migration to abort without partial tables; succeeded after release"
   }
 }
