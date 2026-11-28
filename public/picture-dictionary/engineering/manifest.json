@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T04:42:38.335954Z",
+  "updated_at": "2026-11-28T04:43:48.161574Z",
   "status": "in_progress",
   "version": "1.1.0",
   "url": "https://skillworks.dev/picture-dictionary/engineering/manifest.json",
@@ -107,7 +107,7 @@
       "url": "https://skillworks.dev/picture-dictionary/engineering/timeline.jsonl",
       "path": "timeline.jsonl",
       "version": "1.0.0",
-      "updated_at": "2026-11-28T04:42:38.335954Z",
+      "updated_at": "2026-11-28T04:43:48.161574Z",
       "status": "append_only"
     },
     {
@@ -134,5 +134,11 @@
       "updated_at": "2026-11-28T04:42:38.335954Z",
       "status": "release_freeze_verified_production_delivery_bindings_missing"
     }
-  ]
+  ],
+  "retrieval": {
+    "method": "GET",
+    "public_authentication_required": false,
+    "verified_user_agent": "skillworks-records-audit/1.0",
+    "default_python_urllib_user_agent_observed_status": 403
+  }
 }
