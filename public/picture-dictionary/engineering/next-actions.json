@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T08:41:09.636503Z",
+  "updated_at": "2026-11-28T08:53:54.130210Z",
   "status": "pending",
   "actions": [
     {
@@ -67,7 +67,7 @@
     "requires_separate_expansion_approval": true
   },
   "production_queue_canary": {
-    "status": "blocked_or_partial",
-    "action": "Resolve recorded Stage 1 gaps under an owner-approved scope. Stage 2 is held."
+    "status": "in_progress",
+    "action": "Complete the exact-principal read-only verification before asking for a production rerun. Keep Stage 2 on hold."
   }
 }

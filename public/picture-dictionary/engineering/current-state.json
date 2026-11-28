@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T08:41:09.636503Z",
+  "updated_at": "2026-11-28T08:53:54.130210Z",
   "status": "frozen_production_cutover_complete_delivery_held",
   "agent": "codex/root",
   "read_first": [
@@ -217,6 +217,32 @@
         "Production named task delivery, a second arrival, duplicate suppression and a completed task state remain unverified. No additional Scheduler trigger or task delivery was issued."
       ],
       "next_gate": "Diagnose authenticated access in an isolated test before requesting a newly authorized Stage 1 rerun. Stage 2 remains pending."
+    },
+    "production_queue_canary_identity_follow_up": {
+      "id": "production-scheduler-identity-read-only-access",
+      "status": "in_progress",
+      "updated_at": "2026-11-28T08:53:54.130210Z",
+      "verification": {
+        "same_production_scheduler_service_account": null,
+        "subject_and_audience_verified_by_read_only_endpoint": null,
+        "authenticated_http_status": null,
+        "anonymous_http_status": null,
+        "incorrect_audience_http_status": null,
+        "valid_identity_initial_iam_rejections": null,
+        "production_scheduler_triggered": false,
+        "production_scheduler_paused_and_queue_paused_empty": null,
+        "ordinary_generation_frozen": null,
+        "historical_backlog_replayed": false,
+        "new_production_provider_calls": null,
+        "temporary_probe_resources_removed": null
+      },
+      "scope": "A private, GET-only authorization fixture with no database, task or model routes was accessed using the production scheduler service account. The actual production Scheduler job was kept paused.",
+      "failures": [],
+      "unknowns": [
+        "The exact cause of the original 403 was not established.",
+        "The original Scheduler job-to-worker dispatch and delivery still require a separately approved rerun."
+      ],
+      "next_gate": "Complete the exact-principal read-only verification before asking for a production rerun. Keep Stage 2 on hold."
     }
   }
 }
