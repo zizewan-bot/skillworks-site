@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T03:45:59.613987Z",
+  "updated_at": "2026-11-28T04:17:15.476464Z",
   "status": "provider_free_staging_verified",
   "runs": [
     {
@@ -420,6 +420,43 @@
         "managed_cloud_sql_synthetic_resources_verified_absent": true
       },
       "paid_ai_calls": 0,
+      "production_mutated": false,
+      "cutover_window_submitted": false
+    },
+    {
+      "id": "production-equivalence-and-representative-recovery",
+      "status": "equivalent_delivery_and_scale_recovery_verified_release_integration_pending",
+      "backlog_classification": {
+        "status": "verified_read_only",
+        "coverage": "All pending generatable entries fell into exclusive categories; no untouched candidate qualified in the observed snapshot.",
+        "no_automatic_replay_recommended": true,
+        "exact_aggregates": "restricted review"
+      },
+      "freeze_and_delivery": {
+        "status": "passed_in_production_equivalent_isolation",
+        "verified_packaged_runtime_blobs": 11,
+        "evidence": "Separate IAM-private API and worker, actual natural OIDC Scheduler tick, transactional outbox, Cloud Tasks at the planned limits, shared PostgreSQL freeze, blocked in-flight retry claim, text/image/scheduling callback guards, separate frozen admin invocation, successful reopen and duplicate acknowledgment.",
+        "frozen_delivery_returned_retryable": true,
+        "no_fixture_replay_and_zero_paid_provider_calls": true,
+        "release_limit": "The tested shared freeze was provided by a separate isolated rehearsal adapter. At the reviewed candidate revision, the two release Dockerfiles enter app.main:app and app.worker_app:app directly; neither uses the tested adapter. The running legacy production revision and release candidate have not been proven to enforce this gate."
+      },
+      "representative_managed_backup_restore": {
+        "status": "passed_at_representative_logical_scale",
+        "environment": "separate synthetic Cloud SQL PostgreSQL 16 with matching shared-core tier, storage allocation, selected table row counts, and dictionary payload width",
+        "logical_database_size_ratio_vs_read_only_production_aggregate": 1.073,
+        "used_production_rows_or_production_backup": false,
+        "limitations": "Managed synthetic snapshot restore under isolated load; the measured duration is not a guaranteed production recovery time or a production PITR test.",
+        "managed_backup_seconds": 88.3,
+        "managed_restore_operation_seconds": 862.2,
+        "managed_restore_to_verified_query_seconds": 888.5,
+        "candidate_additive_startup_and_verification_seconds": 3.9,
+        "pre_change_snapshot_and_selected_table_counts_match": true,
+        "matched_table_count": 8
+      },
+      "cleanup": {
+        "runtime_and_schema_verified_absent": true,
+        "synthetic_managed_instances_and_backup_verified_absent": true
+      },
       "production_mutated": false,
       "cutover_window_submitted": false
     }

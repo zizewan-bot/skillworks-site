@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T04:01:57.517567Z",
+  "updated_at": "2026-11-28T04:17:15.476464Z",
   "status": "staging_sample_and_iphone_offline_recovery_accepted",
   "agent": "codex/root",
   "read_first": [
@@ -29,7 +29,9 @@
     "Physical iPhone offline recovery accepted by user on 2026-11-27 (America/Los_Angeles)",
     "Internal TestFlight 1.0.1 (15) passed physical iPhone Search recovery and pending-image polling recovery against staging",
     "Production cutover review completed; PostgreSQL 16 synthetic migration, old-revision startup and separate restore rehearsed.",
-    "Isolated legacy drain and rollback rehearsed; temporary Cloud Run service and synthetic managed database resources cleaned."
+    "Isolated legacy drain and rollback rehearsed; temporary Cloud Run service and synthetic managed database resources cleaned.",
+    "Read-only backlog classification and isolation freeze/delivery completed; temporary resources cleaned.",
+    "Representative logical-scale managed Cloud SQL restore and candidate startup verified on entirely synthetic data."
   ],
   "not_completed": [
     "Real OpenAI/Cloudinary acceptance and controlled activation",
@@ -95,12 +97,12 @@
     }
   },
   "production_cutover_review": {
-    "status": "isolated_rehearsal_reviewed_production_prerequisites_remain",
+    "status": "equivalent_delivery_and_scale_recovery_verified_release_integration_pending",
     "evidence": "production-cutover-review.json",
     "approval_required": true,
     "isolated_rehearsal": "isolated_checks_passed_production_not_ready",
     "cutover_window_submitted": false,
     "production_mutated": false,
-    "prerequisites_checkpoint": "isolated_production_equivalent_delivery_passed_representative_restore_running"
+    "prerequisites_checkpoint": "equivalent_delivery_and_scale_recovery_verified_release_integration_pending"
   }
 }

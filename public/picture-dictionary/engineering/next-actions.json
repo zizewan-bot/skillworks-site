@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T03:45:59.613987Z",
+  "updated_at": "2026-11-28T04:17:15.476464Z",
   "status": "pending",
   "actions": [
     {
@@ -38,9 +38,9 @@
     },
     {
       "id": "N06",
-      "action": "Resolve the remaining production-shaped prerequisites before submitting a switch window and the owner approval request",
-      "requires": "G01 through G04 acceptance; no production mutation before owner approval",
-      "status": "isolated_rehearsal_reviewed_production_prerequisites_remain",
+      "action": "Integrate the isolated freeze into the release artifact and verify production configuration mapping before submitting the owner approval request.",
+      "requires": "Release integration and production-bound configuration evidence; explicit approval prior to any production mutation",
+      "status": "equivalent_delivery_and_scale_recovery_verified_release_integration_pending",
       "evidence": "production-cutover-review.json"
     },
     {

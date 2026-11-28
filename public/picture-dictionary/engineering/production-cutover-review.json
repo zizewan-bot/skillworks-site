@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T04:01:57.517567Z",
-  "status": "isolated_rehearsal_reviewed_production_prerequisites_remain",
+  "updated_at": "2026-11-28T04:17:15.476464Z",
+  "status": "equivalent_delivery_and_scale_recovery_verified_release_integration_pending",
   "owner_approval_required": true,
   "production_switch_performed": false,
   "production_schema_changed": false,
@@ -28,36 +28,36 @@
     {
       "id": "G01",
       "area": "database_migration",
-      "status": "blocked",
-      "requires": "Complete an authorized representative Cloud SQL restore using production-sized data or a documented equivalent. Confirm production backup recovery point, lock/runtime budgets and a single additive migration executor before any write.",
+      "status": "representative_restore_verified",
+      "requires": "Record a fresh recovery point, verified migration lock bounds and a single migration executor at the eventual approved change window. The synthetic timing is planning evidence; no production restore was run.",
       "isolated_rehearsal_status": "passed"
     },
     {
       "id": "G02",
       "area": "legacy_drain",
-      "status": "blocked",
-      "requires": "Make the production-facing generation/retry freeze enforceable, including legacy text callbacks and admin paths. Verify evidence of drain and reconcile the historical pending pool without granting new attempt budgets.",
+      "status": "blocked_release_integration",
+      "requires": "Connect the proven cross-process freeze to the actual release artifact and all remaining legacy/admin entry points, demonstrate retirement or independent drain of the unguarded legacy revision, and keep the classified backlog held for explicit review.",
       "isolated_rehearsal_status": "passed"
     },
     {
       "id": "G03",
       "area": "production_delivery",
-      "status": "blocked",
-      "requires": "Pin the complete production release artifact and verify production-bound queue, scheduler, private worker, identities and alarms in a provider-disabled rehearsal before connecting them to the live database.",
+      "status": "equivalent_delivery_passed_release_mapping_pending",
+      "requires": "Pin the complete release artifact and confirm the proposed production-bound database role, task and scheduler identity/audience, operational alarms, and worker egress budget without granting cross-environment access.",
       "isolated_rehearsal_status": "partial"
     },
     {
       "id": "G04",
       "area": "rollback",
-      "status": "blocked",
-      "requires": "Prove the coordinated freeze and rollback against the production-shaped candidate topology and define who reconciles aged jobs, active leases, unresolved calls and storage artifacts before generation can resume.",
+      "status": "isolated_rollback_passed_release_integration_pending",
+      "requires": "Use a single coordinated freeze in the release artifact and record who reconciles live leases, unsettled provider calls and storage outputs before allowing legacy or durable work again.",
       "isolated_rehearsal_status": "passed"
     },
     {
       "id": "G05",
       "area": "approval",
-      "status": "required",
-      "requires": "Wait until G01–G04 have accepted evidence. Submit the execution window, steps, stop criteria and owner approval request before any production mutation.",
+      "status": "approval_required",
+      "requires": "Present a production window, stop conditions, and exact steps for owner approval only after the remaining release checks are documented as satisfied.",
       "isolated_rehearsal_status": "approval_pending"
     }
   ],
@@ -138,7 +138,7 @@
   },
   "prerequisites_rehearsal_checkpoint": {
     "id": "production-equivalent-prerequisites-checkpoint",
-    "status": "read_only_classification_and_local_gate_verified_cloud_exercises_in_progress",
+    "status": "historical_checkpoint_superseded",
     "backlog": "All pending generatable entries classified without writes; no untouched candidate for automatic replay. Exact aggregates restricted.",
     "scale": "Synthetic legacy row counts matched selected production table counts. Local preflight logical database size ratio 1.066. No customer records copied.",
     "freeze": "Shared PostgreSQL gate blocked relevant API and guarded callback admissions; active lock prevented reopening. Production integration not asserted.",
@@ -147,12 +147,49 @@
   },
   "production_equivalent_delivery_checkpoint": {
     "id": "production-equivalent-delivery-and-freeze",
-    "status": "isolated_production_equivalent_delivery_passed_representative_restore_running",
+    "status": "historical_checkpoint_superseded",
     "delivery": "Actual natural OIDC Scheduler tick, transactional outbox, owned Cloud Tasks queue and separate IAM-private worker. Two synthetic jobs executed exactly once each.",
     "freeze": "Shared PostgreSQL gate denied live delivery without claiming the second job and blocked API, callback and isolated admin paths. The active first job drained before reopening. Retry succeeded after reopening and duplicate delivery did not run the fixture again.",
     "managed_restore": "Representative synthetic managed backup verified and restore in progress. No production backup copied.",
     "runtime_cleanup": "Temporary scheduler, queue, private services, admin job, and staging schema verified absent.",
     "provider_calls": 0,
     "production_mutated": false
+  },
+  "prerequisites_rehearsal": {
+    "id": "production-equivalence-and-representative-recovery",
+    "status": "equivalent_delivery_and_scale_recovery_verified_release_integration_pending",
+    "backlog_classification": {
+      "status": "verified_read_only",
+      "coverage": "All pending generatable entries fell into exclusive categories; no untouched candidate qualified in the observed snapshot.",
+      "no_automatic_replay_recommended": true,
+      "exact_aggregates": "restricted review"
+    },
+    "freeze_and_delivery": {
+      "status": "passed_in_production_equivalent_isolation",
+      "verified_packaged_runtime_blobs": 11,
+      "evidence": "Separate IAM-private API and worker, actual natural OIDC Scheduler tick, transactional outbox, Cloud Tasks at the planned limits, shared PostgreSQL freeze, blocked in-flight retry claim, text/image/scheduling callback guards, separate frozen admin invocation, successful reopen and duplicate acknowledgment.",
+      "frozen_delivery_returned_retryable": true,
+      "no_fixture_replay_and_zero_paid_provider_calls": true,
+      "release_limit": "The tested shared freeze was provided by a separate isolated rehearsal adapter. At the reviewed candidate revision, the two release Dockerfiles enter app.main:app and app.worker_app:app directly; neither uses the tested adapter. The running legacy production revision and release candidate have not been proven to enforce this gate."
+    },
+    "representative_managed_backup_restore": {
+      "status": "passed_at_representative_logical_scale",
+      "environment": "separate synthetic Cloud SQL PostgreSQL 16 with matching shared-core tier, storage allocation, selected table row counts, and dictionary payload width",
+      "logical_database_size_ratio_vs_read_only_production_aggregate": 1.073,
+      "used_production_rows_or_production_backup": false,
+      "limitations": "Managed synthetic snapshot restore under isolated load; the measured duration is not a guaranteed production recovery time or a production PITR test.",
+      "managed_backup_seconds": 88.3,
+      "managed_restore_operation_seconds": 862.2,
+      "managed_restore_to_verified_query_seconds": 888.5,
+      "candidate_additive_startup_and_verification_seconds": 3.9,
+      "pre_change_snapshot_and_selected_table_counts_match": true,
+      "matched_table_count": 8
+    },
+    "cleanup": {
+      "runtime_and_schema_verified_absent": true,
+      "synthetic_managed_instances_and_backup_verified_absent": true
+    },
+    "production_mutated": false,
+    "cutover_window_submitted": false
   }
 }

@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T03:45:59.613987Z",
+  "updated_at": "2026-11-28T04:17:15.476464Z",
   "status": "open",
   "items": [
     {
@@ -107,7 +107,7 @@
       "id": "B010",
       "status": "open",
       "summary": "Production legacy generation is not proven drained and the production durable delivery and rollback controls are not rehearsed.",
-      "impact": "Isolated drain and rollback evidence exists; coordinated freeze and production-bound worker delivery are still missing",
+      "impact": "Isolation proof and read-only classification exist. The production release gate and identity/configuration mapping are still unresolved.",
       "evidence": "production-cutover-review.json"
     }
   ]
