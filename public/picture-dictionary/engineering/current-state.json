@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T09:03:42.857592Z",
+  "updated_at": "2026-11-28T09:06:10.433067Z",
   "status": "frozen_production_cutover_complete_delivery_held",
   "agent": "codex/root",
   "read_first": [
@@ -248,8 +248,8 @@
     },
     "production_queue_canary_rerun": {
       "id": "production-scheduler-provider-free-rerun",
-      "status": "actual_substitute_identity_verified",
-      "updated_at": "2026-11-28T09:03:42.857592Z",
+      "status": "blocked_or_partial",
+      "updated_at": "2026-11-28T09:06:10.433067Z",
       "limits": {
         "fixed_synthetic_task_max": 1,
         "production_scheduler_manual_triggers_max": 1,
@@ -259,31 +259,36 @@
       "evidence": {
         "authenticated_read_only_status": 200,
         "original_scheduler_principal_and_actual_worker_revision_verified": true,
-        "production_scheduler_trigger_requests": 0,
+        "production_scheduler_trigger_requests": 1,
         "named_task_created": false,
         "manual_named_delivery_requests": 0,
-        "worker_http_deliveries_observed": null,
-        "fixture_execution_count": null,
-        "duplicate_suppression_count": null,
+        "worker_http_deliveries_observed": 0,
+        "scheduler_dispatch_response_status": 403,
+        "dispatch_http_rejection_recorded_by_substitute_application": true,
+        "fixture_execution_count": 0,
+        "duplicate_suppression_count": 0,
         "terminal_state": null,
-        "production_delivery_monitoring_verified": null,
-        "original_scheduler_target_restored": null,
-        "scheduler_paused": null,
-        "queue_paused_empty": null,
-        "ordinary_generation_frozen": null,
+        "production_delivery_monitoring_verified": false,
+        "original_scheduler_target_restored": true,
+        "scheduler_paused": true,
+        "queue_paused_empty": true,
+        "ordinary_generation_frozen": true,
         "historical_backlog_replayed": false,
-        "production_model_calls": null,
-        "fixture_provider_ledger_rows": null,
-        "ai_fee_usd": null,
-        "temporary_samples_and_permissions_cleaned": null
+        "production_model_calls": 0,
+        "fixture_provider_ledger_rows": 0,
+        "ai_fee_usd": 0,
+        "temporary_samples_and_permissions_cleaned": true
       },
-      "next_gate": "Finish the one owner-approved provider-free production queue rerun; Stage 2 remains held.",
+      "next_gate": "Distinguish the dispatch rejection checks in an isolated provider-free fixture before proposing a separately approved production retry. Keep Stage 2 on hold.",
       "failures": [
         "Cloud Run initially rejected attachment of the newly created isolated runtime identity. The attempt stopped before any Scheduler target change or trigger. Deployment was retried after identity setup.",
+        "The one approved production Scheduler request reached the actual substitute application and the application returned 403 on its dispatch route. Unlike the prior production try, Cloud Run request logs showed no ingress IAM rejection and the application access log recorded the 403. The fixture recorded no accepted Scheduler request and Cloud Tasks remained empty.",
         "The same production identity initially received a permission rejection on the real substitute. The read-only probe continued without a permission change and recorded the final result. No production trigger was consumed during the probe."
       ],
       "unverified": [
-        "Pending production delivery and restoration results."
+        "The exact application check that rejected the production request remains unverified. The substitute did not record discrimination between OIDC claim rejection and the additional Scheduler job-name header check. The read-only probe exercised the same account and OIDC verifier using a native Cloud Run workload token, independently of Scheduler request metadata.",
+        "No production task was created or delivered. The duplicate and terminal state checks are not verified in the production queue.",
+        "Before requesting another production trigger, instrument a provider-free isolated dispatch verification path to separately record authenticated-identity success and whether the expected Scheduler request metadata matches. Record outcomes without recording tokens, user data or raw headers. Keep the real queue and production Scheduler untouched for that diagnosis."
       ]
     }
   }
