@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T06:27:36.435432Z",
+  "updated_at": "2026-11-28T06:36:36.983965Z",
   "status": "pending",
   "actions": [
     {
@@ -38,9 +38,9 @@
     },
     {
       "id": "N06",
-      "action": "Complete and record backup restore and live preconditions before starting additive migration or changing API routing.",
+      "action": "Continue approved preconditions and verify immutable frozen routing and legacy drain.",
       "requires": "Production queue and Scheduler stay paused. Keep shared admission frozen and paid provider execution disabled. Record all stop or rollback decisions.",
-      "status": "replacement_window_live_preflight",
+      "status": "live_preflight_managed_restore_in_progress",
       "evidence": "production-cutover-review.json"
     },
     {

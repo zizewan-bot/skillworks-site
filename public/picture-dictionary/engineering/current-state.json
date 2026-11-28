@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T06:27:36.435432Z",
-  "status": "replacement_window_live_preflight",
+  "updated_at": "2026-11-28T06:36:36.983965Z",
+  "status": "live_preflight_managed_restore_in_progress",
   "agent": "codex/root",
   "read_first": [
     "manifest.json",
@@ -102,7 +102,7 @@
     }
   },
   "production_cutover_review": {
-    "status": "replacement_window_live_preflight",
+    "status": "live_preflight_managed_restore_in_progress",
     "evidence": "production-cutover-review.json",
     "approval_required": false,
     "isolated_rehearsal": "isolated_checks_passed_production_not_ready",
@@ -164,6 +164,7 @@
         "scope": "Scoped Cloud Run Admin Activity and deployed state checked before the approved window."
       },
       "production_mutated_by_status_audit": false
-    }
+    },
+    "current_cutover_stage": "replacement-window-restore_started"
   }
 }

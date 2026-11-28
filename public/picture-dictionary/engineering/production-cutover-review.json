@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T06:27:36.435432Z",
-  "status": "replacement_window_live_preflight",
+  "updated_at": "2026-11-28T06:36:36.983965Z",
+  "status": "live_preflight_managed_restore_in_progress",
   "owner_approval_required": false,
   "production_switch_performed": false,
   "production_schema_changed": false,
@@ -417,7 +417,7 @@
   "production_preconfiguration_applied": true,
   "cutover_execution_started": true,
   "cutover_approval": {
-    "status": "replacement_window_approved_preflight",
+    "status": "replacement_window_restore_started",
     "window_confirmed": true,
     "scheduled_execution": false,
     "scope": "frozen_api_cutover_and_legacy_drain",
@@ -472,9 +472,28 @@
     "production_mutated_by_status_audit": false
   },
   "current_cutover_stage": {
-    "status": "recovery_point_and_preconditions_in_progress",
-    "production_api_traffic_changed": false,
-    "production_queue_and_scheduler_held": true,
-    "paid_generation_authorized": false
+    "id": "replacement-window-restore_started",
+    "at": "2026-11-28T06:36:36.983965Z",
+    "status": "live_preflight_managed_restore_in_progress",
+    "recovered_production_backup_in_isolation": false,
+    "backup_completed_before_production_migration": true,
+    "restore_target_connector_enforced_and_read_only_validation": false,
+    "temporary_restore_target_cleaned": false,
+    "preconditions_verified": false,
+    "bounded_additive_migration_applied": false,
+    "legacy_schema_preserved": false,
+    "shared_admission_frozen": false,
+    "legacy_original_traffic_percent": 100,
+    "frozen_candidate_traffic_percent": 0,
+    "independently_fenced_rollback_traffic_percent": 0,
+    "candidate_provider_free_pre_switch_probes_passed": false,
+    "legacy_admin_hold_applied": false,
+    "legacy_drain_status": "pending_or_not_attempted",
+    "independent_rollback_validation_passed": false,
+    "rollback": "not_triggered_or_not_needed",
+    "production_queue_paused": true,
+    "production_scheduler_paused": true,
+    "paid_calls_initiated_by_this_execution": 0,
+    "new_provider_execution_enabled": false
   }
 }

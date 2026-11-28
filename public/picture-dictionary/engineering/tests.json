@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T06:13:53.326970Z",
+  "updated_at": "2026-11-28T06:36:36.983965Z",
   "status": "provider_free_staging_verified",
   "runs": [
     {
@@ -801,6 +801,31 @@
         "scope": "Scoped Cloud Run Admin Activity and deployed state checked before the approved window."
       },
       "production_mutated_by_status_audit": false
+    },
+    {
+      "id": "replacement-window-restore_started",
+      "at": "2026-11-28T06:36:36.983965Z",
+      "status": "live_preflight_managed_restore_in_progress",
+      "recovered_production_backup_in_isolation": false,
+      "backup_completed_before_production_migration": true,
+      "restore_target_connector_enforced_and_read_only_validation": false,
+      "temporary_restore_target_cleaned": false,
+      "preconditions_verified": false,
+      "bounded_additive_migration_applied": false,
+      "legacy_schema_preserved": false,
+      "shared_admission_frozen": false,
+      "legacy_original_traffic_percent": 100,
+      "frozen_candidate_traffic_percent": 0,
+      "independently_fenced_rollback_traffic_percent": 0,
+      "candidate_provider_free_pre_switch_probes_passed": false,
+      "legacy_admin_hold_applied": false,
+      "legacy_drain_status": "pending_or_not_attempted",
+      "independent_rollback_validation_passed": false,
+      "rollback": "not_triggered_or_not_needed",
+      "production_queue_paused": true,
+      "production_scheduler_paused": true,
+      "paid_calls_initiated_by_this_execution": 0,
+      "new_provider_execution_enabled": false
     }
   ]
 }
