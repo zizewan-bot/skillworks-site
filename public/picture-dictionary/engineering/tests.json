@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T08:36:20.993794Z",
+  "updated_at": "2026-11-28T08:41:09.636503Z",
   "status": "provider_free_staging_verified",
   "runs": [
     {
@@ -2232,6 +2232,52 @@
         "The real scheduler trigger, named deliveries, monitoring, and restoration evidence are pending."
       ],
       "next_gate": "Await explicit Stage 2 approval before any account-scoped normal iPhone search that can generate an image."
+    },
+    {
+      "id": "production-scheduler-queue-provider-free-canary",
+      "status": "blocked_or_partial",
+      "stage": "final",
+      "observed_at": "2026-11-28T08:41:09.636503Z",
+      "approval_scope": {
+        "scheduler_manual_triggers_max": 1,
+        "logical_test_tasks_max": 1,
+        "named_deliveries_max": 2,
+        "paid_model_calls_max": 0
+      },
+      "evidence": {
+        "manual_scheduler_trigger_requests": 1,
+        "named_task_delivery_requests": 0,
+        "named_task_created": false,
+        "fixture_executions": 0,
+        "duplicate_suppressions": 0,
+        "production_scheduler_http_status": 403,
+        "isolated_fixture_state_before_cleanup": "queued",
+        "scheduler_attempt_logged": true,
+        "terminal_task_status": null,
+        "fixture_provider_ledger_rows": 0,
+        "new_production_provider_rows": 0,
+        "actual_ai_cost_usd": 0,
+        "original_scheduler_target_restored": true,
+        "scheduler_paused": true,
+        "queue_paused_empty": true,
+        "shared_admission_frozen_verified": true,
+        "historical_replay_performed": false,
+        "monitoring_verified": false,
+        "temporary_resources_cleaned": true
+      },
+      "cost_scope": "The AI cost counts model calls for this exercise. Cloud infrastructure charges were not attributed.",
+      "failures": [
+        "First fixture setup stopped before mutation when the staging database URL used a different driver syntax from the URL parser. Setup resumed after using the application database URL parser.",
+        "An initial Secret Manager grant was rejected while the new fixture service account propagated. The scoped grants and fixture deployment were later verified.",
+        "The first setup attempt used the wrong REST separator for the Scheduler resume action. The job never resumed or triggered in that attempt and its target was restored. The action path was corrected before the one authorized trigger.",
+        "The single real Scheduler attempt received HTTP 403 PERMISSION_DENIED at the private Cloud Run IAM boundary. The Scheduler was paused and the original target and schedule restored. The queue remained paused and empty, with no task to deliver.",
+        "The deleted temporary service account returned an ambiguous denial on direct lookup. Cleanup verification switched to the project account inventory."
+      ],
+      "unverified": [
+        "The caller had the direct invoker grant when inspected afterward. The request-time effective IAM decision and cause of the observed rejection remain unverified. The operator lacked caller impersonation and access to the effective IAM troubleshooter.",
+        "Production named task delivery, a second arrival, duplicate suppression and a completed task state remain unverified. No additional Scheduler trigger or task delivery was issued."
+      ],
+      "next_gate": "Diagnose authenticated access in an isolated test before requesting a newly authorized Stage 1 rerun. Stage 2 remains pending."
     }
   ]
 }
