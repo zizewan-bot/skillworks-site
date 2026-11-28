@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T05:18:12.115399Z",
+  "updated_at": "2026-11-28T07:04:47.804385Z",
   "status": "open",
   "items": [
     {
@@ -105,8 +105,8 @@
     },
     {
       "id": "B010",
-      "status": "open",
-      "summary": "The production delivery group is provisioned and inert. The serving legacy revision remains live and must be independently fenced and drained at cutover.",
+      "status": "resolved_for_frozen_cutover",
+      "summary": "Legacy runtime independently fenced and drained at the frozen production cutover. Paid generation and delivery remain held.",
       "impact": "No production dispatch, image generation by the new worker, traffic cutover, or application migration has occurred.",
       "evidence": "production-cutover-review.json"
     }

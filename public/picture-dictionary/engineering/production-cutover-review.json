@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T06:56:13.202043Z",
-  "status": "frozen_candidate_live_legacy_drain_observing",
+  "updated_at": "2026-11-28T07:04:47.804385Z",
+  "status": "frozen_production_cutover_complete_delivery_held",
   "owner_approval_required": false,
   "production_switch_performed": true,
   "production_schema_changed": true,
@@ -39,35 +39,35 @@
     {
       "id": "G01",
       "area": "database_migration",
-      "status": "fresh_exact_source_backup_restore_verified",
+      "status": "bounded_additive_migration_verified",
       "requires": "Record a fresh recovery point, verified migration lock bounds and a single migration executor at the eventual approved change window. The synthetic timing is planning evidence; no production restore was run.",
       "isolated_rehearsal_status": "passed"
     },
     {
       "id": "G02",
       "area": "legacy_drain",
-      "status": "isolated_legacy_fence_and_cutover_routes_verified",
+      "status": "production_legacy_drained_and_fenced",
       "requires": "Maintain the existing service URL, verify every live route goes to a frozen revision, remove legacy tags, hold manual launches, and reconcile image, progressive text and provider activity against the fence boundary. A bare route rollback to old code reopens generation.",
       "isolated_rehearsal_status": "passed"
     },
     {
       "id": "G03",
       "area": "production_delivery",
-      "status": "paused_production_bindings_and_notification_verified",
+      "status": "production_delivery_still_paused",
       "requires": "Keep the preflight-only worker and read-only role, empty paused queue, paused scheduler and production provider execution disabled until approved activation.",
       "isolated_rehearsal_status": "passed"
     },
     {
       "id": "G04",
       "area": "rollback",
-      "status": "rollback_conditions_reviewed_cutover_window_held",
+      "status": "independent_frozen_rollback_validated_not_needed",
       "requires": "Keep candidate frozen and delivery paused if legacy remains reachable, in-flight outcomes are unknown, or any identity, database or delivery check fails. Restore old traffic only with verified independent fencing or a separately approved decision. Preserve tables, markers and provider evidence.",
       "isolated_rehearsal_status": "passed"
     },
     {
       "id": "G05",
       "area": "approval",
-      "status": "replacement_window_approved_live_preflight",
+      "status": "frozen_cutover_scope_complete_activation_not_approved",
       "requires": "Execute only the approved frozen cutover in its confirmed window. Keep production dispatch paused and paid image and text generation held.",
       "isolated_rehearsal_status": "approval_pending"
     }
@@ -417,7 +417,7 @@
   "production_preconfiguration_applied": true,
   "cutover_execution_started": true,
   "cutover_approval": {
-    "status": "replacement_window_frozen_traffic_live",
+    "status": "replacement_window_done_frozen",
     "window_confirmed": true,
     "scheduled_execution": false,
     "scope": "frozen_api_cutover_and_legacy_drain",
@@ -472,13 +472,14 @@
     "production_mutated_by_status_audit": false
   },
   "current_cutover_stage": {
-    "id": "replacement-window-frozen_traffic_live",
-    "at": "2026-11-28T06:56:13.202043Z",
-    "status": "frozen_candidate_live_legacy_drain_observing",
+    "id": "replacement-window-final",
+    "at": "2026-11-28T07:04:47.804385Z",
+    "status": "frozen_production_cutover_complete_delivery_held",
     "recovered_production_backup_in_isolation": true,
     "backup_completed_before_production_migration": true,
     "restore_target_connector_enforced_and_read_only_validation": true,
     "temporary_restore_target_cleaned": true,
+    "temporary_synthetic_smoke_identity_cleaned": true,
     "preconditions_verified": true,
     "bounded_additive_migration_applied": true,
     "legacy_schema_preserved": true,
@@ -488,7 +489,11 @@
     "independently_fenced_rollback_traffic_percent": 0,
     "candidate_provider_free_pre_switch_probes_passed": true,
     "legacy_admin_hold_applied": true,
-    "legacy_drain_status": "pending_or_not_attempted",
+    "legacy_drain_status": "verified",
+    "legacy_drain_observation_seconds": 502.6,
+    "legacy_no_new_requests_or_recent_unresolved_markers_observed": true,
+    "old_instance_metric_samples_available_after_timeout": false,
+    "legacy_backlog_kept_held": true,
     "independent_rollback_validation_passed": true,
     "rollback": "not_triggered_or_not_needed",
     "production_queue_paused": true,
