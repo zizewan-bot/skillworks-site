@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T06:13:53.326970Z",
-  "status": "owner_approved_frozen_cutover_scheduled",
+  "updated_at": "2026-11-28T06:27:36.435432Z",
+  "status": "replacement_window_live_preflight",
   "owner_approval_required": false,
   "production_switch_performed": false,
   "production_schema_changed": false,
@@ -67,7 +67,7 @@
     {
       "id": "G05",
       "area": "approval",
-      "status": "owner_approved_window_scheduled",
+      "status": "replacement_window_approved_live_preflight",
       "requires": "Execute only the approved frozen cutover in its confirmed window. Keep production dispatch paused and paid image and text generation held.",
       "isolated_rehearsal_status": "approval_pending"
     }
@@ -415,11 +415,11 @@
     "cutover_window_submitted": true
   },
   "production_preconfiguration_applied": true,
-  "cutover_execution_started": false,
+  "cutover_execution_started": true,
   "cutover_approval": {
-    "status": "approved_and_scheduled",
+    "status": "replacement_window_approved_preflight",
     "window_confirmed": true,
-    "scheduled_execution": true,
+    "scheduled_execution": false,
     "scope": "frozen_api_cutover_and_legacy_drain",
     "production_queue_and_scheduler_remain_paused": true,
     "paid_generation_requires_separate_approval": true
@@ -470,5 +470,11 @@
       "scope": "Scoped Cloud Run Admin Activity and deployed state checked before the approved window."
     },
     "production_mutated_by_status_audit": false
+  },
+  "current_cutover_stage": {
+    "status": "recovery_point_and_preconditions_in_progress",
+    "production_api_traffic_changed": false,
+    "production_queue_and_scheduler_held": true,
+    "paid_generation_authorized": false
   }
 }

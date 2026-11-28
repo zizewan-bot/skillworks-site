@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T05:36:57.449035Z",
+  "updated_at": "2026-11-28T06:27:36.435432Z",
   "status": "pending",
   "actions": [
     {
@@ -38,9 +38,9 @@
     },
     {
       "id": "N06",
-      "action": "At the owner-approved window, verify recovery and frozen preconditions, carry out the additive migration and frozen API cutover, then verify legacy drain.",
+      "action": "Complete and record backup restore and live preconditions before starting additive migration or changing API routing.",
       "requires": "Production queue and Scheduler stay paused. Keep shared admission frozen and paid provider execution disabled. Record all stop or rollback decisions.",
-      "status": "scheduled_approved_window",
+      "status": "replacement_window_live_preflight",
       "evidence": "production-cutover-review.json"
     },
     {

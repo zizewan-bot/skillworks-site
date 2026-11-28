@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T06:13:53.326970Z",
-  "status": "owner_approved_frozen_cutover_scheduled",
+  "updated_at": "2026-11-28T06:27:36.435432Z",
+  "status": "replacement_window_live_preflight",
   "agent": "codex/root",
   "read_first": [
     "manifest.json",
@@ -102,7 +102,7 @@
     }
   },
   "production_cutover_review": {
-    "status": "owner_approved_frozen_cutover_scheduled",
+    "status": "replacement_window_live_preflight",
     "evidence": "production-cutover-review.json",
     "approval_required": false,
     "isolated_rehearsal": "isolated_checks_passed_production_not_ready",
@@ -116,7 +116,7 @@
     "latest_legacy_evidence": "production-delivery-review-and-legacy-fence-final",
     "production_preconfiguration": "production-preconfiguration-final",
     "owner_approval": "confirmed_for_frozen_cutover",
-    "schedule": "scheduled_in_existing_project_thread",
+    "schedule": "replacement_window_live_preflight",
     "paid_generation_separate_approval_required": true,
     "latest_live_check": {
       "id": "pre-window-live-status-audit-20261128T061353Z",
