@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "project": "picture-dictionary-kids",
-  "updated_at": "2026-11-28T07:47:12.792362Z",
+  "updated_at": "2026-11-28T07:48:33.481497Z",
   "status": "frozen_production_cutover_complete_delivery_held",
   "owner_approval_required": false,
   "production_switch_performed": true,
@@ -502,9 +502,9 @@
     "new_provider_execution_enabled": false
   },
   "latest_production_paid_validation": {
-    "id": "production-ten-paid-samples-running",
-    "status": "production_ten_paid_samples_in_progress",
-    "observed_at": "2026-11-28T07:47:12.792362Z",
+    "id": "production-ten-paid-samples-final",
+    "status": "production_ten_paid_samples_passed_frozen",
+    "observed_at": "2026-11-28T07:48:33.481497Z",
     "candidate_commit": "24c119f8cbad0068fb155c2d51015520a0818f16",
     "data_scope": "Ten synthetic fixture descriptions processed through the one-shot provider flow with production credentials. No production dictionary rows created and no user data provided to models.",
     "delivery_scope": "No production worker run, queue enqueue, scheduler dispatch, ordinary user opening, or historical replay.",
@@ -642,7 +642,7 @@
       },
       {
         "fixture_word": "teapot",
-        "status": "in_progress",
+        "status": "passed",
         "paid_calls_started": {
           "image": 1,
           "vision": 1
@@ -656,89 +656,113 @@
           "image": 4.924,
           "vision": 1.758
         },
-        "sample_pipeline_seconds": null,
+        "sample_pipeline_seconds": 11.018,
         "safety_and_subject_approved": true,
-        "authenticated_storage_roundtrip": false,
-        "temporary_asset_absent_verified": false
+        "authenticated_storage_roundtrip": true,
+        "temporary_asset_absent_verified": true
       },
       {
         "fixture_word": "violin",
-        "status": "not_run",
+        "status": "passed",
         "paid_calls_started": {
-          "image": 0,
-          "vision": 0
+          "image": 1,
+          "vision": 1
         },
-        "response_cost_estimate_usd": null,
-        "response_cost_estimate_breakdown_usd": {},
-        "timings_seconds": {},
-        "sample_pipeline_seconds": null,
-        "safety_and_subject_approved": false,
-        "authenticated_storage_roundtrip": false,
-        "temporary_asset_absent_verified": false
+        "response_cost_estimate_usd": "0.027483925",
+        "response_cost_estimate_breakdown_usd": {
+          "image": "0.027245",
+          "vision": "0.000238925"
+        },
+        "timings_seconds": {
+          "image": 4.566,
+          "vision": 1.823
+        },
+        "sample_pipeline_seconds": 10.524,
+        "safety_and_subject_approved": true,
+        "authenticated_storage_roundtrip": true,
+        "temporary_asset_absent_verified": true
       },
       {
         "fixture_word": "lighthouse",
-        "status": "not_run",
+        "status": "passed",
         "paid_calls_started": {
-          "image": 0,
-          "vision": 0
+          "image": 1,
+          "vision": 1
         },
-        "response_cost_estimate_usd": null,
-        "response_cost_estimate_breakdown_usd": {},
-        "timings_seconds": {},
-        "sample_pipeline_seconds": null,
-        "safety_and_subject_approved": false,
-        "authenticated_storage_roundtrip": false,
-        "temporary_asset_absent_verified": false
+        "response_cost_estimate_usd": "0.027490675",
+        "response_cost_estimate_breakdown_usd": {
+          "image": "0.027255",
+          "vision": "0.000235675"
+        },
+        "timings_seconds": {
+          "image": 4.177,
+          "vision": 1.68
+        },
+        "sample_pipeline_seconds": 10.412,
+        "safety_and_subject_approved": true,
+        "authenticated_storage_roundtrip": true,
+        "temporary_asset_absent_verified": true
       },
       {
         "fixture_word": "ladybug",
-        "status": "not_run",
+        "status": "passed",
         "paid_calls_started": {
-          "image": 0,
-          "vision": 0
+          "image": 1,
+          "vision": 1
         },
-        "response_cost_estimate_usd": null,
-        "response_cost_estimate_breakdown_usd": {},
-        "timings_seconds": {},
-        "sample_pipeline_seconds": null,
-        "safety_and_subject_approved": false,
-        "authenticated_storage_roundtrip": false,
-        "temporary_asset_absent_verified": false
+        "response_cost_estimate_usd": "0.02748405",
+        "response_cost_estimate_breakdown_usd": {
+          "image": "0.027245",
+          "vision": "0.00023905"
+        },
+        "timings_seconds": {
+          "image": 5.129,
+          "vision": 3.382
+        },
+        "sample_pipeline_seconds": 12.616,
+        "safety_and_subject_approved": true,
+        "authenticated_storage_roundtrip": true,
+        "temporary_asset_absent_verified": true
       },
       {
         "fixture_word": "snowman",
-        "status": "not_run",
+        "status": "passed",
         "paid_calls_started": {
-          "image": 0,
-          "vision": 0
+          "image": 1,
+          "vision": 1
         },
-        "response_cost_estimate_usd": null,
-        "response_cost_estimate_breakdown_usd": {},
-        "timings_seconds": {},
-        "sample_pipeline_seconds": null,
-        "safety_and_subject_approved": false,
-        "authenticated_storage_roundtrip": false,
-        "temporary_asset_absent_verified": false
+        "response_cost_estimate_usd": "0.02749155",
+        "response_cost_estimate_breakdown_usd": {
+          "image": "0.027245",
+          "vision": "0.00024655"
+        },
+        "timings_seconds": {
+          "image": 5.324,
+          "vision": 2.011
+        },
+        "sample_pipeline_seconds": 11.585,
+        "safety_and_subject_approved": true,
+        "authenticated_storage_roundtrip": true,
+        "temporary_asset_absent_verified": true
       }
     ],
     "total_calls_started": {
-      "image": 6,
-      "vision": 6,
+      "image": 10,
+      "vision": 10,
       "standalone_text": 0
     },
     "cost": {
-      "openai_estimated_usd_for_metered_responses": "0.164863925",
-      "paid_responses_with_token_cost": 12,
+      "openai_estimated_usd_for_metered_responses": "0.274814125",
+      "paid_responses_with_token_cost": 20,
       "all_started_paid_calls_had_priced_usage": true,
       "basis": "Actual response token counters and published OpenAI Standard rates. Invoice, contract adjustments, and Cloudinary charges not reconciled.",
       "approved_budget_estimate_usd": "0.35",
       "actual_invoice_usd": null,
       "cloudinary_invoice_usd": null
     },
-    "total_elapsed_seconds": null,
-    "production_frozen_before_and_after_verified": false,
-    "all_ten_temporary_assets_absent_verified": false,
+    "total_elapsed_seconds": 136.404,
+    "production_frozen_before_and_after_verified": true,
+    "all_ten_temporary_assets_absent_verified": true,
     "expansion_requires_new_approval": true
   }
 }
