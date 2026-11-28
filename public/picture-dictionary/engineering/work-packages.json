@@ -1,0 +1,69 @@
+{
+  "schema_version": "1.0.0",
+  "project": "picture-dictionary-kids",
+  "updated_at": "2026-11-28T02:59:52.801257Z",
+  "status": "in_progress",
+  "packages": [
+    {
+      "id": "WP00",
+      "title": "Audit records and publication skeleton",
+      "status": "published",
+      "remaining": "Owner browser-session positive check of internal route remains unverified"
+    },
+    {
+      "id": "WP01",
+      "title": "Production/staging baseline",
+      "status": "partial",
+      "remaining": "Generation success percentiles and billing unmeasured"
+    },
+    {
+      "id": "WP02",
+      "title": "Durable image jobs and worker",
+      "status": "cloud_fixture_recovery_verified",
+      "remaining": "Real provider acceptance and production activation remain gated"
+    },
+    {
+      "id": "WP03",
+      "title": "Shared iOS connection recovery",
+      "status": "internal_testflight_device_acceptance_complete",
+      "remaining": "Production mobile rollout is tracked separately",
+      "evidence": "tests.json"
+    },
+    {
+      "id": "WP04",
+      "title": "Anonymous operations and costs",
+      "status": "partial",
+      "remaining": "Image/vision ledger and GCP monitoring configured; text/billing attribution and notification destination pending"
+    },
+    {
+      "id": "WP05",
+      "title": "Regression, staging and showcase",
+      "status": "partial",
+      "remaining": "Showcase published without unmeasured success claims; paid provider acceptance and production rollout pending"
+    },
+    {
+      "id": "WP06",
+      "title": "Provider-free staging end-to-end acceptance",
+      "status": "complete_provider_free",
+      "evidence": "staging-acceptance.json"
+    },
+    {
+      "id": "WP07",
+      "title": "Limited live-provider staging acceptance",
+      "status": "live_single_sample_passed",
+      "evidence": "provider-pilot.json"
+    },
+    {
+      "id": "WP08",
+      "title": "Staging supported-model worker integration",
+      "status": "staging_wired_provider_disabled",
+      "evidence": "provider-pilot.json"
+    },
+    {
+      "id": "WP09",
+      "title": "Single live model sample through Cloud Tasks",
+      "status": "live_queued_single_sample_passed",
+      "evidence": "provider-pilot.json"
+    }
+  ]
+}

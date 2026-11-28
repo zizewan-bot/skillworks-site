@@ -1,0 +1,114 @@
+{
+  "schema_version": "1.0.0",
+  "project": "picture-dictionary-kids",
+  "updated_at": "2026-11-28T07:04:47.804385Z",
+  "status": "open",
+  "items": [
+    {
+      "id": "B001",
+      "status": "open",
+      "summary": "Local Git credentials cannot read private repositories; authenticated connector works",
+      "impact": "Use connector for source and commits"
+    },
+    {
+      "id": "B002",
+      "status": "resolved",
+      "summary": "Glen is a separate authenticated Worker system on glen.skillworks.dev; inspected specification version 153 and existing source boundaries",
+      "impact": "New Picture Dictionary routes can coexist without editing Glen business code"
+    },
+    {
+      "id": "B003",
+      "status": "partially_resolved",
+      "summary": "Protected record route deployed under existing Glen Access boundary with signed owner-only validation",
+      "impact": "Live positive owner browser check remains unverified; private source remains in backend repository"
+    },
+    {
+      "id": "R001",
+      "status": "open",
+      "summary": "Existing background image work can be interrupted and client network errors can mark images unavailable",
+      "evidence": "Source audit; production incidence not measured"
+    },
+    {
+      "id": "B004",
+      "status": "resolved",
+      "summary": "Dedicated Worker published new documentation paths; actual public manifest HTTP 200",
+      "impact": "No Pages access required"
+    },
+    {
+      "id": "B005",
+      "status": "resolved",
+      "summary": "Cloud Tasks API enabled; staging queue created and paused",
+      "impact": "Authenticated staging delivery still under validation"
+    },
+    {
+      "id": "R002",
+      "status": "open",
+      "summary": "Progressive text completion still uses existing BackgroundTasks",
+      "impact": "Image queue upgrade does not fix interrupted text completion; measure and migrate separately"
+    },
+    {
+      "id": "R003",
+      "status": "open",
+      "summary": "Provider execution is at least once; a crash after submission can leave billing unknown",
+      "impact": "Reserve bounded call budget before API request; do not claim exactly-once AI execution"
+    },
+    {
+      "id": "R004",
+      "status": "open",
+      "summary": "Full cost attribution and external alert notifications remain incomplete",
+      "impact": "Image/vision ledger, three metrics, dashboard and staging failure incident policy exist. Text attribution, billing and notification destination remain pending."
+    },
+    {
+      "id": "B006",
+      "status": "open",
+      "summary": "Billing reads hit shared-client quota; target-project retry reports Cloud Billing API disabled",
+      "impact": "Actual spending remains unknown; no export dataset listed in target project"
+    },
+    {
+      "id": "R005",
+      "status": "open",
+      "summary": "Public document retrieval works via curl but Python urllib received HTTP 403",
+      "impact": "Investigate transport compatibility before claiming access from every Agent client"
+    },
+    {
+      "id": "R006",
+      "status": "fixed_in_branch_verified_staging",
+      "summary": "Real lookup helpers flushed a pending word before the former before-commit listener could detect it",
+      "impact": "Flush-aware outbox with outer transaction handling tested locally and through actual cloud lookup; production durable path remains disabled until reviewed"
+    },
+    {
+      "id": "R007",
+      "status": "closed_for_fixture_acceptance",
+      "summary": "Timed race fixture and progressive fixture timeout signature were test-adapter defects",
+      "impact": "Replaced race timing with a bounded persistent barrier; aligned text fixture signatures; retained failures in append-only timeline and passed remaining cases"
+    },
+    {
+      "id": "B007",
+      "status": "resolved",
+      "summary": "App Store Connect redirected to sign-in during TestFlight verification",
+      "impact": "Authenticated read confirmed with user session",
+      "next_action": "N08"
+    },
+    {
+      "id": "B008",
+      "status": "resolved",
+      "summary": "No active iOS 1.0 TestFlight build was visible in App Store Connect",
+      "impact": "Internal-only iOS 1.0.1 (15), staging backend. Apple upload: received and verified in App Store Connect. TestFlight: Ready to Test. Export compliance: Saved owner-confirmed declaration: none of the listed algorithms; Missing Compliance cleared.",
+      "next_action": "N08"
+    },
+    {
+      "id": "B009",
+      "status": "resolved",
+      "summary": "TestFlight 1.0.1 (15) installed on connected iPhone and app launch confirmed",
+      "impact": "Exact-build connectivity interruption remains a separate device test",
+      "next_action": "N08"
+    },
+    {
+      "id": "B010",
+      "status": "resolved_for_frozen_cutover",
+      "summary": "Legacy runtime independently fenced and drained at the frozen production cutover. Paid generation and delivery remain held.",
+      "impact": "No production dispatch, image generation by the new worker, traffic cutover, or application migration has occurred.",
+      "evidence": "production-cutover-review.json"
+    }
+  ]
+}

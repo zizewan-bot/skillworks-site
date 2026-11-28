@@ -1,0 +1,2374 @@
+{
+  "schema_version": "1.0.0",
+  "project": "picture-dictionary-kids",
+  "updated_at": "2026-11-28T09:01:05.835334Z",
+  "status": "provider_free_staging_verified",
+  "runs": [
+    {
+      "id": "backend-regression",
+      "result": "passed",
+      "tests_passed": 127,
+      "subtests_passed": 36,
+      "skipped": 1,
+      "note": "PostgreSQL concurrency test skipped in SQLite run; separately executed below",
+      "real_provider_calls": 0,
+      "evidence": "Full suite rerun after lock-order hardening; PostgreSQL-only test separately passed"
+    },
+    {
+      "id": "postgresql-17",
+      "result": "passed",
+      "tests_passed": 16,
+      "evidence": "Concurrent claims, stale fencing, explicit flush, rollback and nested transaction outbox coverage",
+      "real_provider_calls": 0
+    },
+    {
+      "id": "ios-build",
+      "result": "passed",
+      "tool": "Xcode 27.2",
+      "target": "iOS simulator Debug",
+      "limitations": [
+        "signing disabled",
+        "physical device and offline runtime QA pending"
+      ],
+      "evidence": "Full simulator build passed with original AppIcon assets restored from verified source"
+    },
+    {
+      "id": "site-records",
+      "result": "passed",
+      "documents": 12,
+      "evidence": "manifest consistency, required fields, UTC timeline and credential pattern checks; browser verified local engineering page"
+    },
+    {
+      "id": "cloud-tasks-oidc",
+      "result": "passed",
+      "method": "one synthetic nonexistent job UUID through actual Cloud Tasks OIDC delivery",
+      "http_status": 200,
+      "latency_seconds": 4.733358015,
+      "real_provider_calls": 0
+    },
+    {
+      "id": "documentation-auth",
+      "result": "passed",
+      "tests": 4,
+      "coverage": [
+        "public host rejects private paths",
+        "valid signed owner accepted",
+        "forged/expired/wrong audience/other identity denied",
+        "unavailable verifier reports 503"
+      ],
+      "platform_cpu": "not_measured"
+    },
+    {
+      "id": "live-public-records",
+      "result": "passed",
+      "documents_verified": 12,
+      "http_status": 200,
+      "method": "curl and JSON parsing",
+      "limitations": [
+        "Python urllib request received HTTP 403; generic agent transport compatibility still needs investigation"
+      ]
+    },
+    {
+      "id": "wp06-real-cloud-fixtures",
+      "result": "passed",
+      "cases_passed": 10,
+      "real_provider_calls": 0,
+      "details": "staging-acceptance.json",
+      "source_commit": "4b435265714a634883b52fad553349f5e7d6f2f2",
+      "revision": "picture-dictionary-acceptance-wp06-00008-dr6",
+      "fresh_frozen_cohort": true
+    },
+    {
+      "id": "wp06-swift-runtime",
+      "result": "passed",
+      "cases_passed": 5,
+      "uses": "Production poller/models/history and synthetic cloud DTOs",
+      "real_network_calls": 0,
+      "physical_device": false,
+      "source_commit": "31ca2779c0a7fd54e63f49f3f8315d69709e097e",
+      "fixtures": "DTOs from the final frozen cloud cohort",
+      "native_image_rendering": "not_exercised"
+    },
+    {
+      "id": "wp06-natural-scheduler-tick",
+      "result": "passed",
+      "observed_at": "2026-11-23T08:51:00.201908Z",
+      "http_status": 200,
+      "final_state": "PAUSED"
+    },
+    {
+      "id": "wp06-fixture-safety-guards",
+      "result": "passed",
+      "coverage": [
+        "Production-like service name rejected before DB access",
+        "Provider credentials introduced during configuration load rejected before DB access",
+        "Private cloud front-door and isolated schema verified"
+      ]
+    },
+    {
+      "id": "wp07-live-single-sample",
+      "result": "passed",
+      "details": "provider-pilot.json",
+      "scope": "one-shot provider and storage test"
+    },
+    {
+      "id": "wp08-worker",
+      "result": "passed",
+      "regression_tests": 129,
+      "subtests": 36,
+      "skipped": 1,
+      "cloud_synthetic_http": 200
+    },
+    {
+      "id": "wp09-queued-live-single-sample",
+      "result": "passed",
+      "evidence": "provider-pilot.json"
+    },
+    {
+      "id": "iphone-offline-recovery-owner-confirmed",
+      "result": "passed_user_confirmed",
+      "physical_device": true,
+      "evidence": {
+        "id": "iphone-offline-recovery-owner-confirmed",
+        "scope": "Physical iPhone offline recovery",
+        "status": "accepted",
+        "source": "user_confirmation",
+        "confirmed_on_local_date": "2026-11-27",
+        "timezone": "America/Los_Angeles",
+        "build": null,
+        "device_model": null,
+        "individual_scenario_results": null,
+        "testflight_release_review": "not_reported"
+      }
+    },
+    {
+      "id": "ios-release-archive-n08",
+      "result": "passed",
+      "tool": "Xcode 27.2",
+      "target": "iOS device Release archive",
+      "version": "1.0",
+      "local_build_number": "8",
+      "signing": "disabled",
+      "api_configuration": "non-production placeholder override verified in compiled bundle",
+      "evidence": "xcodebuild archive exited 0; compiled Info.plist version, build number and API override verified",
+      "limitations": [
+        "Workspace source snapshot",
+        "Distribution signing, exact uploaded build and Apple review status remain unverified"
+      ]
+    },
+    {
+      "id": "ios-testflight-n08-apple-verification",
+      "result": "blocked_no_active_beta_build",
+      "source": "authenticated App Store Connect TestFlight and Build Metadata",
+      "version": "1.0",
+      "visible_expired_build_numbers": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "latest_visible_build": {
+        "number": 14,
+        "upload_processing": "Complete",
+        "testflight_status": "Expired"
+      },
+      "historical_build_with_local_number": {
+        "number": 8,
+        "apple_upload_date": "2026-06-13",
+        "testflight_status": "Expired",
+        "uses_non_exempt_encryption": false
+      },
+      "physical_device_build_match": "unverified",
+      "beta_app_review_for_current_candidate": "unverified"
+    },
+    {
+      "id": "ios-testflight-candidate-15",
+      "result": "signed_archive_and_export_passed",
+      "evidence": {
+        "version": "1.0",
+        "build": 15,
+        "source_commit": "31ca2779c0a7fd54e63f49f3f8315d69709e097e",
+        "ipa_sha256": "697b9a55e46e0d54f98a508843ed0690af0876eb26161fe4f8e5b099664ab560",
+        "signature": "Apple Distribution, strict verification passed",
+        "distribution": "TestFlight Internal Only",
+        "environment": "staging",
+        "runtime_tests_passed": 5,
+        "staging_health": "healthy",
+        "uploaded": false
+      },
+      "local_source_blobs_verified": 41,
+      "limitations": [
+        "Provider-dependent end-to-end QA on the candidate has not been run",
+        "No Apple processing or internal tester availability yet",
+        "Previously accepted real-device build has not been tied to this candidate"
+      ]
+    },
+    {
+      "id": "ios-testflight-1.0.1-15-delivery",
+      "result": "uploaded_processing",
+      "evidence": {
+        "version": "1.0.1",
+        "build": 15,
+        "source_commit": "361b245df1053477cc79685c137c991ba11526a4",
+        "local_export_ipa_sha256": "8ea1360342c69a4d9a484dad27d77cf5661cae1aaaaa4d249521fb7a8a0b6dd0",
+        "distribution": "TestFlight Internal Only",
+        "environment": "staging",
+        "exported_signature_verified": true,
+        "local_non_exempt_encryption_declaration": null,
+        "uploaded": true,
+        "upload_status": "Processing",
+        "testflight_status": "Processing",
+        "export_compliance": "pending"
+      },
+      "limitations": [
+        "Real device acceptance of this exact build has not been recorded",
+        "Prior local export checksum describes the locally verified export from the same archive"
+      ]
+    },
+    {
+      "id": "ios-testflight-1.0.1-15-compliance-check",
+      "result": "uploaded_missing_compliance",
+      "evidence": {
+        "version": "1.0.1",
+        "build": 15,
+        "source_commit": "361b245df1053477cc79685c137c991ba11526a4",
+        "local_export_ipa_sha256": "8ea1360342c69a4d9a484dad27d77cf5661cae1aaaaa4d249521fb7a8a0b6dd0",
+        "distribution": "TestFlight Internal Only",
+        "environment": "staging",
+        "exported_signature_verified": true,
+        "local_non_exempt_encryption_declaration": null,
+        "uploaded": true,
+        "upload_status": "received and visible in builds",
+        "testflight_status": "Missing Compliance",
+        "export_compliance": "Apple encryption declaration pending account-holder confirmation"
+      },
+      "limitations": [
+        "Real device acceptance of this exact build has not been recorded",
+        "Prior local export checksum describes the locally verified export from the same archive"
+      ]
+    },
+    {
+      "id": "ios-testflight-1.0.1-15-ready-to-test",
+      "result": "internal_testflight_ready",
+      "evidence": {
+        "version": "1.0.1",
+        "build": 15,
+        "source_commit": "361b245df1053477cc79685c137c991ba11526a4",
+        "local_export_ipa_sha256": "8ea1360342c69a4d9a484dad27d77cf5661cae1aaaaa4d249521fb7a8a0b6dd0",
+        "distribution": "TestFlight Internal Only",
+        "environment": "staging",
+        "exported_signature_verified": true,
+        "local_non_exempt_encryption_declaration": null,
+        "uploaded": true,
+        "upload_status": "received and verified in App Store Connect",
+        "testflight_status": "Ready to Test",
+        "export_compliance": "Saved owner-confirmed declaration: none of the listed algorithms; Missing Compliance cleared",
+        "internal_group_assignment_verified": true
+      },
+      "limitations": [
+        "Real device acceptance of this exact build has not been recorded",
+        "Prior local export checksum describes the locally verified export from the same archive"
+      ]
+    },
+    {
+      "id": "ios-testflight-1.0.1-15-device-preflight",
+      "result": "blocked_waiting_for_physical_device_interaction",
+      "build": "1.0.1 (15)",
+      "environment": "staging",
+      "device_family": "iPhone 16 Pro Max",
+      "device_connection_verified": true,
+      "testflight_candidate_seen_in_installed_app_inventory": false,
+      "mirror_status": "iPhone in Use; lock iPhone to connect",
+      "exact_build_runtime_verified": false
+    },
+    {
+      "id": "ios-testflight-1.0.1-15-install-check",
+      "result": "blocked_on_testflight_install_on_iphone",
+      "build": "1.0.1 (15)",
+      "mirror_connected_after_lock": true,
+      "testflight_candidate_seen_in_installed_app_inventory": false,
+      "exact_build_runtime_verified": false
+    },
+    {
+      "id": "ios-testflight-1.0.1-15-physical-install-and-launch",
+      "result": "installed_and_launched_offline_revalidation_pending",
+      "version": "1.0.1",
+      "build": 15,
+      "environment": "staging",
+      "device": "physical iPhone",
+      "installation_source": "TestFlight per owner confirmation",
+      "version_evidence": "Connected device app inventory matched app version 1.0.1 and build 15",
+      "launch_evidence": "CoreDevice reported successful launch of the installed app",
+      "connectivity_interruption_exercised": false,
+      "ready_test_word_confirmed": false,
+      "paid_model_calls": 0
+    },
+    {
+      "id": "ios-testflight-1.0.1-15-search-offline-recovery",
+      "result": "passed_user_confirmed",
+      "version": "1.0.1",
+      "build": 15,
+      "environment": "staging",
+      "device": "physical iPhone",
+      "source": "user confirmation following connected-device version and launch verification",
+      "offline_notice_shown": true,
+      "interface_remained_responsive": true,
+      "search_available_after_reconnect": true,
+      "post_reconnect_lookup_result": "not exercised",
+      "pending_image_poll_recovery": "not exercised"
+    },
+    {
+      "id": "ios-testflight-1.0.1-15-pending-fixture-prepared",
+      "result": "staging_fixture_pending_verified",
+      "version": "1.0.1",
+      "build": 15,
+      "environment": "staging",
+      "fixture_scope": "one synthetic word uniquely marked for this test",
+      "exact_staging_image_smoke": "passed isolated authenticated lookup, pending response, controlled terminal result, and fixture cleanup with container network disabled",
+      "staging_probe": "confirmed no pre-existing row for this fixture",
+      "staging_write": "pending verified by one-off admin execution",
+      "provider_guard": "text complete, image applicability deferred, no image generation or paid provider calls from fixture operations",
+      "rollback": "remove only the marked fixture and records referring to it after acceptance",
+      "physical_device_pending_recovery": "not yet run"
+    },
+    {
+      "id": "ios-testflight-1.0.1-15-pending-offline-checkpoint",
+      "result": "offline_pending_preserved_terminal_fixture_verified",
+      "version": "1.0.1",
+      "build": 15,
+      "environment": "staging",
+      "offline_seconds_approximate": 35,
+      "physical_device_observation": "Owner confirmed image still displayed as generating before reconnecting",
+      "controlled_server_transition": "pending to failed; verified by staging admin execution",
+      "fixture_image_attempt_count": 0,
+      "post_reconnection_refresh": "awaiting owner observation"
+    },
+    {
+      "id": "ios-testflight-1.0.1-15-physical-pending-image-recovery",
+      "result": "passed_user_confirmed",
+      "version": "1.0.1",
+      "build": 15,
+      "environment": "staging",
+      "offline_seconds_approximate": 35,
+      "offline_pending_preserved": true,
+      "manual_search_or_reload_after_reconnection": false,
+      "same_result_screen_applied_server_state_automatically": true,
+      "server_transition": "pending to controlled image unavailable",
+      "source": "owner device observation and staging fixture execution records",
+      "fixture_cleanup": "marked staging sample and only its fixture references removed; subsequent independent read verified absence",
+      "paid_ai_calls_for_fixture": 0,
+      "limitations": [
+        "Controlled terminal-result fixture, separate from real image generation",
+        "TestFlight internal testing only"
+      ]
+    },
+    {
+      "id": "production-cutover-review-postgresql16",
+      "result": "synthetic_rehearsal_passed_production_not_ready",
+      "runtime": "PostgreSQL 16, exact production image for legacy startup, verified candidate cutover files mounted",
+      "evidence": "production-cutover-review.json",
+      "durable_job_regression": {
+        "tests_passed": 17,
+        "tests_skipped": 1,
+        "backend": "SQLite",
+        "provider_calls": 0
+      }
+    },
+    {
+      "id": "production-cutover-isolated-rehearsal-final",
+      "result": "isolated_checks_passed_production_not_ready",
+      "environment": "disposable test resources using synthetic data only",
+      "backup_restore": {
+        "isolated_postgresql16_logical_restore": "passed",
+        "ddl_lock_timeout_and_no_partial_schema": "passed",
+        "managed_cloud_sql_backup_restore": "passed",
+        "database_content": "synthetic legacy schema and fixture rows only",
+        "production_backup_restored": false,
+        "managed_backup_seconds": 55.5,
+        "managed_restore_to_verified_query_seconds": 986.7,
+        "candidate_additive_startup_and_verification_seconds": 4.0,
+        "point_in_time_contents_verified": "pre-change backup fingerprint restored after changing the source; this was an on-demand backup, not a production PITR exercise"
+      },
+      "legacy_drain": {
+        "result": "passed_in_isolation",
+        "simulation_boundary": "test harness freeze around exact production image and candidate application; no deployed production control",
+        "tested": [
+          "generation entrances blocked while cached reads remained available",
+          "previously admitted callback completed before drain",
+          "historical attempt count and ambiguous start marker retained",
+          "no-provider candidate declined normal delivery",
+          "valid lease and started reservation blocked rollback",
+          "expired lease did not resolve open provider call and its stale result was fenced"
+        ]
+      },
+      "rollback": {
+        "result": "passed_in_isolation",
+        "synthetic_cloud_run_cutover_verified_seconds": 9.3,
+        "synthetic_cloud_run_rollback_verified_seconds": 9.8,
+        "condition": "synthetic generation endpoints remained frozen on both revisions",
+        "database_compatibility": "old API read retained candidate data and settled provider ledger on the same disposable database",
+        "full_production_rollback_rehearsed": false
+      },
+      "resource_cleanup": {
+        "cloud_run_verified_absent": true,
+        "managed_cloud_sql_synthetic_resources_verified_absent": true
+      },
+      "paid_ai_calls": 0,
+      "production_mutated": false,
+      "cutover_window_submitted": false
+    },
+    {
+      "id": "production-equivalence-and-representative-recovery",
+      "status": "equivalent_delivery_and_scale_recovery_verified_release_integration_pending",
+      "backlog_classification": {
+        "status": "verified_read_only",
+        "coverage": "All pending generatable entries fell into exclusive categories; no untouched candidate qualified in the observed snapshot.",
+        "no_automatic_replay_recommended": true,
+        "exact_aggregates": "restricted review"
+      },
+      "freeze_and_delivery": {
+        "status": "passed_in_production_equivalent_isolation",
+        "verified_packaged_runtime_blobs": 11,
+        "evidence": "Separate IAM-private API and worker, actual natural OIDC Scheduler tick, transactional outbox, Cloud Tasks at the planned limits, shared PostgreSQL freeze, blocked in-flight retry claim, text/image/scheduling callback guards, separate frozen admin invocation, successful reopen and duplicate acknowledgment.",
+        "frozen_delivery_returned_retryable": true,
+        "no_fixture_replay_and_zero_paid_provider_calls": true,
+        "release_limit": "The tested shared freeze was provided by a separate isolated rehearsal adapter. At the reviewed candidate revision, the two release Dockerfiles enter app.main:app and app.worker_app:app directly; neither uses the tested adapter. The running legacy production revision and release candidate have not been proven to enforce this gate."
+      },
+      "representative_managed_backup_restore": {
+        "status": "passed_at_representative_logical_scale",
+        "environment": "separate synthetic Cloud SQL PostgreSQL 16 with matching shared-core tier, storage allocation, selected table row counts, and dictionary payload width",
+        "logical_database_size_ratio_vs_read_only_production_aggregate": 1.073,
+        "used_production_rows_or_production_backup": false,
+        "limitations": "Managed synthetic snapshot restore under isolated load; the measured duration is not a guaranteed production recovery time or a production PITR test.",
+        "managed_backup_seconds": 88.3,
+        "managed_restore_operation_seconds": 862.2,
+        "managed_restore_to_verified_query_seconds": 888.5,
+        "candidate_additive_startup_and_verification_seconds": 3.9,
+        "pre_change_snapshot_and_selected_table_counts_match": true,
+        "matched_table_count": 8
+      },
+      "cleanup": {
+        "runtime_and_schema_verified_absent": true,
+        "synthetic_managed_instances_and_backup_verified_absent": true
+      },
+      "production_mutated": false,
+      "cutover_window_submitted": false
+    },
+    {
+      "id": "release-generation-freeze-candidate",
+      "status": "passed_isolated",
+      "candidate_commit": "3e355ed59d85a3ef7d55eafb632c38e585b33798",
+      "local_release_images": {
+        "status": "passed",
+        "stages": {
+          "missing_gate_fails_closed": true,
+          "confirmed_admin_commands_blocked": {
+            "app.repair_image_jobs": true,
+            "app.seed_starter_words": true,
+            "app.replace_selected_images": true,
+            "app.run_starter_backfill": true
+          },
+          "actual_api_queued_job_transactionally": true,
+          "image_admission_drained_before_reopen": true,
+          "actual_worker_published_and_duplicate_suppressed": true
+        },
+        "mock_provider_calls": {
+          "images": 1,
+          "vision": 1,
+          "uploads": 1
+        },
+        "paid_provider_calls": 0,
+        "api_and_worker_used_unmodified_dockerfile_entrypoints": true,
+        "worker_publisher_invoked_in_worker_image_without_cloud_identity_for_this_local_subtest": true
+      },
+      "cloud_release_images": {
+        "status": "passed",
+        "steps": {
+          "actual_frozen_admin_command_denied": true,
+          "scheduler_real_task_enqueued": true,
+          "existing_task_reached_candidate_worker_and_was_frozen": true,
+          "readonly_lookup_available_in_freeze": true,
+          "scheduler_owned_task_removed_before_provider_disabled_reopen": true,
+          "same_oidc_payload_frozen_503": true,
+          "candidate_acknowledged_safe_oidc_task_after_open": true,
+          "pending_outbox_preserved_and_attempt_unspent": true,
+          "queue_and_scheduler_paused": true,
+          "worker_http_attestation": {
+            "run_http200": 1,
+            "run_http503": 3,
+            "dispatch_http200": 1
+          }
+        },
+        "provider_execution_enabled": false,
+        "paid_provider_calls": 0
+      },
+      "regression": {
+        "passed": 129,
+        "skipped": 1,
+        "subtests_passed": 36
+      },
+      "cleanup": {
+        "temporary_cloud_resources_verified_absent": true,
+        "temporary_staging_schema_verified_absent": true
+      },
+      "production_changed": false,
+      "cutover_window_submitted": false
+    },
+    {
+      "id": "production-delivery-review-and-legacy-fence-checkpoint",
+      "status": "production_delivery_reviewed_cloud_route_proof_in_progress",
+      "candidate_commit": "3e355ed59d85a3ef7d55eafb632c38e585b33798",
+      "legacy_isolated_local": {
+        "status": "passed",
+        "steps": {
+          "live_image_and_normal_entrypoint_verified": true,
+          "legacy_not_reachable_directly_from_front_network": true,
+          "blocked_http_probes": 8,
+          "isolated_admin_launch_gate_blocked": true,
+          "zero_edge_requests_did_not_mark_background_drained": true,
+          "isolated_drain_then_disjoint_historical_marker_preserved": true,
+          "post_freeze_legacy_http_read_and_ready_verified": true
+        },
+        "isolated_resources_verified_absent": true,
+        "paid_provider_calls": 0
+      },
+      "candidate_postgres_worker_role": {
+        "status": "passed",
+        "stages": {
+          "narrow_worker_role_verified_no_user_tables_or_schema_create": true,
+          "confirmed_admin_commands_blocked": {
+            "app.repair_image_jobs": true,
+            "app.seed_starter_words": true,
+            "app.replace_selected_images": true,
+            "app.run_starter_backfill": true
+          },
+          "actual_api_queued_job_transactionally": true,
+          "image_admission_drained_before_reopen": true,
+          "actual_worker_published_and_duplicate_suppressed": true
+        },
+        "mock_provider_calls": {
+          "images": 1,
+          "vision": 1,
+          "uploads": 1
+        },
+        "paid_provider_calls": 0,
+        "api_and_worker_used_unmodified_dockerfile_entrypoints": true,
+        "worker_publisher_invoked_in_worker_image_without_cloud_identity_for_this_local_subtest": true
+      },
+      "cloud_run_same_service_route": {
+        "status": "in_progress"
+      },
+      "production_changed": false,
+      "cutover_window_submitted": false
+    },
+    {
+      "id": "production-delivery-review-and-legacy-fence-final",
+      "status": "legacy_fence_rehearsed_production_bindings_unprovisioned",
+      "candidate_commit": "3e355ed59d85a3ef7d55eafb632c38e585b33798",
+      "legacy_isolated_local": {
+        "status": "passed",
+        "steps": {
+          "live_image_and_normal_entrypoint_verified": true,
+          "legacy_not_reachable_directly_from_front_network": true,
+          "blocked_http_probes": 8,
+          "isolated_admin_launch_gate_blocked": true,
+          "zero_edge_requests_did_not_mark_background_drained": true,
+          "isolated_drain_then_disjoint_historical_marker_preserved": true,
+          "post_freeze_legacy_http_read_and_ready_verified": true
+        },
+        "isolated_resources_verified_absent": true,
+        "paid_provider_calls": 0
+      },
+      "candidate_postgres_worker_role": {
+        "status": "passed",
+        "stages": {
+          "narrow_worker_role_verified_no_user_tables_or_schema_create": true,
+          "confirmed_admin_commands_blocked": {
+            "app.repair_image_jobs": true,
+            "app.seed_starter_words": true,
+            "app.replace_selected_images": true,
+            "app.run_starter_backfill": true
+          },
+          "actual_api_queued_job_transactionally": true,
+          "image_admission_drained_before_reopen": true,
+          "actual_worker_published_and_duplicate_suppressed": true
+        },
+        "mock_provider_calls": {
+          "images": 1,
+          "vision": 1,
+          "uploads": 1
+        },
+        "paid_provider_calls": 0,
+        "api_and_worker_used_unmodified_dockerfile_entrypoints": true,
+        "worker_publisher_invoked_in_worker_image_without_cloud_identity_for_this_local_subtest": true
+      },
+      "cloud_run_same_service_route": {
+        "status": "passed",
+        "steps": {
+          "actual_legacy_image_cached_lookup_through_service_url": true,
+          "same_url_moved_to_actual_frozen_candidate_and_reads_continue": true,
+          "legacy_tag_bypasses_zero_percent_traffic": true,
+          "tag_removal_and_default_url_fence_verified": true
+        },
+        "temporary_service_and_schema_verified_absent": true,
+        "paid_provider_calls": 0
+      },
+      "legacy_progressive_text_drain": {
+        "status": "passed",
+        "steps": {
+          "live_image_and_normal_entrypoint_verified": true,
+          "legacy_not_reachable_directly_from_front_network": true,
+          "blocked_http_probes": 8,
+          "isolated_admin_launch_gate_blocked": true,
+          "zero_edge_requests_did_not_mark_background_drained": true,
+          "preadmitted_text_spawned_image_while_frozen_and_both_drained": true,
+          "progressive_text_remained_active_after_image_drained_then_settled": true,
+          "isolated_drain_then_disjoint_historical_marker_preserved": true,
+          "post_freeze_legacy_http_read_and_ready_verified": true
+        },
+        "isolated_resources_verified_absent": true,
+        "paid_provider_calls": 0
+      },
+      "production_changed": false,
+      "cutover_window_submitted": false
+    },
+    {
+      "id": "production-preconfiguration-checkpoint",
+      "status": "production_preconfigured_pending_remaining_checks",
+      "candidate_commit": "24c119f8cbad0068fb155c2d51015520a0818f16",
+      "scope": "User-authorized production preconfiguration while serving legacy traffic.",
+      "worker": {
+        "ready": true,
+        "generation_disabled": true,
+        "provider_credentials_present": false,
+        "postgres_binding_verified_on_startup": true,
+        "read_only_worker_database_role": true,
+        "application_table_schema_or_rows_changed": false,
+        "control_and_durable_tables_installed": false
+      },
+      "queue_paused_and_empty": true,
+      "scheduler_paused_and_never_attempted": true,
+      "scheduler_target_and_audience_verified": true,
+      "effective_runtime_permissions_verified": true,
+      "dedicated_caller_oidc_verified": true,
+      "notification_channel_provisioned": true,
+      "synthetic_alert_submitted": true,
+      "notification_delivered_inbox_verified": false,
+      "isolated_full_dispatch_batch": {
+        "status": "pending"
+      },
+      "live_legacy_api_traffic_changed": false,
+      "production_generation_enabled_by_this_work": false,
+      "production_queue_or_scheduler_resumed": false,
+      "cutover_window_submitted": false
+    },
+    {
+      "id": "production-preconfiguration-final",
+      "status": "production_preconfiguration_verified_awaiting_switch_approval",
+      "candidate_commit": "24c119f8cbad0068fb155c2d51015520a0818f16",
+      "scope": "User-authorized production preconfiguration while serving legacy traffic.",
+      "worker": {
+        "ready": true,
+        "generation_disabled": true,
+        "provider_credentials_present": false,
+        "postgres_binding_verified_on_startup": true,
+        "read_only_worker_database_role": true,
+        "application_table_schema_or_rows_changed": false,
+        "control_and_durable_tables_installed": false
+      },
+      "queue_paused_and_empty": true,
+      "scheduler_paused_and_never_attempted": true,
+      "scheduler_target_and_audience_verified": true,
+      "effective_runtime_permissions_verified": true,
+      "dedicated_caller_oidc_verified": true,
+      "notification_channel_provisioned": true,
+      "synthetic_alert_submitted": true,
+      "notification_delivered_inbox_verified": true,
+      "isolated_full_dispatch_batch": {
+        "status": "passed",
+        "distinct_cloud_tasks": 20,
+        "scheduler_request_seconds": 6.479,
+        "scheduler_deadline_seconds": 240,
+        "queue_deliveries": 0,
+        "paid_provider_calls": 0,
+        "isolation": "staging-only disposable schema and queue",
+        "worker_is_same_candidate_digest": true,
+        "cleanup": {
+          "temporary_cloud_resources_verified_absent": true,
+          "temporary_staging_schema_verified_absent": true
+        }
+      },
+      "backend_regression": {
+        "passed": 129,
+        "skipped": 1,
+        "subtests_passed": 36
+      },
+      "operational_alert_policies_bound_held_disabled": 2,
+      "live_legacy_api_traffic_changed": false,
+      "production_generation_enabled_by_this_work": false,
+      "production_queue_or_scheduler_resumed": false,
+      "cutover_window_submitted": true
+    },
+    {
+      "id": "pre_window_live_status_audit",
+      "observed_at": "2026-11-28T05:53:51.530678Z",
+      "status": "scheduled_cutover_not_started",
+      "before_approved_window": true,
+      "traffic": {
+        "old_revision_percent": 100,
+        "cutover_performed": false
+      },
+      "database": {
+        "read_only_catalog_verified": true,
+        "migration_applied": false,
+        "expected_tables_present": {
+          "generation_admission_state": false,
+          "image_jobs": false,
+          "image_provider_calls": false
+        }
+      },
+      "legacy_drain": {
+        "status": "not_performed_or_attested",
+        "old_revision_still_receives_traffic": true,
+        "recent_pending_image_or_text_marker_observed": false,
+        "legacy_admin_active_observed_in_recent_inventory": false,
+        "historical_pending_markers_present": true,
+        "scope": "A read-only snapshot before the approved window. It cannot prove that legacy admission was fenced or that its background work has drained."
+      },
+      "cloud_tasks": {
+        "state": "PAUSED",
+        "task_count": 0
+      },
+      "cloud_scheduler": {
+        "state": "PAUSED",
+        "attempt_observed": false
+      },
+      "new_worker": {
+        "preflight_only": true,
+        "provider_execution_disabled": true
+      },
+      "production_mutated_by_status_audit": false
+    },
+    {
+      "id": "pre-window-live-status-audit-20261128T061353Z",
+      "observed_at": "2026-11-28T06:13:53.326970Z",
+      "status": "scheduled_cutover_not_started",
+      "before_approved_window": true,
+      "traffic": {
+        "old_revision_percent": 100,
+        "cutover_performed": false
+      },
+      "database": {
+        "read_only_catalog_verified": true,
+        "migration_applied": false,
+        "expected_tables_present": {
+          "generation_admission_state": false,
+          "image_jobs": false,
+          "image_provider_calls": false
+        }
+      },
+      "legacy_drain": {
+        "status": "not_performed_or_attested",
+        "old_revision_still_receives_traffic": true,
+        "recent_pending_image_or_text_marker_observed": false,
+        "legacy_admin_active_observed_in_recent_inventory": false,
+        "historical_pending_markers_present": true,
+        "scope": "A read-only snapshot before the approved window. It cannot prove that legacy admission was fenced or that its background work has drained."
+      },
+      "cloud_tasks": {
+        "state": "PAUSED",
+        "task_count": 0
+      },
+      "cloud_scheduler": {
+        "state": "PAUSED",
+        "attempt_observed": false
+      },
+      "new_worker": {
+        "preflight_only": true,
+        "provider_execution_disabled": true
+      },
+      "execution": {
+        "cutover_started": false,
+        "cutover_failure_observed": false,
+        "rollback_observed": false,
+        "cloud_run_production_api_admin_events_since_approval": 0,
+        "scope": "Scoped Cloud Run Admin Activity and deployed state checked before the approved window."
+      },
+      "production_mutated_by_status_audit": false
+    },
+    {
+      "id": "replacement-window-restore_started",
+      "at": "2026-11-28T06:36:36.983965Z",
+      "status": "live_preflight_managed_restore_in_progress",
+      "recovered_production_backup_in_isolation": false,
+      "backup_completed_before_production_migration": true,
+      "restore_target_connector_enforced_and_read_only_validation": false,
+      "temporary_restore_target_cleaned": false,
+      "preconditions_verified": false,
+      "bounded_additive_migration_applied": false,
+      "legacy_schema_preserved": false,
+      "shared_admission_frozen": false,
+      "legacy_original_traffic_percent": 100,
+      "frozen_candidate_traffic_percent": 0,
+      "independently_fenced_rollback_traffic_percent": 0,
+      "candidate_provider_free_pre_switch_probes_passed": false,
+      "legacy_admin_hold_applied": false,
+      "legacy_drain_status": "pending_or_not_attempted",
+      "independent_rollback_validation_passed": false,
+      "rollback": "not_triggered_or_not_needed",
+      "production_queue_paused": true,
+      "production_scheduler_paused": true,
+      "paid_calls_initiated_by_this_execution": 0,
+      "new_provider_execution_enabled": false
+    },
+    {
+      "id": "replacement-window-preconditions_verified",
+      "at": "2026-11-28T06:51:36.180419Z",
+      "status": "live_preflight_verified_authorized_migration_next",
+      "recovered_production_backup_in_isolation": true,
+      "backup_completed_before_production_migration": true,
+      "restore_target_connector_enforced_and_read_only_validation": true,
+      "temporary_restore_target_cleaned": false,
+      "preconditions_verified": true,
+      "bounded_additive_migration_applied": false,
+      "legacy_schema_preserved": false,
+      "shared_admission_frozen": false,
+      "legacy_original_traffic_percent": 100,
+      "frozen_candidate_traffic_percent": 0,
+      "independently_fenced_rollback_traffic_percent": 0,
+      "candidate_provider_free_pre_switch_probes_passed": false,
+      "legacy_admin_hold_applied": false,
+      "legacy_drain_status": "pending_or_not_attempted",
+      "independent_rollback_validation_passed": false,
+      "rollback": "not_triggered_or_not_needed",
+      "production_queue_paused": true,
+      "production_scheduler_paused": true,
+      "paid_calls_initiated_by_this_execution": 0,
+      "new_provider_execution_enabled": false
+    },
+    {
+      "id": "replacement-window-migration_complete",
+      "at": "2026-11-28T06:53:53.831111Z",
+      "status": "production_additive_migration_verified_routing_validation",
+      "recovered_production_backup_in_isolation": true,
+      "backup_completed_before_production_migration": true,
+      "restore_target_connector_enforced_and_read_only_validation": true,
+      "temporary_restore_target_cleaned": true,
+      "preconditions_verified": true,
+      "bounded_additive_migration_applied": true,
+      "legacy_schema_preserved": true,
+      "shared_admission_frozen": true,
+      "legacy_original_traffic_percent": 100,
+      "frozen_candidate_traffic_percent": 0,
+      "independently_fenced_rollback_traffic_percent": 0,
+      "candidate_provider_free_pre_switch_probes_passed": false,
+      "legacy_admin_hold_applied": true,
+      "legacy_drain_status": "pending_or_not_attempted",
+      "independent_rollback_validation_passed": false,
+      "rollback": "not_triggered_or_not_needed",
+      "production_queue_paused": true,
+      "production_scheduler_paused": true,
+      "paid_calls_initiated_by_this_execution": 0,
+      "new_provider_execution_enabled": false
+    },
+    {
+      "id": "replacement-window-frozen_traffic_live",
+      "at": "2026-11-28T06:56:13.202043Z",
+      "status": "frozen_candidate_live_legacy_drain_observing",
+      "recovered_production_backup_in_isolation": true,
+      "backup_completed_before_production_migration": true,
+      "restore_target_connector_enforced_and_read_only_validation": true,
+      "temporary_restore_target_cleaned": true,
+      "preconditions_verified": true,
+      "bounded_additive_migration_applied": true,
+      "legacy_schema_preserved": true,
+      "shared_admission_frozen": true,
+      "legacy_original_traffic_percent": 0,
+      "frozen_candidate_traffic_percent": 100,
+      "independently_fenced_rollback_traffic_percent": 0,
+      "candidate_provider_free_pre_switch_probes_passed": true,
+      "legacy_admin_hold_applied": true,
+      "legacy_drain_status": "pending_or_not_attempted",
+      "independent_rollback_validation_passed": true,
+      "rollback": "not_triggered_or_not_needed",
+      "production_queue_paused": true,
+      "production_scheduler_paused": true,
+      "paid_calls_initiated_by_this_execution": 0,
+      "new_provider_execution_enabled": false
+    },
+    {
+      "id": "replacement-window-final",
+      "at": "2026-11-28T07:04:47.804385Z",
+      "status": "frozen_production_cutover_complete_delivery_held",
+      "recovered_production_backup_in_isolation": true,
+      "backup_completed_before_production_migration": true,
+      "restore_target_connector_enforced_and_read_only_validation": true,
+      "temporary_restore_target_cleaned": true,
+      "temporary_synthetic_smoke_identity_cleaned": true,
+      "preconditions_verified": true,
+      "bounded_additive_migration_applied": true,
+      "legacy_schema_preserved": true,
+      "shared_admission_frozen": true,
+      "legacy_original_traffic_percent": 0,
+      "frozen_candidate_traffic_percent": 100,
+      "independently_fenced_rollback_traffic_percent": 0,
+      "candidate_provider_free_pre_switch_probes_passed": true,
+      "legacy_admin_hold_applied": true,
+      "legacy_drain_status": "verified",
+      "legacy_drain_observation_seconds": 502.6,
+      "legacy_no_new_requests_or_recent_unresolved_markers_observed": true,
+      "old_instance_metric_samples_available_after_timeout": false,
+      "legacy_backlog_kept_held": true,
+      "independent_rollback_validation_passed": true,
+      "rollback": "not_triggered_or_not_needed",
+      "production_queue_paused": true,
+      "production_scheduler_paused": true,
+      "paid_calls_initiated_by_this_execution": 0,
+      "new_provider_execution_enabled": false
+    },
+    {
+      "id": "production-single-paid-validation-authorized",
+      "status": "production_paid_single_sample_authorized",
+      "observed_at": "2026-11-28T07:08:51.740316Z",
+      "candidate_commit": "24c119f8cbad0068fb155c2d51015520a0818f16",
+      "sample_count": 0,
+      "data_scope": "One synthetic fixture description. No user data or production dictionary rows were read for generation.",
+      "path": "Operator one-shot with the production provider references and existing image prompt and vision helper. Production API, worker and delivery were held.",
+      "calls_started": {
+        "image": 0,
+        "vision": 0,
+        "standalone_text": 0
+      },
+      "provider_responses_received": {
+        "image": 0,
+        "vision": 0
+      },
+      "provider_durations_seconds": {},
+      "validation_total_seconds": null,
+      "authenticated_storage_roundtrip": false,
+      "safety_and_subject_checks_passed": false,
+      "test_asset_cleanup_verified": false,
+      "production_database_test_rows_created": false,
+      "ordinary_generation_opened": false,
+      "queue_and_scheduler_remain_paused": true,
+      "production_backlog_replayed": false,
+      "production_shared_admission_remains_frozen": true,
+      "before_after_hold_verification": false,
+      "model_access_verified": true,
+      "cost": {
+        "usage_derived_openai": null,
+        "actual_invoice_usd": null,
+        "cloudinary_invoice_usd": null
+      },
+      "expansion_authorized": false
+    },
+    {
+      "id": "production-single-paid-validation-final",
+      "status": "production_paid_single_sample_passed_frozen",
+      "observed_at": "2026-11-28T07:10:04.504465Z",
+      "candidate_commit": "24c119f8cbad0068fb155c2d51015520a0818f16",
+      "sample_count": 1,
+      "data_scope": "One synthetic fixture description. No user data or production dictionary rows were read for generation.",
+      "path": "Operator one-shot with the production provider references and existing image prompt and vision helper. Production API, worker and delivery were held.",
+      "calls_started": {
+        "image": 1,
+        "vision": 1,
+        "standalone_text": 0
+      },
+      "provider_responses_received": {
+        "image": 1,
+        "vision": 1
+      },
+      "provider_durations_seconds": {
+        "image": 4.735,
+        "vision": 2.594
+      },
+      "validation_total_seconds": 17.144,
+      "authenticated_storage_roundtrip": true,
+      "safety_and_subject_checks_passed": true,
+      "test_asset_cleanup_verified": true,
+      "production_database_test_rows_created": false,
+      "ordinary_generation_opened": false,
+      "queue_and_scheduler_remain_paused": true,
+      "production_backlog_replayed": false,
+      "production_shared_admission_remains_frozen": true,
+      "before_after_hold_verification": true,
+      "model_access_verified": true,
+      "cost": {
+        "usage_derived_openai": {
+          "image_usd": "0.02721",
+          "vision_usd": "0.00022005",
+          "total_usd": "0.02743005",
+          "basis": "Provider response token counters and published Standard rates, before taxes or contract adjustments."
+        },
+        "actual_invoice_usd": null,
+        "cloudinary_invoice_usd": null
+      },
+      "expansion_authorized": false
+    },
+    {
+      "id": "production-three-paid-samples-approved",
+      "status": "production_three_paid_samples_approved",
+      "observed_at": "2026-11-28T07:35:38.033612Z",
+      "candidate_commit": "24c119f8cbad0068fb155c2d51015520a0818f16",
+      "data_scope": "Three synthetic fixture descriptions processed through the one-shot provider flow with production credentials. No production dictionary rows created and no user data provided to models.",
+      "delivery_scope": "No production worker run, queue enqueue, scheduler dispatch, ordinary user opening, or historical replay.",
+      "scope_expansion_approved_for_this_run_only": {
+        "scope": "Owner approved three production synthetic fixtures, each at most one generated image and one safety and subject vision check.",
+        "synthetic_fixtures": [
+          "pear",
+          "umbrella",
+          "kite"
+        ],
+        "maximum_paid_calls": 6,
+        "maximum_per_fixture": {
+          "image": 1,
+          "vision": 1
+        },
+        "automatic_retry_allowed": false,
+        "ordinary_user_generation_frozen": true,
+        "queue_and_scheduler_remain_paused": true,
+        "historical_jobs_replayed": false,
+        "expansion_requires_further_approval": true
+      },
+      "samples": [
+        {
+          "fixture_word": "pear",
+          "status": "not_run",
+          "paid_calls_started": {
+            "image": 0,
+            "vision": 0
+          },
+          "response_cost_estimate_usd": null,
+          "response_cost_estimate_breakdown_usd": {},
+          "timings_seconds": {},
+          "sample_pipeline_seconds": null,
+          "safety_and_subject_approved": false,
+          "authenticated_storage_roundtrip": false,
+          "temporary_asset_absent_verified": false
+        },
+        {
+          "fixture_word": "umbrella",
+          "status": "not_run",
+          "paid_calls_started": {
+            "image": 0,
+            "vision": 0
+          },
+          "response_cost_estimate_usd": null,
+          "response_cost_estimate_breakdown_usd": {},
+          "timings_seconds": {},
+          "sample_pipeline_seconds": null,
+          "safety_and_subject_approved": false,
+          "authenticated_storage_roundtrip": false,
+          "temporary_asset_absent_verified": false
+        },
+        {
+          "fixture_word": "kite",
+          "status": "not_run",
+          "paid_calls_started": {
+            "image": 0,
+            "vision": 0
+          },
+          "response_cost_estimate_usd": null,
+          "response_cost_estimate_breakdown_usd": {},
+          "timings_seconds": {},
+          "sample_pipeline_seconds": null,
+          "safety_and_subject_approved": false,
+          "authenticated_storage_roundtrip": false,
+          "temporary_asset_absent_verified": false
+        }
+      ],
+      "total_calls_started": {
+        "image": 0,
+        "vision": 0,
+        "standalone_text": 0
+      },
+      "cost": {
+        "openai_estimated_usd_for_metered_responses": null,
+        "paid_responses_with_token_cost": 0,
+        "all_started_paid_calls_had_priced_usage": true,
+        "basis": "Actual response token counters and published OpenAI Standard rates. Invoice, contract adjustments, and Cloudinary charges not reconciled.",
+        "actual_invoice_usd": null,
+        "cloudinary_invoice_usd": null
+      },
+      "total_elapsed_seconds": null,
+      "production_frozen_before_and_after_verified": false,
+      "all_three_temporary_assets_absent_verified": false,
+      "expansion_requires_new_approval": true
+    },
+    {
+      "id": "production-three-paid-samples-final",
+      "status": "production_three_paid_samples_passed_frozen",
+      "observed_at": "2026-11-28T07:37:33.836682Z",
+      "candidate_commit": "24c119f8cbad0068fb155c2d51015520a0818f16",
+      "data_scope": "Three synthetic fixture descriptions processed through the one-shot provider flow with production credentials. No production dictionary rows created and no user data provided to models.",
+      "delivery_scope": "No production worker run, queue enqueue, scheduler dispatch, ordinary user opening, or historical replay.",
+      "scope_expansion_approved_for_this_run_only": {
+        "scope": "Owner approved three production synthetic fixtures, each at most one generated image and one safety and subject vision check.",
+        "synthetic_fixtures": [
+          "pear",
+          "umbrella",
+          "kite"
+        ],
+        "maximum_paid_calls": 6,
+        "maximum_per_fixture": {
+          "image": 1,
+          "vision": 1
+        },
+        "automatic_retry_allowed": false,
+        "ordinary_user_generation_frozen": true,
+        "queue_and_scheduler_remain_paused": true,
+        "historical_jobs_replayed": false,
+        "expansion_requires_further_approval": true
+      },
+      "samples": [
+        {
+          "fixture_word": "pear",
+          "status": "passed",
+          "paid_calls_started": {
+            "image": 1,
+            "vision": 1
+          },
+          "response_cost_estimate_usd": "0.02748805",
+          "response_cost_estimate_breakdown_usd": {
+            "image": "0.027265",
+            "vision": "0.00022305"
+          },
+          "timings_seconds": {
+            "image": 5.158,
+            "vision": 2.99
+          },
+          "sample_pipeline_seconds": 13.011,
+          "safety_and_subject_approved": true,
+          "authenticated_storage_roundtrip": true,
+          "temporary_asset_absent_verified": true
+        },
+        {
+          "fixture_word": "umbrella",
+          "status": "passed",
+          "paid_calls_started": {
+            "image": 1,
+            "vision": 1
+          },
+          "response_cost_estimate_usd": "0.0274698",
+          "response_cost_estimate_breakdown_usd": {
+            "image": "0.027235",
+            "vision": "0.0002348"
+          },
+          "timings_seconds": {
+            "image": 6.97,
+            "vision": 2.482
+          },
+          "sample_pipeline_seconds": 13.902,
+          "safety_and_subject_approved": true,
+          "authenticated_storage_roundtrip": true,
+          "temporary_asset_absent_verified": true
+        },
+        {
+          "fixture_word": "kite",
+          "status": "passed",
+          "paid_calls_started": {
+            "image": 1,
+            "vision": 1
+          },
+          "response_cost_estimate_usd": "0.0275103",
+          "response_cost_estimate_breakdown_usd": {
+            "image": "0.02727",
+            "vision": "0.0002403"
+          },
+          "timings_seconds": {
+            "image": 5.964,
+            "vision": 2.158
+          },
+          "sample_pipeline_seconds": 13.541,
+          "safety_and_subject_approved": true,
+          "authenticated_storage_roundtrip": true,
+          "temporary_asset_absent_verified": true
+        }
+      ],
+      "total_calls_started": {
+        "image": 3,
+        "vision": 3,
+        "standalone_text": 0
+      },
+      "cost": {
+        "openai_estimated_usd_for_metered_responses": "0.08246815",
+        "paid_responses_with_token_cost": 6,
+        "all_started_paid_calls_had_priced_usage": true,
+        "basis": "Actual response token counters and published OpenAI Standard rates. Invoice, contract adjustments, and Cloudinary charges not reconciled.",
+        "actual_invoice_usd": null,
+        "cloudinary_invoice_usd": null
+      },
+      "total_elapsed_seconds": 52.382,
+      "production_frozen_before_and_after_verified": true,
+      "all_three_temporary_assets_absent_verified": true,
+      "expansion_requires_new_approval": true
+    },
+    {
+      "id": "production-ten-paid-samples-approved",
+      "status": "production_ten_paid_samples_approved",
+      "observed_at": "2026-11-28T07:45:00.623170Z",
+      "candidate_commit": "24c119f8cbad0068fb155c2d51015520a0818f16",
+      "data_scope": "Ten synthetic fixture descriptions processed through the one-shot provider flow with production credentials. No production dictionary rows created and no user data provided to models.",
+      "delivery_scope": "No production worker run, queue enqueue, scheduler dispatch, ordinary user opening, or historical replay.",
+      "scope_expansion_approved_for_this_run_only": {
+        "scope": "Owner approved ten synthetic words and up to twenty paid requests with one image and one vision maximum per fixture.",
+        "synthetic_fixtures": [
+          "bicycle",
+          "sailboat",
+          "dolphin",
+          "butterfly",
+          "sunflower",
+          "teapot",
+          "violin",
+          "lighthouse",
+          "ladybug",
+          "snowman"
+        ],
+        "maximum_paid_calls": 20,
+        "maximum_per_fixture": {
+          "image": 1,
+          "vision": 1
+        },
+        "openai_budget_estimate_usd": "0.35",
+        "automatic_retry_allowed": false,
+        "ordinary_user_generation_frozen": true,
+        "queue_and_scheduler_remain_paused": true,
+        "historical_jobs_replayed": false,
+        "expansion_requires_further_approval": true
+      },
+      "samples": [
+        {
+          "fixture_word": "bicycle",
+          "status": "not_run",
+          "paid_calls_started": {
+            "image": 0,
+            "vision": 0
+          },
+          "response_cost_estimate_usd": null,
+          "response_cost_estimate_breakdown_usd": {},
+          "timings_seconds": {},
+          "sample_pipeline_seconds": null,
+          "safety_and_subject_approved": false,
+          "authenticated_storage_roundtrip": false,
+          "temporary_asset_absent_verified": false
+        },
+        {
+          "fixture_word": "sailboat",
+          "status": "not_run",
+          "paid_calls_started": {
+            "image": 0,
+            "vision": 0
+          },
+          "response_cost_estimate_usd": null,
+          "response_cost_estimate_breakdown_usd": {},
+          "timings_seconds": {},
+          "sample_pipeline_seconds": null,
+          "safety_and_subject_approved": false,
+          "authenticated_storage_roundtrip": false,
+          "temporary_asset_absent_verified": false
+        },
+        {
+          "fixture_word": "dolphin",
+          "status": "not_run",
+          "paid_calls_started": {
+            "image": 0,
+            "vision": 0
+          },
+          "response_cost_estimate_usd": null,
+          "response_cost_estimate_breakdown_usd": {},
+          "timings_seconds": {},
+          "sample_pipeline_seconds": null,
+          "safety_and_subject_approved": false,
+          "authenticated_storage_roundtrip": false,
+          "temporary_asset_absent_verified": false
+        },
+        {
+          "fixture_word": "butterfly",
+          "status": "not_run",
+          "paid_calls_started": {
+            "image": 0,
+            "vision": 0
+          },
+          "response_cost_estimate_usd": null,
+          "response_cost_estimate_breakdown_usd": {},
+          "timings_seconds": {},
+          "sample_pipeline_seconds": null,
+          "safety_and_subject_approved": false,
+          "authenticated_storage_roundtrip": false,
+          "temporary_asset_absent_verified": false
+        },
+        {
+          "fixture_word": "sunflower",
+          "status": "not_run",
+          "paid_calls_started": {
+            "image": 0,
+            "vision": 0
+          },
+          "response_cost_estimate_usd": null,
+          "response_cost_estimate_breakdown_usd": {},
+          "timings_seconds": {},
+          "sample_pipeline_seconds": null,
+          "safety_and_subject_approved": false,
+          "authenticated_storage_roundtrip": false,
+          "temporary_asset_absent_verified": false
+        },
+        {
+          "fixture_word": "teapot",
+          "status": "not_run",
+          "paid_calls_started": {
+            "image": 0,
+            "vision": 0
+          },
+          "response_cost_estimate_usd": null,
+          "response_cost_estimate_breakdown_usd": {},
+          "timings_seconds": {},
+          "sample_pipeline_seconds": null,
+          "safety_and_subject_approved": false,
+          "authenticated_storage_roundtrip": false,
+          "temporary_asset_absent_verified": false
+        },
+        {
+          "fixture_word": "violin",
+          "status": "not_run",
+          "paid_calls_started": {
+            "image": 0,
+            "vision": 0
+          },
+          "response_cost_estimate_usd": null,
+          "response_cost_estimate_breakdown_usd": {},
+          "timings_seconds": {},
+          "sample_pipeline_seconds": null,
+          "safety_and_subject_approved": false,
+          "authenticated_storage_roundtrip": false,
+          "temporary_asset_absent_verified": false
+        },
+        {
+          "fixture_word": "lighthouse",
+          "status": "not_run",
+          "paid_calls_started": {
+            "image": 0,
+            "vision": 0
+          },
+          "response_cost_estimate_usd": null,
+          "response_cost_estimate_breakdown_usd": {},
+          "timings_seconds": {},
+          "sample_pipeline_seconds": null,
+          "safety_and_subject_approved": false,
+          "authenticated_storage_roundtrip": false,
+          "temporary_asset_absent_verified": false
+        },
+        {
+          "fixture_word": "ladybug",
+          "status": "not_run",
+          "paid_calls_started": {
+            "image": 0,
+            "vision": 0
+          },
+          "response_cost_estimate_usd": null,
+          "response_cost_estimate_breakdown_usd": {},
+          "timings_seconds": {},
+          "sample_pipeline_seconds": null,
+          "safety_and_subject_approved": false,
+          "authenticated_storage_roundtrip": false,
+          "temporary_asset_absent_verified": false
+        },
+        {
+          "fixture_word": "snowman",
+          "status": "not_run",
+          "paid_calls_started": {
+            "image": 0,
+            "vision": 0
+          },
+          "response_cost_estimate_usd": null,
+          "response_cost_estimate_breakdown_usd": {},
+          "timings_seconds": {},
+          "sample_pipeline_seconds": null,
+          "safety_and_subject_approved": false,
+          "authenticated_storage_roundtrip": false,
+          "temporary_asset_absent_verified": false
+        }
+      ],
+      "total_calls_started": {
+        "image": 0,
+        "vision": 0,
+        "standalone_text": 0
+      },
+      "cost": {
+        "openai_estimated_usd_for_metered_responses": null,
+        "paid_responses_with_token_cost": 0,
+        "all_started_paid_calls_had_priced_usage": true,
+        "basis": "Actual response token counters and published OpenAI Standard rates. Invoice, contract adjustments, and Cloudinary charges not reconciled.",
+        "approved_budget_estimate_usd": "0.35",
+        "actual_invoice_usd": null,
+        "cloudinary_invoice_usd": null
+      },
+      "total_elapsed_seconds": null,
+      "production_frozen_before_and_after_verified": false,
+      "all_ten_temporary_assets_absent_verified": false,
+      "expansion_requires_new_approval": true
+    },
+    {
+      "id": "production-ten-paid-samples-running",
+      "status": "production_ten_paid_samples_in_progress",
+      "observed_at": "2026-11-28T07:47:12.792362Z",
+      "candidate_commit": "24c119f8cbad0068fb155c2d51015520a0818f16",
+      "data_scope": "Ten synthetic fixture descriptions processed through the one-shot provider flow with production credentials. No production dictionary rows created and no user data provided to models.",
+      "delivery_scope": "No production worker run, queue enqueue, scheduler dispatch, ordinary user opening, or historical replay.",
+      "scope_expansion_approved_for_this_run_only": {
+        "scope": "Owner approved ten synthetic words and up to twenty paid requests with one image and one vision maximum per fixture.",
+        "synthetic_fixtures": [
+          "bicycle",
+          "sailboat",
+          "dolphin",
+          "butterfly",
+          "sunflower",
+          "teapot",
+          "violin",
+          "lighthouse",
+          "ladybug",
+          "snowman"
+        ],
+        "maximum_paid_calls": 20,
+        "maximum_per_fixture": {
+          "image": 1,
+          "vision": 1
+        },
+        "openai_budget_estimate_usd": "0.35",
+        "automatic_retry_allowed": false,
+        "ordinary_user_generation_frozen": true,
+        "queue_and_scheduler_remain_paused": true,
+        "historical_jobs_replayed": false,
+        "expansion_requires_further_approval": true
+      },
+      "samples": [
+        {
+          "fixture_word": "bicycle",
+          "status": "passed",
+          "paid_calls_started": {
+            "image": 1,
+            "vision": 1
+          },
+          "response_cost_estimate_usd": "0.02745905",
+          "response_cost_estimate_breakdown_usd": {
+            "image": "0.02724",
+            "vision": "0.00021905"
+          },
+          "timings_seconds": {
+            "image": 6.244,
+            "vision": 2.527
+          },
+          "sample_pipeline_seconds": 13.732,
+          "safety_and_subject_approved": true,
+          "authenticated_storage_roundtrip": true,
+          "temporary_asset_absent_verified": true
+        },
+        {
+          "fixture_word": "sailboat",
+          "status": "passed",
+          "paid_calls_started": {
+            "image": 1,
+            "vision": 1
+          },
+          "response_cost_estimate_usd": "0.027455425",
+          "response_cost_estimate_breakdown_usd": {
+            "image": "0.02723",
+            "vision": "0.000225425"
+          },
+          "timings_seconds": {
+            "image": 4.931,
+            "vision": 1.809
+          },
+          "sample_pipeline_seconds": 13.285,
+          "safety_and_subject_approved": true,
+          "authenticated_storage_roundtrip": true,
+          "temporary_asset_absent_verified": true
+        },
+        {
+          "fixture_word": "dolphin",
+          "status": "passed",
+          "paid_calls_started": {
+            "image": 1,
+            "vision": 1
+          },
+          "response_cost_estimate_usd": "0.027512925",
+          "response_cost_estimate_breakdown_usd": {
+            "image": "0.02726",
+            "vision": "0.000252925"
+          },
+          "timings_seconds": {
+            "image": 4.606,
+            "vision": 2.835
+          },
+          "sample_pipeline_seconds": 15.787,
+          "safety_and_subject_approved": true,
+          "authenticated_storage_roundtrip": true,
+          "temporary_asset_absent_verified": true
+        },
+        {
+          "fixture_word": "butterfly",
+          "status": "passed",
+          "paid_calls_started": {
+            "image": 1,
+            "vision": 1
+          },
+          "response_cost_estimate_usd": "0.02748455",
+          "response_cost_estimate_breakdown_usd": {
+            "image": "0.027245",
+            "vision": "0.00023955"
+          },
+          "timings_seconds": {
+            "image": 5.55,
+            "vision": 2.135
+          },
+          "sample_pipeline_seconds": 11.921,
+          "safety_and_subject_approved": true,
+          "authenticated_storage_roundtrip": true,
+          "temporary_asset_absent_verified": true
+        },
+        {
+          "fixture_word": "sunflower",
+          "status": "passed",
+          "paid_calls_started": {
+            "image": 1,
+            "vision": 1
+          },
+          "response_cost_estimate_usd": "0.0274833",
+          "response_cost_estimate_breakdown_usd": {
+            "image": "0.027245",
+            "vision": "0.0002383"
+          },
+          "timings_seconds": {
+            "image": 4.721,
+            "vision": 2.359
+          },
+          "sample_pipeline_seconds": 12.202,
+          "safety_and_subject_approved": true,
+          "authenticated_storage_roundtrip": true,
+          "temporary_asset_absent_verified": true
+        },
+        {
+          "fixture_word": "teapot",
+          "status": "in_progress",
+          "paid_calls_started": {
+            "image": 1,
+            "vision": 1
+          },
+          "response_cost_estimate_usd": "0.027468675",
+          "response_cost_estimate_breakdown_usd": {
+            "image": "0.027245",
+            "vision": "0.000223675"
+          },
+          "timings_seconds": {
+            "image": 4.924,
+            "vision": 1.758
+          },
+          "sample_pipeline_seconds": null,
+          "safety_and_subject_approved": true,
+          "authenticated_storage_roundtrip": false,
+          "temporary_asset_absent_verified": false
+        },
+        {
+          "fixture_word": "violin",
+          "status": "not_run",
+          "paid_calls_started": {
+            "image": 0,
+            "vision": 0
+          },
+          "response_cost_estimate_usd": null,
+          "response_cost_estimate_breakdown_usd": {},
+          "timings_seconds": {},
+          "sample_pipeline_seconds": null,
+          "safety_and_subject_approved": false,
+          "authenticated_storage_roundtrip": false,
+          "temporary_asset_absent_verified": false
+        },
+        {
+          "fixture_word": "lighthouse",
+          "status": "not_run",
+          "paid_calls_started": {
+            "image": 0,
+            "vision": 0
+          },
+          "response_cost_estimate_usd": null,
+          "response_cost_estimate_breakdown_usd": {},
+          "timings_seconds": {},
+          "sample_pipeline_seconds": null,
+          "safety_and_subject_approved": false,
+          "authenticated_storage_roundtrip": false,
+          "temporary_asset_absent_verified": false
+        },
+        {
+          "fixture_word": "ladybug",
+          "status": "not_run",
+          "paid_calls_started": {
+            "image": 0,
+            "vision": 0
+          },
+          "response_cost_estimate_usd": null,
+          "response_cost_estimate_breakdown_usd": {},
+          "timings_seconds": {},
+          "sample_pipeline_seconds": null,
+          "safety_and_subject_approved": false,
+          "authenticated_storage_roundtrip": false,
+          "temporary_asset_absent_verified": false
+        },
+        {
+          "fixture_word": "snowman",
+          "status": "not_run",
+          "paid_calls_started": {
+            "image": 0,
+            "vision": 0
+          },
+          "response_cost_estimate_usd": null,
+          "response_cost_estimate_breakdown_usd": {},
+          "timings_seconds": {},
+          "sample_pipeline_seconds": null,
+          "safety_and_subject_approved": false,
+          "authenticated_storage_roundtrip": false,
+          "temporary_asset_absent_verified": false
+        }
+      ],
+      "total_calls_started": {
+        "image": 6,
+        "vision": 6,
+        "standalone_text": 0
+      },
+      "cost": {
+        "openai_estimated_usd_for_metered_responses": "0.164863925",
+        "paid_responses_with_token_cost": 12,
+        "all_started_paid_calls_had_priced_usage": true,
+        "basis": "Actual response token counters and published OpenAI Standard rates. Invoice, contract adjustments, and Cloudinary charges not reconciled.",
+        "approved_budget_estimate_usd": "0.35",
+        "actual_invoice_usd": null,
+        "cloudinary_invoice_usd": null
+      },
+      "total_elapsed_seconds": null,
+      "production_frozen_before_and_after_verified": false,
+      "all_ten_temporary_assets_absent_verified": false,
+      "expansion_requires_new_approval": true
+    },
+    {
+      "id": "production-ten-paid-samples-final",
+      "status": "production_ten_paid_samples_passed_frozen",
+      "observed_at": "2026-11-28T07:48:33.481497Z",
+      "candidate_commit": "24c119f8cbad0068fb155c2d51015520a0818f16",
+      "data_scope": "Ten synthetic fixture descriptions processed through the one-shot provider flow with production credentials. No production dictionary rows created and no user data provided to models.",
+      "delivery_scope": "No production worker run, queue enqueue, scheduler dispatch, ordinary user opening, or historical replay.",
+      "scope_expansion_approved_for_this_run_only": {
+        "scope": "Owner approved ten synthetic words and up to twenty paid requests with one image and one vision maximum per fixture.",
+        "synthetic_fixtures": [
+          "bicycle",
+          "sailboat",
+          "dolphin",
+          "butterfly",
+          "sunflower",
+          "teapot",
+          "violin",
+          "lighthouse",
+          "ladybug",
+          "snowman"
+        ],
+        "maximum_paid_calls": 20,
+        "maximum_per_fixture": {
+          "image": 1,
+          "vision": 1
+        },
+        "openai_budget_estimate_usd": "0.35",
+        "automatic_retry_allowed": false,
+        "ordinary_user_generation_frozen": true,
+        "queue_and_scheduler_remain_paused": true,
+        "historical_jobs_replayed": false,
+        "expansion_requires_further_approval": true
+      },
+      "samples": [
+        {
+          "fixture_word": "bicycle",
+          "status": "passed",
+          "paid_calls_started": {
+            "image": 1,
+            "vision": 1
+          },
+          "response_cost_estimate_usd": "0.02745905",
+          "response_cost_estimate_breakdown_usd": {
+            "image": "0.02724",
+            "vision": "0.00021905"
+          },
+          "timings_seconds": {
+            "image": 6.244,
+            "vision": 2.527
+          },
+          "sample_pipeline_seconds": 13.732,
+          "safety_and_subject_approved": true,
+          "authenticated_storage_roundtrip": true,
+          "temporary_asset_absent_verified": true
+        },
+        {
+          "fixture_word": "sailboat",
+          "status": "passed",
+          "paid_calls_started": {
+            "image": 1,
+            "vision": 1
+          },
+          "response_cost_estimate_usd": "0.027455425",
+          "response_cost_estimate_breakdown_usd": {
+            "image": "0.02723",
+            "vision": "0.000225425"
+          },
+          "timings_seconds": {
+            "image": 4.931,
+            "vision": 1.809
+          },
+          "sample_pipeline_seconds": 13.285,
+          "safety_and_subject_approved": true,
+          "authenticated_storage_roundtrip": true,
+          "temporary_asset_absent_verified": true
+        },
+        {
+          "fixture_word": "dolphin",
+          "status": "passed",
+          "paid_calls_started": {
+            "image": 1,
+            "vision": 1
+          },
+          "response_cost_estimate_usd": "0.027512925",
+          "response_cost_estimate_breakdown_usd": {
+            "image": "0.02726",
+            "vision": "0.000252925"
+          },
+          "timings_seconds": {
+            "image": 4.606,
+            "vision": 2.835
+          },
+          "sample_pipeline_seconds": 15.787,
+          "safety_and_subject_approved": true,
+          "authenticated_storage_roundtrip": true,
+          "temporary_asset_absent_verified": true
+        },
+        {
+          "fixture_word": "butterfly",
+          "status": "passed",
+          "paid_calls_started": {
+            "image": 1,
+            "vision": 1
+          },
+          "response_cost_estimate_usd": "0.02748455",
+          "response_cost_estimate_breakdown_usd": {
+            "image": "0.027245",
+            "vision": "0.00023955"
+          },
+          "timings_seconds": {
+            "image": 5.55,
+            "vision": 2.135
+          },
+          "sample_pipeline_seconds": 11.921,
+          "safety_and_subject_approved": true,
+          "authenticated_storage_roundtrip": true,
+          "temporary_asset_absent_verified": true
+        },
+        {
+          "fixture_word": "sunflower",
+          "status": "passed",
+          "paid_calls_started": {
+            "image": 1,
+            "vision": 1
+          },
+          "response_cost_estimate_usd": "0.0274833",
+          "response_cost_estimate_breakdown_usd": {
+            "image": "0.027245",
+            "vision": "0.0002383"
+          },
+          "timings_seconds": {
+            "image": 4.721,
+            "vision": 2.359
+          },
+          "sample_pipeline_seconds": 12.202,
+          "safety_and_subject_approved": true,
+          "authenticated_storage_roundtrip": true,
+          "temporary_asset_absent_verified": true
+        },
+        {
+          "fixture_word": "teapot",
+          "status": "passed",
+          "paid_calls_started": {
+            "image": 1,
+            "vision": 1
+          },
+          "response_cost_estimate_usd": "0.027468675",
+          "response_cost_estimate_breakdown_usd": {
+            "image": "0.027245",
+            "vision": "0.000223675"
+          },
+          "timings_seconds": {
+            "image": 4.924,
+            "vision": 1.758
+          },
+          "sample_pipeline_seconds": 11.018,
+          "safety_and_subject_approved": true,
+          "authenticated_storage_roundtrip": true,
+          "temporary_asset_absent_verified": true
+        },
+        {
+          "fixture_word": "violin",
+          "status": "passed",
+          "paid_calls_started": {
+            "image": 1,
+            "vision": 1
+          },
+          "response_cost_estimate_usd": "0.027483925",
+          "response_cost_estimate_breakdown_usd": {
+            "image": "0.027245",
+            "vision": "0.000238925"
+          },
+          "timings_seconds": {
+            "image": 4.566,
+            "vision": 1.823
+          },
+          "sample_pipeline_seconds": 10.524,
+          "safety_and_subject_approved": true,
+          "authenticated_storage_roundtrip": true,
+          "temporary_asset_absent_verified": true
+        },
+        {
+          "fixture_word": "lighthouse",
+          "status": "passed",
+          "paid_calls_started": {
+            "image": 1,
+            "vision": 1
+          },
+          "response_cost_estimate_usd": "0.027490675",
+          "response_cost_estimate_breakdown_usd": {
+            "image": "0.027255",
+            "vision": "0.000235675"
+          },
+          "timings_seconds": {
+            "image": 4.177,
+            "vision": 1.68
+          },
+          "sample_pipeline_seconds": 10.412,
+          "safety_and_subject_approved": true,
+          "authenticated_storage_roundtrip": true,
+          "temporary_asset_absent_verified": true
+        },
+        {
+          "fixture_word": "ladybug",
+          "status": "passed",
+          "paid_calls_started": {
+            "image": 1,
+            "vision": 1
+          },
+          "response_cost_estimate_usd": "0.02748405",
+          "response_cost_estimate_breakdown_usd": {
+            "image": "0.027245",
+            "vision": "0.00023905"
+          },
+          "timings_seconds": {
+            "image": 5.129,
+            "vision": 3.382
+          },
+          "sample_pipeline_seconds": 12.616,
+          "safety_and_subject_approved": true,
+          "authenticated_storage_roundtrip": true,
+          "temporary_asset_absent_verified": true
+        },
+        {
+          "fixture_word": "snowman",
+          "status": "passed",
+          "paid_calls_started": {
+            "image": 1,
+            "vision": 1
+          },
+          "response_cost_estimate_usd": "0.02749155",
+          "response_cost_estimate_breakdown_usd": {
+            "image": "0.027245",
+            "vision": "0.00024655"
+          },
+          "timings_seconds": {
+            "image": 5.324,
+            "vision": 2.011
+          },
+          "sample_pipeline_seconds": 11.585,
+          "safety_and_subject_approved": true,
+          "authenticated_storage_roundtrip": true,
+          "temporary_asset_absent_verified": true
+        }
+      ],
+      "total_calls_started": {
+        "image": 10,
+        "vision": 10,
+        "standalone_text": 0
+      },
+      "cost": {
+        "openai_estimated_usd_for_metered_responses": "0.274814125",
+        "paid_responses_with_token_cost": 20,
+        "all_started_paid_calls_had_priced_usage": true,
+        "basis": "Actual response token counters and published OpenAI Standard rates. Invoice, contract adjustments, and Cloudinary charges not reconciled.",
+        "approved_budget_estimate_usd": "0.35",
+        "actual_invoice_usd": null,
+        "cloudinary_invoice_usd": null
+      },
+      "total_elapsed_seconds": 136.404,
+      "production_frozen_before_and_after_verified": true,
+      "all_ten_temporary_assets_absent_verified": true,
+      "expansion_requires_new_approval": true
+    },
+    {
+      "id": "production-25-paid-samples-approved",
+      "status": "production_25_paid_samples_approved",
+      "observed_at": "2026-11-28T07:55:01.746195Z",
+      "candidate_commit": "24c119f8cbad0068fb155c2d51015520a0818f16",
+      "data_scope": "Twenty-five synthetic fixture descriptions processed through the one-shot provider flow with production credentials. No production dictionary rows created and no user data provided to models.",
+      "delivery_scope": "No production worker run, queue enqueue, scheduler dispatch, ordinary user opening, or historical replay.",
+      "scope_expansion_approved_for_this_run_only": {
+        "scope": "Owner approved twenty-five production synthetic words and up to fifty paid requests with one image and one vision maximum per fixture.",
+        "synthetic_fixtures": [
+          "acorn",
+          "anchor",
+          "backpack",
+          "banana",
+          "basket",
+          "bell",
+          "binoculars",
+          "broom",
+          "cactus",
+          "candle",
+          "carrot",
+          "chessboard",
+          "compass",
+          "dragonfly",
+          "drum",
+          "flashlight",
+          "flamingo",
+          "guitar",
+          "hourglass",
+          "jellyfish",
+          "mushroom",
+          "octopus",
+          "penguin",
+          "scissors",
+          "telescope"
+        ],
+        "maximum_paid_calls": 50,
+        "maximum_per_fixture": {
+          "image": 1,
+          "vision": 1
+        },
+        "openai_budget_estimate_usd": "0.85",
+        "automatic_retry_allowed": false,
+        "ordinary_user_generation_frozen": true,
+        "queue_and_scheduler_remain_paused": true,
+        "historical_jobs_replayed": false,
+        "expansion_requires_further_approval": true
+      },
+      "total_calls_started": {
+        "image": 0,
+        "vision": 0,
+        "standalone_text": 0
+      },
+      "cost": {
+        "openai_estimated_usd_for_metered_responses": null,
+        "paid_responses_with_token_cost": 0,
+        "all_started_paid_calls_had_priced_usage": true,
+        "basis": "Actual response token counters and published OpenAI Standard rates. Invoice, contract adjustments, and Cloudinary charges not reconciled.",
+        "approved_budget_estimate_usd": "0.85",
+        "actual_invoice_usd": null,
+        "cloudinary_invoice_usd": null
+      },
+      "total_elapsed_seconds": null,
+      "production_frozen_before_and_after_verified": false,
+      "all_25_temporary_assets_absent_verified": false,
+      "expansion_requires_new_approval": true,
+      "sample_totals": {
+        "planned": 25,
+        "passed": 0,
+        "processed": 0
+      },
+      "per_word_results": "https://skillworks.dev/picture-dictionary/engineering/provider-pilot.json"
+    },
+    {
+      "id": "production-25-paid-samples-running",
+      "status": "production_25_paid_samples_in_progress",
+      "observed_at": "2026-11-28T07:58:26.214930Z",
+      "candidate_commit": "24c119f8cbad0068fb155c2d51015520a0818f16",
+      "data_scope": "Twenty-five synthetic fixture descriptions processed through the one-shot provider flow with production credentials. No production dictionary rows created and no user data provided to models.",
+      "delivery_scope": "No production worker run, queue enqueue, scheduler dispatch, ordinary user opening, or historical replay.",
+      "scope_expansion_approved_for_this_run_only": {
+        "scope": "Owner approved twenty-five production synthetic words and up to fifty paid requests with one image and one vision maximum per fixture.",
+        "synthetic_fixtures": [
+          "acorn",
+          "anchor",
+          "backpack",
+          "banana",
+          "basket",
+          "bell",
+          "binoculars",
+          "broom",
+          "cactus",
+          "candle",
+          "carrot",
+          "chessboard",
+          "compass",
+          "dragonfly",
+          "drum",
+          "flashlight",
+          "flamingo",
+          "guitar",
+          "hourglass",
+          "jellyfish",
+          "mushroom",
+          "octopus",
+          "penguin",
+          "scissors",
+          "telescope"
+        ],
+        "maximum_paid_calls": 50,
+        "maximum_per_fixture": {
+          "image": 1,
+          "vision": 1
+        },
+        "openai_budget_estimate_usd": "0.85",
+        "automatic_retry_allowed": false,
+        "ordinary_user_generation_frozen": true,
+        "queue_and_scheduler_remain_paused": true,
+        "historical_jobs_replayed": false,
+        "expansion_requires_further_approval": true
+      },
+      "total_calls_started": {
+        "image": 14,
+        "vision": 14,
+        "standalone_text": 0
+      },
+      "cost": {
+        "openai_estimated_usd_for_metered_responses": "0.384632825",
+        "paid_responses_with_token_cost": 28,
+        "all_started_paid_calls_had_priced_usage": true,
+        "basis": "Actual response token counters and published OpenAI Standard rates. Invoice, contract adjustments, and Cloudinary charges not reconciled.",
+        "approved_budget_estimate_usd": "0.85",
+        "actual_invoice_usd": null,
+        "cloudinary_invoice_usd": null
+      },
+      "total_elapsed_seconds": null,
+      "provider_latency_summary_seconds": {
+        "image": {
+          "responses": 14,
+          "min": 3.947,
+          "median": 4.983,
+          "max": 6.018
+        },
+        "vision": {
+          "responses": 14,
+          "min": 1.662,
+          "median": 2.1195,
+          "max": 3.556
+        }
+      },
+      "production_frozen_before_and_after_verified": false,
+      "all_25_temporary_assets_absent_verified": false,
+      "expansion_requires_new_approval": true,
+      "sample_totals": {
+        "planned": 25,
+        "passed": 13,
+        "processed": 13
+      },
+      "per_word_results": "https://skillworks.dev/picture-dictionary/engineering/provider-pilot.json"
+    },
+    {
+      "id": "production-25-paid-samples-final",
+      "status": "production_25_paid_samples_passed_frozen",
+      "observed_at": "2026-11-28T08:01:02.510985Z",
+      "candidate_commit": "24c119f8cbad0068fb155c2d51015520a0818f16",
+      "data_scope": "Twenty-five synthetic fixture descriptions processed through the one-shot provider flow with production credentials. No production dictionary rows created and no user data provided to models.",
+      "delivery_scope": "No production worker run, queue enqueue, scheduler dispatch, ordinary user opening, or historical replay.",
+      "scope_expansion_approved_for_this_run_only": {
+        "scope": "Owner approved twenty-five production synthetic words and up to fifty paid requests with one image and one vision maximum per fixture.",
+        "synthetic_fixtures": [
+          "acorn",
+          "anchor",
+          "backpack",
+          "banana",
+          "basket",
+          "bell",
+          "binoculars",
+          "broom",
+          "cactus",
+          "candle",
+          "carrot",
+          "chessboard",
+          "compass",
+          "dragonfly",
+          "drum",
+          "flashlight",
+          "flamingo",
+          "guitar",
+          "hourglass",
+          "jellyfish",
+          "mushroom",
+          "octopus",
+          "penguin",
+          "scissors",
+          "telescope"
+        ],
+        "maximum_paid_calls": 50,
+        "maximum_per_fixture": {
+          "image": 1,
+          "vision": 1
+        },
+        "openai_budget_estimate_usd": "0.85",
+        "automatic_retry_allowed": false,
+        "ordinary_user_generation_frozen": true,
+        "queue_and_scheduler_remain_paused": true,
+        "historical_jobs_replayed": false,
+        "expansion_requires_further_approval": true
+      },
+      "total_calls_started": {
+        "image": 25,
+        "vision": 25,
+        "standalone_text": 0
+      },
+      "cost": {
+        "openai_estimated_usd_for_metered_responses": "0.687098625",
+        "paid_responses_with_token_cost": 50,
+        "all_started_paid_calls_had_priced_usage": true,
+        "basis": "Actual response token counters and published OpenAI Standard rates. Invoice, contract adjustments, and Cloudinary charges not reconciled.",
+        "approved_budget_estimate_usd": "0.85",
+        "actual_invoice_usd": null,
+        "cloudinary_invoice_usd": null
+      },
+      "total_elapsed_seconds": 311.657,
+      "provider_latency_summary_seconds": {
+        "image": {
+          "responses": 25,
+          "min": 3.947,
+          "median": 4.941,
+          "max": 6.955
+        },
+        "vision": {
+          "responses": 25,
+          "min": 1.662,
+          "median": 2.112,
+          "max": 3.556
+        }
+      },
+      "production_frozen_before_and_after_verified": true,
+      "all_25_temporary_assets_absent_verified": true,
+      "expansion_requires_new_approval": true,
+      "sample_totals": {
+        "planned": 25,
+        "passed": 25,
+        "processed": 25
+      },
+      "per_word_results": "https://skillworks.dev/picture-dictionary/engineering/provider-pilot.json"
+    },
+    {
+      "id": "production-scheduler-canary-review",
+      "status": "awaiting_separate_production_execution_approval",
+      "observed_at": "2026-11-28T08:21:04.906821Z",
+      "production_snapshot": {
+        "frozen_api_traffic_percent": 100,
+        "durable_queue_paused_and_empty": true,
+        "scheduler_paused_no_attempt": true,
+        "worker_provider_execution_disabled": true,
+        "shared_admission_frozen": true,
+        "active_paid_job_leases_or_reservations_observed": false
+      },
+      "isolated_evidence": {
+        "local_provider_free_regression_passed": 17,
+        "local_skipped": 1,
+        "prior_private_cloud_fixture_duplicate_invocations": 1,
+        "previous_fixture_provider_rows": 0,
+        "actual_production_scheduler_canary_executed": false
+      },
+      "limits": {
+        "logical_test_job_count": 1,
+        "ordinary_generation_allowed": false,
+        "historical_replay_allowed": false,
+        "paid_ai_calls_allowed": 0,
+        "manual_cloud_task_deliveries_maximum": 2
+      },
+      "stage_2_pending": "A separate account-scoped gate is required before a controlled iPhone account can run new-word search. The current shared freeze also blocks the normal lookup route before cache resolution.",
+      "stage_3_pending": "Consider gradual opening only after both preceding checks pass and the operator approves the next scope."
+    },
+    {
+      "id": "production-scheduler-queue-provider-free-canary",
+      "status": "approved_fixture_preparation_in_progress",
+      "stage": "approved",
+      "observed_at": "2026-11-28T08:36:20.993794Z",
+      "approval_scope": {
+        "scheduler_manual_triggers_max": 1,
+        "logical_test_tasks_max": 1,
+        "named_deliveries_max": 2,
+        "paid_model_calls_max": 0
+      },
+      "evidence": {
+        "manual_scheduler_trigger_requests": 0,
+        "named_task_delivery_requests": 0,
+        "named_task_created": false,
+        "fixture_executions": null,
+        "duplicate_suppressions": null,
+        "terminal_task_status": null,
+        "fixture_provider_ledger_rows": null,
+        "actual_ai_cost_usd": 0,
+        "original_scheduler_target_restored": null,
+        "scheduler_paused": null,
+        "queue_paused_empty": null,
+        "shared_admission_frozen_verified": null,
+        "historical_replay_performed": false,
+        "monitoring_verified": null,
+        "temporary_resources_cleaned": null,
+        "isolated_database_role_verified": true,
+        "production_scheduler_mutated": false
+      },
+      "cost_scope": "The AI cost counts model calls for this exercise. Cloud infrastructure charges were not attributed.",
+      "failures": [
+        "First fixture setup stopped before mutation when the staging database URL used a different driver syntax from the URL parser. Setup resumed after using the application database URL parser."
+      ],
+      "unverified": [
+        "The real scheduler trigger, named deliveries, monitoring, and restoration evidence are pending."
+      ],
+      "next_gate": "Await explicit Stage 2 approval before any account-scoped normal iPhone search that can generate an image."
+    },
+    {
+      "id": "production-scheduler-queue-provider-free-canary",
+      "status": "blocked_or_partial",
+      "stage": "final",
+      "observed_at": "2026-11-28T08:41:09.636503Z",
+      "approval_scope": {
+        "scheduler_manual_triggers_max": 1,
+        "logical_test_tasks_max": 1,
+        "named_deliveries_max": 2,
+        "paid_model_calls_max": 0
+      },
+      "evidence": {
+        "manual_scheduler_trigger_requests": 1,
+        "named_task_delivery_requests": 0,
+        "named_task_created": false,
+        "fixture_executions": 0,
+        "duplicate_suppressions": 0,
+        "production_scheduler_http_status": 403,
+        "isolated_fixture_state_before_cleanup": "queued",
+        "scheduler_attempt_logged": true,
+        "terminal_task_status": null,
+        "fixture_provider_ledger_rows": 0,
+        "new_production_provider_rows": 0,
+        "actual_ai_cost_usd": 0,
+        "original_scheduler_target_restored": true,
+        "scheduler_paused": true,
+        "queue_paused_empty": true,
+        "shared_admission_frozen_verified": true,
+        "historical_replay_performed": false,
+        "monitoring_verified": false,
+        "temporary_resources_cleaned": true
+      },
+      "cost_scope": "The AI cost counts model calls for this exercise. Cloud infrastructure charges were not attributed.",
+      "failures": [
+        "First fixture setup stopped before mutation when the staging database URL used a different driver syntax from the URL parser. Setup resumed after using the application database URL parser.",
+        "An initial Secret Manager grant was rejected while the new fixture service account propagated. The scoped grants and fixture deployment were later verified.",
+        "The first setup attempt used the wrong REST separator for the Scheduler resume action. The job never resumed or triggered in that attempt and its target was restored. The action path was corrected before the one authorized trigger.",
+        "The single real Scheduler attempt received HTTP 403 PERMISSION_DENIED at the private Cloud Run IAM boundary. The Scheduler was paused and the original target and schedule restored. The queue remained paused and empty, with no task to deliver.",
+        "The deleted temporary service account returned an ambiguous denial on direct lookup. Cleanup verification switched to the project account inventory."
+      ],
+      "unverified": [
+        "The caller had the direct invoker grant when inspected afterward. The request-time effective IAM decision and cause of the observed rejection remain unverified. The operator lacked caller impersonation and access to the effective IAM troubleshooter.",
+        "Production named task delivery, a second arrival, duplicate suppression and a completed task state remain unverified. No additional Scheduler trigger or task delivery was issued."
+      ],
+      "next_gate": "Diagnose authenticated access in an isolated test before requesting a newly authorized Stage 1 rerun. Stage 2 remains pending."
+    },
+    {
+      "id": "production-scheduler-identity-read-only-access",
+      "status": "in_progress",
+      "updated_at": "2026-11-28T08:53:54.130210Z",
+      "verification": {
+        "same_production_scheduler_service_account": null,
+        "subject_and_audience_verified_by_read_only_endpoint": null,
+        "authenticated_http_status": null,
+        "anonymous_http_status": null,
+        "incorrect_audience_http_status": null,
+        "valid_identity_initial_iam_rejections": null,
+        "production_scheduler_triggered": false,
+        "production_scheduler_paused_and_queue_paused_empty": null,
+        "ordinary_generation_frozen": null,
+        "historical_backlog_replayed": false,
+        "new_production_provider_calls": null,
+        "temporary_probe_resources_removed": null
+      },
+      "scope": "A private, GET-only authorization fixture with no database, task or model routes was accessed using the production scheduler service account. The actual production Scheduler job was kept paused.",
+      "failures": [],
+      "unknowns": [
+        "The exact cause of the original 403 was not established.",
+        "The original Scheduler job-to-worker dispatch and delivery still require a separately approved rerun."
+      ],
+      "next_gate": "Complete the exact-principal read-only verification before asking for a production rerun. Keep Stage 2 on hold."
+    },
+    {
+      "id": "production-scheduler-identity-read-only-access",
+      "status": "passed",
+      "updated_at": "2026-11-28T08:55:37.642006Z",
+      "verification": {
+        "same_production_scheduler_service_account": true,
+        "subject_and_audience_verified_by_read_only_endpoint": true,
+        "authenticated_http_status": 200,
+        "anonymous_http_status": 403,
+        "incorrect_audience_http_status": 401,
+        "valid_identity_initial_iam_rejections": 2,
+        "production_scheduler_triggered": false,
+        "production_scheduler_paused_and_queue_paused_empty": true,
+        "ordinary_generation_frozen": true,
+        "historical_backlog_replayed": false,
+        "new_production_provider_calls": 0,
+        "temporary_probe_resources_removed": true
+      },
+      "scope": "A private, GET-only authorization fixture with no database, task or model routes was accessed using the production scheduler service account. The actual production Scheduler job was kept paused.",
+      "failures": [
+        "The isolated endpoint initially rejected the correctly scoped identity token, then accepted the same token without an IAM configuration change. This is consistent with IAM propagation delay."
+      ],
+      "unknowns": [
+        "The exact cause of the original 403 was not established.",
+        "The original Scheduler job-to-worker dispatch and delivery still require a separately approved rerun."
+      ],
+      "next_gate": "Request separate approval for one production Stage 1 rerun. Repeat authenticated readiness checks on the actual substitute before trigger. Keep Stage 2 on hold."
+    },
+    {
+      "id": "production-scheduler-provider-free-rerun",
+      "status": "approved_preparation_in_progress",
+      "updated_at": "2026-11-28T09:01:05.835334Z",
+      "limits": {
+        "fixed_synthetic_task_max": 1,
+        "production_scheduler_manual_triggers_max": 1,
+        "same_named_task_deliveries_max": 2,
+        "paid_ai_calls_max": 0
+      },
+      "evidence": {
+        "authenticated_read_only_status": null,
+        "original_scheduler_principal_and_actual_worker_revision_verified": null,
+        "production_scheduler_trigger_requests": 0,
+        "named_task_created": false,
+        "manual_named_delivery_requests": 0,
+        "worker_http_deliveries_observed": null,
+        "fixture_execution_count": null,
+        "duplicate_suppression_count": null,
+        "terminal_state": null,
+        "carrier_monitoring_verified": null,
+        "original_scheduler_target_restored": null,
+        "scheduler_paused": null,
+        "queue_paused_empty": null,
+        "ordinary_generation_frozen": null,
+        "historical_backlog_replayed": false,
+        "production_model_calls": null,
+        "fixture_provider_ledger_rows": null,
+        "ai_fee_usd": null,
+        "temporary_samples_and_permissions_cleaned": null
+      },
+      "next_gate": "Finish the one owner-approved provider-free production queue rerun; Stage 2 remains held.",
+      "failures": [],
+      "unverified": [
+        "Pending production delivery and restoration results."
+      ]
+    }
+  ]
+}

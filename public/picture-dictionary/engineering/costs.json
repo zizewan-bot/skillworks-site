@@ -1,0 +1,133 @@
+{
+  "schema_version": "1.0.0",
+  "project": "picture-dictionary-kids",
+  "updated_at": "2026-11-28T08:01:02.510985Z",
+  "status": "partial",
+  "actual_billing_usd": null,
+  "estimated_cost_usd": null,
+  "requirements": [
+    "Associate every provider attempt with a job",
+    "Track image generation and validation separately",
+    "Do not estimate a dollar value without a versioned price source",
+    "Reconcile estimates with billing exports"
+  ],
+  "no_real_ai_calls_authorized_by_this_record": true,
+  "attribution_implemented": [
+    "durable image call reservations and outcomes",
+    "durable vision validation reservations and outcomes",
+    "provider-reported usage when present",
+    "unknown interrupted requests remain explicitly started"
+  ],
+  "not_covered": [
+    "text calls",
+    "Cloud Run and PostgreSQL actual billing",
+    "Cloudinary billing",
+    "price-version reconciliation"
+  ],
+  "staging_guardrails": [
+    "provider execution disabled",
+    "queue paused",
+    "dedicated worker min instances 0, max instances 1",
+    "synthetic nonexistent job only; no real generation"
+  ],
+  "note": "Infrastructure validation may incur standard hosting/storage charges. No real AI provider calls performed; no claim of zero infrastructure cost.",
+  "billing_access": {
+    "first_attempt": "HTTP 429 quota exceeded",
+    "target_project_quota_attempt": "Cloud Billing API disabled; no billing data retrieved",
+    "bigquery_metadata": "no datasets listed in target project; does not prove no exports elsewhere"
+  },
+  "wp07": {
+    "status": "live_single_sample_passed",
+    "model_entitlement_verified": true,
+    "image_calls": 1,
+    "vision_calls": 1,
+    "text_calls": 0,
+    "openai_usage_estimate_usd": "0.02743055",
+    "actual_billed_usd": null,
+    "storage_cost_usd": null,
+    "cloud_infrastructure_cost_usd": null,
+    "image_seconds": 5.201,
+    "vision_seconds": 2.846,
+    "vision_accepted": true,
+    "cloudinary_authenticated_download_verified": true,
+    "cloudinary_unsigned_access_denied": true,
+    "cleanup_verified": true,
+    "scope": "One synthetic apple in a one-shot staging credential harness. Real calls did not traverse the Cloud Tasks worker; WP06 separately verified that chain with fixtures."
+  },
+  "wp07_price_sources": [
+    "https://developers.openai.com/api/docs/models/gpt-image-2.6-flare",
+    "https://developers.openai.com/api/docs/models/gpt-6-luna"
+  ],
+  "wp09": {
+    "status": "live_queued_single_sample_passed",
+    "work_package": "WP09",
+    "tested_commit": "3c2a7fe11822735df54f1fbccd21b8c46c35d238",
+    "word": "apple",
+    "job_state": "succeeded",
+    "image_state": "ready",
+    "attempts": 1,
+    "persisted_dispatches": 1,
+    "image_calls": 1,
+    "vision_calls": 1,
+    "text_calls": 0,
+    "provider_durations_ms": {
+      "image": 6726,
+      "validation": 3768
+    },
+    "openai_usage_estimate_usd": "0.02743855",
+    "actual_invoiced_usd": null,
+    "cloudinary_cost_usd": null,
+    "cloud_cost_usd": null,
+    "worker_delivery_http": 200,
+    "worker_request_seconds": 12.852549072,
+    "cloudinary_authenticated_png_verified": true,
+    "unsigned_access_denied": true,
+    "cleanup_verified": true,
+    "queue_state": "PAUSED",
+    "model_execution_enabled": false,
+    "provider_secret_references_removed_from_serving_revision": true,
+    "physical_iphone": "not_present_in_xcode_device_list",
+    "limits": [
+      "Seeded synthetic word and persisted Job in a dedicated staging schema",
+      "Private authenticated test asset, not production CDN delivery",
+      "Single sample does not establish SLA or model quality across vocabulary",
+      "Physical iPhone and production activation remain pending"
+    ]
+  },
+  "production_one_sample_latest": {
+    "usage_derived_openai": {
+      "image_usd": "0.02721",
+      "vision_usd": "0.00022005",
+      "total_usd": "0.02743005",
+      "basis": "Provider response token counters and published Standard rates, before taxes or contract adjustments."
+    },
+    "actual_invoice_usd": null,
+    "cloudinary_invoice_usd": null
+  },
+  "production_three_sample_latest": {
+    "openai_estimated_usd_for_metered_responses": "0.08246815",
+    "paid_responses_with_token_cost": 6,
+    "all_started_paid_calls_had_priced_usage": true,
+    "basis": "Actual response token counters and published OpenAI Standard rates. Invoice, contract adjustments, and Cloudinary charges not reconciled.",
+    "actual_invoice_usd": null,
+    "cloudinary_invoice_usd": null
+  },
+  "production_ten_sample_latest": {
+    "openai_estimated_usd_for_metered_responses": "0.274814125",
+    "paid_responses_with_token_cost": 20,
+    "all_started_paid_calls_had_priced_usage": true,
+    "basis": "Actual response token counters and published OpenAI Standard rates. Invoice, contract adjustments, and Cloudinary charges not reconciled.",
+    "approved_budget_estimate_usd": "0.35",
+    "actual_invoice_usd": null,
+    "cloudinary_invoice_usd": null
+  },
+  "production_25_sample_latest": {
+    "openai_estimated_usd_for_metered_responses": "0.687098625",
+    "paid_responses_with_token_cost": 50,
+    "all_started_paid_calls_had_priced_usage": true,
+    "basis": "Actual response token counters and published OpenAI Standard rates. Invoice, contract adjustments, and Cloudinary charges not reconciled.",
+    "approved_budget_estimate_usd": "0.85",
+    "actual_invoice_usd": null,
+    "cloudinary_invoice_usd": null
+  }
+}

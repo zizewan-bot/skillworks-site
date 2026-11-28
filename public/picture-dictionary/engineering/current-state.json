@@ -1,0 +1,287 @@
+{
+  "schema_version": "1.0.0",
+  "project": "picture-dictionary-kids",
+  "updated_at": "2026-11-28T09:01:05.835334Z",
+  "status": "frozen_production_cutover_complete_delivery_held",
+  "agent": "codex/root",
+  "read_first": [
+    "manifest.json",
+    "current-state.json",
+    "risks-blockers.json",
+    "next-actions.json",
+    "timeline.jsonl"
+  ],
+  "completed": [
+    "Remote backend commit 5b1bd620f6c8b9f48d8f3625fd01a06752e4f02d",
+    "Remote iOS commit de858405a35a84916e189b5d199625a63b02b14d",
+    "127 backend tests, 36 subtests; 16 PostgreSQL tests; simulator build",
+    "Staging queue created paused; independent real-provider execution disabled",
+    "Public engineering records published and 12 document endpoints verified HTTP 200",
+    "Protected route unauthenticated response 302; private path on public domain returns 404",
+    "Dedicated staging OIDC delivery HTTP 200; production and staging API revision names unchanged",
+    "Three log-based metrics and staging Cloud Monitoring dashboard created",
+    "Full simulator build with original icon assets passed",
+    "Live homepage verified with sibling Picture Dictionary and Glen projects; product page links to records",
+    "WP06: ten actual cloud end-to-end/recovery cases passed with real Scheduler/Tasks and fixture providers",
+    "WP06: five runtime polling/history recovery cases passed with captured synthetic server DTOs",
+    "WP06: natural automatic scheduler tick verified HTTP 200; test queue/scheduler returned to PAUSED",
+    "Fixed actual lookup explicit-flush outbox gap; rollback and nested transaction coverage passed",
+    "Physical iPhone offline recovery accepted by user on 2026-11-27 (America/Los_Angeles)",
+    "Internal TestFlight 1.0.1 (15) passed physical iPhone Search recovery and pending-image polling recovery against staging",
+    "Production cutover review completed; PostgreSQL 16 synthetic migration, old-revision startup and separate restore rehearsed.",
+    "Isolated legacy drain and rollback rehearsed; temporary Cloud Run service and synthetic managed database resources cleaned.",
+    "Read-only backlog classification and isolation freeze/delivery completed; temporary resources cleaned.",
+    "Representative logical-scale managed Cloud SQL restore and candidate startup verified on entirely synthetic data.",
+    "Candidate release-image freeze passed through actual API, worker, confirmed admin and isolated Cloud Scheduler and Cloud Tasks.",
+    "Independent legacy-image freeze and pending-work drain plus scoped worker PostgreSQL write path were verified in isolation.",
+    "Progressive text remained inflight after the first admitted image settled, then started and completed its own image follow-up behind the independent legacy freeze.",
+    "The actual legacy and candidate images switched on the same isolated Cloud Run URL. Tag bypass and its removal were observed.",
+    "Production-specific private worker, IAM, read-only matching PostgreSQL role, empty paused queue and paused Scheduler are provisioned and verified. The specified inbox received the synthetic test alert.",
+    "One production-credential canary passed image, vision and authenticated storage with production execution frozen. Exact temporary asset removed.",
+    "Three synthetic samples passed with production provider credentials, assets cleaned, and production admission and delivery held.",
+    "Ten synthetic samples passed with production provider credentials, assets cleaned, and production admission and delivery held.",
+    "Twenty-five synthetic samples passed with production provider credentials, assets cleaned, and production admission and delivery held."
+  ],
+  "not_completed": [
+    "Real OpenAI/Cloudinary acceptance and controlled activation",
+    "Progressive text interruption durability",
+    "Complete text/provider/infrastructure billing attribution",
+    "External alert notification destination and full hosted usage dashboard",
+    "Production cutover prerequisites and explicit owner approval remain pending."
+  ],
+  "production_changed": true,
+  "phase": "Live staging image sample and physical iPhone offline recovery accepted",
+  "code_commits": {
+    "backend": "24c119f8cbad0068fb155c2d51015520a0818f16",
+    "ios": "31ca2779c0a7fd54e63f49f3f8315d69709e097e"
+  },
+  "links": {
+    "backend_pr": "https://github.com/zizewan-bot/project-2-picture-dictionary-api/pull/1",
+    "ios_pr": "https://github.com/zizewan-bot/picture-dictionary-apple/pull/1",
+    "public_records": "https://skillworks.dev/picture-dictionary/engineering/",
+    "restricted_records": "https://glen.skillworks.dev/picture-dictionary/internal/",
+    "site_pr": "https://github.com/zizewan-bot/skillworks-site/pull/2"
+  },
+  "production_change_scope": "New production worker, queue, scheduler, identities, read-only worker database binding, and notification preconfiguration. Legacy traffic and application rows unchanged.",
+  "documentation_updated": true,
+  "latest_backend_code_commit": "24c119f8cbad0068fb155c2d51015520a0818f16",
+  "iphone_offline_recovery": {
+    "id": "iphone-offline-recovery-owner-confirmed",
+    "scope": "Physical iPhone offline recovery",
+    "status": "accepted",
+    "source": "user_confirmation",
+    "confirmed_on_local_date": "2026-11-27",
+    "timezone": "America/Los_Angeles",
+    "build": null,
+    "device_model": null,
+    "individual_scenario_results": null,
+    "testflight_release_review": "not_reported"
+  },
+  "testflight_release_review": {
+    "status": "internal_testflight_device_acceptance_complete",
+    "local_preflight": "passed",
+    "evidence": "tests.json",
+    "action": "N08",
+    "apple_verification": "completed",
+    "candidate": {
+      "version": "1.0.1",
+      "build": 15,
+      "source_commit": "361b245df1053477cc79685c137c991ba11526a4",
+      "local_export_ipa_sha256": "8ea1360342c69a4d9a484dad27d77cf5661cae1aaaaa4d249521fb7a8a0b6dd0",
+      "distribution": "TestFlight Internal Only",
+      "environment": "staging",
+      "exported_signature_verified": true,
+      "local_non_exempt_encryption_declaration": null,
+      "uploaded": true,
+      "upload_status": "received and verified in App Store Connect",
+      "testflight_status": "Ready to Test",
+      "export_compliance": "Saved owner-confirmed declaration: none of the listed algorithms; Missing Compliance cleared",
+      "internal_group_assignment_verified": true
+    },
+    "device_revalidation": {
+      "status": "search_and_pending_image_offline_recovery_accepted",
+      "pending_image_poll_recovery": "passed_user_confirmed",
+      "fixture_cleanup": "verified_removed",
+      "evidence": "tests.json"
+    }
+  },
+  "production_cutover_review": {
+    "status": "frozen_production_cutover_complete_delivery_held",
+    "evidence": "production-cutover-review.json",
+    "approval_required": false,
+    "isolated_rehearsal": "isolated_checks_passed_production_not_ready",
+    "cutover_window_submitted": true,
+    "production_mutated": true,
+    "prerequisites_checkpoint": "equivalent_delivery_and_scale_recovery_verified_release_integration_pending",
+    "release_freeze_checkpoint": "historical_checkpoint_superseded_by_final_release_proof",
+    "release_candidate": "3e355ed59d85a3ef7d55eafb632c38e585b33798",
+    "release_verified": "release-generation-freeze-candidate",
+    "production_delivery_definition": "reviewed_unbound",
+    "latest_legacy_evidence": "production-delivery-review-and-legacy-fence-final",
+    "production_preconfiguration": "production-preconfiguration-final",
+    "owner_approval": "confirmed_for_frozen_cutover",
+    "schedule": "replacement_window_live_preflight",
+    "paid_generation_separate_approval_required": true,
+    "latest_live_check": {
+      "id": "pre-window-live-status-audit-20261128T061353Z",
+      "observed_at": "2026-11-28T06:13:53.326970Z",
+      "status": "scheduled_cutover_not_started",
+      "before_approved_window": true,
+      "traffic": {
+        "old_revision_percent": 100,
+        "cutover_performed": false
+      },
+      "database": {
+        "read_only_catalog_verified": true,
+        "migration_applied": false,
+        "expected_tables_present": {
+          "generation_admission_state": false,
+          "image_jobs": false,
+          "image_provider_calls": false
+        }
+      },
+      "legacy_drain": {
+        "status": "not_performed_or_attested",
+        "old_revision_still_receives_traffic": true,
+        "recent_pending_image_or_text_marker_observed": false,
+        "legacy_admin_active_observed_in_recent_inventory": false,
+        "historical_pending_markers_present": true,
+        "scope": "A read-only snapshot before the approved window. It cannot prove that legacy admission was fenced or that its background work has drained."
+      },
+      "cloud_tasks": {
+        "state": "PAUSED",
+        "task_count": 0
+      },
+      "cloud_scheduler": {
+        "state": "PAUSED",
+        "attempt_observed": false
+      },
+      "new_worker": {
+        "preflight_only": true,
+        "provider_execution_disabled": true
+      },
+      "execution": {
+        "cutover_started": false,
+        "cutover_failure_observed": false,
+        "rollback_observed": false,
+        "cloud_run_production_api_admin_events_since_approval": 0,
+        "scope": "Scoped Cloud Run Admin Activity and deployed state checked before the approved window."
+      },
+      "production_mutated_by_status_audit": false
+    },
+    "current_cutover_stage": "replacement-window-final",
+    "latest_production_paid_validation": "production-25-paid-samples-final",
+    "production_queue_canary_review": "production-scheduler-canary-review",
+    "production_queue_canary_execution": {
+      "id": "production-scheduler-queue-provider-free-canary",
+      "status": "blocked_or_partial",
+      "stage": "final",
+      "observed_at": "2026-11-28T08:41:09.636503Z",
+      "approval_scope": {
+        "scheduler_manual_triggers_max": 1,
+        "logical_test_tasks_max": 1,
+        "named_deliveries_max": 2,
+        "paid_model_calls_max": 0
+      },
+      "evidence": {
+        "manual_scheduler_trigger_requests": 1,
+        "named_task_delivery_requests": 0,
+        "named_task_created": false,
+        "fixture_executions": 0,
+        "duplicate_suppressions": 0,
+        "production_scheduler_http_status": 403,
+        "isolated_fixture_state_before_cleanup": "queued",
+        "scheduler_attempt_logged": true,
+        "terminal_task_status": null,
+        "fixture_provider_ledger_rows": 0,
+        "new_production_provider_rows": 0,
+        "actual_ai_cost_usd": 0,
+        "original_scheduler_target_restored": true,
+        "scheduler_paused": true,
+        "queue_paused_empty": true,
+        "shared_admission_frozen_verified": true,
+        "historical_replay_performed": false,
+        "monitoring_verified": false,
+        "temporary_resources_cleaned": true
+      },
+      "cost_scope": "The AI cost counts model calls for this exercise. Cloud infrastructure charges were not attributed.",
+      "failures": [
+        "First fixture setup stopped before mutation when the staging database URL used a different driver syntax from the URL parser. Setup resumed after using the application database URL parser.",
+        "An initial Secret Manager grant was rejected while the new fixture service account propagated. The scoped grants and fixture deployment were later verified.",
+        "The first setup attempt used the wrong REST separator for the Scheduler resume action. The job never resumed or triggered in that attempt and its target was restored. The action path was corrected before the one authorized trigger.",
+        "The single real Scheduler attempt received HTTP 403 PERMISSION_DENIED at the private Cloud Run IAM boundary. The Scheduler was paused and the original target and schedule restored. The queue remained paused and empty, with no task to deliver.",
+        "The deleted temporary service account returned an ambiguous denial on direct lookup. Cleanup verification switched to the project account inventory."
+      ],
+      "unverified": [
+        "The caller had the direct invoker grant when inspected afterward. The request-time effective IAM decision and cause of the observed rejection remain unverified. The operator lacked caller impersonation and access to the effective IAM troubleshooter.",
+        "Production named task delivery, a second arrival, duplicate suppression and a completed task state remain unverified. No additional Scheduler trigger or task delivery was issued."
+      ],
+      "next_gate": "Diagnose authenticated access in an isolated test before requesting a newly authorized Stage 1 rerun. Stage 2 remains pending."
+    },
+    "production_queue_canary_identity_follow_up": {
+      "id": "production-scheduler-identity-read-only-access",
+      "status": "passed",
+      "updated_at": "2026-11-28T08:55:37.642006Z",
+      "verification": {
+        "same_production_scheduler_service_account": true,
+        "subject_and_audience_verified_by_read_only_endpoint": true,
+        "authenticated_http_status": 200,
+        "anonymous_http_status": 403,
+        "incorrect_audience_http_status": 401,
+        "valid_identity_initial_iam_rejections": 2,
+        "production_scheduler_triggered": false,
+        "production_scheduler_paused_and_queue_paused_empty": true,
+        "ordinary_generation_frozen": true,
+        "historical_backlog_replayed": false,
+        "new_production_provider_calls": 0,
+        "temporary_probe_resources_removed": true
+      },
+      "scope": "A private, GET-only authorization fixture with no database, task or model routes was accessed using the production scheduler service account. The actual production Scheduler job was kept paused.",
+      "failures": [
+        "The isolated endpoint initially rejected the correctly scoped identity token, then accepted the same token without an IAM configuration change. This is consistent with IAM propagation delay."
+      ],
+      "unknowns": [
+        "The exact cause of the original 403 was not established.",
+        "The original Scheduler job-to-worker dispatch and delivery still require a separately approved rerun."
+      ],
+      "next_gate": "Request separate approval for one production Stage 1 rerun. Repeat authenticated readiness checks on the actual substitute before trigger. Keep Stage 2 on hold."
+    },
+    "production_queue_canary_rerun": {
+      "id": "production-scheduler-provider-free-rerun",
+      "status": "approved_preparation_in_progress",
+      "updated_at": "2026-11-28T09:01:05.835334Z",
+      "limits": {
+        "fixed_synthetic_task_max": 1,
+        "production_scheduler_manual_triggers_max": 1,
+        "same_named_task_deliveries_max": 2,
+        "paid_ai_calls_max": 0
+      },
+      "evidence": {
+        "authenticated_read_only_status": null,
+        "original_scheduler_principal_and_actual_worker_revision_verified": null,
+        "production_scheduler_trigger_requests": 0,
+        "named_task_created": false,
+        "manual_named_delivery_requests": 0,
+        "worker_http_deliveries_observed": null,
+        "fixture_execution_count": null,
+        "duplicate_suppression_count": null,
+        "terminal_state": null,
+        "carrier_monitoring_verified": null,
+        "original_scheduler_target_restored": null,
+        "scheduler_paused": null,
+        "queue_paused_empty": null,
+        "ordinary_generation_frozen": null,
+        "historical_backlog_replayed": false,
+        "production_model_calls": null,
+        "fixture_provider_ledger_rows": null,
+        "ai_fee_usd": null,
+        "temporary_samples_and_permissions_cleaned": null
+      },
+      "next_gate": "Finish the one owner-approved provider-free production queue rerun; Stage 2 remains held.",
+      "failures": [],
+      "unverified": [
+        "Pending production delivery and restoration results."
+      ]
+    }
+  }
+}

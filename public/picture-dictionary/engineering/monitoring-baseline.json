@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0.0",
+  "project": "picture-dictionary-kids",
+  "updated_at": "2026-11-23T07:31:25.815749Z",
+  "status": "partial",
+  "window": {
+    "requested_days": 7,
+    "sample_start": "2026-11-16T18:45:18.795079Z",
+    "sample_end": "2026-11-23T01:05:59.813419Z",
+    "limit": 2000,
+    "returned_entries": 1777,
+    "services_present": [
+      "production"
+    ],
+    "staging_entries": 0
+  },
+  "metrics": {
+    "success_rate": null,
+    "duration_p50_ms": null,
+    "duration_p95_ms": null,
+    "duration_p99_ms": null,
+    "lost_jobs": null,
+    "duplicate_provider_calls": null,
+    "daily_lookups": null,
+    "cache_hit_rate": null
+  },
+  "note": "These are log event counts, not unique jobs or a measured generation success rate. INFO lifecycle events were absent. Full duration percentiles and billing remain unmeasured.",
+  "http_status_counts": {
+    "200": 672,
+    "201": 70,
+    "400": 5,
+    "499": 3,
+    "500": 1,
+    "503": 1
+  },
+  "lifecycle_event_counts": {
+    "image_job_retry_pending": 33,
+    "image_job_failed": 2
+  },
+  "monitoring_configuration": {
+    "status": "created_for_staging",
+    "log_based_metrics": 3,
+    "dashboard": true,
+    "failure_incident_policy": true,
+    "external_notification_channels": 0,
+    "samples_for_new_job_metrics": "none_real_generation_disabled",
+    "note": "No real generation success rate or latency percentile is asserted."
+  }
+}

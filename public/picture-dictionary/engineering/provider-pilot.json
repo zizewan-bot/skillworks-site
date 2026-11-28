@@ -1,0 +1,1161 @@
+{
+  "schema_version": "1.0.0",
+  "project": "picture-dictionary-kids",
+  "status": "live_single_sample_passed",
+  "work_package": "WP07",
+  "findings": [
+    "Staging does not explicitly override image, text or vision model configuration",
+    "OpenAI shut down gpt-image-1 on 2026-10-23",
+    "GPT-4o mini retirement is listed for 2027-01-14",
+    "Existing image code uploads to Cloudinary before vision validation"
+  ],
+  "candidate": {
+    "image": "gpt-image-2.6-flare",
+    "vision": "gpt-6-luna",
+    "size": "1024x1024",
+    "quality": "low"
+  },
+  "scope": {
+    "synthetic_words": 1,
+    "image_calls_max": 1,
+    "vision_calls_max": 1,
+    "text_calls_max": 0,
+    "automatic_retries": 0,
+    "alternate_models": 0,
+    "openai_usd_budget_target": 0.25
+  },
+  "prerequisites": [],
+  "evidence": {
+    "status": "live_single_sample_passed",
+    "model_entitlement_verified": true,
+    "image_calls": 1,
+    "vision_calls": 1,
+    "text_calls": 0,
+    "openai_usage_estimate_usd": "0.02743055",
+    "actual_billed_usd": null,
+    "storage_cost_usd": null,
+    "cloud_infrastructure_cost_usd": null,
+    "image_seconds": 5.201,
+    "vision_seconds": 2.846,
+    "vision_accepted": true,
+    "cloudinary_authenticated_download_verified": true,
+    "cloudinary_unsigned_access_denied": true,
+    "cleanup_verified": true,
+    "scope": "One synthetic apple in a one-shot staging credential harness. Real calls did not traverse the Cloud Tasks worker; WP06 separately verified that chain with fixtures."
+  },
+  "sources": [
+    "https://developers.openai.com/api/docs/deprecations",
+    "https://developers.openai.com/api/docs/guides/image-generation",
+    "https://developers.openai.com/api/docs/models/gpt-image-2.6-flare",
+    "https://developers.openai.com/api/docs/models/gpt-6-luna"
+  ],
+  "updated_at": "2026-11-28T08:01:02.510985Z",
+  "remaining": [
+    "Real-provider integration through staging Cloud Tasks",
+    "Physical iPhone/TestFlight QA",
+    "Billing reconciliation",
+    "Production rollout review"
+  ],
+  "worker_integration": {
+    "status": "staging_wired_provider_disabled",
+    "work_package": "WP08",
+    "code_commit": "a503e368fceaf9bf20addebda5d9018083a614bb",
+    "worker_revision": "picture-dictionary-image-worker-staging-00004-9mn",
+    "image_model": "gpt-image-2.6-flare",
+    "vision_model": "gpt-6-luna",
+    "real_provider_gate": false,
+    "provider_credentials_attached": false,
+    "additional_real_calls": 0,
+    "staging_queue": "PAUSED",
+    "synthetic_oidc_delivery": {
+      "http": 200,
+      "observed_at": "2026-11-23T10:16:51.610762Z"
+    },
+    "tests": {
+      "passed": 129,
+      "subtests": 36,
+      "skipped": 1,
+      "new_cases": [
+        "positive vision verdict uploads after validation",
+        "unsafe verdict consumes bounded attempts and never uploads"
+      ]
+    },
+    "limits": [
+      "Synthetic cloud request used a nonexistent Job and verified authenticated delivery only",
+      "Real model calls through Cloud Tasks and physical iPhone QA remain pending",
+      "Legacy image routes retain their existing behavior pending migration"
+    ]
+  },
+  "queued_live_acceptance": {
+    "status": "live_queued_single_sample_passed",
+    "work_package": "WP09",
+    "tested_commit": "3c2a7fe11822735df54f1fbccd21b8c46c35d238",
+    "word": "apple",
+    "job_state": "succeeded",
+    "image_state": "ready",
+    "attempts": 1,
+    "persisted_dispatches": 1,
+    "image_calls": 1,
+    "vision_calls": 1,
+    "text_calls": 0,
+    "provider_durations_ms": {
+      "image": 6726,
+      "validation": 3768
+    },
+    "openai_usage_estimate_usd": "0.02743855",
+    "actual_invoiced_usd": null,
+    "cloudinary_cost_usd": null,
+    "cloud_cost_usd": null,
+    "worker_delivery_http": 200,
+    "worker_request_seconds": 12.852549072,
+    "cloudinary_authenticated_png_verified": true,
+    "unsigned_access_denied": true,
+    "cleanup_verified": true,
+    "queue_state": "PAUSED",
+    "model_execution_enabled": false,
+    "provider_secret_references_removed_from_serving_revision": true,
+    "physical_iphone": "not_present_in_xcode_device_list",
+    "limits": [
+      "Seeded synthetic word and persisted Job in a dedicated staging schema",
+      "Private authenticated test asset, not production CDN delivery",
+      "Single sample does not establish SLA or model quality across vocabulary",
+      "Physical iPhone and production activation remain pending"
+    ]
+  },
+  "follow_up_device_acceptance": {
+    "id": "iphone-offline-recovery-owner-confirmed",
+    "scope": "Physical iPhone offline recovery",
+    "status": "accepted",
+    "source": "user_confirmation",
+    "confirmed_on_local_date": "2026-11-27",
+    "timezone": "America/Los_Angeles",
+    "build": null,
+    "device_model": null,
+    "individual_scenario_results": null,
+    "testflight_release_review": "not_reported"
+  },
+  "production_one_sample_validation": {
+    "id": "production-single-paid-validation-final",
+    "status": "production_paid_single_sample_passed_frozen",
+    "observed_at": "2026-11-28T07:10:04.504465Z",
+    "candidate_commit": "24c119f8cbad0068fb155c2d51015520a0818f16",
+    "sample_count": 1,
+    "data_scope": "One synthetic fixture description. No user data or production dictionary rows were read for generation.",
+    "path": "Operator one-shot with the production provider references and existing image prompt and vision helper. Production API, worker and delivery were held.",
+    "calls_started": {
+      "image": 1,
+      "vision": 1,
+      "standalone_text": 0
+    },
+    "provider_responses_received": {
+      "image": 1,
+      "vision": 1
+    },
+    "provider_durations_seconds": {
+      "image": 4.735,
+      "vision": 2.594
+    },
+    "validation_total_seconds": 17.144,
+    "authenticated_storage_roundtrip": true,
+    "safety_and_subject_checks_passed": true,
+    "test_asset_cleanup_verified": true,
+    "production_database_test_rows_created": false,
+    "ordinary_generation_opened": false,
+    "queue_and_scheduler_remain_paused": true,
+    "production_backlog_replayed": false,
+    "production_shared_admission_remains_frozen": true,
+    "before_after_hold_verification": true,
+    "model_access_verified": true,
+    "cost": {
+      "usage_derived_openai": {
+        "image_usd": "0.02721",
+        "vision_usd": "0.00022005",
+        "total_usd": "0.02743005",
+        "basis": "Provider response token counters and published Standard rates, before taxes or contract adjustments."
+      },
+      "actual_invoice_usd": null,
+      "cloudinary_invoice_usd": null
+    },
+    "expansion_authorized": false
+  },
+  "production_three_sample_validation": {
+    "id": "production-three-paid-samples-final",
+    "status": "production_three_paid_samples_passed_frozen",
+    "observed_at": "2026-11-28T07:37:33.836682Z",
+    "candidate_commit": "24c119f8cbad0068fb155c2d51015520a0818f16",
+    "data_scope": "Three synthetic fixture descriptions processed through the one-shot provider flow with production credentials. No production dictionary rows created and no user data provided to models.",
+    "delivery_scope": "No production worker run, queue enqueue, scheduler dispatch, ordinary user opening, or historical replay.",
+    "scope_expansion_approved_for_this_run_only": {
+      "scope": "Owner approved three production synthetic fixtures, each at most one generated image and one safety and subject vision check.",
+      "synthetic_fixtures": [
+        "pear",
+        "umbrella",
+        "kite"
+      ],
+      "maximum_paid_calls": 6,
+      "maximum_per_fixture": {
+        "image": 1,
+        "vision": 1
+      },
+      "automatic_retry_allowed": false,
+      "ordinary_user_generation_frozen": true,
+      "queue_and_scheduler_remain_paused": true,
+      "historical_jobs_replayed": false,
+      "expansion_requires_further_approval": true
+    },
+    "samples": [
+      {
+        "fixture_word": "pear",
+        "status": "passed",
+        "paid_calls_started": {
+          "image": 1,
+          "vision": 1
+        },
+        "response_cost_estimate_usd": "0.02748805",
+        "response_cost_estimate_breakdown_usd": {
+          "image": "0.027265",
+          "vision": "0.00022305"
+        },
+        "timings_seconds": {
+          "image": 5.158,
+          "vision": 2.99
+        },
+        "sample_pipeline_seconds": 13.011,
+        "safety_and_subject_approved": true,
+        "authenticated_storage_roundtrip": true,
+        "temporary_asset_absent_verified": true
+      },
+      {
+        "fixture_word": "umbrella",
+        "status": "passed",
+        "paid_calls_started": {
+          "image": 1,
+          "vision": 1
+        },
+        "response_cost_estimate_usd": "0.0274698",
+        "response_cost_estimate_breakdown_usd": {
+          "image": "0.027235",
+          "vision": "0.0002348"
+        },
+        "timings_seconds": {
+          "image": 6.97,
+          "vision": 2.482
+        },
+        "sample_pipeline_seconds": 13.902,
+        "safety_and_subject_approved": true,
+        "authenticated_storage_roundtrip": true,
+        "temporary_asset_absent_verified": true
+      },
+      {
+        "fixture_word": "kite",
+        "status": "passed",
+        "paid_calls_started": {
+          "image": 1,
+          "vision": 1
+        },
+        "response_cost_estimate_usd": "0.0275103",
+        "response_cost_estimate_breakdown_usd": {
+          "image": "0.02727",
+          "vision": "0.0002403"
+        },
+        "timings_seconds": {
+          "image": 5.964,
+          "vision": 2.158
+        },
+        "sample_pipeline_seconds": 13.541,
+        "safety_and_subject_approved": true,
+        "authenticated_storage_roundtrip": true,
+        "temporary_asset_absent_verified": true
+      }
+    ],
+    "total_calls_started": {
+      "image": 3,
+      "vision": 3,
+      "standalone_text": 0
+    },
+    "cost": {
+      "openai_estimated_usd_for_metered_responses": "0.08246815",
+      "paid_responses_with_token_cost": 6,
+      "all_started_paid_calls_had_priced_usage": true,
+      "basis": "Actual response token counters and published OpenAI Standard rates. Invoice, contract adjustments, and Cloudinary charges not reconciled.",
+      "actual_invoice_usd": null,
+      "cloudinary_invoice_usd": null
+    },
+    "total_elapsed_seconds": 52.382,
+    "production_frozen_before_and_after_verified": true,
+    "all_three_temporary_assets_absent_verified": true,
+    "expansion_requires_new_approval": true
+  },
+  "production_ten_sample_validation": {
+    "id": "production-ten-paid-samples-final",
+    "status": "production_ten_paid_samples_passed_frozen",
+    "observed_at": "2026-11-28T07:48:33.481497Z",
+    "candidate_commit": "24c119f8cbad0068fb155c2d51015520a0818f16",
+    "data_scope": "Ten synthetic fixture descriptions processed through the one-shot provider flow with production credentials. No production dictionary rows created and no user data provided to models.",
+    "delivery_scope": "No production worker run, queue enqueue, scheduler dispatch, ordinary user opening, or historical replay.",
+    "scope_expansion_approved_for_this_run_only": {
+      "scope": "Owner approved ten synthetic words and up to twenty paid requests with one image and one vision maximum per fixture.",
+      "synthetic_fixtures": [
+        "bicycle",
+        "sailboat",
+        "dolphin",
+        "butterfly",
+        "sunflower",
+        "teapot",
+        "violin",
+        "lighthouse",
+        "ladybug",
+        "snowman"
+      ],
+      "maximum_paid_calls": 20,
+      "maximum_per_fixture": {
+        "image": 1,
+        "vision": 1
+      },
+      "openai_budget_estimate_usd": "0.35",
+      "automatic_retry_allowed": false,
+      "ordinary_user_generation_frozen": true,
+      "queue_and_scheduler_remain_paused": true,
+      "historical_jobs_replayed": false,
+      "expansion_requires_further_approval": true
+    },
+    "samples": [
+      {
+        "fixture_word": "bicycle",
+        "status": "passed",
+        "paid_calls_started": {
+          "image": 1,
+          "vision": 1
+        },
+        "response_cost_estimate_usd": "0.02745905",
+        "response_cost_estimate_breakdown_usd": {
+          "image": "0.02724",
+          "vision": "0.00021905"
+        },
+        "timings_seconds": {
+          "image": 6.244,
+          "vision": 2.527
+        },
+        "sample_pipeline_seconds": 13.732,
+        "safety_and_subject_approved": true,
+        "authenticated_storage_roundtrip": true,
+        "temporary_asset_absent_verified": true
+      },
+      {
+        "fixture_word": "sailboat",
+        "status": "passed",
+        "paid_calls_started": {
+          "image": 1,
+          "vision": 1
+        },
+        "response_cost_estimate_usd": "0.027455425",
+        "response_cost_estimate_breakdown_usd": {
+          "image": "0.02723",
+          "vision": "0.000225425"
+        },
+        "timings_seconds": {
+          "image": 4.931,
+          "vision": 1.809
+        },
+        "sample_pipeline_seconds": 13.285,
+        "safety_and_subject_approved": true,
+        "authenticated_storage_roundtrip": true,
+        "temporary_asset_absent_verified": true
+      },
+      {
+        "fixture_word": "dolphin",
+        "status": "passed",
+        "paid_calls_started": {
+          "image": 1,
+          "vision": 1
+        },
+        "response_cost_estimate_usd": "0.027512925",
+        "response_cost_estimate_breakdown_usd": {
+          "image": "0.02726",
+          "vision": "0.000252925"
+        },
+        "timings_seconds": {
+          "image": 4.606,
+          "vision": 2.835
+        },
+        "sample_pipeline_seconds": 15.787,
+        "safety_and_subject_approved": true,
+        "authenticated_storage_roundtrip": true,
+        "temporary_asset_absent_verified": true
+      },
+      {
+        "fixture_word": "butterfly",
+        "status": "passed",
+        "paid_calls_started": {
+          "image": 1,
+          "vision": 1
+        },
+        "response_cost_estimate_usd": "0.02748455",
+        "response_cost_estimate_breakdown_usd": {
+          "image": "0.027245",
+          "vision": "0.00023955"
+        },
+        "timings_seconds": {
+          "image": 5.55,
+          "vision": 2.135
+        },
+        "sample_pipeline_seconds": 11.921,
+        "safety_and_subject_approved": true,
+        "authenticated_storage_roundtrip": true,
+        "temporary_asset_absent_verified": true
+      },
+      {
+        "fixture_word": "sunflower",
+        "status": "passed",
+        "paid_calls_started": {
+          "image": 1,
+          "vision": 1
+        },
+        "response_cost_estimate_usd": "0.0274833",
+        "response_cost_estimate_breakdown_usd": {
+          "image": "0.027245",
+          "vision": "0.0002383"
+        },
+        "timings_seconds": {
+          "image": 4.721,
+          "vision": 2.359
+        },
+        "sample_pipeline_seconds": 12.202,
+        "safety_and_subject_approved": true,
+        "authenticated_storage_roundtrip": true,
+        "temporary_asset_absent_verified": true
+      },
+      {
+        "fixture_word": "teapot",
+        "status": "passed",
+        "paid_calls_started": {
+          "image": 1,
+          "vision": 1
+        },
+        "response_cost_estimate_usd": "0.027468675",
+        "response_cost_estimate_breakdown_usd": {
+          "image": "0.027245",
+          "vision": "0.000223675"
+        },
+        "timings_seconds": {
+          "image": 4.924,
+          "vision": 1.758
+        },
+        "sample_pipeline_seconds": 11.018,
+        "safety_and_subject_approved": true,
+        "authenticated_storage_roundtrip": true,
+        "temporary_asset_absent_verified": true
+      },
+      {
+        "fixture_word": "violin",
+        "status": "passed",
+        "paid_calls_started": {
+          "image": 1,
+          "vision": 1
+        },
+        "response_cost_estimate_usd": "0.027483925",
+        "response_cost_estimate_breakdown_usd": {
+          "image": "0.027245",
+          "vision": "0.000238925"
+        },
+        "timings_seconds": {
+          "image": 4.566,
+          "vision": 1.823
+        },
+        "sample_pipeline_seconds": 10.524,
+        "safety_and_subject_approved": true,
+        "authenticated_storage_roundtrip": true,
+        "temporary_asset_absent_verified": true
+      },
+      {
+        "fixture_word": "lighthouse",
+        "status": "passed",
+        "paid_calls_started": {
+          "image": 1,
+          "vision": 1
+        },
+        "response_cost_estimate_usd": "0.027490675",
+        "response_cost_estimate_breakdown_usd": {
+          "image": "0.027255",
+          "vision": "0.000235675"
+        },
+        "timings_seconds": {
+          "image": 4.177,
+          "vision": 1.68
+        },
+        "sample_pipeline_seconds": 10.412,
+        "safety_and_subject_approved": true,
+        "authenticated_storage_roundtrip": true,
+        "temporary_asset_absent_verified": true
+      },
+      {
+        "fixture_word": "ladybug",
+        "status": "passed",
+        "paid_calls_started": {
+          "image": 1,
+          "vision": 1
+        },
+        "response_cost_estimate_usd": "0.02748405",
+        "response_cost_estimate_breakdown_usd": {
+          "image": "0.027245",
+          "vision": "0.00023905"
+        },
+        "timings_seconds": {
+          "image": 5.129,
+          "vision": 3.382
+        },
+        "sample_pipeline_seconds": 12.616,
+        "safety_and_subject_approved": true,
+        "authenticated_storage_roundtrip": true,
+        "temporary_asset_absent_verified": true
+      },
+      {
+        "fixture_word": "snowman",
+        "status": "passed",
+        "paid_calls_started": {
+          "image": 1,
+          "vision": 1
+        },
+        "response_cost_estimate_usd": "0.02749155",
+        "response_cost_estimate_breakdown_usd": {
+          "image": "0.027245",
+          "vision": "0.00024655"
+        },
+        "timings_seconds": {
+          "image": 5.324,
+          "vision": 2.011
+        },
+        "sample_pipeline_seconds": 11.585,
+        "safety_and_subject_approved": true,
+        "authenticated_storage_roundtrip": true,
+        "temporary_asset_absent_verified": true
+      }
+    ],
+    "total_calls_started": {
+      "image": 10,
+      "vision": 10,
+      "standalone_text": 0
+    },
+    "cost": {
+      "openai_estimated_usd_for_metered_responses": "0.274814125",
+      "paid_responses_with_token_cost": 20,
+      "all_started_paid_calls_had_priced_usage": true,
+      "basis": "Actual response token counters and published OpenAI Standard rates. Invoice, contract adjustments, and Cloudinary charges not reconciled.",
+      "approved_budget_estimate_usd": "0.35",
+      "actual_invoice_usd": null,
+      "cloudinary_invoice_usd": null
+    },
+    "total_elapsed_seconds": 136.404,
+    "production_frozen_before_and_after_verified": true,
+    "all_ten_temporary_assets_absent_verified": true,
+    "expansion_requires_new_approval": true
+  },
+  "production_25_sample_validation": {
+    "id": "production-25-paid-samples-final",
+    "status": "production_25_paid_samples_passed_frozen",
+    "observed_at": "2026-11-28T08:01:02.510985Z",
+    "candidate_commit": "24c119f8cbad0068fb155c2d51015520a0818f16",
+    "data_scope": "Twenty-five synthetic fixture descriptions processed through the one-shot provider flow with production credentials. No production dictionary rows created and no user data provided to models.",
+    "delivery_scope": "No production worker run, queue enqueue, scheduler dispatch, ordinary user opening, or historical replay.",
+    "scope_expansion_approved_for_this_run_only": {
+      "scope": "Owner approved twenty-five production synthetic words and up to fifty paid requests with one image and one vision maximum per fixture.",
+      "synthetic_fixtures": [
+        "acorn",
+        "anchor",
+        "backpack",
+        "banana",
+        "basket",
+        "bell",
+        "binoculars",
+        "broom",
+        "cactus",
+        "candle",
+        "carrot",
+        "chessboard",
+        "compass",
+        "dragonfly",
+        "drum",
+        "flashlight",
+        "flamingo",
+        "guitar",
+        "hourglass",
+        "jellyfish",
+        "mushroom",
+        "octopus",
+        "penguin",
+        "scissors",
+        "telescope"
+      ],
+      "maximum_paid_calls": 50,
+      "maximum_per_fixture": {
+        "image": 1,
+        "vision": 1
+      },
+      "openai_budget_estimate_usd": "0.85",
+      "automatic_retry_allowed": false,
+      "ordinary_user_generation_frozen": true,
+      "queue_and_scheduler_remain_paused": true,
+      "historical_jobs_replayed": false,
+      "expansion_requires_further_approval": true
+    },
+    "samples": [
+      {
+        "fixture_word": "acorn",
+        "status": "passed",
+        "paid_calls_started": {
+          "image": 1,
+          "vision": 1
+        },
+        "response_cost_estimate_usd": "0.0274853",
+        "response_cost_estimate_breakdown_usd": {
+          "image": "0.02724",
+          "vision": "0.0002453"
+        },
+        "timings_seconds": {
+          "image": 4.71,
+          "vision": 2.857
+        },
+        "sample_pipeline_seconds": 12.298,
+        "safety_and_subject_approved": true,
+        "authenticated_storage_roundtrip": true,
+        "temporary_asset_absent_verified": true
+      },
+      {
+        "fixture_word": "anchor",
+        "status": "passed",
+        "paid_calls_started": {
+          "image": 1,
+          "vision": 1
+        },
+        "response_cost_estimate_usd": "0.02748355",
+        "response_cost_estimate_breakdown_usd": {
+          "image": "0.027245",
+          "vision": "0.00023855"
+        },
+        "timings_seconds": {
+          "image": 5.646,
+          "vision": 1.974
+        },
+        "sample_pipeline_seconds": 11.694,
+        "safety_and_subject_approved": true,
+        "authenticated_storage_roundtrip": true,
+        "temporary_asset_absent_verified": true
+      },
+      {
+        "fixture_word": "backpack",
+        "status": "passed",
+        "paid_calls_started": {
+          "image": 1,
+          "vision": 1
+        },
+        "response_cost_estimate_usd": "0.0274623",
+        "response_cost_estimate_breakdown_usd": {
+          "image": "0.02723",
+          "vision": "0.0002323"
+        },
+        "timings_seconds": {
+          "image": 5.777,
+          "vision": 2.519
+        },
+        "sample_pipeline_seconds": 12.443,
+        "safety_and_subject_approved": true,
+        "authenticated_storage_roundtrip": true,
+        "temporary_asset_absent_verified": true
+      },
+      {
+        "fixture_word": "banana",
+        "status": "passed",
+        "paid_calls_started": {
+          "image": 1,
+          "vision": 1
+        },
+        "response_cost_estimate_usd": "0.02746805",
+        "response_cost_estimate_breakdown_usd": {
+          "image": "0.027235",
+          "vision": "0.00023305"
+        },
+        "timings_seconds": {
+          "image": 6.018,
+          "vision": 2.112
+        },
+        "sample_pipeline_seconds": 11.891,
+        "safety_and_subject_approved": true,
+        "authenticated_storage_roundtrip": true,
+        "temporary_asset_absent_verified": true
+      },
+      {
+        "fixture_word": "basket",
+        "status": "passed",
+        "paid_calls_started": {
+          "image": 1,
+          "vision": 1
+        },
+        "response_cost_estimate_usd": "0.027474425",
+        "response_cost_estimate_breakdown_usd": {
+          "image": "0.02724",
+          "vision": "0.000234425"
+        },
+        "timings_seconds": {
+          "image": 4.941,
+          "vision": 2.127
+        },
+        "sample_pipeline_seconds": 11.317,
+        "safety_and_subject_approved": true,
+        "authenticated_storage_roundtrip": true,
+        "temporary_asset_absent_verified": true
+      },
+      {
+        "fixture_word": "bell",
+        "status": "passed",
+        "paid_calls_started": {
+          "image": 1,
+          "vision": 1
+        },
+        "response_cost_estimate_usd": "0.02747655",
+        "response_cost_estimate_breakdown_usd": {
+          "image": "0.02724",
+          "vision": "0.00023655"
+        },
+        "timings_seconds": {
+          "image": 5.612,
+          "vision": 2.296
+        },
+        "sample_pipeline_seconds": 12.774,
+        "safety_and_subject_approved": true,
+        "authenticated_storage_roundtrip": true,
+        "temporary_asset_absent_verified": true
+      },
+      {
+        "fixture_word": "binoculars",
+        "status": "passed",
+        "paid_calls_started": {
+          "image": 1,
+          "vision": 1
+        },
+        "response_cost_estimate_usd": "0.0274713",
+        "response_cost_estimate_breakdown_usd": {
+          "image": "0.02724",
+          "vision": "0.0002313"
+        },
+        "timings_seconds": {
+          "image": 4.796,
+          "vision": 2.033
+        },
+        "sample_pipeline_seconds": 10.87,
+        "safety_and_subject_approved": true,
+        "authenticated_storage_roundtrip": true,
+        "temporary_asset_absent_verified": true
+      },
+      {
+        "fixture_word": "broom",
+        "status": "passed",
+        "paid_calls_started": {
+          "image": 1,
+          "vision": 1
+        },
+        "response_cost_estimate_usd": "0.0274498",
+        "response_cost_estimate_breakdown_usd": {
+          "image": "0.02723",
+          "vision": "0.0002198"
+        },
+        "timings_seconds": {
+          "image": 5.025,
+          "vision": 3.556
+        },
+        "sample_pipeline_seconds": 12.923,
+        "safety_and_subject_approved": true,
+        "authenticated_storage_roundtrip": true,
+        "temporary_asset_absent_verified": true
+      },
+      {
+        "fixture_word": "cactus",
+        "status": "passed",
+        "paid_calls_started": {
+          "image": 1,
+          "vision": 1
+        },
+        "response_cost_estimate_usd": "0.027468425",
+        "response_cost_estimate_breakdown_usd": {
+          "image": "0.02724",
+          "vision": "0.000228425"
+        },
+        "timings_seconds": {
+          "image": 5.54,
+          "vision": 1.714
+        },
+        "sample_pipeline_seconds": 11.506,
+        "safety_and_subject_approved": true,
+        "authenticated_storage_roundtrip": true,
+        "temporary_asset_absent_verified": true
+      },
+      {
+        "fixture_word": "candle",
+        "status": "passed",
+        "paid_calls_started": {
+          "image": 1,
+          "vision": 1
+        },
+        "response_cost_estimate_usd": "0.0274668",
+        "response_cost_estimate_breakdown_usd": {
+          "image": "0.027235",
+          "vision": "0.0002318"
+        },
+        "timings_seconds": {
+          "image": 4.026,
+          "vision": 1.694
+        },
+        "sample_pipeline_seconds": 9.798,
+        "safety_and_subject_approved": true,
+        "authenticated_storage_roundtrip": true,
+        "temporary_asset_absent_verified": true
+      },
+      {
+        "fixture_word": "carrot",
+        "status": "passed",
+        "paid_calls_started": {
+          "image": 1,
+          "vision": 1
+        },
+        "response_cost_estimate_usd": "0.0274478",
+        "response_cost_estimate_breakdown_usd": {
+          "image": "0.027225",
+          "vision": "0.0002228"
+        },
+        "timings_seconds": {
+          "image": 4.84,
+          "vision": 1.662
+        },
+        "sample_pipeline_seconds": 10.623,
+        "safety_and_subject_approved": true,
+        "authenticated_storage_roundtrip": true,
+        "temporary_asset_absent_verified": true
+      },
+      {
+        "fixture_word": "chessboard",
+        "status": "passed",
+        "paid_calls_started": {
+          "image": 1,
+          "vision": 1
+        },
+        "response_cost_estimate_usd": "0.027511175",
+        "response_cost_estimate_breakdown_usd": {
+          "image": "0.02727",
+          "vision": "0.000241175"
+        },
+        "timings_seconds": {
+          "image": 3.947,
+          "vision": 2.168
+        },
+        "sample_pipeline_seconds": 11.195,
+        "safety_and_subject_approved": true,
+        "authenticated_storage_roundtrip": true,
+        "temporary_asset_absent_verified": true
+      },
+      {
+        "fixture_word": "compass",
+        "status": "passed",
+        "paid_calls_started": {
+          "image": 1,
+          "vision": 1
+        },
+        "response_cost_estimate_usd": "0.027485925",
+        "response_cost_estimate_breakdown_usd": {
+          "image": "0.02725",
+          "vision": "0.000235925"
+        },
+        "timings_seconds": {
+          "image": 4.284,
+          "vision": 3.175
+        },
+        "sample_pipeline_seconds": 12.171,
+        "safety_and_subject_approved": true,
+        "authenticated_storage_roundtrip": true,
+        "temporary_asset_absent_verified": true
+      },
+      {
+        "fixture_word": "dragonfly",
+        "status": "passed",
+        "paid_calls_started": {
+          "image": 1,
+          "vision": 1
+        },
+        "response_cost_estimate_usd": "0.027481425",
+        "response_cost_estimate_breakdown_usd": {
+          "image": "0.027245",
+          "vision": "0.000236425"
+        },
+        "timings_seconds": {
+          "image": 5.515,
+          "vision": 1.936
+        },
+        "sample_pipeline_seconds": 12.465,
+        "safety_and_subject_approved": true,
+        "authenticated_storage_roundtrip": true,
+        "temporary_asset_absent_verified": true
+      },
+      {
+        "fixture_word": "drum",
+        "status": "passed",
+        "paid_calls_started": {
+          "image": 1,
+          "vision": 1
+        },
+        "response_cost_estimate_usd": "0.027489175",
+        "response_cost_estimate_breakdown_usd": {
+          "image": "0.027255",
+          "vision": "0.000234175"
+        },
+        "timings_seconds": {
+          "image": 4.504,
+          "vision": 2.302
+        },
+        "sample_pipeline_seconds": 12.456,
+        "safety_and_subject_approved": true,
+        "authenticated_storage_roundtrip": true,
+        "temporary_asset_absent_verified": true
+      },
+      {
+        "fixture_word": "flashlight",
+        "status": "passed",
+        "paid_calls_started": {
+          "image": 1,
+          "vision": 1
+        },
+        "response_cost_estimate_usd": "0.027512925",
+        "response_cost_estimate_breakdown_usd": {
+          "image": "0.027285",
+          "vision": "0.000227925"
+        },
+        "timings_seconds": {
+          "image": 5.048,
+          "vision": 1.949
+        },
+        "sample_pipeline_seconds": 11.241,
+        "safety_and_subject_approved": true,
+        "authenticated_storage_roundtrip": true,
+        "temporary_asset_absent_verified": true
+      },
+      {
+        "fixture_word": "flamingo",
+        "status": "passed",
+        "paid_calls_started": {
+          "image": 1,
+          "vision": 1
+        },
+        "response_cost_estimate_usd": "0.027540425",
+        "response_cost_estimate_breakdown_usd": {
+          "image": "0.027295",
+          "vision": "0.000245425"
+        },
+        "timings_seconds": {
+          "image": 6.955,
+          "vision": 2.383
+        },
+        "sample_pipeline_seconds": 13.943,
+        "safety_and_subject_approved": true,
+        "authenticated_storage_roundtrip": true,
+        "temporary_asset_absent_verified": true
+      },
+      {
+        "fixture_word": "guitar",
+        "status": "passed",
+        "paid_calls_started": {
+          "image": 1,
+          "vision": 1
+        },
+        "response_cost_estimate_usd": "0.027479675",
+        "response_cost_estimate_breakdown_usd": {
+          "image": "0.027245",
+          "vision": "0.000234675"
+        },
+        "timings_seconds": {
+          "image": 4.199,
+          "vision": 2.814
+        },
+        "sample_pipeline_seconds": 12.564,
+        "safety_and_subject_approved": true,
+        "authenticated_storage_roundtrip": true,
+        "temporary_asset_absent_verified": true
+      },
+      {
+        "fixture_word": "hourglass",
+        "status": "passed",
+        "paid_calls_started": {
+          "image": 1,
+          "vision": 1
+        },
+        "response_cost_estimate_usd": "0.02747105",
+        "response_cost_estimate_breakdown_usd": {
+          "image": "0.02724",
+          "vision": "0.00023105"
+        },
+        "timings_seconds": {
+          "image": 4.459,
+          "vision": 1.969
+        },
+        "sample_pipeline_seconds": 11.744,
+        "safety_and_subject_approved": true,
+        "authenticated_storage_roundtrip": true,
+        "temporary_asset_absent_verified": true
+      },
+      {
+        "fixture_word": "jellyfish",
+        "status": "passed",
+        "paid_calls_started": {
+          "image": 1,
+          "vision": 1
+        },
+        "response_cost_estimate_usd": "0.0274713",
+        "response_cost_estimate_breakdown_usd": {
+          "image": "0.02725",
+          "vision": "0.0002213"
+        },
+        "timings_seconds": {
+          "image": 4.483,
+          "vision": 1.898
+        },
+        "sample_pipeline_seconds": 10.917,
+        "safety_and_subject_approved": true,
+        "authenticated_storage_roundtrip": true,
+        "temporary_asset_absent_verified": true
+      },
+      {
+        "fixture_word": "mushroom",
+        "status": "passed",
+        "paid_calls_started": {
+          "image": 1,
+          "vision": 1
+        },
+        "response_cost_estimate_usd": "0.027489925",
+        "response_cost_estimate_breakdown_usd": {
+          "image": "0.027255",
+          "vision": "0.000234925"
+        },
+        "timings_seconds": {
+          "image": 4.337,
+          "vision": 1.67
+        },
+        "sample_pipeline_seconds": 9.96,
+        "safety_and_subject_approved": true,
+        "authenticated_storage_roundtrip": true,
+        "temporary_asset_absent_verified": true
+      },
+      {
+        "fixture_word": "octopus",
+        "status": "passed",
+        "paid_calls_started": {
+          "image": 1,
+          "vision": 1
+        },
+        "response_cost_estimate_usd": "0.027530425",
+        "response_cost_estimate_breakdown_usd": {
+          "image": "0.027265",
+          "vision": "0.000265425"
+        },
+        "timings_seconds": {
+          "image": 4.331,
+          "vision": 2.361
+        },
+        "sample_pipeline_seconds": 12.199,
+        "safety_and_subject_approved": true,
+        "authenticated_storage_roundtrip": true,
+        "temporary_asset_absent_verified": true
+      },
+      {
+        "fixture_word": "penguin",
+        "status": "passed",
+        "paid_calls_started": {
+          "image": 1,
+          "vision": 1
+        },
+        "response_cost_estimate_usd": "0.0274908",
+        "response_cost_estimate_breakdown_usd": {
+          "image": "0.027255",
+          "vision": "0.0002358"
+        },
+        "timings_seconds": {
+          "image": 5.193,
+          "vision": 2.606
+        },
+        "sample_pipeline_seconds": 12.625,
+        "safety_and_subject_approved": true,
+        "authenticated_storage_roundtrip": true,
+        "temporary_asset_absent_verified": true
+      },
+      {
+        "fixture_word": "scissors",
+        "status": "passed",
+        "paid_calls_started": {
+          "image": 1,
+          "vision": 1
+        },
+        "response_cost_estimate_usd": "0.02748805",
+        "response_cost_estimate_breakdown_usd": {
+          "image": "0.02726",
+          "vision": "0.00022805"
+        },
+        "timings_seconds": {
+          "image": 4.97,
+          "vision": 2.112
+        },
+        "sample_pipeline_seconds": 12.03,
+        "safety_and_subject_approved": true,
+        "authenticated_storage_roundtrip": true,
+        "temporary_asset_absent_verified": true
+      },
+      {
+        "fixture_word": "telescope",
+        "status": "passed",
+        "paid_calls_started": {
+          "image": 1,
+          "vision": 1
+        },
+        "response_cost_estimate_usd": "0.02750205",
+        "response_cost_estimate_breakdown_usd": {
+          "image": "0.027265",
+          "vision": "0.00023705"
+        },
+        "timings_seconds": {
+          "image": 5.827,
+          "vision": 2.009
+        },
+        "sample_pipeline_seconds": 11.906,
+        "safety_and_subject_approved": true,
+        "authenticated_storage_roundtrip": true,
+        "temporary_asset_absent_verified": true
+      }
+    ],
+    "total_calls_started": {
+      "image": 25,
+      "vision": 25,
+      "standalone_text": 0
+    },
+    "cost": {
+      "openai_estimated_usd_for_metered_responses": "0.687098625",
+      "paid_responses_with_token_cost": 50,
+      "all_started_paid_calls_had_priced_usage": true,
+      "basis": "Actual response token counters and published OpenAI Standard rates. Invoice, contract adjustments, and Cloudinary charges not reconciled.",
+      "approved_budget_estimate_usd": "0.85",
+      "actual_invoice_usd": null,
+      "cloudinary_invoice_usd": null
+    },
+    "total_elapsed_seconds": 311.657,
+    "provider_latency_summary_seconds": {
+      "image": {
+        "responses": 25,
+        "min": 3.947,
+        "median": 4.941,
+        "max": 6.955
+      },
+      "vision": {
+        "responses": 25,
+        "min": 1.662,
+        "median": 2.112,
+        "max": 3.556
+      }
+    },
+    "production_frozen_before_and_after_verified": true,
+    "all_25_temporary_assets_absent_verified": true,
+    "expansion_requires_new_approval": true
+  }
+}

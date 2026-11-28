@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0.0",
+  "project": "picture-dictionary-kids",
+  "updated_at": "2026-11-23T07:16:06.542295Z",
+  "status": "source_and_staging_verified",
+  "current": [
+    "SwiftUI iOS with local learning history",
+    "FastAPI and PostgreSQL shared dictionary",
+    "OpenAI generation and vision validation",
+    "Cloudinary media",
+    "Cloud Run deployment"
+  ],
+  "target": [
+    "Transactional image job outbox",
+    "Cloud Tasks authenticated HTTP worker",
+    "Database claim and fencing",
+    "Shared client polling recovery"
+  ],
+  "environment_status": "production configuration not yet verified",
+  "documentation_hosting": {
+    "public": "https://skillworks.dev/picture-dictionary/engineering/",
+    "internal": "https://glen.skillworks.dev/picture-dictionary/internal/",
+    "compatibility": "Existing Glen Google Access boundary, current signed owner validation; no extra member access, Glen business routes or credentials changed",
+    "deployment": "dedicated Worker on new Picture Dictionary paths only",
+    "glen_specification_version": 153
+  }
+}

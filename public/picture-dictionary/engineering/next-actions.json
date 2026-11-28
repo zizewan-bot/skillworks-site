@@ -1,0 +1,73 @@
+{
+  "schema_version": "1.0.0",
+  "project": "picture-dictionary-kids",
+  "updated_at": "2026-11-28T09:01:05.835334Z",
+  "status": "pending",
+  "actions": [
+    {
+      "id": "N00",
+      "action": "Read WP06 evidence and exact source commits before preparing the next package",
+      "requires": "Provider-free acceptance is complete; test scheduler/queue are intentionally paused"
+    },
+    {
+      "id": "N01",
+      "action": "Verify owner browser login on the restricted records path",
+      "requires": "Existing owner Google session; no new reader permissions"
+    },
+    {
+      "id": "N02",
+      "action": "Real staging queue sample completed",
+      "requires": "See WP09 recorded evidence",
+      "status": "complete"
+    },
+    {
+      "id": "N03",
+      "action": "Physical iPhone offline recovery acceptance",
+      "status": "complete_user_confirmed",
+      "evidence": "tests.json"
+    },
+    {
+      "id": "N04",
+      "action": "Complete text-call attribution and reconcile actual provider, storage and infrastructure billing",
+      "requires": "Billing source/export access; current reads rate-limited or API disabled"
+    },
+    {
+      "id": "N05",
+      "action": "Choose alert notification destination and validate incidents with isolated data",
+      "requires": "Destination selection; current policy records incidents without external notifications"
+    },
+    {
+      "id": "N06",
+      "action": "Keep generation frozen, queue and scheduler paused, and wait for separate owner confirmation before enabling paid generation.",
+      "requires": "Production queue and Scheduler stay paused. Keep shared admission frozen and paid provider execution disabled. Record all stop or rollback decisions.",
+      "status": "frozen_production_cutover_complete_delivery_held",
+      "evidence": "production-cutover-review.json"
+    },
+    {
+      "id": "N07",
+      "action": "Investigate public urllib 403 transport compatibility and orphan-asset reconciliation",
+      "requires": "No security-policy weakening or deletion of existing assets"
+    },
+    {
+      "id": "N08",
+      "status": "complete_user_confirmed",
+      "action": "Internal TestFlight 1.0.1 (15) Search and pending-image offline recovery accepted on physical iPhone; staging fixture removed and absence verified",
+      "requires": "None for this internal TestFlight work item",
+      "local_preflight": "passed",
+      "evidence": "tests.json",
+      "apple_verification": "completed",
+      "candidate_build": 15,
+      "candidate_version": "1.0.1",
+      "device_revalidation": "search_and_pending_image_offline_recovery_accepted",
+      "pending_fixture": "cleanup_verified"
+    }
+  ],
+  "production_paid_validation": {
+    "status": "production_25_paid_samples_passed_frozen",
+    "requires_separate_expansion_approval": true
+  },
+  "production_queue_canary": {
+    "status": "approved_preparation_in_progress",
+    "action": "Finish the one owner-approved provider-free production queue rerun; Stage 2 remains held."
+  }
+}
